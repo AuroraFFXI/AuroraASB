@@ -103,6 +103,7 @@ custom/lua/conquest_crystal_trade_fix.lua
 custom/lua/guild_no_kits.lua
 #custom/lua/homepoint_heal.lua
 custom/lua/mission_wardrobe_unlocks.lua
+custom/lua/new_player_linkshell.lua
 custom/lua/persist_nm_time_of_deaths.lua
 custom/lua/pre_rmt_drops.lua
 #custom/lua/replace_trust_with_cornelia.lua
