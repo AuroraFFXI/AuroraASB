@@ -183,6 +183,10 @@ xi.maps.onTrigger = function(player, npc)
     local relevelrate = 1+ (jobdeath / 25)
     local level = player:getMainLvl()
 
+    if (jobdeath >= 1)
+        player:PrintToPlayer(string.format("%i was the highest death for your current job!", jobdeath))
+    end
+
     if (level == 1) then
         if (jobdeath >= 75) then
             player:PrintToPlayer(string.format("Here are your Instant Relevel Options for your current job!"))
