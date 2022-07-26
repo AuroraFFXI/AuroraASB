@@ -15,22 +15,22 @@ xi.settings.main =
     SERVER_NAME = "Nameless",
 
     SERVER_MESSAGE =
-        "Please visit https://github.com/LandSandBoat/server for the latest information on the project.\n" ..
-        "Thank you, and we hope you enjoy sailing the sands!",
+        "Welcome to Aurora, a FFXI Hardcore Experience!" ..
+        "Beta is almost over! Just need to test the switch to ASB from LSB!",
 
     -- Setting to lock content more accurately to the expansions defined below.
     -- This generally results in a more accurate presentation of your selected expansions,
     -- as well as a less confusing player experience for things that are disabled (things that are disabled are not loaded).
     -- This feature correlates to the content_tag column in the SQL files.
-    RESTRICT_CONTENT = 0,
+    RESTRICT_CONTENT = 1,
 
     -- Enable Expansion (1 = Enabled, 0 = Disabled)
     ENABLE_COP       = 1,
     ENABLE_TOAU      = 1,
-    ENABLE_WOTG      = 1,
-    ENABLE_ACP       = 1,
-    ENABLE_AMK       = 1,
-    ENABLE_ASA       = 1,
+    ENABLE_WOTG      = 0,
+    ENABLE_ACP       = 0,
+    ENABLE_AMK       = 0,
+    ENABLE_ASA       = 0,
     ENABLE_ABYSSEA   = 0,
     ENABLE_SOA       = 0,
     ENABLE_ROV       = 0,
@@ -38,7 +38,7 @@ xi.settings.main =
     ENABLE_NEODYNA   = 0,
 
     -- FIELDS OF VALOR/Grounds of Valor settings
-    ENABLE_FIELD_MANUALS  = 1, -- Enables Fields of Valor
+    ENABLE_FIELD_MANUALS  = 0, -- Enables Fields of Valor
     ENABLE_GROUNDS_TOMES  = 0, -- Enables Grounds of Valor
     ENABLE_SURVIVAL_GUIDE = 0, -- Enables Survival Guides (Not Implemented)
     REGIME_WAIT           = 1, -- Make people wait till 00:00 game time as in retail. If it's 0, there is no wait time.
@@ -62,7 +62,7 @@ xi.settings.main =
     PL_PENALTY = 0,
 
     -- Magian Trials
-    ENABLE_MAGIAN_TRIALS             = 1,
+    ENABLE_MAGIAN_TRIALS             = 0,
     MAGIAN_TRIALS_MOBKILL_MULTIPLIER = 1,
     MAGIAN_TRIALS_TRADE_MULTIPLIER   = 1,
 
@@ -73,7 +73,7 @@ xi.settings.main =
     -- Retail droprate = 0.1 (10%) with no other effects active
     -- Set to 0 to disable caskets.
     -- max is clamped to 1.0 (100%)
-    CASKET_DROP_RATE = 0.1,
+    CASKET_DROP_RATE = 0.04,
 
     -- Abyssea lights
     -- certain mobs that reduces the drop rate automatically depending on the light.
@@ -92,10 +92,10 @@ xi.settings.main =
     NORMAL_MOB_MAX_LEVEL_RANGE_MAX = 0,  -- Upper Bound of Max Level Range for Normal Mobs (0 = Uncapped)
     START_GIL                      = 10, -- Amount of gil given to newly created characters.
     START_INVENTORY                = 30, -- Starting inventory and satchel size.  Ignores values < 30.  Do not set above 80!
-    NEW_CHARACTER_CUTSCENE         = 1,  -- Set to 1 to enable opening cutscenes, 0 to disable.
+    NEW_CHARACTER_CUTSCENE         = 0,  -- Set to 1 to enable opening cutscenes, 0 to disable.
     SUBJOB_QUEST_LEVEL             = 18, -- Minimum level to accept either subjob quest.  Set to 0 to start the game with subjobs unlocked.
     ADVANCED_JOB_LEVEL             = 30, -- Minimum level to accept advanced job quests.  Set to 0 to start the game with advanced jobs.
-    ALL_MAPS                       = 0,  -- Set to 1 to give starting characters all the maps.
+    ALL_MAPS                       = 1,  -- Set to 1 to give starting characters all the maps.
     UNLOCK_OUTPOST_WARPS           = 0,  -- Set to 1 to give starting characters all outpost warps.  2 to add Tu'Lia and Tavnazia.
 
     SHOP_PRICE      = 1.000, -- Multiplies prices in NPC shops.
@@ -118,8 +118,8 @@ xi.settings.main =
     USE_ADOULIN_WEAPON_SKILL_CHANGES = false, -- true/false. Change to toggle new Adoulin weapon skill damage calculations
 
     -- TRUSTS
-    ENABLE_TRUST_CASTING           = 1,
-    ENABLE_TRUST_QUESTS            = 1,
+    ENABLE_TRUST_CASTING           = 0,
+    ENABLE_TRUST_QUESTS            = 0,
     ENABLE_TRUST_CUSTOM_ENGAGEMENT = 0,
 
     HARVESTING_BREAK_CHANCE = 33, -- % chance for the sickle to break during harvesting.  Set between 0 and 100.
@@ -142,7 +142,7 @@ xi.settings.main =
     -- Sets spawn type for: Behemoth, Fafnir, Adamantoise, King Behemoth, Nidhog, Aspidochelone.
     -- Use 0 for timed spawns, 1 for force pop only, 2 for both
     LandKingSystem_NQ = 0,
-    LandKingSystem_HQ = 0,
+    LandKingSystem_HQ = 1,
 
     -- Multiplier to NM lottery spawn chance. (Default 1.0) eg. 0 = disable lottery spawns. -1 for always 100% chance.
     NM_LOTTERY_CHANCE = 1.0,
@@ -158,7 +158,7 @@ xi.settings.main =
     GARRISON_RANK                = 2,    -- Set to minumum Nation Rank to start Garrison (default: 2).
 
     -- DYNAMIS SETTINGS
-    BETWEEN_2DYNA_WAIT_TIME     = 72,       -- Hours before player can re-enter Dynamis. Default is 1 Earthday (24 hours).
+    BETWEEN_2DYNA_WAIT_TIME     = 70,       -- Hours before player can re-enter Dynamis. Default is 1 Earthday (24 hours).
     DYNA_MIDNIGHT_RESET         = false,     -- If true, makes the wait time count by number of server midnights instead of full 24 hour intervals
     DYNA_LEVEL_MIN              = 65,       -- Level min for entering in Dynamis
     TIMELESS_HOURGLASS_COST     = 500000,   -- Refund for the timeless hourglass for Dynamis.
@@ -174,7 +174,7 @@ xi.settings.main =
     AF3_QUEST_LEVEL = 50,    -- Minimum level to start AF3 quest
     OLDSCHOOL_G1    = true, -- Set to true to require farming Exoray Mold, Bombd Coal, and Ancient Papyrus drops instead of allowing key item method.
     OLDSCHOOL_G2    = true, -- Set true to require the NMs for "Atop the Highest Mountains" be dead to get KI like before SE changed it.
-    FRIGICITE_TIME  = 30,    -- When OLDSCHOOL_G2 is enabled, this is the time (in seconds) you have from killing Boreal NMs to click the "???" target.
+    FRIGICITE_TIME  = 360,    -- When OLDSCHOOL_G2 is enabled, this is the time (in seconds) you have from killing Boreal NMs to click the "???" target.
     ASSAULT_MINIMUM = 3,     -- Minimum amount of people needed to start an assault mission. TOAU era is 3, Default is 1.
 
     -- SPELL SPECIFIC SETTINGS
@@ -203,7 +203,7 @@ xi.settings.main =
     -- Chocobo digging
     DIG_RATE                     = 85, -- % chance to receive an item from chocbo digging during favorable weather.  Set between 0 and 100.
     DIG_FATIGUE                  = 100,  -- Set max amount of items a player can dig every 24 hours. Set to 0 to disable.
-    DIG_ZONE_LIMIT               = 120,  -- Set max amount of items that can be dug from a specific zone every Vana'Diel Day. Set to 0 to disable.
+    DIG_ZONE_LIMIT               = 25,  -- Set max amount of items that can be dug from a specific zone every Vana'Diel Day. Set to 0 to disable.
     DIG_GRANT_BURROW             = 0,
     DIG_GRANT_BORE               = 0,
     DIG_DISTANCE_REQ             = 0, -- Sets the distance squared in yalms of how far a player has to move.
@@ -212,7 +212,7 @@ xi.settings.main =
     RIVERNE_PORTERS              = 120,  -- Time in seconds that Unstable Displacements in Cape Riverne stay open after trading a scale.
     LANTERNS_STAY_LIT            = 1200, -- time in seconds that lanterns in the Den of Rancor stay lit.
     ENABLE_COP_ZONE_CAP          = 1,    -- Enable or disable lvl cap
-    ALLOW_MULTIPLE_EXP_RINGS     = 0,    -- Set to 1 to remove ownership restrictions on the Chariot/Empress/Emperor Band trio.
+    ALLOW_MULTIPLE_EXP_RINGS     = 1,    -- Set to 1 to remove ownership restrictions on the Chariot/Empress/Emperor Band trio.
     BYPASS_EXP_RING_ONE_PER_WEEK = 0,    -- Set to 1 to bypass the limit of one ring per Conquest Tally Week.
     NUMBER_OF_DM_EARRINGS        = 1,    -- Number of earrings players can simultaneously own from Divine Might before scripts start blocking them (Default: 1)
     HOMEPOINT_TELEPORT           = 0,    -- Enables the homepoint teleport system

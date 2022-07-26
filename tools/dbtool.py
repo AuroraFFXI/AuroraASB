@@ -58,6 +58,7 @@ migrations = populate_migrations()
 
 # These are the 'protected' files
 player_data = [
+    'account_ip_record.sql',
     'accounts.sql',
     'accounts_banned.sql',
     'auction_house.sql',
@@ -82,6 +83,7 @@ player_data = [
     'char_unlocks.sql',
     'char_vars.sql',
     'chars.sql',
+    'cheat_incidents.sql',
     'conquest_system.sql',
     'delivery_box.sql',
     'ip_exceptions.sql',

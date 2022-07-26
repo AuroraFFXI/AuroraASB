@@ -38,7 +38,7 @@ xi.settings.map =
     -- Max open listings per player, 0 = no limit. (Default 7)
     -- Note = Settings over 7 may need client-side plugin to work under all circumstances.
     -- If this is the case, consider using the ah_pagination module
-    AH_LIST_LIMIT = 7,
+    AH_LIST_LIMIT = 0,
 
     -- Misc EXP related settings
     EXP_RATE                = 1.0,
@@ -61,13 +61,13 @@ xi.settings.map =
     EXP_RETAIN = 0,
 
     -- Minimum level at which experience points can be lost
-    EXP_LOSS_LEVEL = 4,
+    EXP_LOSS_LEVEL = 1,
 
     -- Enable/disable Level Sync
     LEVEL_SYNC_ENABLE = true,
 
     -- Disables ability to equip higher level gear when level cap/sync effect is on player.
-    DISABLE_GEAR_SCALING = false,
+    DISABLE_GEAR_SCALING = true,
 
     -- Weaponskill point base (before skillchain) for breaking latent - whole numbers only. retail is 1.
     WS_POINTS_BASE = 1,
@@ -77,17 +77,17 @@ xi.settings.map =
     WS_POINTS_SKILLCHAIN = 1,
 
     -- Enable/disable jobs other than BST and RNG having widescan
-    ALL_JOBS_WIDESCAN = true,
+    ALL_JOBS_WIDESCAN = false,
 
     -- Modifier to apply to player speed. 0 is the retail accurate default. Negative numbers will reduce it.
-    SPEED_MOD = 0,
+    SPEED_MOD = 20,
 
     -- Modifier to apply to mount speed. 0 is the retail accurate default. Negative numbers will reduce it.
     -- Note retail treats the mounted speed as double what it actually is.
-    MOUNT_SPEED_MOD = 0,
+    MOUNT_SPEED_MOD = 80,
 
     -- Modifier to apply to agro'd monster speed. 0 is the retail accurate default. Negative numbers will reduce it.
-    MOB_SPEED_MOD = 0,
+    MOB_SPEED_MOD = 20,
 
     -- Allows you to manipulate the constant multiplier in the skill-up rate formulas, having a potent effect on skill-up rates.
     SKILLUP_CHANCE_MULTIPLIER = 1.0,
@@ -104,16 +104,16 @@ xi.settings.map =
     GARDEN_MH_AURA_MATTERS   = false,
 
     -- Use current retail skill up rates and margins (Retail = High Skill-Up rate; Skill-Up when at or under 10 levels above synth recipe level.)
-    CRAFT_MODERN_SYSTEM = false,
+    CRAFT_MODERN_SYSTEM = true,
 
     -- Craft level limit from witch specialization points beging to count. (Retail = 700; Level 75 era:600)
     CRAFT_COMMON_CAP = 600,
 
     -- Amount of points allowed in crafts over the level defined above. Points are shared across all crafting skills. (Retail = 400; All skills can go to max = 3200)
-    CRAFT_SPECIALIZATION_POINTS = 400,
+    CRAFT_SPECIALIZATION_POINTS = 3200,
 
     -- Enables fishing. 0 = Disbaled. 1 = Enable. ENABLE AT YOUR OWN RISK.
-    FISHING_ENABLE = false,
+    FISHING_ENABLE = true,
 
     -- Multipler for fishing skill-up chance. Default = 1.0, very hard.
     FISHING_SKILL_MULTIPLIER = 1.0,
@@ -195,14 +195,14 @@ xi.settings.map =
     -- Max allowed merits points players can hold
     --  10 classic
     --  30 abyssea
-    MAX_MERIT_POINTS = 10,
+    MAX_MERIT_POINTS = 30,
 
     -- Minimum time between uses of yell command (in seconds).
     YELL_COOLDOWN = 30,
 
     -- Command Audit [logging] commands with lower permission than this will not be logged.
     -- Zero for no logging at all. Commands given to non GMs are not logged.
-    AUDIT_GM_CMD = false,
+    AUDIT_GM_CMD = 3,
 
     -- Todo = other logging including anti-cheat messages
 
@@ -226,6 +226,6 @@ xi.settings.map =
     ANTICHEAT_JAIL_DISABLE = false,
 
     --  Gobbie Mystery Box settings
-    DAILY_TALLY_AMOUNT = 10,
-    DAILY_TALLY_LIMIT  = 50000,
+    DAILY_TALLY_AMOUNT = 0,
+    DAILY_TALLY_LIMIT  = 0,
 }

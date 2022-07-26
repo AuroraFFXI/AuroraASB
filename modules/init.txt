@@ -41,15 +41,43 @@
 #-----------------------
 #      General Lua
 #-----------------------
-era/lua/
+#era/lua/
+era/lua/75_era_argus.lua
+era/lua/75_era_guild_vendors.lua
+#era/lua/75_era_vendors.lua
+era/lua/beastmen_multigroup_spawn_fix.lua
+#era/lua/exp_rings.lua
 #-----------------------
 #      General C++
 #-----------------------
-era/cpp/
+#era/cpp/
+era/cpp/era_dynamisFunctions.cpp
 #-----------------------
 #      General SQL
 #-----------------------
-era/sql/
+#era/sql/
+#era/back_date_sqls/2007_exp_tables.sql
+#era/back_date_sqls/synth_recipies.sql
+#era/sql/75_era_drops.sql
+#era/sql/75_era_guild_vendors.sql
+era/sql/75_era_spells.sql
+#era/sql/2010_exp_tables.sql
+era/sql/abilities.sql
+#era/sql/era_droplist.sql
+era/sql/era_dyna_sql.sql
+era/sql/era_homepoints.sql
+era/sql/era_mob_resistances.sql
+#era/sql/gardening_results_era.sql
+era/sql/guild_item_points.sql
+#era/sql/guild_shops.sql
+#era/sql/item_basic.sql
+#era/sql/item_usable.sql
+#era/sql/item_weapon.sql
+#era/sql/merits.sql
+era/sql/mob_groups_era.sql
+#era/sql/pre_rmt_drops.sql
+era/sql/skill_ranks.sql
+era/sql/ToAU_AH_Listings.sql
 #-----------------------
 #        Dynamis
 #-----------------------
@@ -70,3 +98,18 @@ renamer
 #-----------------------
 #		Custom
 #----------------------
+custom/lua/claim_shield.lua
+custom/lua/conquest_crystal_trade_fix.lua
+custom/lua/guild_no_kits.lua
+#custom/lua/homepoint_heal.lua
+custom/lua/mission_wardrobe_unlocks.lua
+custom/lua/persist_nm_time_of_deaths.lua
+custom/lua/pre_rmt_drops.lua
+#custom/lua/replace_trust_with_cornelia.lua
+#custom/lua/soa_remove_imprimatur_gate.lua
+#custom/lua/test_npcs_in_gm_home.lua
+#custom/lua/wotg_decouple_story_missions_from_nation_quests.lua
+custom/cpp/ah_announcement.cpp
+custom/cpp/ah_pagination.cpp
+#custom/sql/ka_speedbelt_drop.sql
+#custom/sql/starter_zone_fast_repops.sql
