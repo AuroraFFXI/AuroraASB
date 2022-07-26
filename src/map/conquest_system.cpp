@@ -83,7 +83,7 @@ namespace conquest
             sql->GetIntData(3),
         };
 
-        if (influences[nation] == 5000)
+        if (influences[nation] == 10000)
         {
             return;
         }
@@ -96,7 +96,7 @@ namespace conquest
                 continue;
             }
 
-            auto loss = std::min<int>(points * influences[i] / (5000 - influences[nation]), influences[i]);
+            auto loss = std::min<int>(points * influences[i] / (10000 - influences[nation]), influences[i]);
             influences[i] -= loss;
             lost += loss;
         }
@@ -685,7 +685,7 @@ namespace conquest
             uint32 points = (uint32)(exp * percentage);
 
             charutils::AddPoints(PChar, charutils::GetConquestPointsName(PChar).c_str(), points);
-            GainInfluencePoints(PChar, points / 2);
+            GainInfluencePoints(PChar, points);
         }
         return 0; // added conquest points (пока не вижу в этом определенного смысла)
     }

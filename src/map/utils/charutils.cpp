@@ -111,9 +111,9 @@ along with this program.  If not, see http://www.gnu.org/licenses/
  ************************************************************************/
 
 // Number of rows in the exp table
-static constexpr int32                               ExpTableRowCount = 60;
-std::array<std::array<uint16, 20>, ExpTableRowCount> g_ExpTable;
-std::array<uint16, 100>                              g_ExpPerLevel;
+static constexpr int32                               ExpTableRowCount = 100;
+std::array<std::array<uint32, 20>, ExpTableRowCount> g_ExpTable;
+std::array<uint32, 100>                              g_ExpPerLevel;
 
 /************************************************************************
  *                                                                       *
@@ -170,6 +170,12 @@ namespace charutils
             case 8:
                 race = 4;
                 break; // Galka
+        }
+
+        // Aurora Race's Stat Change in Norg
+        if (GetCharVar(PChar, "raceStats") > 0)
+        {
+            race = GetCharVar(PChar, "raceStats") - 1;
         }
 
         // HP Calculation from Main Job
@@ -629,6 +635,72 @@ namespace charutils
             PChar->jobs.job[JOB_RUN] = (uint8)sql->GetIntData(23);
         }
 
+		// Aurora Relevel System
+        fmtQuery =
+            "SELECT deathcount, levelslost, war, mnk, whm, blm, rdm, thf, pld, drk, bst, brd, rng, sam, nin, drg, smn, blu, cor, pup, dnc, sch, geo, run "
+            "FROM char_deaths "
+            "WHERE charid = %u;";
+        ret = sql->Query(fmtQuery, PChar->id);
+        if (ret != SQL_ERROR && sql->NumRows() != 0 && sql->NextRow() == SQL_SUCCESS)
+        {
+            PChar->jobs.deathcount      = (uint16)sql->GetUIntData(0);
+            PChar->jobs.levelslost      = (uint32)sql->GetUIntData(1);
+            PChar->jobs.deaths[JOB_WAR] = (uint8)sql->GetIntData(2);
+            PChar->jobs.deaths[JOB_MNK] = (uint8)sql->GetIntData(3);
+            PChar->jobs.deaths[JOB_WHM] = (uint8)sql->GetIntData(4);
+            PChar->jobs.deaths[JOB_BLM] = (uint8)sql->GetIntData(5);
+            PChar->jobs.deaths[JOB_RDM] = (uint8)sql->GetIntData(6);
+            PChar->jobs.deaths[JOB_THF] = (uint8)sql->GetIntData(7);
+            PChar->jobs.deaths[JOB_PLD] = (uint8)sql->GetIntData(8);
+            PChar->jobs.deaths[JOB_DRK] = (uint8)sql->GetIntData(9);
+            PChar->jobs.deaths[JOB_BST] = (uint8)sql->GetIntData(10);
+            PChar->jobs.deaths[JOB_BRD] = (uint8)sql->GetIntData(11);
+            PChar->jobs.deaths[JOB_RNG] = (uint8)sql->GetIntData(12);
+            PChar->jobs.deaths[JOB_SAM] = (uint8)sql->GetIntData(13);
+            PChar->jobs.deaths[JOB_NIN] = (uint8)sql->GetIntData(14);
+            PChar->jobs.deaths[JOB_DRG] = (uint8)sql->GetIntData(15);
+            PChar->jobs.deaths[JOB_SMN] = (uint8)sql->GetIntData(16);
+            PChar->jobs.deaths[JOB_BLU] = (uint8)sql->GetIntData(17);
+            PChar->jobs.deaths[JOB_COR] = (uint8)sql->GetIntData(18);
+            PChar->jobs.deaths[JOB_PUP] = (uint8)sql->GetIntData(19);
+            PChar->jobs.deaths[JOB_DNC] = (uint8)sql->GetIntData(20);
+            PChar->jobs.deaths[JOB_SCH] = (uint8)sql->GetIntData(21);
+            PChar->jobs.deaths[JOB_GEO] = (uint8)sql->GetIntData(22);
+            PChar->jobs.deaths[JOB_RUN] = (uint8)sql->GetIntData(23);
+        }
+
+		fmtQuery =
+            "SELECT war, mnk, whm, blm, rdm, thf, pld, drk, bst, brd, rng, sam, nin, drg, smn, blu, cor, pup, dnc, sch, geo, run "
+            "FROM char_maat "
+            "WHERE charid = %u;";
+        ret = sql->Query(fmtQuery, PChar->id);
+        if (ret != SQL_ERROR && sql->NumRows() != 0 && sql->NextRow() == SQL_SUCCESS)
+        {
+            PChar->jobs.maat[JOB_WAR] = (uint8)sql->GetIntData(0);
+            PChar->jobs.maat[JOB_MNK] = (uint8)sql->GetIntData(1);
+            PChar->jobs.maat[JOB_WHM] = (uint8)sql->GetIntData(2);
+            PChar->jobs.maat[JOB_BLM] = (uint8)sql->GetIntData(3);
+            PChar->jobs.maat[JOB_RDM] = (uint8)sql->GetIntData(4);
+            PChar->jobs.maat[JOB_THF] = (uint8)sql->GetIntData(5);
+            PChar->jobs.maat[JOB_PLD] = (uint8)sql->GetIntData(6);
+            PChar->jobs.maat[JOB_DRK] = (uint8)sql->GetIntData(7);
+            PChar->jobs.maat[JOB_BST] = (uint8)sql->GetIntData(8);
+            PChar->jobs.maat[JOB_BRD] = (uint8)sql->GetIntData(9);
+            PChar->jobs.maat[JOB_RNG] = (uint8)sql->GetIntData(10);
+            PChar->jobs.maat[JOB_SAM] = (uint8)sql->GetIntData(11);
+            PChar->jobs.maat[JOB_NIN] = (uint8)sql->GetIntData(12);
+            PChar->jobs.maat[JOB_DRG] = (uint8)sql->GetIntData(13);
+            PChar->jobs.maat[JOB_SMN] = (uint8)sql->GetIntData(14);
+            PChar->jobs.maat[JOB_BLU] = (uint8)sql->GetIntData(15);
+            PChar->jobs.maat[JOB_COR] = (uint8)sql->GetIntData(16);
+            PChar->jobs.maat[JOB_PUP] = (uint8)sql->GetIntData(17);
+            PChar->jobs.maat[JOB_DNC] = (uint8)sql->GetIntData(18);
+            PChar->jobs.maat[JOB_SCH] = (uint8)sql->GetIntData(19);
+            PChar->jobs.maat[JOB_GEO] = (uint8)sql->GetIntData(20);
+            PChar->jobs.maat[JOB_RUN] = (uint8)sql->GetIntData(21);
+        }
+        // Aurora End Relevel System
+
         fmtQuery = "SELECT mode, war, mnk, whm, blm, rdm, thf, pld, drk, bst, brd, rng, sam, nin, drg, smn, blu, cor, pup, dnc, sch, geo, run, merits, limits "
                    "FROM char_exp "
                    "WHERE charid = %u;";
@@ -638,28 +710,28 @@ namespace charutils
         if (ret != SQL_ERROR && sql->NumRows() != 0 && sql->NextRow() == SQL_SUCCESS)
         {
             PChar->MeritMode         = (uint8)sql->GetIntData(0);
-            PChar->jobs.exp[JOB_WAR] = (uint16)sql->GetIntData(1);
-            PChar->jobs.exp[JOB_MNK] = (uint16)sql->GetIntData(2);
-            PChar->jobs.exp[JOB_WHM] = (uint16)sql->GetIntData(3);
-            PChar->jobs.exp[JOB_BLM] = (uint16)sql->GetIntData(4);
-            PChar->jobs.exp[JOB_RDM] = (uint16)sql->GetIntData(5);
-            PChar->jobs.exp[JOB_THF] = (uint16)sql->GetIntData(6);
-            PChar->jobs.exp[JOB_PLD] = (uint16)sql->GetIntData(7);
-            PChar->jobs.exp[JOB_DRK] = (uint16)sql->GetIntData(8);
-            PChar->jobs.exp[JOB_BST] = (uint16)sql->GetIntData(9);
-            PChar->jobs.exp[JOB_BRD] = (uint16)sql->GetIntData(10);
-            PChar->jobs.exp[JOB_RNG] = (uint16)sql->GetIntData(11);
-            PChar->jobs.exp[JOB_SAM] = (uint16)sql->GetIntData(12);
-            PChar->jobs.exp[JOB_NIN] = (uint16)sql->GetIntData(13);
-            PChar->jobs.exp[JOB_DRG] = (uint16)sql->GetIntData(14);
-            PChar->jobs.exp[JOB_SMN] = (uint16)sql->GetIntData(15);
-            PChar->jobs.exp[JOB_BLU] = (uint16)sql->GetIntData(16);
-            PChar->jobs.exp[JOB_COR] = (uint16)sql->GetIntData(17);
-            PChar->jobs.exp[JOB_PUP] = (uint16)sql->GetIntData(18);
-            PChar->jobs.exp[JOB_DNC] = (uint16)sql->GetIntData(19);
-            PChar->jobs.exp[JOB_SCH] = (uint16)sql->GetIntData(20);
-            PChar->jobs.exp[JOB_GEO] = (uint16)sql->GetIntData(21);
-            PChar->jobs.exp[JOB_RUN] = (uint16)sql->GetIntData(22);
+            PChar->jobs.exp[JOB_WAR] = (uint32)sql->GetIntData(1);
+            PChar->jobs.exp[JOB_MNK] = (uint32)sql->GetIntData(2);
+            PChar->jobs.exp[JOB_WHM] = (uint32)sql->GetIntData(3);
+            PChar->jobs.exp[JOB_BLM] = (uint32)sql->GetIntData(4);
+            PChar->jobs.exp[JOB_RDM] = (uint32)sql->GetIntData(5);
+            PChar->jobs.exp[JOB_THF] = (uint32)sql->GetIntData(6);
+            PChar->jobs.exp[JOB_PLD] = (uint32)sql->GetIntData(7);
+            PChar->jobs.exp[JOB_DRK] = (uint32)sql->GetIntData(8);
+            PChar->jobs.exp[JOB_BST] = (uint32)sql->GetIntData(9);
+            PChar->jobs.exp[JOB_BRD] = (uint32)sql->GetIntData(10);
+            PChar->jobs.exp[JOB_RNG] = (uint32)sql->GetIntData(11);
+            PChar->jobs.exp[JOB_SAM] = (uint32)sql->GetIntData(12);
+            PChar->jobs.exp[JOB_NIN] = (uint32)sql->GetIntData(13);
+            PChar->jobs.exp[JOB_DRG] = (uint32)sql->GetIntData(14);
+            PChar->jobs.exp[JOB_SMN] = (uint32)sql->GetIntData(15);
+            PChar->jobs.exp[JOB_BLU] = (uint32)sql->GetIntData(16);
+            PChar->jobs.exp[JOB_COR] = (uint32)sql->GetIntData(17);
+            PChar->jobs.exp[JOB_PUP] = (uint32)sql->GetIntData(18);
+            PChar->jobs.exp[JOB_DNC] = (uint32)sql->GetIntData(19);
+            PChar->jobs.exp[JOB_SCH] = (uint32)sql->GetIntData(20);
+            PChar->jobs.exp[JOB_GEO] = (uint32)sql->GetIntData(21);
+            PChar->jobs.exp[JOB_RUN] = (uint32)sql->GetIntData(22);
             meritPoints              = (uint8)sql->GetIntData(23);
             limitPoints              = (uint16)sql->GetIntData(24);
         }
@@ -3457,7 +3529,7 @@ namespace charutils
             {
                 for (uint32 y = 0; y < 20; ++y)
                 {
-                    g_ExpTable[x][y] = (uint16)sql->GetIntData(y);
+                    g_ExpTable[x][y] = (uint32)sql->GetIntData(y);
                 }
             }
         }
@@ -3472,7 +3544,7 @@ namespace charutils
 
                 if (level < 100)
                 {
-                    g_ExpPerLevel[level] = (uint16)sql->GetIntData(1);
+                    g_ExpPerLevel[level] = (uint32)sql->GetIntData(1);
                 }
             }
         }
@@ -3511,7 +3583,7 @@ namespace charutils
 
     uint32 GetBaseExp(uint8 charlvl, uint8 moblvl)
     {
-        const int32 levelDif = moblvl - charlvl + 44;
+        const int32 levelDif = moblvl - charlvl + 84;
 
         if (charlvl > 0 && charlvl < 100)
         {
@@ -3962,9 +4034,45 @@ namespace charutils
             const uint8 memberlevel = PMember->GetMLevel();
 
             EMobDifficulty mobCheck = CheckMob(maxlevel, moblevel);
-            float          exp      = (float)GetBaseExp(maxlevel, moblevel);
+            float          exp      = (float)GetBaseExp(99, moblevel + 14);
+            
+            // Aurora Custom EXP Variables
+            float           reallevel        = (float)PMember->jobs.job[PMember->GetMJob()];
+            const uint8     deathlevel          = PMember->jobs.deaths[PMember->GetMJob()];
+            float           cPP                 = (float)GetBaseExp(maxlevel, moblevel);
+            float           limitPP             = (float)GetBaseExp(75, moblevel);
+			float           expMod	            = 1.00f;
+            const uint8     maxsyncgap          = 10;
 
-            if (mobCheck > EMobDifficulty::TooWeak)
+            // Aurora Custom Base EXP for level Differences / Sync / Releveling (Replaces EXP Penalties)
+            if (maxlevel > memberlevel) // If bellow sync lvl or not highest level
+            {
+                if ((moblevel - maxlevel + memberlevel) > 0)
+                {
+                    expMod      = (float)GetBaseExp(99, (moblevel + 14 - maxlevel + memberlevel));
+                }
+                else
+                {
+                    expMod      = 0;
+                }
+            }
+            else if (deathlevel > reallevel) // If Releveling a job
+            {
+                expMod      = (float)GetBaseExp(99, (moblevel + 14 + reallevel - maxlevel));
+            }
+            else if (reallevel >= memberlevel)
+            {
+                if (reallevel <= (memberlevel + maxsyncgap))
+                {
+                    expMod      = (float)GetBaseExp(99, (moblevel + 14 + reallevel - memberlevel));
+                }
+                else
+                {
+                    expMod      = (float)GetBaseExp(99, (moblevel + 14 + maxsyncgap));
+                }
+            }
+
+            if (mobCheck >= EMobDifficulty::TooWeak)
             {
                 if (PMember->getZone() == PMob->getZone())
                 {
@@ -3972,11 +4080,11 @@ namespace charutils
                     {
                         if (maxlevel > 50 || maxlevel > (memberlevel + 7))
                         {
-                            exp *= memberlevel / (float)maxlevel;
+                            expMod *= memberlevel / (float)maxlevel;
                         }
                         else
                         {
-                            exp *= GetExpNEXTLevel(memberlevel) / (float)GetExpNEXTLevel(maxlevel);
+                            expMod *= GetExpNEXTLevel(memberlevel) / (float)GetExpNEXTLevel(maxlevel);
                         }
                     }
 
@@ -3985,25 +4093,25 @@ namespace charutils
                         switch (pcinzone)
                         {
                             case 1:
-                                exp *= 1.00f;
+                                expMod *= 1.00f;
                                 break;
                             case 2:
-                                exp *= 0.75f;
+                                expMod *= 0.75f;
                                 break;
                             case 3:
-                                exp *= 0.55f;
+                                expMod *= 0.55f;
                                 break;
                             case 4:
-                                exp *= 0.45f;
+                                expMod *= 0.45f;
                                 break;
                             case 5:
-                                exp *= 0.39f;
+                                expMod *= 0.39f;
                                 break;
                             case 6:
-                                exp *= 0.35f;
+                                expMod *= 0.35f;
                                 break;
                             default:
-                                exp *= (1.8f / pcinzone);
+                                expMod *= (1.8f / pcinzone);
                                 break;
                         }
                     }
@@ -4013,25 +4121,25 @@ namespace charutils
                         switch (pcinzone)
                         {
                             case 1:
-                                exp *= 1.00f;
+                                expMod *= 1.00f;
                                 break;
                             case 2:
-                                exp *= 0.75f;
+                                expMod *= 0.75f;
                                 break;
                             case 3:
-                                exp *= 0.55f;
+                                expMod *= 0.55f;
                                 break;
                             case 4:
-                                exp *= 0.45f;
+                                expMod *= 0.45f;
                                 break;
                             case 5:
-                                exp *= 0.39f;
+                                expMod *= 0.39f;
                                 break;
                             case 6:
-                                exp *= 0.35f;
+                                expMod *= 0.35f;
                                 break;
                             default:
-                                exp *= (1.8f / pcinzone);
+                                expMod *= (1.8f / pcinzone);
                                 break;
                         }
                     }
@@ -4040,25 +4148,25 @@ namespace charutils
                         switch (pcinzone)
                         {
                             case 1:
-                                exp *= 1.00f;
+                                expMod *= 1.00f;
                                 break;
                             case 2:
-                                exp *= 0.60f;
+                                expMod *= 0.60f;
                                 break;
                             case 3:
-                                exp *= 0.45f;
+                                expMod *= 0.45f;
                                 break;
                             case 4:
-                                exp *= 0.40f;
+                                expMod *= 0.40f;
                                 break;
                             case 5:
-                                exp *= 0.37f;
+                                expMod *= 0.37f;
                                 break;
                             case 6:
-                                exp *= 0.35f;
+                                expMod *= 0.35f;
                                 break;
                             default:
-                                exp *= (1.8f / pcinzone);
+                                expMod *= (1.8f / pcinzone);
                                 break;
                         }
                     }
@@ -4066,22 +4174,25 @@ namespace charutils
                     if (PMob->getMobMod(MOBMOD_EXP_BONUS))
                     {
                         const float monsterbonus = 1.f + PMob->getMobMod(MOBMOD_EXP_BONUS) / 100.f;
-                        exp *= monsterbonus;
+                        expMod *= monsterbonus;
                     }
 
+                    // Aurora Server Removes EXP Caps
+                    /*
                     // Per monster caps pulled from: https://ffxiclopedia.fandom.com/wiki/Experience_Points
                     if (PMember->GetMLevel() <= 50)
                     {
-                        exp = std::fmin(exp, 200.f);
+                        expMod = std::fmin(exp, 200.f);
                     }
                     else if (PMember->GetMLevel() <= 60)
                     {
-                        exp = std::fmin(exp, 250.f);
+                        expMod = std::fmin(exp, 250.f);
                     }
                     else
                     {
-                        exp = std::fmin(exp, 300.f);
+                        expMod = std::fmin(exp, 300.f);
                     }
+                    */
 
                     if (mobCheck > EMobDifficulty::DecentChallenge)
                     {
@@ -4091,25 +4202,25 @@ namespace charutils
                             switch (PMember->expChain.chainNumber)
                             {
                                 case 0:
-                                    exp *= 1.0f;
+                                    expMod *= 1.0f;
                                     break;
                                 case 1:
-                                    exp *= 1.2f;
+                                    expMod *= 1.2f;
                                     break;
                                 case 2:
-                                    exp *= 1.25f;
+                                    expMod *= 1.25f;
                                     break;
                                 case 3:
-                                    exp *= 1.3f;
+                                    expMod *= 1.3f;
                                     break;
                                 case 4:
-                                    exp *= 1.4f;
+                                    expMod *= 1.4f;
                                     break;
                                 case 5:
-                                    exp *= 1.5f;
+                                    expMod *= 1.5f;
                                     break;
                                 default:
-                                    exp *= 1.5f;
+                                    expMod *= 1.5f;
                                     break;
                             }
                         }
@@ -4343,11 +4454,11 @@ namespace charutils
 
                         if ((PEntity->PPet->objtype == TYPE_TRUST) || (PEntity->PPet->objtype == TYPE_NPC))
                         {
-                            exp *= 0.7f;
+                            expMod *= 0.7f;
                         }
                         else if (PEntity->PPet->StatusEffectContainer->HasStatusEffect(EFFECT_CHARM))
                         {
-                            exp *= 0.7f;
+                            expMod *= 0.7f;
                         }
                     }
 
@@ -4356,6 +4467,36 @@ namespace charutils
                         PMember->pushPacket(new CMessageBasicPacket(PMember, PMember, 0, 0, 37));
                         return;
                     }
+
+                    // Aurora Server Custom EXP modifiers Begin
+                    // Monster's Pet Penalty
+					if (PMob->PMaster != nullptr)
+                    {
+                            expMod *= 0.25f;
+                    }
+
+                    // Aurora Incremental EXP T+ Bonus
+                    if (mobCheck >= EMobDifficulty::Tough)
+                    {
+                        expMod *= (1.0f +(((float)moblevel - (float)maxlevel) * 0.2f));
+                    }
+
+					cPP = cPP * expMod;
+                    limitPP = limitPP * expMod;
+
+                    // Aurora Relevel System: Bonus EXP
+                    if (reallevel < deathlevel)
+                    {
+                        if (deathlevel == 75)
+                        {
+                            expMod *= 10.0f;
+                        }
+                        else
+                        {
+                            expMod *= (1.0f + ((float)deathlevel / 10.0f));
+                        }
+                    }
+                    // Aurora End Relevel System: Bonus EXP
 
                     if (PMob->m_ExpPenalty > lua["xi"]["settings"]["main"]["PL_PENALTY"].get<uint16>() * 3)
                     {
@@ -4366,9 +4507,12 @@ namespace charutils
                         }
                     }
 
+                    exp = (float)exp * (float)expMod;
+                    cPP = charutils::AddExpBonus(PMember, cPP);
+                    limitPP = charutils::AddExpBonus(PMember, limitPP);
                     exp = charutils::AddExpBonus(PMember, exp);
 
-                    charutils::AddExperiencePoints(false, PMember, PMob, (uint32)exp, mobCheck, chainactive);
+                    charutils::AddExperiencePoints(false, PMember, PMob, (uint32)exp, mobCheck, chainactive, (uint32)cPP, (uint32)limitPP);
                 }
             }
         });
@@ -4559,6 +4703,69 @@ namespace charutils
         XI_DEBUG_BREAK_IF(retainPercent > 1.0f || retainPercent < 0.0f);
         XI_DEBUG_BREAK_IF(settings::get<uint8>("map.EXP_LOSS_LEVEL") > 99 || settings::get<uint8>("map.EXP_LOSS_LEVEL") < 1);
 
+		// Aurora Hardcore Death = lvl 1 and death tracking
+        PChar->jobs.deathcount += 1;
+        PChar->jobs.levelslost += (PChar->jobs.job[PChar->GetMJob()] - 1);
+
+        if (PChar->jobs.job[PChar->GetMJob()] > PChar->jobs.deaths[PChar->GetMJob()])
+        {
+            PChar->jobs.deaths[PChar->GetMJob()] = PChar->jobs.job[PChar->GetMJob()];
+        }
+
+        if (PChar->jobs.maat[PChar->GetMJob()] <= 1)
+        {
+            PChar->jobs.job[PChar->GetMJob()] = 1;
+        }
+        else if (PChar->jobs.maat[PChar->GetMJob()] >= 2)
+        {
+            const uint8 maatkills = (1 - PChar->jobs.maat[PChar->GetMJob()]);
+            if (maatkills * 10 >= 75)
+            {
+                PChar->jobs.job[PChar->GetMJob()] = 75;
+                PChar->jobs.maat[PChar->GetMJob()] = 1;
+            }
+            else
+            {
+                PChar->jobs.job[PChar->GetMJob()] = 10 * maatkills;
+                PChar->jobs.maat[PChar->GetMJob()] = 1;
+            }
+        }
+
+        PChar->jobs.exp[PChar->GetMJob()] = 0;
+
+        BuildingCharSkillsTable(PChar);
+        CalculateStats(PChar);
+        CheckValidEquipment(PChar);
+
+        BuildingCharAbilityTable(PChar);
+        BuildingCharTraitsTable(PChar);
+        BuildingCharWeaponSkills(PChar);
+
+        PChar->pushPacket(new CCharJobsPacket(PChar));
+        PChar->pushPacket(new CCharUpdatePacket(PChar));
+        PChar->pushPacket(new CCharSkillsPacket(PChar));
+        PChar->pushPacket(new CCharRecastPacket(PChar));
+        PChar->pushPacket(new CCharAbilitiesPacket(PChar));
+        PChar->pushPacket(new CMenuMeritPacket(PChar));
+        PChar->pushPacket(new CCharJobExtraPacket(PChar, true));
+        PChar->pushPacket(new CCharJobExtraPacket(PChar, false));
+        PChar->pushPacket(new CCharSyncPacket(PChar));
+
+        PChar->UpdateHealth();
+
+        SaveCharStats(PChar);
+        SaveCharJob(PChar, PChar->GetMJob());
+
+        PChar->loc.zone->PushPacket(PChar, CHAR_INRANGE_SELF, new CMessageCombatPacket(PChar, PChar, PChar->jobs.job[PChar->GetMJob()], 0, 11));
+        luautils::OnPlayerLevelDown(PChar);
+        PChar->updatemask |= UPDATE_HP;
+
+        SaveCharDeaths(PChar, PChar->GetMJob());
+        SaveCharExp(PChar, PChar->GetMJob());
+        PChar->pushPacket(new CCharStatsPacket(PChar));
+
+		/* Commented out in Favor of Aurora Hardcore Death System
+
         if (PChar->GetMLevel() < settings::get<uint8>("map.EXP_LOSS_LEVEL") && forcedXpLoss == 0)
         {
             return;
@@ -4646,6 +4853,7 @@ namespace charutils
 
         SaveCharExp(PChar, PChar->GetMJob());
         PChar->pushPacket(new CCharStatsPacket(PChar));
+        */ // Aurora Finish Hardcore Stuffs
     }
 
     /************************************************************************
@@ -4654,7 +4862,7 @@ namespace charutils
      *                                                                       *
      ************************************************************************/
 
-    void AddExperiencePoints(bool expFromRaise, CCharEntity* PChar, CBaseEntity* PMob, uint32 exp, EMobDifficulty mobCheck, bool isexpchain)
+    void AddExperiencePoints(bool expFromRaise, CCharEntity* PChar, CBaseEntity* PMob, uint32 exp, EMobDifficulty mobCheck, bool isexpchain, uint32 cPP, uint32 limitPP)
     {
         TracyZoneScoped;
 
@@ -4667,7 +4875,7 @@ namespace charutils
         {
             exp = (uint32)(exp * settings::get<float>("map.EXP_RATE"));
         }
-        uint16 currentExp  = PChar->jobs.exp[PChar->GetMJob()];
+        uint32 currentExp  = PChar->jobs.exp[PChar->GetMJob()];
         bool   onLimitMode = false;
 
         // Incase player de-levels to 74 on the field
@@ -4692,7 +4900,14 @@ namespace charutils
                 {
                     if (onLimitMode)
                     {
-                        PChar->pushPacket(new CMessageCombatPacket(PChar, PChar, exp, PChar->expChain.chainNumber, 372));
+                        if (limitPP > 0)
+                        {
+                            PChar->pushPacket(new CMessageCombatPacket(PChar, PChar, limitPP, PChar->expChain.chainNumber, 372));
+                        }
+                        else
+                        {
+                            PChar->pushPacket(new CMessageCombatPacket(PChar, PChar, exp, PChar->expChain.chainNumber, 253));
+                        }
                     }
                     else
                     {
@@ -4703,7 +4918,14 @@ namespace charutils
                 {
                     if (onLimitMode)
                     {
-                        PChar->pushPacket(new CMessageCombatPacket(PChar, PChar, exp, 0, 371));
+                        if (limitPP > 0)
+                        {
+                            PChar->pushPacket(new CMessageCombatPacket(PChar, PChar, limitPP, 0, 371));
+                        }
+                        else
+                        {
+                            PChar->pushPacket(new CMessageCombatPacket(PChar, PChar, exp, 0, 8));
+                        }
                     }
                     else
                     {
@@ -4716,7 +4938,14 @@ namespace charutils
             {
                 if (onLimitMode)
                 {
-                    PChar->pushPacket(new CMessageCombatPacket(PChar, PChar, exp, 0, 371));
+                    if (limitPP > 0)
+                    {
+                        PChar->pushPacket(new CMessageCombatPacket(PChar, PChar, limitPP, 0, 371));
+                    }
+                    else
+                    {
+                        PChar->pushPacket(new CMessageCombatPacket(PChar, PChar, exp, 0, 8));
+                    }
                 }
                 else
                 {
@@ -4728,7 +4957,7 @@ namespace charutils
         if (onLimitMode)
         {
             // add limit points
-            if (PChar->PMeritPoints->AddLimitPoints(exp))
+            if (PChar->PMeritPoints->AddLimitPoints(limitPP))
             {
                 PChar->loc.zone->PushPacket(PChar, CHAR_INRANGE_SELF, new CMessageCombatPacket(PChar, PMob, PChar->PMeritPoints->GetMeritPoints(), 0, 50));
             }
@@ -4747,13 +4976,13 @@ namespace charutils
             if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_SIGNET) && (region >= REGION_TYPE::RONFAURE && region <= REGION_TYPE::JEUNO))
             {
                 // Add influence for the players region..
-                conquest::AddConquestPoints(PChar, exp);
+                conquest::AddConquestPoints(PChar, cPP);
             }
 
             // Should this user be awarded imperial standing..
             if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_SANCTION) && (region >= REGION_TYPE::WEST_AHT_URHGAN && region <= REGION_TYPE::ALZADAAL))
             {
-                charutils::AddPoints(PChar, "imperial_standing", (int32)(exp * 0.1f));
+                charutils::AddPoints(PChar, "imperial_standing", (int32)(cPP * 0.1f));
                 PChar->pushPacket(new CConquestPacket(PChar));
             }
 
@@ -4785,6 +5014,14 @@ namespace charutils
         if ((currentExp + exp) >= GetExpNEXTLevel(PChar->jobs.job[PChar->GetMJob()]) && !onLimitMode)
         {
             if (PChar->jobs.job[PChar->GetMJob()] >= PChar->jobs.genkai)
+            {
+                PChar->jobs.exp[PChar->GetMJob()] = GetExpNEXTLevel(PChar->jobs.job[PChar->GetMJob()]) - 1;
+                if (PChar->PParty && PChar->PParty->GetSyncTarget() == PChar)
+                {
+                    PChar->PParty->SetSyncTarget(nullptr, 556);
+                }
+            }
+            else if (PChar->jobs.maat[PChar->GetMJob()] == 0 && PChar->jobs.job[PChar->GetMJob()] >= 70)
             {
                 PChar->jobs.exp[PChar->GetMJob()] = GetExpNEXTLevel(PChar->jobs.job[PChar->GetMJob()]) - 1;
                 if (PChar->PParty && PChar->PParty->GetSyncTarget() == PChar)
@@ -4873,7 +5110,7 @@ namespace charutils
 
         if (PMob != PChar) // Only mob kills count for gain EXP records
         {
-            roeutils::event(ROE_EXPGAIN, PChar, RoeDatagram("exp", exp));
+            roeutils::event(ROE_EXPGAIN, PChar, RoeDatagram("exp", cPP));
         }
     }
 
@@ -5437,6 +5674,184 @@ namespace charutils
         }
     }
 
+	/************************************************************************
+     *                                                                       *
+     *  Aurora Save Deaths for Relevel System                                *
+     *                                                                       *
+     ************************************************************************/
+
+    void SaveCharDeaths(CCharEntity* PChar, JOBTYPE job)
+    {
+        TracyZoneScoped;
+
+        XI_DEBUG_BREAK_IF(job == JOB_NON || job >= MAX_JOBTYPE);
+
+        const char* fmtQuery;
+
+        switch (job)
+        {
+            case JOB_WAR:
+                fmtQuery = "UPDATE char_deaths SET deathcount = %u, levelslost = %u, war = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_MNK:
+                fmtQuery = "UPDATE char_deaths SET deathcount = %u, levelslost = %u, mnk = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_WHM:
+                fmtQuery = "UPDATE char_deaths SET deathcount = %u, levelslost = %u, whm = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_BLM:
+                fmtQuery = "UPDATE char_deaths SET deathcount = %u, levelslost = %u, blm = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_RDM:
+                fmtQuery = "UPDATE char_deaths SET deathcount = %u, levelslost = %u, rdm = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_THF:
+                fmtQuery = "UPDATE char_deaths SET deathcount = %u, levelslost = %u, thf = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_PLD:
+                fmtQuery = "UPDATE char_deaths SET deathcount = %u, levelslost = %u, pld = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_DRK:
+                fmtQuery = "UPDATE char_deaths SET deathcount = %u, levelslost = %u, drk = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_BST:
+                fmtQuery = "UPDATE char_deaths SET deathcount = %u, levelslost = %u, bst = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_BRD:
+                fmtQuery = "UPDATE char_deaths SET deathcount = %u, levelslost = %u, brd = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_RNG:
+                fmtQuery = "UPDATE char_deaths SET deathcount = %u, levelslost = %u, rng = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_SAM:
+                fmtQuery = "UPDATE char_deaths SET deathcount = %u, levelslost = %u, sam = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_NIN:
+                fmtQuery = "UPDATE char_deaths SET deathcount = %u, levelslost = %u, nin = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_DRG:
+                fmtQuery = "UPDATE char_deaths SET deathcount = %u, levelslost = %u, drg = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_SMN:
+                fmtQuery = "UPDATE char_deaths SET deathcount = %u, levelslost = %u, smn = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_BLU:
+                fmtQuery = "UPDATE char_deaths SET deathcount = %u, levelslost = %u, blu = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_COR:
+                fmtQuery = "UPDATE char_deaths SET deathcount = %u, levelslost = %u, cor = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_PUP:
+                fmtQuery = "UPDATE char_deaths SET deathcount = %u, levelslost = %u, pup = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_DNC:
+                fmtQuery = "UPDATE char_deaths SET deathcount = %u, levelslost = %u, dnc = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_SCH:
+                fmtQuery = "UPDATE char_deaths SET deathcount = %u, levelslost = %u, sch = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_GEO:
+                fmtQuery = "UPDATE char_deaths SET deathcount = %u, levelslost = %u, geo = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_RUN:
+                fmtQuery = "UPDATE char_deaths SET deathcount = %u, levelslost = %u, run = %u WHERE charid = %u LIMIT 1";
+                break;
+            default:
+                fmtQuery = "";
+                break;
+        }
+        sql->Query(fmtQuery, PChar->jobs.deathcount, PChar->jobs.levelslost, PChar->jobs.deaths[job], PChar->id);
+    }
+
+	/************************************************************************
+     *                                                                       *
+     *  Aurora Save Maats for All Jobs requiring Maat                        *
+     *                                                                       *
+     ************************************************************************/
+
+    void SaveCharMaat(CCharEntity* PChar, JOBTYPE job)
+    {
+        TracyZoneScoped;
+
+        XI_DEBUG_BREAK_IF(job == JOB_NON || job >= MAX_JOBTYPE);
+
+        const char* fmtQuery;
+
+        switch (job)
+        {
+            case JOB_WAR:
+                fmtQuery = "UPDATE char_maat SET war = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_MNK:
+                fmtQuery = "UPDATE char_maat SET mnk = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_WHM:
+                fmtQuery = "UPDATE char_maat SET whm = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_BLM:
+                fmtQuery = "UPDATE char_maat SET blm = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_RDM:
+                fmtQuery = "UPDATE char_maat SET rdm = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_THF:
+                fmtQuery = "UPDATE char_maat SET thf = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_PLD:
+                fmtQuery = "UPDATE char_maat SET pld = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_DRK:
+                fmtQuery = "UPDATE char_maat SET drk = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_BST:
+                fmtQuery = "UPDATE char_maat SET bst = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_BRD:
+                fmtQuery = "UPDATE char_maat SET brd = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_RNG:
+                fmtQuery = "UPDATE char_maat SET rng = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_SAM:
+                fmtQuery = "UPDATE char_maat SET sam = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_NIN:
+                fmtQuery = "UPDATE char_maat SET nin = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_DRG:
+                fmtQuery = "UPDATE char_maat SET drg = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_SMN:
+                fmtQuery = "UPDATE char_maat SET smn = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_BLU:
+                fmtQuery = "UPDATE char_maat SET blu = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_COR:
+                fmtQuery = "UPDATE char_maat SET cor = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_PUP:
+                fmtQuery = "UPDATE char_maat SET pup = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_DNC:
+                fmtQuery = "UPDATE char_maat SET dnc = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_SCH:
+                fmtQuery = "UPDATE char_maat SET sch = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_GEO:
+                fmtQuery = "UPDATE char_maat SET geo = %u WHERE charid = %u LIMIT 1";
+                break;
+            case JOB_RUN:
+                fmtQuery = "UPDATE char_maat SET run = %u WHERE charid = %u LIMIT 1";
+                break;
+            default:
+                fmtQuery = "";
+                break;
+        }
+        sql->Query(fmtQuery, PChar->jobs.maat[job], PChar->id);
+    }
+
     void SaveCharExp(CCharEntity* PChar, JOBTYPE job)
     {
         TracyZoneScoped;
@@ -5641,11 +6056,19 @@ namespace charutils
             int16          percentage = dedication->GetPower();
             int16          cap        = dedication->GetSubPower();
             bonus += std::clamp<int32>((int32)((exp * percentage) / 100), 0, cap);
-            dedication->SetSubPower(cap -= bonus);
+            // dedication->SetSubPower(cap -= bonus);
 
-            if (cap <= 0)
+            // Aurora EXP System: Remove Dedication Cap for ring balance
+            if (cap <= PChar->jobs.job[PChar->GetMJob()])
             {
                 PChar->StatusEffectContainer->DelStatusEffect(EFFECT_DEDICATION);
+            }
+            if (cap == 50 || cap == 75)
+            {
+                if (cap - 30 > PChar->jobs.job[PChar->GetMJob()])
+                {
+                    PChar->StatusEffectContainer->DelStatusEffect(EFFECT_DEDICATION);
+                }
             }
         }
 

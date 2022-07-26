@@ -637,7 +637,7 @@ uint16 CBattleEntity::ATT(uint16 slot)
     auto* weapon = dynamic_cast<CItemWeapon*>(m_Weapons[slot]);
     if (weapon && weapon->isTwoHanded())
     {
-        ATT += (STR() * 3) / 4;
+        ATT += (STR() * 3) / 5;
     }
     // else if (weapon && weapon->isHandToHand())
     //{
@@ -793,7 +793,7 @@ uint16 CBattleEntity::ACC(uint8 attackNumber, uint8 offsetAccuracy)
         ACC       = (ACC > 200 ? (int16)(((ACC - 200) * 0.9) + 200) : ACC);
         if (auto* weapon = dynamic_cast<CItemWeapon*>(m_Weapons[SLOT_MAIN]); weapon && weapon->isTwoHanded())
         {
-            ACC += (int16)(DEX() * 0.75);
+            ACC += (int16)(DEX() * (5 / 3));
         }
         else
         {

@@ -78,7 +78,7 @@ namespace charutils
     void  DistributeItem(CCharEntity* PChar, CBaseEntity* PEntity, uint16 itemid, uint16 droprate);
     float ApplyTH(int16 m_THLvl, uint16 rate);
     void  AddExperiencePoints(bool expFromRaise, CCharEntity* PChar, CBaseEntity* PMob, uint32 exp, EMobDifficulty mobCheck = EMobDifficulty::TooWeak,
-                              bool isexpchain = false);
+                              bool isexpchain = false, uint32 cPP = 0, uint32 limitPP = 0);
 
     uint16 AddCapacityBonus(CCharEntity* PChar, uint16 capacityPoints);
     void   AddCapacityPoints(CCharEntity* PChar, CBaseEntity* PMob, uint32 capacityPoints, int16 levelDiff = 0, bool isCapacityChain = false);
@@ -155,6 +155,8 @@ namespace charutils
     int32 delWeaponSkill(CCharEntity* PChar, uint16 WeaponSkillID); // declaration of function to delete weapon skill
 
     void SaveCharJob(CCharEntity* PChar, JOBTYPE job); // сохраняем уровень для выбранной профессий персонажа
+    void SaveCharDeaths(CCharEntity* PChar, JOBTYPE job); // Aurora Relevel System
+  	void SaveCharMaat(CCharEntity* PChar, JOBTYPE job); // Aurora Maat required for every job
     void SaveCharExp(CCharEntity* PChar, JOBTYPE job); // сохраняем опыт для выбранной профессии персонажа
     void SaveCharEquip(CCharEntity* PChar);            // сохраняем экипировку и внешний вид персонажа
     void SaveCharLook(CCharEntity* PChar);             // Saves a character's appearance based on style locking.

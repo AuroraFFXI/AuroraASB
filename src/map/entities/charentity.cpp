@@ -851,6 +851,32 @@ bool CCharEntity::ValidTarget(CBattleEntity* PInitiator, uint16 targetFlags)
         }
     }
 
+    // Aurora Server Anti-PL: Enables spells being unable to target outside alliance PCs
+      if ((targetFlags & TARGET_SELF) && PInitiator == this)
+      {
+          return true;
+      }
+      if (targetFlags & TARGET_PLAYER_ALLIANCE)
+      {
+          if (PInitiator->PParty != nullptr)
+          {
+              if (PInitiator->PParty->m_PAlliance != nullptr)
+              {
+                  if (PParty && PInitiator->PParty->m_PAlliance == PParty->m_PAlliance)
+                  {
+                      if (PInitiator != this)
+                      {
+                          return true;
+                      }
+                  }
+              }
+          }
+      }
+
+    //Aurora: Need to add PCs are okay if target level is >= casters level
+
+    // Aurora Server End Anti-PL
+
     return false;
 }
 
