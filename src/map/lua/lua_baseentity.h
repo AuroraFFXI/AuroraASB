@@ -318,6 +318,10 @@ public:
     uint8 getMainLvl();             // Gets Entity Main Job Level
     uint8 getSubLvl();              // Get Entity Sub Job Level
     uint8 getJobLevel(uint8 JobID); // Gets character job level for specified JOBTYPE
+    void  setJobMaat(uint8 JobID);	// Aurora Adds Maat Kill count for current job
+    uint16  getDeathCount();	    // Aurora Gets the number of times a Character has died
+	uint32  getLevelsLost();	    // Aurora Gets the number of levels a Character has lost from death
+	uint8  getJobDeath();	        // Aurora Gets the highest level a character has died at on their current job
     void  setLevel(uint8 level);    // sets the character's level
     void  setsLevel(uint8 slevel);  // sets the character's level
     uint8 getLevelCap();            // genkai
@@ -385,6 +389,7 @@ public:
     void  addExp(uint32 exp);
     void  addCapacityPoints(uint32 capacity);
     void  delExp(uint32 exp);
+    
     int32 getMerit(uint16 merit);
     uint8 getMeritCount();
     void  setMerits(uint8 numPoints); // set merits (testing only!)
@@ -397,7 +402,8 @@ public:
     void   addGil(int32 gil);
     void   setGil(int32 amount);
     bool   delGil(int32 gil);
-
+    int32 getBaseExp();                     // Aurora Server
+    int32 getJobExp();                      // Aurora Server
     int32 getCurrency(std::string const& currencyType);
     void  addCurrency(std::string const& currencyType, int32 amount, sol::object const& maxObj);
     void  setCurrency(std::string const& currencyType, int32 amount);

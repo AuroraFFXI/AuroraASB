@@ -5548,6 +5548,68 @@ uint8 CLuaBaseEntity::getJobLevel(uint8 JobID)
 }
 
 /************************************************************************
+ *  Aurora Server:
+ *  Function: setJobMaat()
+ *  Purpose : Incraments and Sets the player's Job Maat Kills (used to track maat kills per job)
+ *  Example : player:setJobMaat(xi.job.BRD)
+ ************************************************************************/
+
+void CLuaBaseEntity::setJobMaat(uint8 JobID)
+{
+    XI_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+
+    auto* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
+
+	PChar->jobs.maat[PChar->GetMJob()] += 1;
+	charutils::SaveCharMaat(PChar, PChar->GetMJob());
+}
+
+/************************************************************************
+ *  Aurora Server:
+ *  Function: getDeathCount()
+ *  Purpose : Gets the number of times a Character has died
+ *  Example : player:getDeathCount()
+ ************************************************************************/
+
+uint16 CLuaBaseEntity::getDeathCount()
+{
+    XI_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+
+    auto* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
+    return PChar->jobs.deathcount;
+}
+
+/************************************************************************
+ *  Aurora Server:
+ *  Function: getLevelsLost()
+ *  Purpose : Gets the number of levels a Character has lost from death
+ *  Example : player:getLevelsLost()
+ ************************************************************************/
+
+uint32 CLuaBaseEntity::getLevelsLost()
+{
+    XI_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+
+    auto* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
+    return PChar->jobs.levelslost;
+}
+
+/************************************************************************
+ *  Aurora Server:
+ *  Function: getJobDeath()
+ *  Purpose : Gets the highest level a character has died at on their current job
+ *  Example : player:getJobDeath()
+ ************************************************************************/
+
+uint8 CLuaBaseEntity::getJobDeath()
+{
+    XI_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+
+    auto* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
+    return PChar->jobs.deaths[PChar->GetMJob()];
+}
+
+/************************************************************************
  *  Function: setLevel()
  *  Purpose : Updates the level of the entity's main job
  *  Example : player:setLevel(50)
@@ -7085,6 +7147,38 @@ void CLuaBaseEntity::delExp(uint32 exp)
     auto* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
 
     charutils::DelExperiencePoints(PChar, 0, std::clamp<uint16>(exp, 0, 65535));
+}
+
+/************************************************************************
+ *  Aurora Server:
+ *  Function: getBaseExp()
+ *  Purpose : Returns the current value of base exp to level
+ *  Example : player:getBaseExp()
+ *  Notes   : Used only in GM command tnl.lua
+ ************************************************************************/
+
+int32 CLuaBaseEntity::getBaseExp()
+{
+    XI_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+
+    auto* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
+    return charutils::GetExpNEXTLevel(PChar->jobs.job[PChar->GetMJob()]);
+}
+
+/************************************************************************
+ *  Aurora Server:
+ *  Function: getJobExp()
+ *  Purpose : Returns the current value of base exp to level
+ *  Example : player:getBaseExp()
+ *  Notes   : Used only in GM command tnl.lua
+ ************************************************************************/
+
+int32 CLuaBaseEntity::getJobExp()
+{
+    XI_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+
+    auto* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
+    return PChar->jobs.exp[PChar->GetMJob()];
 }
 
 /************************************************************************
@@ -14687,6 +14781,10 @@ void CLuaBaseEntity::Register()
     SOL_REGISTER("getMainLvl", CLuaBaseEntity::getMainLvl);
     SOL_REGISTER("getSubLvl", CLuaBaseEntity::getSubLvl);
     SOL_REGISTER("getJobLevel", CLuaBaseEntity::getJobLevel);
+    SOL_REGISTER("setJobMaat", CLuaBaseEntity::setJobMaat);
+    SOL_REGISTER("getDeathCount", CLuaBaseEntity::getDeathCount);
+    SOL_REGISTER("getLevelsLost", CLuaBaseEntity::getLevelsLost);
+    SOL_REGISTER("getJobDeath", CLuaBaseEntity::getJobDeath);
     SOL_REGISTER("setLevel", CLuaBaseEntity::setLevel);
     SOL_REGISTER("setsLevel", CLuaBaseEntity::setsLevel);
     SOL_REGISTER("getLevelCap", CLuaBaseEntity::getLevelCap);
@@ -14751,10 +14849,12 @@ void CLuaBaseEntity::Register()
     // Player Points
     SOL_REGISTER("addExp", CLuaBaseEntity::addExp);
     SOL_REGISTER("delExp", CLuaBaseEntity::delExp);
+    
     SOL_REGISTER("getMerit", CLuaBaseEntity::getMerit);
     SOL_REGISTER("getMeritCount", CLuaBaseEntity::getMeritCount);
     SOL_REGISTER("setMerits", CLuaBaseEntity::setMerits);
-
+    SOL_REGISTER("getBaseExp", CLuaBaseEntity::getBaseExp);
+    SOL_REGISTER("getJobExp", CLuaBaseEntity::getJobExp);
     SOL_REGISTER("getJobPointLevel", CLuaBaseEntity::getJobPointLevel);
     SOL_REGISTER("addCapacityPoints", CLuaBaseEntity::addCapacityPoints);
     SOL_REGISTER("setCapacityPoints", CLuaBaseEntity::setCapacityPoints);
