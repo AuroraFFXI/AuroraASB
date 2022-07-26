@@ -115,7 +115,145 @@ local function getMapEventParams(player)
     return paramTable
 end
 
+xi.maps.onTrade = function(player, npc, trade)
+    local gil = trade:getGil()
+    local count = trade:getItemCount()
+    local jobdeath = player:getJobDeath()
+    local relevelrate = 1+ (jobdeath / 25)
+    local level = player:getMainLvl()
+
+    if (level == 1) then
+        if (count == 1 and gil >= 200000 and jobdeath >= 75) then
+            player:delGil(200000)
+            player:PrintToPlayer(string.format("You traded 200,000 gil to reobtain level 75!"))
+            player:setLevel(74)
+            player:addExp(1)
+        elseif (count == 1 and gil >= (611350 / relevelrate) and jobdeath >= 70) then
+            player:delGil(611350 / relevelrate)
+            player:PrintToPlayer(string.format("You traded %i gil to reobtain level 70!", (611350 / relevelrate)))
+            player:setLevel(69)
+            player:addExp(1)
+        elseif (count == 1 and gil >= (466350 / relevelrate) and jobdeath >= 65) then
+            player:delGil(466350 / relevelrate)
+            player:PrintToPlayer(string.format("You traded %i gil to reobtain level 65!", (466350 / relevelrate)))
+            player:setLevel(64)
+            player:addExp(1)
+        elseif (count == 1 and gil >= (358550 / relevelrate) and jobdeath >= 60) then
+            player:delGil(358550 / relevelrate)
+            player:PrintToPlayer(string.format("You traded %i gil to reobtain level 60!", (358550 / relevelrate)))
+            player:setLevel(59)
+            player:addExp(1)
+        elseif (count == 1 and gil >= (235550 / relevelrate) and jobdeath >= 50) then
+            player:delGil(235550 / relevelrate)
+            player:PrintToPlayer(string.format("You traded %i gil to reobtain level 50!", (235550 / relevelrate)))
+            player:setLevel(49)
+            player:addExp(1)
+        elseif (count == 1 and gil >= (169850 / relevelrate) and jobdeath >= 40) then
+            player:delGil(169850 / relevelrate)
+            player:PrintToPlayer(string.format("You traded %i gil to reobtain level 40!", (169850 / relevelrate)))
+            player:setLevel(39)
+            player:addExp(1)
+        elseif (count == 1 and gil >= (100550 / relevelrate) and jobdeath >= 30) then
+            player:delGil(100550 / relevelrate)
+            player:PrintToPlayer(string.format("You traded %i gil to reobtain level 30!", (100550 / relevelrate)))
+            player:setLevel(29)
+            player:addExp(1)
+        elseif (count == 1 and gil >= (48350 / relevelrate) and jobdeath >= 20) then
+            player:delGil(48350 / relevelrate)
+            player:PrintToPlayer(string.format("You traded %i gil to reobtain level 20!", (48350 / relevelrate)))
+            player:setLevel(19)
+            player:addExp(1)
+        elseif (count == 1 and gil >= (13350 / relevelrate) and jobdeath >= 10) then
+            player:delGil(13350 / relevelrate)
+            player:PrintToPlayer(string.format("You traded %i gil to reobtain level 10!", (13350 / relevelrate)))
+            player:setLevel(9)
+            player:addExp(1)
+        elseif (count == 1 and gil <= (13350 / relevelrate) and jobdeath >= 10) then
+            player:PrintToPlayer(string.format("You need to trade more gil to use the Instant Releveling Service."))
+        else
+            player:PrintToPlayer(string.format("What are you trying to pull?"))
+        end
+    else
+        player:PrintToPlayer(string.format("You must be level one to use the Instant Releveling Service."))
+    end
+end
+
 xi.maps.onTrigger = function(player, npc)
+    local jobdeath = player:getJobDeath()
+    local relevelrate = 1+ (jobdeath / 25)
+    local level = player:getMainLvl()
+
+    if (level == 1) then
+        if (jobdeath >= 75) then
+            player:PrintToPlayer(string.format("Here are your Instant Relevel Options for your current job!"))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 75!", 200000))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 70!", (611350 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 65!", (466350 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 60!", (358550 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 50!", (235550 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 40!", (169850 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 30!", (100550 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 20!", (48350 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 10!", (13350 / relevelrate)))
+        elseif (jobdeath >= 70) then
+            player:PrintToPlayer(string.format("Here are your Instant Relevel Options for your current job!"))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 70!", (611350 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 65!", (466350 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 60!", (358550 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 50!", (235550 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 40!", (169850 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 30!", (100550 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 20!", (48350 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 10!", (13350 / relevelrate)))
+        elseif (jobdeath >= 65) then
+            player:PrintToPlayer(string.format("Here are your Instant Relevel Options for your current job!"))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 65!", (466350 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 60!", (358550 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 50!", (235550 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 40!", (169850 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 30!", (100550 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 20!", (48350 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 10!", (13350 / relevelrate)))
+        elseif (jobdeath >= 60) then
+            player:PrintToPlayer(string.format("Here are your Instant Relevel Options for your current job!"))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 60!", (358550 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 50!", (235550 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 40!", (169850 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 30!", (100550 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 20!", (48350 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 10!", (13350 / relevelrate)))
+        elseif (jobdeath >= 50) then
+            player:PrintToPlayer(string.format("Here are your Instant Relevel Options for your current job!"))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 50!", (235550 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 40!", (169850 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 30!", (100550 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 20!", (48350 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 10!", (13350 / relevelrate)))
+        elseif (jobdeath >= 40) then
+            player:PrintToPlayer(string.format("Here are your Instant Relevel Options for your current job!"))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 40!", (169850 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 30!", (100550 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 20!", (48350 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 10!", (13350 / relevelrate)))
+        elseif (jobdeath >= 30) then
+            player:PrintToPlayer(string.format("Here are your Instant Relevel Options for your current job!"))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 30!", (100550 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 20!", (48350 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 10!", (13350 / relevelrate)))
+        elseif (jobdeath >= 20) then
+            player:PrintToPlayer(string.format("Here are your Instant Relevel Options for your current job!"))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 20!", (48350 / relevelrate)))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 10!", (13350 / relevelrate)))
+        elseif (jobdeath >= 10) then
+            player:PrintToPlayer(string.format("Here are your Instant Relevel Options for your current job!"))
+            player:PrintToPlayer(string.format("%i gil to reobtain level 10!", (13350 / relevelrate)))
+        else
+            player:PrintToPlayer(string.format("You must die at a higher level on this job to use the Instant Releveling Service."))
+        end
+    else
+        player:PrintToPlayer(string.format("You must be level one to use the Instant Releveling Service."))
+    end
+    
     local eventParams = getMapEventParams(player)
 
     player:startEvent(mapVendors[npc:getName()], eventParams[1], eventParams[2], eventParams[3])

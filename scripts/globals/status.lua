@@ -2676,6 +2676,10 @@ xi.skill =
     -- Other Skills
     RID          = 58,
     DIG          = 59,
+    HARVEST      = 60,
+    EXCAVATE     = 61,
+    LOG          = 62,
+    MINE         = 63,
     -- 60~63 unused
     -- MAX_SKILLTYPE = 64
 }

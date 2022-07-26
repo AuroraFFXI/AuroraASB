@@ -953,10 +953,12 @@ local function calculateSkillUp(player)
     if math.random(1, math.floor(digsTable[skillRank][1] / 100)) == 1 then
         if realSkill < 1000 then -- Safety check.
             player:setSkillLevel(xi.skill.DIG, realSkill + 1)
-
+            player:PrintToPlayer("Your chocobo digging skill has increased by 0.1!", xi.msg.channel.SYSTEM_3)
+            
             -- Digging does not have test items, so increment rank once player hits 10.0, 20.0, .. 100.0
             if (realSkill + 1) >= (skillRank * 100) + 100 then
                player:setSkillRank(xi.skill.DIG, skillRank + 1)
+               player:PrintToPlayer("Your chocobo digging skill has ranked up!", xi.msg.channel.SYSTEM_3)
             end
         end
     end

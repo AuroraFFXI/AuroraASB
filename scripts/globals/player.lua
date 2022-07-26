@@ -82,7 +82,7 @@ xi.player.charCreate = function(player)
 
     -- add nation- and race-specific ring
     if nation == raceInfo.homeNation and not player:hasItem(nationInfo.ring) then
-        player:addItem(nationInfo.ring)
+        -- player:addItem(nationInfo.ring)
     end
 
     -- unlock advanced jobs

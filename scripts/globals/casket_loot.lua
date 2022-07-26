@@ -31,9 +31,9 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 750, 4151}, -- Echo Drops
             { 350, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
             { 660, 4300}, -- Apple Au Lait
             { 250, 4423}, -- Apple Juice
         },
@@ -102,9 +102,9 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 750, 4151}, -- Echo Drops
             { 350, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
             { 660, 4300}, -- Apple Au Lait
             { 250, 4423}, -- Apple Juice
         },
@@ -173,9 +173,9 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 750, 4151}, -- Echo Drops
             { 350, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
             { 240, 4300}, -- Apple Au Lait
             { 660, 4423}, -- Apple Juice
         },
@@ -244,10 +244,10 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 450, 4202}, -- Daedalus Wing
-            { 310, 4206}, -- Catholicon
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 450, 4202}, -- Daedalus Wing
+            -- { 310, 4206}, -- Catholicon
             { 240, 4301}, -- Pear Au Lait
             { 660, 4425}, -- Tomato Juice
         },
@@ -319,10 +319,10 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 450, 4202}, -- Daedalus Wing
-            { 310, 4206}, -- Catholicon
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 450, 4202}, -- Daedalus Wing
+            -- { 310, 4206}, -- Catholicon
             { 240, 4302}, -- Pamama Au Lait
             { 660, 4424}, -- Melon Juice
         },
@@ -394,10 +394,10 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 450, 4202}, -- Daedalus Wing
-            { 310, 4206}, -- Catholicon
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 450, 4202}, -- Daedalus Wing
+            -- { 310, 4206}, -- Catholicon
             { 240, 4302}, -- Pamama Au Lait
             { 660, 4424}, -- Melon Juice
         },
@@ -468,9 +468,9 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
             { 250, 4300}, -- Apple Au Lait
             { 660, 4423}, -- Apple Juice
         },
@@ -541,9 +541,9 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
             { 250, 4300}, -- Apple Au Lait
             { 660, 4423}, -- Apple Juice
         },
@@ -614,9 +614,9 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
             { 240, 4301}, -- Pear Au Lait
             { 660, 4425}, -- Tomato Juice
         },
@@ -687,10 +687,10 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
-            { 220, 4206}, -- Catholicon
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
+            -- { 220, 4206}, -- Catholicon
             { 250, 4302}, -- Pamama Au Lait
             { 660, 4424}, -- Melon Juice
         },
@@ -762,10 +762,10 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
-            { 220, 4206}, -- Catholicon
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
+            -- { 220, 4206}, -- Catholicon
             { 240, 4302}, -- Pamama Au Lait
             { 660, 4424}, -- Melon Juice
 
@@ -837,10 +837,10 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
-            { 220, 4206}, -- Catholicon
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
+            -- { 220, 4206}, -- Catholicon
             { 240, 4302}, -- Pamama au Lait
             { 640, 4424}, -- Melon Juice
         },
@@ -896,10 +896,10 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
-            { 220, 4206}, -- Catholicon
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
+            -- { 220, 4206}, -- Catholicon
             { 240, 4302}, -- Pamama au Lait
             { 660, 4424}, -- Melon Juice
         },
@@ -953,15 +953,15 @@ xi.casket_loot.casketItems =
             { 590, 4137}, -- Super Ether +1
             { 420, 4144}, -- Hi-Elixir
             { 655, 4145}, -- Elixir
-            {  60, 4149}, -- Panacea
+            -- {  60, 4149}, -- Panacea
             { 460, 4155}, -- Remedy
-            { 790, 4202}, -- Daedalus Wing
-            { 490, 4206}, -- Catholicon
-            { 320, 4210}, -- Lethe Water
-            { 225, 4255}, -- Mana Powder
+            -- { 790, 4202}, -- Daedalus Wing
+            -- { 490, 4206}, -- Catholicon
+            -- { 320, 4210}, -- Lethe Water
+            -- { 225, 4255}, -- Mana Powder
             { 360, 4302}, -- Pamama au Lait
             { 540, 4424}, -- Melon Juice
-            { 210, 5322}, -- Healing Powder
+            -- { 210, 5322}, -- Healing Powder
         },
         items =
         {
@@ -1013,10 +1013,10 @@ xi.casket_loot.casketItems =
             {1550, 4150}, -- Eye Drops
             {1650, 4151}, -- Echo Drops
             { 350, 4155}, -- Remedy
-            { 820, 4164}, -- Prism Powder
-            { 840, 4165}, -- Silent Oil
-            { 600, 4202}, -- Daedalus Wing
-            { 250, 4206}, -- Catholicon
+            -- { 820, 4164}, -- Prism Powder
+            -- { 840, 4165}, -- Silent Oil
+            -- { 600, 4202}, -- Daedalus Wing
+            -- { 250, 4206}, -- Catholicon
             { 420, 4302}, -- Pamama au Lait
             { 720, 4424}, -- Melon Juice
         },
@@ -1070,15 +1070,15 @@ xi.casket_loot.casketItems =
             { 590, 4137}, -- Super Ether +1
             { 420, 4144}, -- Hi-Elixir
             { 655, 4145}, -- Elixir
-            {  60, 4149}, -- Panacea
+            -- {  60, 4149}, -- Panacea
             { 460, 4155}, -- Remedy
-            { 790, 4202}, -- Daedalus Wing
-            { 490, 4206}, -- Catholicon
-            { 320, 4210}, -- Lethe Water
-            { 225, 4255}, -- Mana Powder
+            -- { 790, 4202}, -- Daedalus Wing
+            -- { 490, 4206}, -- Catholicon
+            -- { 320, 4210}, -- Lethe Water
+            -- { 225, 4255}, -- Mana Powder
             { 360, 4302}, -- Pamama au Lait
             { 540, 4424}, -- Melon Juice
-            { 210, 5322}, -- Healing Powder
+            -- { 210, 5322}, -- Healing Powder
         },
         items =
         {
@@ -1132,9 +1132,9 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 750, 4151}, -- Echo Drops
             { 350, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
             { 240, 4300}, -- Apple Au Lait
             { 660, 4423}, -- Apple Juice
         },
@@ -1205,9 +1205,9 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 750, 4151}, -- Echo Drops
             { 350, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
             { 240, 4300}, -- Apple Au Lait
             { 660, 4423}, -- Apple Juice
         },
@@ -1278,9 +1278,9 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 750, 4151}, -- Echo Drops
             { 350, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
             { 240, 4301}, -- Pear au Lait
             { 660, 4425}, -- Tomato Juice
         },
@@ -1350,9 +1350,9 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 750, 4151}, -- Echo Drops
             { 350, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
             { 240, 4301}, -- Pear au Lait
             { 660, 4425}, -- Tomato Juice
         },
@@ -1423,10 +1423,10 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
-            { 220, 4206}, -- Catholicon
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
+            -- { 220, 4206}, -- Catholicon
             { 430, 4302}, -- Pamama au Lait
             { 660, 4424}, -- Melon Juice
         },
@@ -1498,10 +1498,10 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
-            { 220, 4206}, -- Catholicon
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
+            -- { 220, 4206}, -- Catholicon
             { 430, 4302}, -- Pamama au Lait
             { 660, 4424}, -- Melon Juice
         },
@@ -1572,10 +1572,10 @@ xi.casket_loot.casketItems =
             {1550, 4150}, -- Eye Drops
             {1650, 4151}, -- Echo Drops
             { 350, 4155}, -- Remedy
-            { 820, 4164}, -- Prism Powder
-            { 840, 4165}, -- Silent Oil
-            { 600, 4202}, -- Daedalus Wing
-            { 250, 4206}, -- Catholicon
+            -- { 820, 4164}, -- Prism Powder
+            -- { 840, 4165}, -- Silent Oil
+            -- { 600, 4202}, -- Daedalus Wing
+            -- { 250, 4206}, -- Catholicon
             { 420, 4302}, -- Pamama au Lait
             { 720, 4424}, -- Melon Juice
         },
@@ -1628,15 +1628,15 @@ xi.casket_loot.casketItems =
             { 590, 4137}, -- Super Ether +1
             { 420, 4144}, -- Hi-Elixir
             { 655, 4145}, -- Elixir
-            {  60, 4149}, -- Panacea
+            -- {  60, 4149}, -- Panacea
             { 460, 4155}, -- Remedy
-            { 790, 4202}, -- Daedalus Wing
-            { 490, 4206}, -- Catholicon
-            { 320, 4210}, -- Lethe Water
-            { 225, 4255}, -- Mana Powder
+            -- { 790, 4202}, -- Daedalus Wing
+            -- { 490, 4206}, -- Catholicon
+            -- { 320, 4210}, -- Lethe Water
+            -- { 225, 4255}, -- Mana Powder
             { 360, 4302}, -- Pamama au Lait
             { 540, 4424}, -- Melon Juice
-            { 210, 5322}, -- Healing Powder
+            -- { 210, 5322}, -- Healing Powder
         },
         items =
         {
@@ -1689,10 +1689,10 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
-            { 220, 4206}, -- Catholicon
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
+            -- { 220, 4206}, -- Catholicon
             { 430, 4302}, -- Pamama au Lait
             { 660, 4424}, -- Melon Juice
         },
@@ -1744,10 +1744,10 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
-            { 220, 4206}, -- Catholicon
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
+            -- { 220, 4206}, -- Catholicon
             { 430, 4302}, -- Pamama au Lait
             { 660, 4424}, -- Melon Juice
         },
@@ -1805,10 +1805,10 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
-            { 220, 4206}, -- Catholicon
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
+            -- { 220, 4206}, -- Catholicon
             { 430, 4302}, -- Pamama au Lait
             { 660, 4424}, -- Melon Juice
         },
@@ -1865,10 +1865,10 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
-            { 220, 4206}, -- Catholicon
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
+            -- { 220, 4206}, -- Catholicon
             { 430, 4302}, -- Pamama au Lait
             { 660, 4424}, -- Melon Juice
         },
@@ -1937,15 +1937,15 @@ xi.casket_loot.casketItems =
             { 590, 4137}, -- Super Ether +1
             { 420, 4144}, -- Hi-Elixir
             { 655, 4145}, -- Elixir
-            {  60, 4149}, -- Panacea
+            -- {  60, 4149}, -- Panacea
             { 460, 4155}, -- Remedy
-            { 790, 4202}, -- Daedalus Wing
-            { 490, 4206}, -- Catholicon
-            { 320, 4210}, -- Lethe Water
-            { 225, 4255}, -- Mana Powder
+            -- { 790, 4202}, -- Daedalus Wing
+            -- { 490, 4206}, -- Catholicon
+            -- { 320, 4210}, -- Lethe Water
+            -- { 225, 4255}, -- Mana Powder
             { 360, 4302}, -- Pamama au Lait
             { 540, 4424}, -- Melon Juice
-            { 210, 5322}, -- Healing Powder
+            -- { 210, 5322}, -- Healing Powder
         },
         items =
         {
@@ -1999,15 +1999,15 @@ xi.casket_loot.casketItems =
             { 590, 4137}, -- Super Ether +1
             { 420, 4144}, -- Hi-Elixir
             { 655, 4145}, -- Elixir
-            {  60, 4149}, -- Panacea
+            -- {  60, 4149}, -- Panacea
             { 460, 4155}, -- Remedy
-            { 790, 4202}, -- Daedalus Wing
-            { 490, 4206}, -- Catholicon
-            { 320, 4210}, -- Lethe Water
-            { 225, 4255}, -- Mana Powder
+            -- { 790, 4202}, -- Daedalus Wing
+            -- { 490, 4206}, -- Catholicon
+            -- { 320, 4210}, -- Lethe Water
+            -- { 225, 4255}, -- Mana Powder
             { 360, 4302}, -- Pamama au Lait
             { 540, 4424}, -- Melon Juice
-            { 210, 5322}, -- Healing Powder
+            -- { 210, 5322}, -- Healing Powder
         },
         items =
         {
@@ -2057,15 +2057,15 @@ xi.casket_loot.casketItems =
             { 590, 4137}, -- Super Ether +1
             { 420, 4144}, -- Hi-Elixir
             { 655, 4145}, -- Elixir
-            {  60, 4149}, -- Panacea
+            -- {  60, 4149}, -- Panacea
             { 460, 4155}, -- Remedy
-            { 790, 4202}, -- Daedalus Wing
-            { 490, 4206}, -- Catholicon
-            { 320, 4210}, -- Lethe Water
-            { 225, 4255}, -- Mana Powder
+            -- { 790, 4202}, -- Daedalus Wing
+            -- { 490, 4206}, -- Catholicon
+            -- { 320, 4210}, -- Lethe Water
+            -- { 225, 4255}, -- Mana Powder
             { 360, 4302}, -- Pamama au Lait
             { 540, 4424}, -- Melon Juice
-            { 210, 5322}, -- Healing Powder
+            -- { 210, 5322}, -- Healing Powder
         },
         items =
         {
@@ -2104,31 +2104,19 @@ xi.casket_loot.casketItems =
         -----------------------------------
         -- {weight, itemId}
         -----------------------------------
-            { 900, 4202}, -- Daedalus Wing
-            { 500, 4206}, -- Catholicon
-            { 300, 4255}, -- Mana Powder
-            { 450, 5322}, -- Healing Powder
-            { 320, 5393}, -- Monarch's Drink
-            { 650, 5394}, -- Gnostic's Drink
-            { 430, 5395}, -- Cleric's Drink
-            {1000, 5433}, -- Dusty Elixir
-            { 690, 5439}, -- Vicar's Drink
-            { 250, 5440}, -- Dusty Wing
-            {2000, 5824}, -- Lucid Potion I
-            {1900, 5825}, -- Lucid Potion II
-            {1200, 5826}, -- Lucid Potion III
-            { 730, 5832}, -- Healing Mist
-            { 420, 5833}, -- Mana Mist
-            {  10, 5834}, -- Lucid Wings I
-            { 875, 5835}, -- Healing Salve I
-            { 210, 5836}, -- Healing Salve II
-            { 920, 5837}, -- Clear Salve I
-            { 190, 5838}, -- Clear Salve II
-            { 310, 5839}, -- Stalwart's Tonic
-            { 205, 5840}, -- Stalwart's Gambir
-            { 410, 5841}, -- Ascetic's Tonic
-            { 305, 5842}, -- Ascetic's Gambir
-            { 200, 5845}, -- Fanatic's Tonic
+            {1060, 4117}, -- Hi-Potion +1
+            { 700, 4118}, -- Hi-Potion +2
+            { 230, 4119}, -- Hi-Potion +3
+            {1020, 4133}, -- Hi-Ether +1
+            { 800, 4134}, -- Hi-Ether +2
+            { 240, 4135}, -- Hi-Ether +3
+            { 900, 4145}, -- Elixir
+            { 820, 4148}, -- Antidote
+            { 730, 4150}, -- Eye Drops
+            { 850, 4151}, -- Echo Drops
+            { 650, 4155}, -- Remedy
+            { 430, 4302}, -- Pamama au Lait
+            { 660, 4424}, -- Melon Juice
         },
         items =
         {
@@ -2186,10 +2174,10 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
-            { 220, 4206}, -- Catholicon
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
+            -- { 220, 4206}, -- Catholicon
             { 430, 4302}, -- Pamama au Lait
             { 660, 4424}, -- Melon Juice
         },
@@ -2244,10 +2232,10 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
-            { 220, 4206}, -- Catholicon
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
+            -- { 220, 4206}, -- Catholicon
             { 430, 4302}, -- Pamama au Lait
             { 660, 4424}, -- Melon Juice
         },
@@ -2288,10 +2276,10 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
-            { 220, 4206}, -- Catholicon
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
+            -- { 220, 4206}, -- Catholicon
             { 430, 4302}, -- Pamama au Lait
             { 660, 4424}, -- Melon Juice
         },
@@ -2341,15 +2329,15 @@ xi.casket_loot.casketItems =
             { 590, 4137}, -- Super Ether +1
             { 420, 4144}, -- Hi-Elixir
             { 655, 4145}, -- Elixir
-            {  60, 4149}, -- Panacea
+            -- {  60, 4149}, -- Panacea
             { 460, 4155}, -- Remedy
-            { 790, 4202}, -- Daedalus Wing
-            { 490, 4206}, -- Catholicon
-            { 320, 4210}, -- Lethe Water
-            { 225, 4255}, -- Mana Powder
+            -- { 790, 4202}, -- Daedalus Wing
+            -- { 490, 4206}, -- Catholicon
+            -- { 320, 4210}, -- Lethe Water
+            -- { 225, 4255}, -- Mana Powder
             { 360, 4302}, -- Pamama au Lait
             { 540, 4424}, -- Melon Juice
-            { 210, 5322}, -- Healing Powder
+            -- { 210, 5322}, -- Healing Powder
         },
         items =
         {
@@ -2409,9 +2397,9 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 750, 4151}, -- Echo Drops
             { 350, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
             { 240, 4301}, -- Pear au Lait
             { 660, 4425}, -- Tomato Juice
         },
@@ -2440,32 +2428,18 @@ xi.casket_loot.casketItems =
         -----------------------------------
         -- {weight, itemId}
         -----------------------------------
-            { 900, 4202}, -- Daedalus Wing
-            { 500, 4206}, -- Catholicon
-            { 300, 4255}, -- Mana Powder
-            { 450, 5322}, -- Healing Powder
-            { 320, 5393}, -- Monarch's Drink
-            { 650, 5394}, -- Gnostic's Drink
-            { 430, 5395}, -- Cleric's Drink
-            {1000, 5433}, -- Dusty Elixir
-            { 690, 5439}, -- Vicar's Drink
-            { 250, 5440}, -- Dusty Wing
-            {2000, 5824}, -- Lucid Potion I
-            {1900, 5825}, -- Lucid Potion II
-            {1200, 5826}, -- Lucid Potion III
-            { 730, 5832}, -- Healing Mist
-            { 420, 5833}, -- Mana Mist
-            {1010, 5834}, -- Lucid Wings I
-            { 875, 5835}, -- Healing Salve I
-            { 210, 5836}, -- Healing Salve II
-            { 920, 5837}, -- Clear Salve I
-            { 190, 5838}, -- Clear Salve II
-            { 310, 5839}, -- Stalwart's Tonic
-            { 205, 5840}, -- Stalwart's Gambir
-            { 410, 5841}, -- Ascetic's Tonic
-            { 305, 5842}, -- Ascetic's Gambir
-            { 310, 5843}, -- Champion's Tonic
-            { 200, 5845}, -- Fanatic's Tonic
+            {1100, 4118}, -- Hi-Potion +2
+            {1000, 4119}, -- Hi-Potion +3
+            { 800, 4120}, -- X-Potion
+            { 600, 4121}, -- X-Potion +1
+            {1040, 4135}, -- Hi-Ether +3
+            { 790, 4136}, -- Super Ether
+            { 590, 4137}, -- Super Ether +1
+            { 420, 4144}, -- Hi-Elixir
+            { 655, 4145}, -- Elixir
+            { 460, 4155}, -- Remedy
+            { 360, 4302}, -- Pamama au Lait
+            { 540, 4424}, -- Melon Juice
         },
         items =
         {
@@ -2509,32 +2483,18 @@ xi.casket_loot.casketItems =
         -----------------------------------
         -- {weight, itemId}
         -----------------------------------
-            { 900, 4202}, -- Daedalus Wing
-            { 500, 4206}, -- Catholicon
-            { 300, 4255}, -- Mana Powder
-            { 450, 5322}, -- Healing Powder
-            { 320, 5393}, -- Monarch's Drink
-            { 650, 5394}, -- Gnostic's Drink
-            { 430, 5395}, -- Cleric's Drink
-            {1000, 5433}, -- Dusty Elixir
-            { 690, 5439}, -- Vicar's Drink
-            { 250, 5440}, -- Dusty Wing
-            {2000, 5824}, -- Lucid Potion I
-            {1900, 5825}, -- Lucid Potion II
-            {1200, 5826}, -- Lucid Potion III
-            { 730, 5832}, -- Healing Mist
-            { 420, 5833}, -- Mana Mist
-            {1010, 5834}, -- Lucid Wings I
-            { 875, 5835}, -- Healing Salve I
-            { 210, 5836}, -- Healing Salve II
-            { 920, 5837}, -- Clear Salve I
-            { 190, 5838}, -- Clear Salve II
-            { 310, 5839}, -- Stalwart's Tonic
-            { 205, 5840}, -- Stalwart's Gambir
-            { 410, 5841}, -- Ascetic's Tonic
-            { 305, 5842}, -- Ascetic's Gambir
-            { 310, 5843}, -- Champion's Tonic
-            { 200, 5845}, -- Fanatic's Tonic
+            {1100, 4118}, -- Hi-Potion +2
+            {1000, 4119}, -- Hi-Potion +3
+            { 800, 4120}, -- X-Potion
+            { 600, 4121}, -- X-Potion +1
+            {1040, 4135}, -- Hi-Ether +3
+            { 790, 4136}, -- Super Ether
+            { 590, 4137}, -- Super Ether +1
+            { 420, 4144}, -- Hi-Elixir
+            { 655, 4145}, -- Elixir
+            { 460, 4155}, -- Remedy
+            { 360, 4302}, -- Pamama au Lait
+            { 540, 4424}, -- Melon Juice
         },
         items =
         {
@@ -2600,32 +2560,19 @@ xi.casket_loot.casketItems =
         -----------------------------------
         -- {weight, itemId}
         -----------------------------------
-            { 900, 4202}, -- Daedalus Wing
-            { 500, 4206}, -- Catholicon
-            { 300, 4255}, -- Mana Powder
-            { 450, 5322}, -- Healing Powder
-            { 320, 5393}, -- Monarch's Drink
-            { 650, 5394}, -- Gnostic's Drink
-            { 430, 5395}, -- Cleric's Drink
-            {1000, 5433}, -- Dusty Elixir
-            { 690, 5439}, -- Vicar's Drink
-            { 250, 5440}, -- Dusty Wing
-            {2000, 5824}, -- Lucid Potion I
-            {1900, 5825}, -- Lucid Potion II
-            {1200, 5826}, -- Lucid Potion III
-            { 730, 5832}, -- Healing Mist
-            { 420, 5833}, -- Mana Mist
-            {1010, 5834}, -- Lucid Wings I
-            { 875, 5835}, -- Healing Salve I
-            { 210, 5836}, -- Healing Salve II
-            { 920, 5837}, -- Clear Salve I
-            { 190, 5838}, -- Clear Salve II
-            { 310, 5839}, -- Stalwart's Tonic
-            { 205, 5840}, -- Stalwart's Gambir
-            { 410, 5841}, -- Ascetic's Tonic
-            { 305, 5842}, -- Ascetic's Gambir
-            { 310, 5843}, -- Champion's Tonic
-            { 200, 5845}, -- Fanatic's Tonic
+            {1060, 4112}, -- Potion
+            { 740, 4113}, -- Potion +1
+            { 700, 4114}, -- Potion +2
+            { 800, 4128}, -- Ether
+            { 430, 4129}, -- Ether +1
+            {  50, 4130}, -- Ether +2
+            { 900, 4145}, -- Elixer
+            { 820, 4148}, -- Antidote
+            { 730, 4150}, -- Eye Drops
+            { 850, 4151}, -- Echo Drops
+            { 650, 4155}, -- Remedy
+            { 250, 4300}, -- Apple Au Lait
+            { 660, 4423}, -- Apple Juice
         },
         itemsLow =
         {
@@ -2725,9 +2672,9 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
             { 250, 4300}, -- Apple Au Lait
             { 660, 4423}, -- Apple Juice
         },
@@ -2736,32 +2683,19 @@ xi.casket_loot.casketItems =
         -----------------------------------
         -- {weight, itemId}
         -----------------------------------
-            { 900, 4202}, -- Daedalus Wing
-            { 500, 4206}, -- Catholicon
-            { 300, 4255}, -- Mana Powder
-            { 450, 5322}, -- Healing Powder
-            { 320, 5393}, -- Monarch's Drink
-            { 650, 5394}, -- Gnostic's Drink
-            { 430, 5395}, -- Cleric's Drink
-            {1000, 5433}, -- Dusty Elixir
-            { 690, 5439}, -- Vicar's Drink
-            { 250, 5440}, -- Dusty Wing
-            {2000, 5824}, -- Lucid Potion I
-            {1900, 5825}, -- Lucid Potion II
-            {1200, 5826}, -- Lucid Potion III
-            { 730, 5832}, -- Healing Mist
-            { 420, 5833}, -- Mana Mist
-            {1010, 5834}, -- Lucid Wings I
-            { 875, 5835}, -- Healing Salve I
-            { 210, 5836}, -- Healing Salve II
-            { 920, 5837}, -- Clear Salve I
-            { 190, 5838}, -- Clear Salve II
-            { 310, 5839}, -- Stalwart's Tonic
-            { 205, 5840}, -- Stalwart's Gambir
-            { 410, 5841}, -- Ascetic's Tonic
-            { 305, 5842}, -- Ascetic's Gambir
-            { 310, 5843}, -- Champion's Tonic
-            { 200, 5845}, -- Fanatic's Tonic
+            {1060, 4112}, -- Potion
+            { 740, 4113}, -- Potion +1
+            { 700, 4114}, -- Potion +2
+            { 800, 4128}, -- Ether
+            { 430, 4129}, -- Ether +1
+            {  50, 4130}, -- Ether +2
+            { 900, 4145}, -- Elixer
+            { 820, 4148}, -- Antidote
+            { 730, 4150}, -- Eye Drops
+            { 850, 4151}, -- Echo Drops
+            { 650, 4155}, -- Remedy
+            { 250, 4300}, -- Apple Au Lait
+            { 660, 4423}, -- Apple Juice
         },
         itemsLow =
         {
@@ -2826,32 +2760,18 @@ xi.casket_loot.casketItems =
         -----------------------------------
         -- {weight, itemId}
         -----------------------------------
-            { 900, 4202}, -- Daedalus Wing
-            { 500, 4206}, -- Catholicon
-            { 300, 4255}, -- Mana Powder
-            { 450, 5322}, -- Healing Powder
-            { 320, 5393}, -- Monarch's Drink
-            { 650, 5394}, -- Gnostic's Drink
-            { 430, 5395}, -- Cleric's Drink
-            {1000, 5433}, -- Dusty Elixir
-            { 690, 5439}, -- Vicar's Drink
-            { 250, 5440}, -- Dusty Wing
-            {2000, 5824}, -- Lucid Potion I
-            {1900, 5825}, -- Lucid Potion II
-            {1200, 5826}, -- Lucid Potion III
-            { 730, 5832}, -- Healing Mist
-            { 420, 5833}, -- Mana Mist
-            {1010, 5834}, -- Lucid Wings I
-            { 875, 5835}, -- Healing Salve I
-            { 210, 5836}, -- Healing Salve II
-            { 920, 5837}, -- Clear Salve I
-            { 190, 5838}, -- Clear Salve II
-            { 310, 5839}, -- Stalwart's Tonic
-            { 205, 5840}, -- Stalwart's Gambir
-            { 410, 5841}, -- Ascetic's Tonic
-            { 305, 5842}, -- Ascetic's Gambir
-            { 310, 5843}, -- Champion's Tonic
-            { 200, 5845}, -- Fanatic's Tonic
+            {1100, 4118}, -- Hi-Potion +2
+            {1000, 4119}, -- Hi-Potion +3
+            { 800, 4120}, -- X-Potion
+            { 600, 4121}, -- X-Potion +1
+            {1040, 4135}, -- Hi-Ether +3
+            { 790, 4136}, -- Super Ether
+            { 590, 4137}, -- Super Ether +1
+            { 420, 4144}, -- Hi-Elixir
+            { 655, 4145}, -- Elixir
+            { 460, 4155}, -- Remedy
+            { 360, 4302}, -- Pamama au Lait
+            { 540, 4424}, -- Melon Juice
         },
         items =
         {
@@ -2906,10 +2826,10 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
-            { 220, 4206}, -- Catholicon
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
+            -- { 220, 4206}, -- Catholicon
             { 430, 4302}, -- Pamama au Lait
             { 620, 4424}, -- Melon Juice
         },
@@ -2963,15 +2883,15 @@ xi.casket_loot.casketItems =
             { 420, 4137}, -- Super Ether +1
             { 540, 4144}, -- Hi-Elixir
             {1300, 4145}, -- Elixir
-            {  60, 4149}, -- Panacea
+            -- {  60, 4149}, -- Panacea
             { 980, 4155}, -- Remedy
-            {1670, 4202}, -- Daedalus Wing
-            { 670, 4206}, -- Catholicon
-            { 760, 4210}, -- Lethe Water
-            { 680, 4255}, -- Mana Powder
+            -- {1670, 4202}, -- Daedalus Wing
+            -- { 670, 4206}, -- Catholicon
+            -- { 760, 4210}, -- Lethe Water
+            -- { 680, 4255}, -- Mana Powder
             { 450, 4302}, -- Pamama au Lait
             { 765, 4424}, -- Melon Juice
-            { 340, 5322}, -- Healing Powder
+            -- { 340, 5322}, -- Healing Powder
         },
         items =
         {
@@ -3029,38 +2949,24 @@ xi.casket_loot.casketItems =
     },
     [xi.zone.THE_SHRINE_OF_RUAVITAU] =
     {
-        regionalItems = {11040, 10951}, -- Terminus Earring | Weaver's Torque
+        regionalItems = {10951}, -- Weaver's Torque
         temps =
         {
         -----------------------------------
         -- {weight, itemId}
         -----------------------------------
-            { 900, 4202}, -- Daedalus Wing
-            { 500, 4206}, -- Catholicon
-            { 300, 4255}, -- Mana Powder
-            { 450, 5322}, -- Healing Powder
-            { 320, 5393}, -- Monarch's Drink
-            { 650, 5394}, -- Gnostic's Drink
-            { 430, 5395}, -- Cleric's Drink
-            {1000, 5433}, -- Dusty Elixir
-            { 690, 5439}, -- Vicar's Drink
-            { 250, 5440}, -- Dusty Wing
-            {2000, 5824}, -- Lucid Potion I
-            {1900, 5825}, -- Lucid Potion II
-            {1200, 5826}, -- Lucid Potion III
-            { 730, 5832}, -- Healing Mist
-            { 420, 5833}, -- Mana Mist
-            {1010, 5834}, -- Lucid Wings I
-            { 875, 5835}, -- Healing Salve I
-            { 210, 5836}, -- Healing Salve II
-            { 920, 5837}, -- Clear Salve I
-            { 190, 5838}, -- Clear Salve II
-            { 310, 5839}, -- Stalwart's Tonic
-            { 205, 5840}, -- Stalwart's Gambir
-            { 410, 5841}, -- Ascetic's Tonic
-            { 305, 5842}, -- Ascetic's Gambir
-            { 310, 5843}, -- Champion's Tonic
-            { 200, 5845}, -- Fanatic's Tonic
+            {1100, 4118}, -- Hi-Potion +2
+            {1000, 4119}, -- Hi-Potion +3
+            { 800, 4120}, -- X-Potion
+            { 600, 4121}, -- X-Potion +1
+            {1040, 4135}, -- Hi-Ether +3
+            { 790, 4136}, -- Super Ether
+            { 590, 4137}, -- Super Ether +1
+            { 420, 4144}, -- Hi-Elixir
+            { 655, 4145}, -- Elixir
+            { 460, 4155}, -- Remedy
+            { 360, 4302}, -- Pamama au Lait
+            { 540, 4424}, -- Melon Juice
         },
         items =
         {
@@ -3117,10 +3023,10 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
-            { 220, 4206}, -- Catholicon
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
+            -- { 220, 4206}, -- Catholicon
             { 430, 4302}, -- Pamama au Lait
             { 620, 4424}, -- Melon Juice
         },
@@ -3158,7 +3064,7 @@ xi.casket_loot.casketItems =
     },
     [xi.zone.KING_RANPERRES_TOMB] =
     {
-        regionalItems = {10924}, -- Chocobo Torque
+        regionalItems = {11040, 10924}, -- Terminus Earring | Chocobo Torque
         tempsLow =
         {
         -----------------------------------
@@ -3175,9 +3081,9 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
             { 250, 4300}, -- Apple Au Lait
             { 660, 4423}, -- Apple Juice
         },
@@ -3186,32 +3092,18 @@ xi.casket_loot.casketItems =
         -----------------------------------
         -- {weight, itemId}
         -----------------------------------
-            { 900, 4202}, -- Daedalus Wing
-            { 500, 4206}, -- Catholicon
-            { 300, 4255}, -- Mana Powder
-            { 450, 5322}, -- Healing Powder
-            { 320, 5393}, -- Monarch's Drink
-            { 650, 5394}, -- Gnostic's Drink
-            { 430, 5395}, -- Cleric's Drink
-            {1000, 5433}, -- Dusty Elixir
-            { 690, 5439}, -- Vicar's Drink
-            { 250, 5440}, -- Dusty Wing
-            {2000, 5824}, -- Lucid Potion I
-            {1900, 5825}, -- Lucid Potion II
-            {1200, 5826}, -- Lucid Potion III
-            { 730, 5832}, -- Healing Mist
-            { 420, 5833}, -- Mana Mist
-            {1010, 5834}, -- Lucid Wings I
-            { 875, 5835}, -- Healing Salve I
-            { 210, 5836}, -- Healing Salve II
-            { 920, 5837}, -- Clear Salve I
-            { 190, 5838}, -- Clear Salve II
-            { 310, 5839}, -- Stalwart's Tonic
-            { 205, 5840}, -- Stalwart's Gambir
-            { 410, 5841}, -- Ascetic's Tonic
-            { 305, 5842}, -- Ascetic's Gambir
-            { 310, 5843}, -- Champion's Tonic
-            { 200, 5845}, -- Fanatic's Tonic
+            {1100, 4118}, -- Hi-Potion +2
+            {1000, 4119}, -- Hi-Potion +3
+            { 800, 4120}, -- X-Potion
+            { 600, 4121}, -- X-Potion +1
+            {1040, 4135}, -- Hi-Ether +3
+            { 790, 4136}, -- Super Ether
+            { 590, 4137}, -- Super Ether +1
+            { 420, 4144}, -- Hi-Elixir
+            { 655, 4145}, -- Elixir
+            { 460, 4155}, -- Remedy
+            { 360, 4302}, -- Pamama au Lait
+            { 540, 4424}, -- Melon Juice
         },
         itemsLow =
         {
@@ -3303,9 +3195,9 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
             { 250, 4300}, -- Apple Au Lait
             { 660, 4423}, -- Apple Juice
         },
@@ -3314,32 +3206,19 @@ xi.casket_loot.casketItems =
         -----------------------------------
         -- {weight, itemId}
         -----------------------------------
-            { 900, 4202}, -- Daedalus Wing
-            { 500, 4206}, -- Catholicon
-            { 300, 4255}, -- Mana Powder
-            { 450, 5322}, -- Healing Powder
-            { 320, 5393}, -- Monarch's Drink
-            { 650, 5394}, -- Gnostic's Drink
-            { 430, 5395}, -- Cleric's Drink
-            {1000, 5433}, -- Dusty Elixir
-            { 690, 5439}, -- Vicar's Drink
-            { 250, 5440}, -- Dusty Wing
-            {2000, 5824}, -- Lucid Potion I
-            {1900, 5825}, -- Lucid Potion II
-            {1200, 5826}, -- Lucid Potion III
-            { 730, 5832}, -- Healing Mist
-            { 420, 5833}, -- Mana Mist
-            {1010, 5834}, -- Lucid Wings I
-            { 875, 5835}, -- Healing Salve I
-            { 210, 5836}, -- Healing Salve II
-            { 920, 5837}, -- Clear Salve I
-            { 190, 5838}, -- Clear Salve II
-            { 310, 5839}, -- Stalwart's Tonic
-            { 205, 5840}, -- Stalwart's Gambir
-            { 410, 5841}, -- Ascetic's Tonic
-            { 305, 5842}, -- Ascetic's Gambir
-            { 310, 5843}, -- Champion's Tonic
-            { 200, 5845}, -- Fanatic's Tonic
+            {1060, 4112}, -- Potion
+            { 740, 4113}, -- Potion +1
+            { 700, 4114}, -- Potion +2
+            { 800, 4128}, -- Ether
+            { 430, 4129}, -- Ether +1
+            {  50, 4130}, -- Ether +2
+            { 900, 4145}, -- Elixer
+            { 820, 4148}, -- Antidote
+            { 730, 4150}, -- Eye Drops
+            { 850, 4151}, -- Echo Drops
+            { 650, 4155}, -- Remedy
+            { 250, 4300}, -- Apple Au Lait
+            { 660, 4423}, -- Apple Juice
         },
         itemsLow =
         {
@@ -3394,38 +3273,25 @@ xi.casket_loot.casketItems =
     },
     [xi.zone.INNER_HORUTOTO_RUINS] =
     {
-        regionalItems = {18624}, -- Numen Staff
+        regionalItems = {11041, 18624}, -- Liminus Earring / Numen Staff
         temps =
         {
         -----------------------------------
         -- {weight, itemId}
         -----------------------------------
-            { 900, 4202}, -- Daedalus Wing
-            { 500, 4206}, -- Catholicon
-            { 300, 4255}, -- Mana Powder
-            { 450, 5322}, -- Healing Powder
-            { 320, 5393}, -- Monarch's Drink
-            { 650, 5394}, -- Gnostic's Drink
-            { 430, 5395}, -- Cleric's Drink
-            {1000, 5433}, -- Dusty Elixir
-            { 690, 5439}, -- Vicar's Drink
-            { 250, 5440}, -- Dusty Wing
-            {2000, 5824}, -- Lucid Potion I
-            {1900, 5825}, -- Lucid Potion II
-            {1200, 5826}, -- Lucid Potion III
-            { 730, 5832}, -- Healing Mist
-            { 420, 5833}, -- Mana Mist
-            {1010, 5834}, -- Lucid Wings I
-            { 875, 5835}, -- Healing Salve I
-            { 210, 5836}, -- Healing Salve II
-            { 920, 5837}, -- Clear Salve I
-            { 190, 5838}, -- Clear Salve II
-            { 310, 5839}, -- Stalwart's Tonic
-            { 205, 5840}, -- Stalwart's Gambir
-            { 410, 5841}, -- Ascetic's Tonic
-            { 305, 5842}, -- Ascetic's Gambir
-            { 310, 5843}, -- Champion's Tonic
-            { 200, 5845}, -- Fanatic's Tonic
+            {1060, 4112}, -- Potion
+            { 740, 4113}, -- Potion +1
+            { 700, 4114}, -- Potion +2
+            { 800, 4128}, -- Ether
+            { 430, 4129}, -- Ether +1
+            {  50, 4130}, -- Ether +2
+            { 900, 4145}, -- Elixer
+            { 820, 4148}, -- Antidote
+            { 730, 4150}, -- Eye Drops
+            { 850, 4151}, -- Echo Drops
+            { 650, 4155}, -- Remedy
+            { 250, 4300}, -- Apple Au Lait
+            { 660, 4423}, -- Apple Juice
         },
         items =
         {
@@ -3492,9 +3358,9 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
             { 250, 4300}, -- Apple Au Lait
             { 660, 4423}, -- Apple Juice
         },
@@ -3503,32 +3369,19 @@ xi.casket_loot.casketItems =
         -----------------------------------
         -- {weight, itemId}
         -----------------------------------
-            { 900, 4202}, -- Daedalus Wing
-            { 500, 4206}, -- Catholicon
-            { 300, 4255}, -- Mana Powder
-            { 450, 5322}, -- Healing Powder
-            { 320, 5393}, -- Monarch's Drink
-            { 650, 5394}, -- Gnostic's Drink
-            { 430, 5395}, -- Cleric's Drink
-            {1000, 5433}, -- Dusty Elixir
-            { 690, 5439}, -- Vicar's Drink
-            { 250, 5440}, -- Dusty Wing
-            {2000, 5824}, -- Lucid Potion I
-            {1900, 5825}, -- Lucid Potion II
-            {1200, 5826}, -- Lucid Potion III
-            { 730, 5832}, -- Healing Mist
-            { 420, 5833}, -- Mana Mist
-            {1010, 5834}, -- Lucid Wings I
-            { 875, 5835}, -- Healing Salve I
-            { 210, 5836}, -- Healing Salve II
-            { 920, 5837}, -- Clear Salve I
-            { 190, 5838}, -- Clear Salve II
-            { 310, 5839}, -- Stalwart's Tonic
-            { 205, 5840}, -- Stalwart's Gambir
-            { 410, 5841}, -- Ascetic's Tonic
-            { 305, 5842}, -- Ascetic's Gambir
-            { 310, 5843}, -- Champion's Tonic
-            { 200, 5845}, -- Fanatic's Tonic
+            {1060, 4112}, -- Potion
+            { 740, 4113}, -- Potion +1
+            { 700, 4114}, -- Potion +2
+            { 800, 4128}, -- Ether
+            { 430, 4129}, -- Ether +1
+            {  50, 4130}, -- Ether +2
+            { 900, 4145}, -- Elixer
+            { 820, 4148}, -- Antidote
+            { 730, 4150}, -- Eye Drops
+            { 850, 4151}, -- Echo Drops
+            { 650, 4155}, -- Remedy
+            { 250, 4300}, -- Apple Au Lait
+            { 660, 4423}, -- Apple Juice
         },
         itemsLow =
         {
@@ -3616,9 +3469,9 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
             { 250, 4300}, -- Apple Au Lait
             { 660, 4423}, -- Apple Juice
         },
@@ -3627,32 +3480,19 @@ xi.casket_loot.casketItems =
         -----------------------------------
         -- {weight, itemId}
         -----------------------------------
-            { 900, 4202}, -- Daedalus Wing
-            { 500, 4206}, -- Catholicon
-            { 300, 4255}, -- Mana Powder
-            { 450, 5322}, -- Healing Powder
-            { 320, 5393}, -- Monarch's Drink
-            { 650, 5394}, -- Gnostic's Drink
-            { 430, 5395}, -- Cleric's Drink
-            {1000, 5433}, -- Dusty Elixir
-            { 690, 5439}, -- Vicar's Drink
-            { 250, 5440}, -- Dusty Wing
-            {2000, 5824}, -- Lucid Potion I
-            {1900, 5825}, -- Lucid Potion II
-            {1200, 5826}, -- Lucid Potion III
-            { 730, 5832}, -- Healing Mist
-            { 420, 5833}, -- Mana Mist
-            {1010, 5834}, -- Lucid Wings I
-            { 875, 5835}, -- Healing Salve I
-            { 210, 5836}, -- Healing Salve II
-            { 920, 5837}, -- Clear Salve I
-            { 190, 5838}, -- Clear Salve II
-            { 310, 5839}, -- Stalwart's Tonic
-            { 205, 5840}, -- Stalwart's Gambir
-            { 410, 5841}, -- Ascetic's Tonic
-            { 305, 5842}, -- Ascetic's Gambir
-            { 310, 5843}, -- Champion's Tonic
-            { 200, 5845}, -- Fanatic's Tonic
+            {1060, 4112}, -- Potion
+            { 740, 4113}, -- Potion +1
+            { 700, 4114}, -- Potion +2
+            { 800, 4128}, -- Ether
+            { 430, 4129}, -- Ether +1
+            {  50, 4130}, -- Ether +2
+            { 900, 4145}, -- Elixer
+            { 820, 4148}, -- Antidote
+            { 730, 4150}, -- Eye Drops
+            { 850, 4151}, -- Echo Drops
+            { 650, 4155}, -- Remedy
+            { 250, 4300}, -- Apple Au Lait
+            { 660, 4423}, -- Apple Juice
         },
         itemsLow =
         {
@@ -3741,32 +3581,18 @@ xi.casket_loot.casketItems =
         -----------------------------------
         -- {weight, itemId}
         -----------------------------------
-            { 900, 4202}, -- Daedalus Wing
-            { 500, 4206}, -- Catholicon
-            { 300, 4255}, -- Mana Powder
-            { 450, 5322}, -- Healing Powder
-            { 320, 5393}, -- Monarch's Drink
-            { 650, 5394}, -- Gnostic's Drink
-            { 430, 5395}, -- Cleric's Drink
-            {1000, 5433}, -- Dusty Elixir
-            { 690, 5439}, -- Vicar's Drink
-            { 250, 5440}, -- Dusty Wing
-            {2000, 5824}, -- Lucid Potion I
-            {1900, 5825}, -- Lucid Potion II
-            {1200, 5826}, -- Lucid Potion III
-            { 730, 5832}, -- Healing Mist
-            { 420, 5833}, -- Mana Mist
-            {1010, 5834}, -- Lucid Wings I
-            { 875, 5835}, -- Healing Salve I
-            { 210, 5836}, -- Healing Salve II
-            { 920, 5837}, -- Clear Salve I
-            { 190, 5838}, -- Clear Salve II
-            { 310, 5839}, -- Stalwart's Tonic
-            { 205, 5840}, -- Stalwart's Gambir
-            { 410, 5841}, -- Ascetic's Tonic
-            { 305, 5842}, -- Ascetic's Gambir
-            { 310, 5843}, -- Champion's Tonic
-            { 200, 5845}, -- Fanatic's Tonic
+            {1100, 4118}, -- Hi-Potion +2
+            {1000, 4119}, -- Hi-Potion +3
+            { 800, 4120}, -- X-Potion
+            { 600, 4121}, -- X-Potion +1
+            {1040, 4135}, -- Hi-Ether +3
+            { 790, 4136}, -- Super Ether
+            { 590, 4137}, -- Super Ether +1
+            { 420, 4144}, -- Hi-Elixir
+            { 655, 4145}, -- Elixir
+            { 460, 4155}, -- Remedy
+            { 360, 4302}, -- Pamama au Lait
+            { 540, 4424}, -- Melon Juice
         },
         items =
         {
@@ -3819,9 +3645,9 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
             { 250, 4300}, -- Apple Au Lait
             { 660, 4423}, -- Apple Juice
         },
@@ -3830,32 +3656,19 @@ xi.casket_loot.casketItems =
         -----------------------------------
         -- {weight, itemId}
         -----------------------------------
-            { 900, 4202}, -- Daedalus Wing
-            { 500, 4206}, -- Catholicon
-            { 300, 4255}, -- Mana Powder
-            { 450, 5322}, -- Healing Powder
-            { 320, 5393}, -- Monarch's Drink
-            { 650, 5394}, -- Gnostic's Drink
-            { 430, 5395}, -- Cleric's Drink
-            {1000, 5433}, -- Dusty Elixir
-            { 690, 5439}, -- Vicar's Drink
-            { 250, 5440}, -- Dusty Wing
-            {2000, 5824}, -- Lucid Potion I
-            {1900, 5825}, -- Lucid Potion II
-            {1200, 5826}, -- Lucid Potion III
-            { 730, 5832}, -- Healing Mist
-            { 420, 5833}, -- Mana Mist
-            {1010, 5834}, -- Lucid Wings I
-            { 875, 5835}, -- Healing Salve I
-            { 210, 5836}, -- Healing Salve II
-            { 920, 5837}, -- Clear Salve I
-            { 190, 5838}, -- Clear Salve II
-            { 310, 5839}, -- Stalwart's Tonic
-            { 205, 5840}, -- Stalwart's Gambir
-            { 410, 5841}, -- Ascetic's Tonic
-            { 305, 5842}, -- Ascetic's Gambir
-            { 310, 5843}, -- Champion's Tonic
-            { 200, 5845}, -- Fanatic's Tonic
+            {1060, 4112}, -- Potion
+            { 740, 4113}, -- Potion +1
+            { 700, 4114}, -- Potion +2
+            { 800, 4128}, -- Ether
+            { 430, 4129}, -- Ether +1
+            {  50, 4130}, -- Ether +2
+            { 900, 4145}, -- Elixer
+            { 820, 4148}, -- Antidote
+            { 730, 4150}, -- Eye Drops
+            { 850, 4151}, -- Echo Drops
+            { 650, 4155}, -- Remedy
+            { 250, 4300}, -- Apple Au Lait
+            { 660, 4423}, -- Apple Juice
         },
         itemsLow =
         {
@@ -3933,32 +3746,19 @@ xi.casket_loot.casketItems =
         -----------------------------------
         -- {weight, itemId}
         -----------------------------------
-            { 900, 4202}, -- Daedalus Wing
-            { 500, 4206}, -- Catholicon
-            { 300, 4255}, -- Mana Powder
-            { 450, 5322}, -- Healing Powder
-            { 320, 5393}, -- Monarch's Drink
-            { 650, 5394}, -- Gnostic's Drink
-            { 430, 5395}, -- Cleric's Drink
-            {1000, 5433}, -- Dusty Elixir
-            { 690, 5439}, -- Vicar's Drink
-            { 250, 5440}, -- Dusty Wing
-            {2000, 5824}, -- Lucid Potion I
-            {1900, 5825}, -- Lucid Potion II
-            {1200, 5826}, -- Lucid Potion III
-            { 730, 5832}, -- Healing Mist
-            { 420, 5833}, -- Mana Mist
-            {1010, 5834}, -- Lucid Wings I
-            { 875, 5835}, -- Healing Salve I
-            { 210, 5836}, -- Healing Salve II
-            { 920, 5837}, -- Clear Salve I
-            { 190, 5838}, -- Clear Salve II
-            { 310, 5839}, -- Stalwart's Tonic
-            { 205, 5840}, -- Stalwart's Gambir
-            { 410, 5841}, -- Ascetic's Tonic
-            { 305, 5842}, -- Ascetic's Gambir
-            { 310, 5843}, -- Champion's Tonic
-            { 200, 5845}, -- Fanatic's Tonic
+            {1060, 4117}, -- Hi-Potion +1
+            { 700, 4118}, -- Hi-Potion +2
+            { 230, 4119}, -- Hi-Potion +3
+            {1020, 4133}, -- Hi-Ether +1
+            { 800, 4134}, -- Hi-Ether +2
+            { 240, 4135}, -- Hi-Ether +3
+            { 900, 4145}, -- Elixir
+            { 820, 4148}, -- Antidote
+            { 730, 4150}, -- Eye Drops
+            { 850, 4151}, -- Echo Drops
+            { 650, 4155}, -- Remedy
+            { 430, 4302}, -- Pamama au Lait
+            { 620, 4424}, -- Melon Juice
         },
         items =
         {
@@ -4011,9 +3811,9 @@ xi.casket_loot.casketItems =
             { 730, 4150}, -- Eye Drops
             { 850, 4151}, -- Echo Drops
             { 650, 4155}, -- Remedy
-            {1020, 4164}, -- Prism Powder
-            { 940, 4165}, -- Silent Oil
-            { 420, 4202}, -- Daedalus Wing
+            -- {1020, 4164}, -- Prism Powder
+            -- { 940, 4165}, -- Silent Oil
+            -- { 420, 4202}, -- Daedalus Wing
             { 250, 4300}, -- Apple Au Lait
             { 660, 4423}, -- Apple Juice
         },
@@ -4022,32 +3822,19 @@ xi.casket_loot.casketItems =
         -----------------------------------
         -- {weight, itemId}
         -----------------------------------
-            { 900, 4202}, -- Daedalus Wing
-            { 500, 4206}, -- Catholicon
-            { 300, 4255}, -- Mana Powder
-            { 450, 5322}, -- Healing Powder
-            { 320, 5393}, -- Monarch's Drink
-            { 650, 5394}, -- Gnostic's Drink
-            { 430, 5395}, -- Cleric's Drink
-            {1000, 5433}, -- Dusty Elixir
-            { 690, 5439}, -- Vicar's Drink
-            { 250, 5440}, -- Dusty Wing
-            {2000, 5824}, -- Lucid Potion I
-            {1900, 5825}, -- Lucid Potion II
-            {1200, 5826}, -- Lucid Potion III
-            { 730, 5832}, -- Healing Mist
-            { 420, 5833}, -- Mana Mist
-            {1010, 5834}, -- Lucid Wings I
-            { 875, 5835}, -- Healing Salve I
-            { 210, 5836}, -- Healing Salve II
-            { 920, 5837}, -- Clear Salve I
-            { 190, 5838}, -- Clear Salve II
-            { 310, 5839}, -- Stalwart's Tonic
-            { 205, 5840}, -- Stalwart's Gambir
-            { 410, 5841}, -- Ascetic's Tonic
-            { 305, 5842}, -- Ascetic's Gambir
-            { 310, 5843}, -- Champion's Tonic
-            { 200, 5845}, -- Fanatic's Tonic
+            {1060, 4112}, -- Potion
+            { 740, 4113}, -- Potion +1
+            { 700, 4114}, -- Potion +2
+            { 800, 4128}, -- Ether
+            { 430, 4129}, -- Ether +1
+            {  50, 4130}, -- Ether +2
+            { 900, 4145}, -- Elixer
+            { 820, 4148}, -- Antidote
+            { 730, 4150}, -- Eye Drops
+            { 850, 4151}, -- Echo Drops
+            { 650, 4155}, -- Remedy
+            { 250, 4300}, -- Apple Au Lait
+            { 660, 4423}, -- Apple Juice
         },
         itemsLow =
         {
@@ -4125,32 +3912,19 @@ xi.casket_loot.casketItems =
         -----------------------------------
         -- {weight, itemId}
         -----------------------------------
-            { 900, 4202}, -- Daedalus Wing
-            { 500, 4206}, -- Catholicon
-            { 300, 4255}, -- Mana Powder
-            { 450, 5322}, -- Healing Powder
-            { 320, 5393}, -- Monarch's Drink
-            { 650, 5394}, -- Gnostic's Drink
-            { 430, 5395}, -- Cleric's Drink
-            {1000, 5433}, -- Dusty Elixir
-            { 690, 5439}, -- Vicar's Drink
-            { 250, 5440}, -- Dusty Wing
-            {2000, 5824}, -- Lucid Potion I
-            {1900, 5825}, -- Lucid Potion II
-            {1200, 5826}, -- Lucid Potion III
-            { 730, 5832}, -- Healing Mist
-            { 420, 5833}, -- Mana Mist
-            {1010, 5834}, -- Lucid Wings I
-            { 875, 5835}, -- Healing Salve I
-            { 210, 5836}, -- Healing Salve II
-            { 920, 5837}, -- Clear Salve I
-            { 190, 5838}, -- Clear Salve II
-            { 310, 5839}, -- Stalwart's Tonic
-            { 205, 5840}, -- Stalwart's Gambir
-            { 410, 5841}, -- Ascetic's Tonic
-            { 305, 5842}, -- Ascetic's Gambir
-            { 310, 5843}, -- Champion's Tonic
-            { 200, 5845}, -- Fanatic's Tonic
+            {1060, 4117}, -- Hi-Potion +1
+            { 700, 4118}, -- Hi-Potion +2
+            { 230, 4119}, -- Hi-Potion +3
+            {1020, 4133}, -- Hi-Ether +1
+            { 800, 4134}, -- Hi-Ether +2
+            { 240, 4135}, -- Hi-Ether +3
+            { 900, 4145}, -- Elixir
+            { 820, 4148}, -- Antidote
+            { 730, 4150}, -- Eye Drops
+            { 850, 4151}, -- Echo Drops
+            { 650, 4155}, -- Remedy
+            { 430, 4302}, -- Pamama au Lait
+            { 620, 4424}, -- Melon Juice
         },
         items =
         {
@@ -4195,32 +3969,19 @@ xi.casket_loot.casketItems =
         -----------------------------------
         -- {weight, itemId}
         -----------------------------------
-            { 900, 4202}, -- Daedalus Wing
-            { 500, 4206}, -- Catholicon
-            { 300, 4255}, -- Mana Powder
-            { 450, 5322}, -- Healing Powder
-            { 320, 5393}, -- Monarch's Drink
-            { 650, 5394}, -- Gnostic's Drink
-            { 430, 5395}, -- Cleric's Drink
-            {1000, 5433}, -- Dusty Elixir
-            { 690, 5439}, -- Vicar's Drink
-            { 250, 5440}, -- Dusty Wing
-            {2000, 5824}, -- Lucid Potion I
-            {1900, 5825}, -- Lucid Potion II
-            {1200, 5826}, -- Lucid Potion III
-            { 730, 5832}, -- Healing Mist
-            { 420, 5833}, -- Mana Mist
-            {1010, 5834}, -- Lucid Wings I
-            { 875, 5835}, -- Healing Salve I
-            { 210, 5836}, -- Healing Salve II
-            { 920, 5837}, -- Clear Salve I
-            { 190, 5838}, -- Clear Salve II
-            { 310, 5839}, -- Stalwart's Tonic
-            { 205, 5840}, -- Stalwart's Gambir
-            { 410, 5841}, -- Ascetic's Tonic
-            { 305, 5842}, -- Ascetic's Gambir
-            { 310, 5843}, -- Champion's Tonic
-            { 200, 5845}, -- Fanatic's Tonic
+            {1060, 4117}, -- Hi-Potion +1
+            { 700, 4118}, -- Hi-Potion +2
+            { 230, 4119}, -- Hi-Potion +3
+            {1020, 4133}, -- Hi-Ether +1
+            { 800, 4134}, -- Hi-Ether +2
+            { 240, 4135}, -- Hi-Ether +3
+            { 900, 4145}, -- Elixir
+            { 820, 4148}, -- Antidote
+            { 730, 4150}, -- Eye Drops
+            { 850, 4151}, -- Echo Drops
+            { 650, 4155}, -- Remedy
+            { 430, 4302}, -- Pamama au Lait
+            { 620, 4424}, -- Melon Juice
         },
         items =
         {
@@ -4271,32 +4032,18 @@ xi.casket_loot.casketItems =
         -----------------------------------
         -- {weight, itemId}
         -----------------------------------
-            { 900, 4202}, -- Daedalus Wing
-            { 500, 4206}, -- Catholicon
-            { 300, 4255}, -- Mana Powder
-            { 450, 5322}, -- Healing Powder
-            { 320, 5393}, -- Monarch's Drink
-            { 650, 5394}, -- Gnostic's Drink
-            { 430, 5395}, -- Cleric's Drink
-            {1000, 5433}, -- Dusty Elixir
-            { 690, 5439}, -- Vicar's Drink
-            { 250, 5440}, -- Dusty Wing
-            {2000, 5824}, -- Lucid Potion I
-            {1900, 5825}, -- Lucid Potion II
-            {1200, 5826}, -- Lucid Potion III
-            { 730, 5832}, -- Healing Mist
-            { 420, 5833}, -- Mana Mist
-            {1010, 5834}, -- Lucid Wings I
-            { 875, 5835}, -- Healing Salve I
-            { 210, 5836}, -- Healing Salve II
-            { 920, 5837}, -- Clear Salve I
-            { 190, 5838}, -- Clear Salve II
-            { 310, 5839}, -- Stalwart's Tonic
-            { 205, 5840}, -- Stalwart's Gambir
-            { 410, 5841}, -- Ascetic's Tonic
-            { 305, 5842}, -- Ascetic's Gambir
-            { 310, 5843}, -- Champion's Tonic
-            { 200, 5845}, -- Fanatic's Tonic
+            {1100, 4118}, -- Hi-Potion +2
+            {1000, 4119}, -- Hi-Potion +3
+            { 800, 4120}, -- X-Potion
+            { 600, 4121}, -- X-Potion +1
+            {1040, 4135}, -- Hi-Ether +3
+            { 790, 4136}, -- Super Ether
+            { 590, 4137}, -- Super Ether +1
+            { 420, 4144}, -- Hi-Elixir
+            { 655, 4145}, -- Elixir
+            { 460, 4155}, -- Remedy
+            { 360, 4302}, -- Pamama au Lait
+            { 540, 4424}, -- Melon Juice
         },
         items =
         {
@@ -4337,38 +4084,24 @@ xi.casket_loot.casketItems =
     },
     [xi.zone.GUSTAV_TUNNEL] =
     {
-        regionalItems = {10955, 11041}, -- Culinarian's Torque | Liminus Earring
+        regionalItems = {10955}, -- Culinarian's Torque
         temps =
         {
         -----------------------------------
         -- {weight, itemId}
         -----------------------------------
-            { 900, 4202}, -- Daedalus Wing
-            { 500, 4206}, -- Catholicon
-            { 300, 4255}, -- Mana Powder
-            { 450, 5322}, -- Healing Powder
-            { 320, 5393}, -- Monarch's Drink
-            { 650, 5394}, -- Gnostic's Drink
-            { 430, 5395}, -- Cleric's Drink
-            {1000, 5433}, -- Dusty Elixir
-            { 690, 5439}, -- Vicar's Drink
-            { 250, 5440}, -- Dusty Wing
-            {2000, 5824}, -- Lucid Potion I
-            {1900, 5825}, -- Lucid Potion II
-            {1200, 5826}, -- Lucid Potion III
-            { 730, 5832}, -- Healing Mist
-            { 420, 5833}, -- Mana Mist
-            {1010, 5834}, -- Lucid Wings I
-            { 875, 5835}, -- Healing Salve I
-            { 210, 5836}, -- Healing Salve II
-            { 920, 5837}, -- Clear Salve I
-            { 190, 5838}, -- Clear Salve II
-            { 310, 5839}, -- Stalwart's Tonic
-            { 205, 5840}, -- Stalwart's Gambir
-            { 410, 5841}, -- Ascetic's Tonic
-            { 305, 5842}, -- Ascetic's Gambir
-            { 310, 5843}, -- Champion's Tonic
-            { 200, 5845}, -- Fanatic's Tonic
+            {1100, 4118}, -- Hi-Potion +2
+            {1000, 4119}, -- Hi-Potion +3
+            { 800, 4120}, -- X-Potion
+            { 600, 4121}, -- X-Potion +1
+            {1040, 4135}, -- Hi-Ether +3
+            { 790, 4136}, -- Super Ether
+            { 590, 4137}, -- Super Ether +1
+            { 420, 4144}, -- Hi-Elixir
+            { 655, 4145}, -- Elixir
+            { 460, 4155}, -- Remedy
+            { 360, 4302}, -- Pamama au Lait
+            { 540, 4424}, -- Melon Juice
         },
         items =
         {
@@ -4415,32 +4148,18 @@ xi.casket_loot.casketItems =
         -----------------------------------
         -- {weight, itemId}
         -----------------------------------
-            { 900, 4202}, -- Daedalus Wing
-            { 500, 4206}, -- Catholicon
-            { 300, 4255}, -- Mana Powder
-            { 450, 5322}, -- Healing Powder
-            { 320, 5393}, -- Monarch's Drink
-            { 650, 5394}, -- Gnostic's Drink
-            { 430, 5395}, -- Cleric's Drink
-            {1000, 5433}, -- Dusty Elixir
-            { 690, 5439}, -- Vicar's Drink
-            { 250, 5440}, -- Dusty Wing
-            {2000, 5824}, -- Lucid Potion I
-            {1900, 5825}, -- Lucid Potion II
-            {1200, 5826}, -- Lucid Potion III
-            { 730, 5832}, -- Healing Mist
-            { 420, 5833}, -- Mana Mist
-            {1010, 5834}, -- Lucid Wings I
-            { 875, 5835}, -- Healing Salve I
-            { 210, 5836}, -- Healing Salve II
-            { 920, 5837}, -- Clear Salve I
-            { 190, 5838}, -- Clear Salve II
-            { 310, 5839}, -- Stalwart's Tonic
-            { 205, 5840}, -- Stalwart's Gambir
-            { 410, 5841}, -- Ascetic's Tonic
-            { 305, 5842}, -- Ascetic's Gambir
-            { 310, 5843}, -- Champion's Tonic
-            { 200, 5845}, -- Fanatic's Tonic
+            {1100, 4118}, -- Hi-Potion +2
+            {1000, 4119}, -- Hi-Potion +3
+            { 800, 4120}, -- X-Potion
+            { 600, 4121}, -- X-Potion +1
+            {1040, 4135}, -- Hi-Ether +3
+            { 790, 4136}, -- Super Ether
+            { 590, 4137}, -- Super Ether +1
+            { 420, 4144}, -- Hi-Elixir
+            { 655, 4145}, -- Elixir
+            { 460, 4155}, -- Remedy
+            { 360, 4302}, -- Pamama au Lait
+            { 540, 4424}, -- Melon Juice
         },
         items =
         {

@@ -15,9 +15,11 @@ spell_object.onMagicCastingCheck = function(caster, target, spell)
 end
 
 spell_object.onSpellCast = function(caster, target, spell)
+    local effect = tpz.effect.DOOM
     if
         target:isUndead() or
         target:hasStatusEffect(xi.effect.MAGIC_SHIELD) or
+        target:hasStatusEffect(effect) or
         -- Todo: DeathRes has no place in the resistance functions so far..
         target:getMod(xi.mod.DEATHRES) > math.random(100)
     then
@@ -25,8 +27,10 @@ spell_object.onSpellCast = function(caster, target, spell)
         return 0
     end
 
-    spell:setMsg(xi.msg.basic.FALL_TO_GROUND)
-    target:setHP(0)
+    -- spell:setMsg(xi.msg.basic.FALL_TO_GROUND)
+    -- target:setHP(0)
+    spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB) -- gains effect
+	target:addStatusEffect(effect, 10, 3, 30)
 
     return 0
 end

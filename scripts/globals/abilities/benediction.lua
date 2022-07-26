@@ -41,7 +41,7 @@ ability_object.onUseAbility = function(player, target, ability)
     if target:hasStatusEffect(xi.effect.DOOM) and power > math.random(1, 100) then
         target:delStatusEffect(xi.effect.DOOM)
     end
-    player:updateEnmityFromCure(target, heal)
+    player:updateEnmityFromCure(target, heal / 10)
     target:addHP(heal)
     target:wakeUp()
 

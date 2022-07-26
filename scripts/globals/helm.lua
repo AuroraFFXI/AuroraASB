@@ -1393,6 +1393,52 @@ local function movePoint(npc, zoneId, info)
     npc:queue(3000, doMove(npc, unpack(point)))
 end
 
+local function calculateSkillUp(player) -- Function is modified from Chocobo Digging
+    local skillRank  = player:getSkillRank(59 + helmType)
+    local realSkill  = player:getCharSkillLevel(59 + helmType)
+
+    local digsTable = -- Era Dig Table
+    {
+        [0] = { 1600},
+        [1] = { 3600},
+        [2] = { 6000},
+        [3] = { 9000},
+        [4] = {12600},
+        [5] = {16200},
+        [6] = {21000},
+        [7] = {27000},
+        [8] = {33000},
+        [9] = {39000},
+    }
+
+    -- local digsTable = -- Limit Break Dig Table
+    -- {
+        -- [0] = { 2000},
+        -- [1] = { 2500},
+        -- [2] = { 3300},
+        -- [3] = { 5000},
+        -- [4] = {10000},
+        -- [5] = {11100},
+        -- [6] = {12500},
+        -- [7] = {14300},
+        -- [8] = {16700},
+        -- [9] = {20000},
+    -- }
+
+    if math.random(1, math.floor(digsTable[skillRank][1] / 100)) == 1 then
+        if realSkill < 1000 then -- Safety check.
+            player:setSkillLevel(59 + helmType, realSkill + 1)
+            player:PrintToPlayer("Your HELM skill has increased by 0.1!", xi.msg.channel.SYSTEM_3)
+            
+            -- Digging does not have test items, so increment rank once player hits 10.0, 20.0, .. 100.0
+            if (realSkill + 1) >= (skillRank * 100) + 100 then
+               player:setSkillRank(59 + helmType, skillRank + 1)
+               player:PrintToPlayer("Your HELM skill has ranked up!", xi.msg.channel.SYSTEM_3)
+            end
+        end
+    end
+end
+
 -----------------------------------
 -- public functions
 -----------------------------------
@@ -1437,12 +1483,17 @@ xi.helm.onTrade = function(player, npc, trade, helmType, csid, func)
 
         -- success! reward item and decrement number of remaining uses on the point
         if item ~= 0 and full == 0 then
+            calculateSkillUp(player, helmType)
             player:addItem(item)
 
-            local uses = (npc:getLocalVar("uses") - 1) % 4
-            npc:setLocalVar("uses", uses)
-            if uses == 0 then
-                movePoint(npc, zoneId, info)
+            if math.random(100) > player:getCharSkillLevel(59 + helmType) / 40 then
+                local uses = (npc:getLocalVar("uses") - 1) % 4
+                npc:setLocalVar("uses", uses)
+                if uses == 0 then
+                    movePoint(npc, zoneId, info)
+                end
+            else
+                player:PrintToPlayer("Critical Strike!", xi.msg.channel.SYSTEM_3)
             end
 
             player:triggerRoeEvent(xi.roe.triggers.helmSuccess, {["skillType"] = helmType})
