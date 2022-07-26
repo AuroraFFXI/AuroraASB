@@ -46,6 +46,7 @@ battlefield_object.onEventFinish = function(player, csid, option)
             player:setCharVar("maatsCap", utils.mask.setBit(maatsCap, pjob - 1, true))
         end
 
+        player:setJobMaat(pjob)
         player:addTitle(xi.title.MAAT_MASHER)
     end
 end

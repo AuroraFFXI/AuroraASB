@@ -29,7 +29,13 @@ entity.onTrigger = function(player, npc)
         4868, 77600,    -- Scroll of Dispell
         4720, 27000,    -- Scroll of Flash
         4750, 99375,    -- Scroll of Reraise III
-        4715, 28500     -- Scroll of Reprisal
+        -- 4715, 28500     -- Scroll of Reprisal
+        4737, 119240,   -- Scroll of Protecra V
+        4742, 124540,   -- Scroll of Shellra V
+        4633, 139135,   -- Scroll of Dia III
+        6569, 139135,   -- Scroll of Slow II
+        6570, 139135,   -- Scroll of Paralyze II
+        6571, 139135,   -- Scroll of Phalanx II
     }
 
     player:showText(npc, ID.text.ZAFIF_SHOP_DIALOG)

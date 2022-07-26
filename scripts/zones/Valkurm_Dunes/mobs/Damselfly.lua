@@ -16,6 +16,10 @@ end
 
 entity.onMobDespawn = function(mob)
     xi.mob.phOnDespawn(mob, ID.mob.VALKURM_EMPEROR_PH, 10, 3600) -- 1 hour
+    
+    if (mob:getID() == 17199434) then
+        UpdateNMSpawnPoint(mob:getID())
+    end
 end
 
 return entity

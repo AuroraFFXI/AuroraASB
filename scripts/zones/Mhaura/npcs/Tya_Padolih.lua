@@ -23,8 +23,8 @@ entity.onTrigger = function(player, npc)
         4744,  5523,    -- Scroll of Invisible
         4745,  2400,    -- Scroll of Sneak
         4746,  1243,    -- Scroll of Deodorize
-        4912, 18032,    -- Scroll of Distract
-        4914, 25038,    -- Scroll of Frazzle
+        -- 4912, 18032,    -- Scroll of Distract
+        -- 4914, 25038,    -- Scroll of Frazzle
     }
 
     player:showText(npc, ID.text.TYAPADOLIH_SHOP_DIALOG)

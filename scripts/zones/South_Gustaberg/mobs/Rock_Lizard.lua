@@ -15,6 +15,10 @@ end
 
 entity.onMobDespawn = function(mob)
     xi.mob.phOnDespawn(mob, ID.mob.LEAPING_LIZZY_PH, 9, 1) -- Pure Lottery
+    
+    if (mob:getID() == 17215867) or (mob:getID() == 17215887) then
+        UpdateNMSpawnPoint(mob:getID())
+    end
 end
 
 return entity

@@ -12,7 +12,7 @@ xi.settings = xi.settings or {}
 xi.settings.main =
 {
     -- Server name (not longer than 15 characters)
-    SERVER_NAME = "Nameless",
+    SERVER_NAME = "Aurora",
 
     SERVER_MESSAGE =
         "Welcome to Aurora, a FFXI Hardcore Experience!" ..

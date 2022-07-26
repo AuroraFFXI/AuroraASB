@@ -8,6 +8,7 @@ require("scripts/globals/maps")
 local entity = {}
 
 entity.onTrade = function(player, npc, trade)
+    xi.maps.onTrade(player, npc, trade)
 end
 
 entity.onTrigger = function(player, npc)

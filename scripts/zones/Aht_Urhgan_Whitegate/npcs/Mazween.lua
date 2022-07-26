@@ -28,8 +28,16 @@ entity.onTrigger = function(player, npc)
         4883, 27000,    -- Absorb-TP
         4854, 30780,    -- Drain II
         4885, 70560,    -- Dread Spikes
-        4886, 44000,    -- Absorb-ACC
-        4856, 79800     -- Aspir II
+        -- 4886, 44000,    -- Absorb-ACC
+        -- 4856, 79800     -- Aspir II
+        4813, 119180,   -- Scroll of Flare II
+        4815, 119180,   -- Scroll of Freeze II
+        4817, 119180,   -- Scroll of Tornado II
+        4819, 119180,   -- Scroll of Quake II
+        4821, 119180,   -- Scroll of Burst II
+        4823, 119180,   -- Scroll of Flood II
+        4840, 139125,   -- Scroll of Bio III
+        4884, 139125,   -- Scroll of Blind II
     }
 
     player:showText(npc, ID.text.MAZWEEN_SHOP_DIALOG)
