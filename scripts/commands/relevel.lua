@@ -15,7 +15,7 @@ function onTrigger(player)
     local relevelrate = 1+ (jobdeath / 25)
     local level = player:getMainLvl()
     
-    if (jobdeath >= 1)
+    if (jobdeath >= 1) then
         player:PrintToPlayer(string.format("%i was the highest death for your current job!", jobdeath))
     end
     

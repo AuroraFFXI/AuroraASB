@@ -26,7 +26,7 @@ xi.settings.main =
 
     -- Enable Expansion (1 = Enabled, 0 = Disabled)
     ENABLE_COP       = 1,
-    ENABLE_TOAU      = 1,
+    ENABLE_TOAU      = 0,
     ENABLE_WOTG      = 0,
     ENABLE_ACP       = 0,
     ENABLE_AMK       = 0,
