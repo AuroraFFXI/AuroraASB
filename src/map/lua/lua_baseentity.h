@@ -320,8 +320,8 @@ public:
     uint8 getJobLevel(uint8 JobID); // Gets character job level for specified JOBTYPE
     void  setJobMaat(uint8 JobID);	// Aurora Adds Maat Kill count for current job
     uint16  getDeathCount();	    // Aurora Gets the number of times a Character has died
-	uint32  getLevelsLost();	    // Aurora Gets the number of levels a Character has lost from death
-	uint8  getJobDeath();	        // Aurora Gets the highest level a character has died at on their current job
+    uint32  getLevelsLost();	    // Aurora Gets the number of levels a Character has lost from death
+    uint8  getJobDeath();	        // Aurora Gets the highest level a character has died at on their current job
     void  setLevel(uint8 level);    // sets the character's level
     void  setsLevel(uint8 slevel);  // sets the character's level
     uint8 getLevelCap();            // genkai
