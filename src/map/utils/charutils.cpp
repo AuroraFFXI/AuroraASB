@@ -4049,26 +4049,26 @@ namespace charutils
             {
                 if ((moblevel - maxlevel + memberlevel) > 0)
                 {
-                    expMod      = (float)GetBaseExp(99, (moblevel + 14 - maxlevel + memberlevel));
+                    exp      = (float)GetBaseExp(99, (moblevel + 14 - maxlevel + memberlevel));
                 }
                 else
                 {
-                    expMod      = 0;
+                    exp      = 0;
                 }
             }
             else if (deathlevel > reallevel) // If Releveling a job
             {
-                expMod      = (float)GetBaseExp(99, (moblevel + 14 + reallevel - maxlevel));
+                exp      = (float)GetBaseExp(99, (moblevel + 14 + reallevel - maxlevel));
             }
             else if (reallevel >= memberlevel)
             {
                 if (reallevel <= (memberlevel + maxsyncgap))
                 {
-                    expMod      = (float)GetBaseExp(99, (moblevel + 14 + reallevel - memberlevel));
+                    exp      = (float)GetBaseExp(99, (moblevel + 14 + reallevel - memberlevel));
                 }
                 else
                 {
-                    expMod      = (float)GetBaseExp(99, (moblevel + 14 + maxsyncgap));
+                    exp      = (float)GetBaseExp(99, (moblevel + 14 + maxsyncgap));
                 }
             }
 

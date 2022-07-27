@@ -1337,17 +1337,19 @@ local function doesToolBreak(player, info)
 
     if roll <= info.settingBreak then
         player:tradeComplete()
+        player:PrintToPlayer(string.format("%i Percent Break Chance!", (info.settingBreak - (player:getMod(mod) / 10))), xi.msg.channel.SYSTEM_3)
         return true
     end
 
     return false
 end
 
-local function pickItem(player, info)
+local function pickItem(player, info, helmType)
     local zoneId = player:getZoneID()
 
     -- found nothing
-    if math.random(100) > info.settingRate then
+    if math.random(100) > (info.settingRate + (player:getCharSkillLevel(59 + helmType) / 40)) then
+        player:PrintToPlayer(string.format("%i Nothing Chance!", (info.settingRate - (player:getCharSkillLevel(59 + helmType) / 40))), xi.msg.channel.SYSTEM_3)
         return 0
     end
 
@@ -1393,7 +1395,7 @@ local function movePoint(npc, zoneId, info)
     npc:queue(3000, doMove(npc, unpack(point)))
 end
 
-local function calculateSkillUp(player) -- Function is modified from Chocobo Digging
+local function calculateSkillUp(player, helmType) -- Function is modified from Chocobo Digging
     local skillRank  = player:getSkillRank(59 + helmType)
     local realSkill  = player:getCharSkillLevel(59 + helmType)
 
@@ -1424,11 +1426,11 @@ local function calculateSkillUp(player) -- Function is modified from Chocobo Dig
         -- [8] = {16700},
         -- [9] = {20000},
     -- }
-
+    player:PrintToPlayer(string.format("Skillup Chance [1 in %i chance]", (math.floor(digsTable[skillRank][1] / 100))), xi.msg.channel.SYSTEM_3)
     if math.random(1, math.floor(digsTable[skillRank][1] / 100)) == 1 then
         if realSkill < 1000 then -- Safety check.
             player:setSkillLevel(59 + helmType, realSkill + 1)
-            player:PrintToPlayer("Your HELM skill has increased by 0.1!", xi.msg.channel.SYSTEM_3)
+            player:PrintToPlayer(string.format("Your HELM skill has increased by 0.1! [1 in %i chance]", (math.floor(digsTable[skillRank][1] / 100))), xi.msg.channel.SYSTEM_3)
             
             -- Digging does not have test items, so increment rank once player hits 10.0, 20.0, .. 100.0
             if (realSkill + 1) >= (skillRank * 100) + 100 then
@@ -1466,10 +1468,11 @@ xi.helm.onTrade = function(player, npc, trade, helmType, csid, func)
 
     if trade:hasItemQty(info.tool, 1) and trade:getItemCount() == 1 then
         -- start event
-        local item  = pickItem(player, info)
+        local item  = pickItem(player, info, helmType)
         local broke = doesToolBreak(player, info) and 1 or 0
         local full  = (player:getFreeSlotsCount() == 0) and 1 or 0
-
+        local crit  = (player:getCharSkillLevel(59 + helmType) / 400) + (player:getMod(info.mod) / 10)
+        
         if csid then
             player:startEvent(csid, item, broke, full)
         end
@@ -1486,14 +1489,14 @@ xi.helm.onTrade = function(player, npc, trade, helmType, csid, func)
             calculateSkillUp(player, helmType)
             player:addItem(item)
 
-            if math.random(100) > player:getCharSkillLevel(59 + helmType) / 40 then
+            if math.random(100) > crit then
                 local uses = (npc:getLocalVar("uses") - 1) % 4
                 npc:setLocalVar("uses", uses)
                 if uses == 0 then
                     movePoint(npc, zoneId, info)
                 end
             else
-                player:PrintToPlayer("Critical Strike!", xi.msg.channel.SYSTEM_3)
+                player:PrintToPlayer(string.format("You performed a Critical Strike! [%i percent chance]", crit), xi.msg.channel.SYSTEM_3)
             end
 
             player:triggerRoeEvent(xi.roe.triggers.helmSuccess, {["skillType"] = helmType})
