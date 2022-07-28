@@ -22,7 +22,10 @@ end
 
 mobskill_object.onMobWeaponSkill = function(target, mob, skill)
     local dmg = target:getHP()
-    target:setHP(0)
+    -- target:setHP(0)
+    spell:setMsg(xi.msg.basic.MAGIC_ENFEEB) -- gains effect
+    target:addStatusEffect(xi.effect.DOOM, 10, 3, 10)
+    
     return dmg
 end
 
