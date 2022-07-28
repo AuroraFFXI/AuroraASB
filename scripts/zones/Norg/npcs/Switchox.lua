@@ -57,11 +57,14 @@ entity.onTrade = function(player, npc, trade)
         elseif (npcUtil.tradeHasExactly(trade, 18852)) then
             npcUtil.giveItem(player, 17440) -- Kraken Club
             player:tradeComplete()
+        else
+            player:PrintToPlayer("Switchox : I no know that is what, try something else.", xi.msg.channel.NS_SAY)
         end
     end
 end
 
 entity.onTrigger = function(player, npc)
+    player:PrintToPlayer("Switchox : Trade me goodies, I make different but also same.", xi.msg.channel.NS_SAY)
 end
 
 entity.onEventUpdate = function(player, csid, option)

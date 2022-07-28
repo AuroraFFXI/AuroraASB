@@ -124,10 +124,10 @@ xi.maps.onTrade = function(player, npc, trade)
 
     if (level == 1) then
         if (count == 1 and gil >= 200000 and jobdeath >= 75) then
-            player:delGil(200000)
             player:PrintToPlayer(string.format("You traded 200,000 gil to reobtain level 75!"))
             player:setLevel(74)
             player:addExp(1)
+            
         elseif (count == 1 and gil >= (611350 / relevelrate) and jobdeath >= 70) then
             player:delGil(611350 / relevelrate)
             player:PrintToPlayer(string.format("You traded %i gil to reobtain level 70!", (611350 / relevelrate)))
