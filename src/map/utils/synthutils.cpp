@@ -28,6 +28,7 @@
 
 #include "../packets/char_skills.h"
 #include "../packets/char_update.h"
+#include "../packets/chat_message.h"
 #include "../packets/inventory_assign.h"
 #include "../packets/inventory_finish.h"
 #include "../packets/inventory_item.h"
@@ -87,6 +88,8 @@ namespace synthutils
 
         if (ret != SQL_ERROR && sql->NumRows() != 0 && sql->NextRow() == SQL_SUCCESS)
         {
+            uint16 Aurorasynthid = (uint16)sql->GetUIntData(10); //Aurora Prep for saving synthID to CharVar
+            
             uint16 KeyItemID = (uint16)sql->GetUIntData(1); // Check if recipe needs KI
 
             if ((KeyItemID == 0) || (charutils::hasKeyItem(PChar, KeyItemID))) // If recipe doesn't need KI OR Player has the required KI
@@ -116,6 +119,34 @@ namespace synthutils
                         return false;
                     }
                 }
+
+                // Aurora Custom SQL Query load
+                const char* fmtQuery = "SELECT skillups, hqtries, hq2tries, hq3tries FROM char_synthesis WHERE charid = %i AND synthid = %i LIMIT 1";
+                
+                int32 ret = sql->Query(fmtQuery, PChar->id, PChar->getCharVar("[Aurora]synthid"));
+                
+                if (ret != SQL_ERROR && sql->NumRows() != 0 && sql->NextRow() == SQL_SUCCESS)
+                {
+                    uint16 Aurorasynthskillups = sql->GetUIntData(0);
+                    uint16 Aurorasynthhqtries = sql->GetUIntData(1);
+                    uint16 Aurorasynthhq2tries = sql->GetUIntData(2);
+                    uint16 Aurorasynthhq3tries = sql->GetUIntData(3);
+                    PChar->setCharVar("[Aurora]synthskillups", Aurorasynthskillups);
+                    PChar->setCharVar("[Aurora]synthhqtries", Aurorasynthhqtries);
+                    PChar->setCharVar("[Aurora]synthhq2tries", Aurorasynthhq2tries);
+                    PChar->setCharVar("[Aurora]synthhq3tries", Aurorasynthhq3tries);
+                    PChar->setCharVar("[Aurora]synthid", Aurorasynthid);
+                }
+                else
+                {
+                    PChar->setCharVar("[Aurora]synthskillups", 0);
+                    PChar->setCharVar("[Aurora]synthhqtries", 0);
+                    PChar->setCharVar("[Aurora]synthhq2tries", 0);
+                    PChar->setCharVar("[Aurora]synthhq3tries", 0);
+                    PChar->setCharVar("[Aurora]synthid", Aurorasynthid);
+                }
+                // End Aurora Custom
+                
                 return true;
             }
         }
@@ -234,6 +265,16 @@ namespace synthutils
         double success   = 0;
         double synthDiff = 0;
 
+        // Aurora: Custom Crafting HQ Rates
+            int16 prevSkillups = 0;
+            int16 hqTries = 0;
+            int16 hq2Tries = 0;
+            int16 hq3Tries = 0;
+            prevSkillups = PChar->getCharVar("[Aurora]synthskillups");
+            hqTries = PChar->getCharVar("[Aurora]synthhqtries");
+            hq2Tries = PChar->getCharVar("[Aurora]synthhq2tries");
+            hq3Tries = PChar->getCharVar("[Aurora]synthhq3tries");
+
         // Section 1: Break handling
         for (uint8 skillID = SKILL_WOODWORKING; skillID <= SKILL_COOKING; ++skillID)
         {
@@ -334,22 +375,22 @@ namespace synthutils
             switch (finalhqtier)
             {
                 case 4: // 1 in 2
-                    chance    = 0.500;
-                    chanceHQ2 = 9.360;
-                    chanceHQ3 = 3.300;
+                    chance    = (0.500 + (hqTries * 0.125));              // Aurora Custom Chance multiplier
+                    chanceHQ2 = (9.360 + (hq2Tries * 2.34));       // Aurora Custom Chance multiplier
+                    chanceHQ3 = (3.300 + (hq3Tries * 0.825));       // Aurora Custom Chance multiplier
                     break;
                 case 3: // 1 in 4
-                    chance    = 0.250;
-                    chanceHQ2 = 5.310;
-                    chanceHQ3 = 2.020;
+                    chance    = (0.250 + (hqTries * 0.03125));             // Aurora Custom Chance multiplier
+                    chanceHQ2 = (5.310 + (hq2Tries * 0.66375));       // Aurora Custom Chance multiplier
+                    chanceHQ3 = (2.020 + (hq3Tries * 0.2525));       // Aurora Custom Chance multiplier
                     break;
-                case 2: // 1 in 9
-                    chance    = 0.066;
-                    chanceHQ2 = 2.720;
+                case 2: // 1 in 15
+                    chance    = (0.066 + (hqTries * 0.0022));            // Aurora Custom Chance multiplier
+                    chanceHQ2 = (2.720 + (hq2Tries * 0.09066));      // Aurora Custom Chance multiplier
                     chanceHQ3 = 1.200;
                     break;
                 case 1: // 1 in 100
-                    chance    = 0.010;
+                    chance    = (0.010 + (hqTries * 0.00005));          // Aurora Custom Chance multiplier
                     chanceHQ2 = 1.760;
                     chanceHQ3 = 1.000;
                     break;
@@ -371,17 +412,26 @@ namespace synthutils
             // see: https://www.bluegartr.com/threads/130586-CraftyMath-v2-Post-September-2017-Update
             chance += (double)modSynthHqRate / 512.;
 
+            // Aurora Adjust HQ Cap
             if (chance > 0)
             {
                 // limit max hq chance
                 if (PChar->CraftContainer->getCraftType() == 1)
                 {
-                    chance = std::clamp(chance, 0., 0.800);
+                    chance = std::clamp(chance, 0., 1.000);
                 }
                 else
                 {
-                    chance = std::clamp(chance, 0., 0.500);
+                    chance = std::clamp(chance, 0., 1.000);
                 }
+            }
+
+            // Aurora Message to display HQ Rates
+            if (chance > 0)
+            {
+                // Aurora Message to display skillup Rate
+                std::string skillRateMsg = "HQ1: " + std::to_string(chance * 100) + "%! HQ2: " + std::to_string((chance * 100) * (chanceHQ2 / 100)) + "%! HQ3: " + std::to_string((chance * 100) * (chanceHQ2 / 100) * (chanceHQ3 / 100)) + "%!";
+                PChar->pushPacket(new CChatMessagePacket(PChar, MESSAGE_SYSTEM_3, skillRateMsg, "Synthesis"));
             }
 
             if (random < chance) // We HQ. Proceed to selct HQ Tier
@@ -397,9 +447,40 @@ namespace synthutils
                     if (random < chanceHQ3) // Upgrade to HQ3
                     {
                         result = SYNTHESIS_HQ3;
+                        hq3Tries = 0; // Aurora Reset HQ3 Tries if HQ3
+                    }
+                    else
+                    {
+                        hq3Tries += 1; // Aurora Increase HQ3 Tries if not HQ3
+                        hq2Tries = 0; // Aurora Reset HQ2 Tries if HQ2
                     }
                 }
+                else
+                {
+                    hq2Tries += 1; // Aurora Increase HQ2 Tries if not HQ2
+                    hq3Tries += 1; // Aurora Increase HQ3 Tries if not HQ2
+                    hqTries = 0; // Aurora Reset HQ Tries if HQ
+                }
             }
+            else
+            {
+                hqTries += 1; // Aurora Increase HQ Tries if not HQ
+                hq2Tries += 1; // Aurora Increase HQ2 Tries if not HQ
+                hq3Tries += 1; // Aurora Increase HQ3 Tries if not HQ
+            }
+            
+            // Aurora Save HQ atempts to SQL
+            if (prevSkillups > 0 || hqTries > 1 || hq2Tries > 1 || hq3Tries > 1)
+            {
+                char fmtQuery[] = "UPDATE char_synthesis SET hqtries = '%i', hq2tries = '%i', hq3tries = '%i' WHERE charid = %i AND synthid = %i;\0";
+                sql->Query(fmtQuery, hqTries, hq2Tries, hq3Tries, PChar->id, PChar->getCharVar("[Aurora]synthid"));
+            }
+            else
+            {
+                char fmtQuery[] = "INSERT INTO char_synthesis VALUES (%i, %i, %i, %i, %i, %i);\0";
+                sql->Query(fmtQuery, PChar->id, PChar->getCharVar("[Aurora]synthid"), prevSkillups, hqTries, hq2Tries, hq3Tries);
+            }
+            
         }
 
         // Section 3: System handling. The result of the synthesis is written in the quantity field of the crystal cell.
@@ -455,9 +536,15 @@ namespace synthutils
             }
 
             int16 baseDiff = PChar->CraftContainer->getQuantity(skillID - 40) - charSkill / 10; // the 5 lvl difference rule for breaks does NOT consider the effects of image support/gear
+            
+            // Aurora: Custom Crafting Skillup Rates
+            int16 prevSkillups = 0;
+            prevSkillups = PChar->getCharVar("[Aurora]synthskillups");
+            
+            int16 auroraDiff = baseDiff + 12 - (std::floor((prevSkillups) / 3)); // Aurora Custom baseDiff
 
             // We don't Skill Up if over 10 levels above synth skill. (Or at AND above synth skill in era)
-            if (baseDiff <= 0)
+            if (baseDiff <= -11)            
             {
                 continue; // Break current loop iteration.
             }
@@ -490,40 +577,76 @@ namespace synthutils
                 skillUpChance = 0.20;
             }
 
-            switch (baseDiff)
+            switch (auroraDiff)
             {
                 case 1:
-                    coeff = 0.78;
+                    coeff = 0.05;
                     break;
                 case 2:
-                    coeff = 0.87;
+                    coeff = 0.10;
                     break;
                 case 3:
-                    coeff = 0.97;
+                    coeff = 0.15;
                     break;
                 case 4:
-                    coeff = 1.05;
+                    coeff = 0.20;
                     break;
                 case 5:
-                    coeff = 1.10;
+                    coeff = 0.25;
                     break;
                 case 6:
-                    coeff = 1.18;
+                    coeff = 0.30;
                     break;
                 case 7:
-                    coeff = 1.20;
+                    coeff = 0.40;
                     break;
                 case 8:
-                    coeff = 1.22;
+                    coeff = 0.50;
                     break;
                 case 9:
-                    coeff = 1.24;
+                    coeff = 0.60;
                     break;
                 case 10:
+                    coeff = 0.70;
+                    break;
+                case 11:
+                    coeff = 0.78;
+                    break;
+                case 12:
+                    coeff = 0.87;
+                    break;
+                case 13:
+                    coeff = 0.97;
+                    break;
+                case 14:
+                    coeff = 1.05;
+                    break;
+                case 15:
+                    coeff = 1.10;
+                    break;
+                case 16:
+                    coeff = 1.18;
+                    break;
+                case 17:
+                    coeff = 1.20;
+                    break;
+                case 18:
+                    coeff = 1.22;
+                    break;
+                case 19:
+                    coeff = 1.24;
+                    break;
+                case 20:
                     coeff = 1.26;
                     break;
+                case 21:
+                    coeff = 1.28;
+                    break;
+                case 22:
+                    coeff = 1.30;
+                    break;
                 default:
-                    coeff = 0.78;
+                    coeff = 0.05;
                     break;
             }
 
@@ -548,6 +671,16 @@ namespace synthutils
             }
 
             skillUpChance = skillUpChance / penalty; // Lower skill up chance if synth breaks
+            
+            // Aurora: First Time Making an item is 100% Skillup
+            if (prevSkillups == 0 && PChar->CraftContainer->getQuantity(0) != SYNTHESIS_FAIL)
+            {
+                skillUpChance = 1;
+            }
+            
+            // Aurora Message to display skillup Rate
+            std::string skillRateMsg = "Skillup Rate for this Synth: " + std::to_string(skillUpChance * 100) + "%! Skillups on this Synth so far: " + std::to_string(prevSkillups) + "!";
+            PChar->pushPacket(new CChatMessagePacket(PChar, MESSAGE_SYSTEM_3, skillRateMsg, "Synthesis"));
 
             // Section 3: Calculate Skill Up and Skill Up Amount
             double random = xirand::GetRandomNumber(1.);
@@ -583,7 +716,7 @@ namespace synthutils
                         satier = 5;
                     }
 
-                    for (uint8 i = 0; i < 4; i++) // cicle up to 4 times until cap (0.5) or break. The lower the satier, the more likely it will break
+                    for (uint8 i = 0; i < 1; i++) // cicle up to 1 times until cap (0.2) or break. The lower the satier, the more likely it will break
                     {
                         switch (satier)
                         {
@@ -672,6 +805,18 @@ namespace synthutils
                 }
 
                 charutils::SaveCharSkills(PChar, skillID);
+                
+                // Aurora Save this synth's skillups to char_synthesis.sql
+                if (prevSkillups > 0 || PChar->getCharVar("[Aurora]synthhqtries") > 0 || PChar->getCharVar("[Aurora]synthhq2tries") > 0 || PChar->getCharVar("[Aurora]synthhq3tries") > 0)
+                {
+                    char fmtQuery[] = "UPDATE char_synthesis SET skillups = '%i' WHERE charid = %i AND synthid = %i;\0";
+                    sql->Query(fmtQuery, (prevSkillups + skillUpAmount), PChar->id, PChar->getCharVar("[Aurora]synthid"));
+                }
+                else
+                {
+                    char fmtQuery[] = "INSERT INTO char_synthesis VALUES (%i, %i, %i, %i, %i, %i);\0";
+                    sql->Query(fmtQuery, PChar->id, PChar->getCharVar("[Aurora]synthid"), (prevSkillups + skillUpAmount), 0, 0, 0);
+                }
 
                 // Skill Up removal if using spezialization system
                 if (skillCumulation > settings::get<uint16>("map.CRAFT_SPECIALIZATION_POINTS"))

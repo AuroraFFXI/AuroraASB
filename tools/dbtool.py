@@ -82,6 +82,7 @@ player_data = [
     'char_stats.sql',
     'char_storage.sql',
     'char_style.sql',
+    'char_synthesis.sql',
     'char_unlocks.sql',
     'char_vars.sql',
     'chars.sql',
