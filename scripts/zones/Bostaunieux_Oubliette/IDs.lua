@@ -33,6 +33,8 @@ zones[xi.zone.BOSTAUNIEUX_OUBLIETTE] =
         PLAYER_OBTAINS_TEMP_ITEM = 10594, -- <name> obtains the temporary item: <item>!
         ALREADY_POSSESS_TEMP     = 10595, -- You already possess that temporary item.
         NO_COMBINATION           = 10600, -- You were unable to enter a combination.
+        LEARNS_SPELL             = 10624, -- <name> learns <spell>!
+        UNCANNY_SENSATION        = 10626, -- You are assaulted by an uncanny sensation.
         COMMON_SENSE_SURVIVAL    = 10633, -- It appears that you have arrived at a new survival guide provided by the Adventurers' Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
     },
     mob =
@@ -66,10 +68,11 @@ zones[xi.zone.BOSTAUNIEUX_OUBLIETTE] =
         PHANDURON_THE_CONDEMNED = 17461343,
         BLOODSUCKER             = 17461478,
         BODACH                  = 17461479,
+        MANES                   = 17461471,
+        SHII                    = 17461315,
     },
     npc =
     {
-        CASKET_BASE = 17461488,
     },
 }
 

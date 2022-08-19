@@ -39,6 +39,8 @@ zones[xi.zone.YUHTUNGA_JUNGLE] =
         ALREADY_HAVE_ALL_FRAGS      = 7686,  -- You have obtained all of the fragments. You must hurry to the ruins of the ancient shrine!
         FOUND_ALL_FRAGS             = 7687,  -- You have obtained <keyitem>! You now have all 8 fragments of light!
         ZILART_MONUMENT             = 7688,  -- It is an ancient Zilart monument.
+        TOUCHING_RED_JEWEL          = 7690,  -- Touching the red jewel has infuriated the Opo-opos of the forest. It would be wise to leave immediately.
+        THE_OPO_OPOS_ATTACK         = 7704,  -- The Opo-opos attack!
         LOGGING_IS_POSSIBLE_HERE    = 7705,  -- Logging is possible here if you have <item>.
         HARVESTING_IS_POSSIBLE_HERE = 7712,  -- Harvesting is possible here if you have <item>.
         SOMETHING_IS_BURIED_HERE    = 7766,  -- It looks like something is buried here. If you had <item> you could dig it up.
@@ -70,7 +72,6 @@ zones[xi.zone.YUHTUNGA_JUNGLE] =
     },
     npc =
     {
-        CASKET_BASE           = 17281559,
         BLUE_RAFFLESIA_OFFSET = 17281586,
         TUNING_OUT_QM         = 17281590, -- qm2 in npc_list
         OVERSEER_BASE         = 17281600, -- Zorchorevi_RK in npc_list

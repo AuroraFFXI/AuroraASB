@@ -33,7 +33,7 @@ zones[xi.zone.THE_ELDIEME_NECROPOLIS] =
         SKULL_FIVE_REMAIN                = 7354,  -- An eerie voice echoes in your skull: (Five remain...)
         SKULL_FOUR_REMAIN                = 7355,  -- An eerie voice echoes in your skull: (Four remain...)
         SKULL_THREE_REMAIN               = 7356,  -- An eerie voice echoes in your skull: (Three remain...)
-        SKULL_TWO_REMAIN                 = 7357,  -- An eerie voice echoes in your skull: (Two remains...)
+        SKULL_TWO_REMAIN                 = 7357,  -- An eerie voice echoes in your skull: (Two remain...)
         SKULL_ONE_REMAIN                 = 7358,  -- An eerie voice echoes in your skull: (One remains...)
         SKULL_SPAWN                      = 7359,  -- An eerie voice echoes in your skull: (Know ye our power...)
         RETURN_RIBBON_TO_HER             = 7363,  -- You can hear a voice from somewhere. (...return...ribbon to...her...)
@@ -57,6 +57,8 @@ zones[xi.zone.THE_ELDIEME_NECROPOLIS] =
         ALREADY_POSSESS_TEMP             = 7599,  -- You already possess that temporary item.
         NO_COMBINATION                   = 7604,  -- You were unable to enter a combination.
         REGIME_REGISTERED                = 9682,  -- New training regime registered!
+        LEARNS_SPELL                     = 11600, -- <name> learns <spell>!
+        UNCANNY_SENSATION                = 11602, -- You are assaulted by an uncanny sensation.
         COMMON_SENSE_SURVIVAL            = 11636, -- It appears that you have arrived at a new survival guide provided by the Adventurers' Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
     },
     mob =
@@ -80,7 +82,6 @@ zones[xi.zone.THE_ELDIEME_NECROPOLIS] =
     },
     npc =
     {
-        CASKET_BASE        = 17576280,
         GATE_OFFSET        = 17576306,
         BRAZIER_OFFSET     = 17576343,
         TREASURE_CHEST     = 17576356,

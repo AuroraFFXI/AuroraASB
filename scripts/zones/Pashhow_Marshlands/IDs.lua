@@ -66,6 +66,9 @@ zones[xi.zone.PASHHOW_MARSHLANDS] =
         },
 
         BOWHO_WARMONGER = 17224104,
+        BOWHO_GUARD1    = 17224105,
+        BOWHO_GUARD2    = 17224106,
+        TOXIC_TAMLYN    = 17223982,
 
         VOIDWALKER  =
         {
@@ -114,7 +117,6 @@ zones[xi.zone.PASHHOW_MARSHLANDS] =
 
     npc =
     {
-        CASKET_BASE   = 17224275,
         OVERSEER_BASE = 17224326, -- Mesachedeau_RK in npc_list
     },
 }

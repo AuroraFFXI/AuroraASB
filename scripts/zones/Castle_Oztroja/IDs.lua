@@ -38,6 +38,8 @@ zones[xi.zone.CASTLE_OZTROJA] =
         YAGUDO_AVATAR_DEATH                = 7454, -- Our lord, Tzee Xicu the Manifest!  Even should our bodies be crushed and broken, may our souls endure into eternity...
         YAGUDO_KING_ENGAGE                 = 7455, -- You are not here as sacrifices, are you? Could you possibly be committing this affront in the face of a deity?  Very well, I will personally mete out your divine punishment, kyah!
         YAGUDO_KING_DEATH                  = 7456, -- You have...bested me... However, I...am...a god... I will never die...never rot...never fade...never...
+        LEARNS_SPELL                       = 8295, -- <name> learns <spell>!
+        UNCANNY_SENSATION                  = 8297, -- You are assaulted by an uncanny sensation.
         COMMON_SENSE_SURVIVAL              = 8304, -- It appears that you have arrived at a new survival guide provided by the Adventurers' Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
     },
     mob =
@@ -45,13 +47,7 @@ zones[xi.zone.CASTLE_OZTROJA] =
         MEE_DEGGI_THE_PUNISHER_PH  =
         {
             [17395798] = 17395800, -- -207.840 -0.498 109.939
-            [17395766] = 17395800, -- -178.119 -0.644 153.039
-            [17395769] = 17395800, -- -188.253 -0.087 158.955
-            [17395783] = 17395800, -- -233.116 -0.741 172.067
-            [17395784] = 17395800, -- -254.302 -0.057 163.759
             [17395799] = 17395800, -- -227.415 -4.340 145.213
-            [17395761] = 17395800, -- -207.370 -0.056 106.537
-            [17395775] = 17395800, -- -235.639 -0.063 103.280
         },
         MOO_OUZI_THE_SWIFTBLADE_PH =
         {
@@ -60,14 +56,8 @@ zones[xi.zone.CASTLE_OZTROJA] =
         },
         QUU_DOMI_THE_GALLANT_PH    =
         {
-            [17395844] = 17395870, -- 103.948 -1.250 -189.869
-            [17395845] = 17395870, -- 67.103 -0.079 -176.981
-            [17395853] = 17395870, -- 99.000 -0.181 -149.000
-            [17395831] = 17395870, -- 46.861 0.343 -176.989
             [17395868] = 17395870, -- 35.847 -0.500 -101.685
             [17395867] = 17395870, -- 59.000 -4.000 -131.000
-            [17395829] = 17395870, -- 33.832 -0.068 -176.627
-            [17395837] = 17395870, -- 18.545 -0.056 -120.283
         },
         YAA_HAQA_THE_PROFANE_PH    =
         {

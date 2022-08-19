@@ -49,10 +49,10 @@ zones[xi.zone.KING_RANPERRES_TOMB] =
         CORRUPTED_YORGOS      = 17555898,
         CORRUPTED_SOFFEIL     = 17555899,
         CORRUPTED_ULBRIG      = 17555900,
+        ANKOU                 = 17555709,
     },
     npc =
     {
-        CASKET_BASE    = 17555907,
         TREASURE_CHEST = 17555955,
     },
 }

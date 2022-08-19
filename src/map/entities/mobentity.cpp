@@ -300,6 +300,16 @@ void CMobEntity::TapDeaggroTime()
 bool CMobEntity::CanLink(position_t* pos, int16 superLink)
 {
     TracyZoneScoped;
+
+    if (loc.zone->HasReducedVerticalAggro())
+    {
+        float verticalDistance = abs(loc.p.y - (*pos).y);
+        if (verticalDistance > 3.5f)
+        {
+            return false;
+        }
+    }
+
     // handle super linking
     if (superLink && getMobMod(MOBMOD_SUPERLINK) == superLink)
     {
@@ -380,7 +390,7 @@ uint16 CMobEntity::TPUseChance()
         return 0;
     }
 
-    if (health.tp == 3000 || (GetHPP() <= 25 && health.tp >= 1000))
+    if (health.tp == 3000 || (GetHPP() <= 50 && health.tp >= 2000) || (GetHPP() <= 25 && health.tp >= 1000))
     {
         return 10000;
     }
@@ -891,14 +901,14 @@ float CMobEntity::ApplyTH(int16 m_THLvl, int16 rate)
 {
     TracyZoneScoped;
 
-    float multi = 1.00f;
-    bool ultra_rare = (rate == 1);
-    bool super_rare = (rate == 5);
-    bool very_rare = (rate == 10);
-    bool rare = (rate == 50);
-    bool uncommon = (rate == 100);
-    bool common = (rate == 150);
-    bool very_common = (rate == 240);
+    float multi       = 1.00f;
+    bool  ultra_rare  = (rate == 1);
+    bool  super_rare  = (rate == 5);
+    bool  very_rare   = (rate == 10);
+    bool  rare        = (rate == 50);
+    bool  uncommon    = (rate == 100);
+    bool  common      = (rate == 150);
+    bool  very_common = (rate == 240);
 
     if (ultra_rare)
     {
@@ -992,30 +1002,30 @@ float CMobEntity::ApplyTH(int16 m_THLvl, int16 rate)
     else if (rare)
     {
         if (m_THLvl < 3)
-         {
-             multi = 1.00f + (0.20f * m_THLvl);
-             return multi;
-         }
-         else if (m_THLvl < 8)
-         {
-             multi = 1.40f + (0.10f * (m_THLvl - 2));
-             return multi;
-         }
-         else if (m_THLvl < 12)
-         {
-             multi = 1.90f + (0.20f * (m_THLvl - 7));
-             return multi;
-         }
-         else if (m_THLvl < 14)
-         {
-             multi = 2.70f + (0.40f * (m_THLvl - 11));
-             return multi;
-         }
-         else
-         {
-             multi = 3.50f + (0.50f * (m_THLvl - 13));
-             return multi;
-         }
+        {
+            multi = 1.00f + (0.20f * m_THLvl);
+            return multi;
+        }
+        else if (m_THLvl < 8)
+        {
+            multi = 1.40f + (0.10f * (m_THLvl - 2));
+            return multi;
+        }
+        else if (m_THLvl < 12)
+        {
+            multi = 1.90f + (0.20f * (m_THLvl - 7));
+            return multi;
+        }
+        else if (m_THLvl < 14)
+        {
+            multi = 2.70f + (0.40f * (m_THLvl - 11));
+            return multi;
+        }
+        else
+        {
+            multi = 3.50f + (0.50f * (m_THLvl - 13));
+            return multi;
+        }
     }
     else if (uncommon)
     {
@@ -1130,11 +1140,13 @@ float CMobEntity::ApplyTH(int16 m_THLvl, int16 rate)
 void CMobEntity::DropItems(CCharEntity* PChar)
 {
     TracyZoneScoped;
-    // Adds an item to the treasure pool and returns true if the pool has been filled
+    // Adds an item to the treasure pool
     auto AddItemToPool = [this, PChar](uint16 ItemID, uint8 dropCount)
     {
         PChar->PTreasurePool->AddItem(ItemID, this);
-        return dropCount >= TREASUREPOOL_SIZE;
+        // This used to cap the number of drops a mob can produce at 10, but
+        // that's not the correct behavior.
+        return false; // dropCount >= TREASUREPOOL_SIZE;
     };
 
     auto UpdateDroprateOrAddToList = [&](std::vector<DropItem_t>& list, uint8 dropType, uint16 itemID, uint16 dropRate)
@@ -1198,6 +1210,12 @@ void CMobEntity::DropItems(CCharEntity* PChar)
 
         for (const DropGroup_t& group : DropList.Groups)
         {
+            uint16 total = 0;
+            for (const DropItem_t& item : group.Items)
+            {
+                total += item.DropRate;
+            }
+
             for (int16 roll = 0; roll < maxRolls; ++roll)
             {
                 // Determine if this group should drop an item and determine bonus
@@ -1207,7 +1225,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
                     // Each item in the group is given its own weight range which is the previous value to the previous value + item.DropRate
                     // Such as 2 items with drop rates of 200 and 800 would be 0-199 and 200-999 respectively
                     uint16 previousRateValue = 0;
-                    uint16 itemRoll          = xirand::GetRandomNumber(1000);
+                    uint16 itemRoll          = xirand::GetRandomNumber(total);
                     for (const DropItem_t& item : group.Items)
                     {
                         if (previousRateValue + item.DropRate > itemRoll)
