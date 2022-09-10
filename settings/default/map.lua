@@ -238,12 +238,12 @@ xi.settings.map =
     ANTICHEAT_JAIL_DISABLE = false,
 
     --  Gobbie Mystery Box settings
-    DAILY_TALLY_AMOUNT = 10,
-    DAILY_TALLY_LIMIT  = 50000,
+    DAILY_TALLY_AMOUNT = 0,
+    DAILY_TALLY_LIMIT  = 0,
 
     -- Paralysis Settings
     ITEM_PARALYSIS_LOSS              = true, -- Allow items to be put on recast or deleted when used during a paralysis tick.
-    ITEM_PARALYSIS_SCROLL_PROTECTION = false, -- Stops scrolls from being deleted if a paralysis tick occurs.
+    ITEM_PARALYSIS_SCROLL_PROTECTION = true, -- Stops scrolls from being deleted if a paralysis tick occurs.
 
     -- Enable/disable keeping jug pets through zoning
     KEEP_JUGPET_THROUGH_ZONING = false,
