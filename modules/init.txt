@@ -81,7 +81,7 @@ era/sql/item_weapon.sql
 era/sql/mob_groups_era.sql
 #era/sql/pre_rmt_drops.sql
 era/sql/skill_ranks.sql
-#era/sql/synth_recipes_era.sql
+era/sql/synth_recipes_era.sql
 #era/sql/ToAU_AH_Listings.sql
 #-----------------------
 #        Dynamis

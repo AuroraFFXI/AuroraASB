@@ -439,7 +439,7 @@ namespace synthutils
             // Aurora Message to display HQ Rates
             if (chance > 0)
             {
-                // Aurora Message to display skillup Rate
+                // Aurora Message to display HQ Rate
                 std::string skillRateMsg = "HQ1: " + std::to_string(chance * 100) + "%! HQ2: " + std::to_string((chance * 100) * (chanceHQ2 / 100)) + "%! HQ3: " + std::to_string((chance * 100) * (chanceHQ2 / 100) * (chanceHQ3 / 100)) + "%!";
                 PChar->pushPacket(new CChatMessagePacket(PChar, MESSAGE_SYSTEM_3, skillRateMsg, "Synthesis"));
             }
@@ -680,6 +680,11 @@ namespace synthutils
                 penalty += 1;
             }
 
+            if (baseDiff <= 0) // Aurora: Decrease skillup rate when synth is at/over cap
+            {
+                penalty *= 3;
+            }
+
             skillUpChance = skillUpChance / penalty; // Lower skill up chance if synth breaks
             
             // Aurora: First Time Making an item is 100% Skillup
@@ -689,7 +694,7 @@ namespace synthutils
             }
             
             // Aurora Message to display skillup Rate
-            std::string skillRateMsg = "Skillup Rate for this Synth: " + std::to_string(skillUpChance * 100) + "%! Skillups on this Synth so far: " + std::to_string(prevSkillups) + "!";
+            std::string skillRateMsg = "Skillup Rate: " + std::to_string(skillUpChance * 100) + "%! Skillups so far: " + std::to_string(prevSkillups) + "!";
             PChar->pushPacket(new CChatMessagePacket(PChar, MESSAGE_SYSTEM_3, skillRateMsg, "Synthesis"));
 
             // Section 3: Calculate Skill Up and Skill Up Amount
@@ -817,6 +822,8 @@ namespace synthutils
                 charutils::SaveCharSkills(PChar, skillID);
                 
                 // Aurora Save this synth's skillups to char_synthesis.sql
+                PChar->setCharVar("[Aurora]synthskillups", prevSkillups + skillUpAmount); // Aurora: Saves CharVar for multi-craft synths
+                
                 if (prevSkillups > 0 || PChar->getCharVar("[Aurora]synthhqtries") > 0 || PChar->getCharVar("[Aurora]synthhq2tries") > 0 || PChar->getCharVar("[Aurora]synthhq3tries") > 0)
                 {
                     char fmtQuery[] = "UPDATE char_synthesis SET skillups = '%i' WHERE charid = %i AND synthid = %i;\0";
