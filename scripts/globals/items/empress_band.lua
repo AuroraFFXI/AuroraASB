@@ -23,9 +23,9 @@ end
 
 item_object.onItemUse = function(target)
     local effect    = xi.effect.DEDICATION
-    local power     = 50
-    local duration  = 43200
-    local subpower  = 15000
+    local power     = 25
+    local duration  = 7200
+    local subpower  = 50 -- On Aurora this is level cap
 
     xi.item_utils.addItemExpEffect(target, effect, power, duration, subpower)
 end
