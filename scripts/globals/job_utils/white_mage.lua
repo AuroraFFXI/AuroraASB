@@ -100,7 +100,7 @@ xi.job_utils.white_mage.useBenediction = function(player, target, ability)
         target:delStatusEffect(xi.effect.DOOM)
     end
 
-    player:updateEnmityFromCure(target, heal)
+    player:updateEnmityFromCure(target, heal / 10)
     target:addHP(heal)
     target:wakeUp()
 
