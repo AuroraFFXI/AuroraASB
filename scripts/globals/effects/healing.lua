@@ -69,7 +69,7 @@ effect_object.onEffectTick = function(target, effect)
             else
                 target:addTP(xi.settings.main.HEALING_TP_CHANGE)
                 healHP = 10 + (healtime - 2) + target:getMod(xi.mod.HPHEAL)
-            -- end
+            end
 
             -- Records of Eminence: Heal Without Using Magic
             if
