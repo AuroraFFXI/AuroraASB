@@ -24,7 +24,10 @@ quest.sections =
     -- and is flagged if Abyssea is enabled in onGameIn.
     {
         check = function(player, status, vars)
-            return status == QUEST_ACCEPTED and player:getMainLvl() >= 30
+            return status == QUEST_ACCEPTED and player:getMainLvl() >= 30 and 
+            player:hasCompletedMission(xi.mission.log_id.ACP, xi.mission.id.acp.ODE_OF_LIFE_BESTOWING) and
+            player:hasCompletedMission(xi.mission.log_id.AMK, xi.mission.id.amk.SMASH_A_MALEVOLENT_MENACE) and
+            player:hasCompletedMission(xi.mission.log_id.ASA, xi.mission.id.asa.PROJECT_SHANTOTTOFICATION)
         end,
 
         [xi.zone.PORT_JEUNO] =

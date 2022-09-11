@@ -183,7 +183,7 @@ end
 -- NPC Assai Nybaem
 -----------------------------------
 xi.voidwalker.npcOnTrigger = function(player, npc)
-    if xi.settings.main.ENABLE_VOIDWALKER ~= 1 then
+    if xi.settings.main.ENABLE_VOIDWALKER ~= 1 and player:hasCompletedMission(xi.mission.log_id.TOAU, xi.mission.id.toau.NASHMEIRAS_PLEA) then
         return
     end
 

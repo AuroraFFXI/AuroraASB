@@ -118,7 +118,7 @@ quest.sections =
 {
     {
         check = function(player, status, vars)
-            return status == QUEST_AVAILABLE and
+            return status == QUEST_AVAILABLE and player:hasCompletedMission(xi.mission.log_id.COP, xi.mission.id.cop.GARDEN_OF_ANTIQUITY) and
                 xi.settings.main.ENABLE_TOAU == 1
         end,
 

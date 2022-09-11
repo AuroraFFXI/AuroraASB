@@ -28,7 +28,7 @@ mission.sections =
 {
     {
         check = function(player, currentMission, missionStatus, vars)
-            return currentMission == mission.missionId and
+            return currentMission == mission.missionId and player:hasCompletedMission(xi.mission.log_id.TOAU, xi.mission.id.toau.NASHMEIRAS_PLEA) and
                 xi.settings.main.ENABLE_WOTG == 1
         end,
 

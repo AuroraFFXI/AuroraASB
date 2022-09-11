@@ -24,7 +24,7 @@ mission.sections[1] = {} -- REMEMBER: Lua is 1-indexed!
 
 mission.sections[1].check = function(player, currentMission, missionStatus, vars)
     return currentMission == mission.missionId and
-        xi.settings.main.ENABLE_AMK == 1 and
+        xi.settings.main.ENABLE_AMK == 1 and player:hasCompletedMission(xi.mission.log_id.WOTG, xi.mission.id.wotg.MAIDEN_OF_THE_DUSK) and
         xi.moghouse.isInMogHouseInHomeNation(player) and
         player:getMainLvl() >= 10 and
         player:getCharVar("HQuest[moghouseExpo]notSeen") == 0

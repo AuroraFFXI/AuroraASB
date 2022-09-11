@@ -21,7 +21,7 @@ mission.sections =
 {
     {
         check = function(player, currentMission, missionStatus, vars)
-            return currentMission == mission.missionId and
+            return currentMission == mission.missionId and player:hasCompletedMission(xi.mission.log_id.WOTG, xi.mission.id.wotg.MAIDEN_OF_THE_DUSK) and
                 xi.settings.main.ENABLE_ASA == 1 and
                 player:getMainLvl() >= 10
         end,
