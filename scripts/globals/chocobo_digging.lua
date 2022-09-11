@@ -890,6 +890,8 @@ local function canDig(player)
 
                 return true
             end
+        else
+            player:PrintToPlayer("You feel fatigued.", xi.msg.channel.SYSTEM_3)
         end
     end
 
@@ -1124,6 +1126,7 @@ xi.chocoboDig.start = function(player, precheck)
             end
 
             player:messageText(player, text.FIND_NOTHING, false)
+            player:PrintToPlayer("There doesn't seem to be anything to find.", xi.msg.channel.SYSTEM_3)
             player:setCharVar('[DIG]LastDigTime', os.time())
 
             return true
