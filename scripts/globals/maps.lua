@@ -119,68 +119,66 @@ xi.maps.onTrade = function(player, npc, trade)
     local gil = trade:getGil()
     local count = trade:getItemCount()
     local jobdeath = player:getJobDeath()
-    local relevelrate = 1+ (jobdeath / 25)
     local level = player:getMainLvl()
 
-    if (level == 1) then
-        if (count == 1 and gil >= 200000 and jobdeath >= 75) then
-            player:PrintToPlayer(string.format("You traded 200,000 gil to reobtain level 75!"))
+    if level == 1 then
+        if count == 1 and gil == 500000 and jobdeath >= 75 then
+            player:PrintToPlayer("You traded 500,000 gil to reobtain level 75!", xi.msg.channel.SYSTEM_3)
             player:setLevel(74)
             player:addExp(1)
-            
-        elseif (count == 1 and gil >= (611350 / relevelrate) and jobdeath >= 70) then
-            player:delGil(611350 / relevelrate)
-            player:PrintToPlayer(string.format("You traded %i gil to reobtain level 70!", (611350 / relevelrate)))
+            player:tradeComplete()
+        elseif count == 1 and gil == 400000 and jobdeath >= 70 then
+            player:PrintToPlayer("You traded 400,000 gil to reobtain level 70!", xi.msg.channel.SYSTEM_3)
             player:setLevel(69)
             player:addExp(1)
-        elseif (count == 1 and gil >= (466350 / relevelrate) and jobdeath >= 65) then
-            player:delGil(466350 / relevelrate)
-            player:PrintToPlayer(string.format("You traded %i gil to reobtain level 65!", (466350 / relevelrate)))
+            player:tradeComplete()
+        elseif count == 1 and gil == 300000 and jobdeath >= 65 then
+            player:PrintToPlayer("You traded 300,000 gil to reobtain level 65!", xi.msg.channel.SYSTEM_3)
             player:setLevel(64)
             player:addExp(1)
-        elseif (count == 1 and gil >= (358550 / relevelrate) and jobdeath >= 60) then
-            player:delGil(358550 / relevelrate)
-            player:PrintToPlayer(string.format("You traded %i gil to reobtain level 60!", (358550 / relevelrate)))
+            player:tradeComplete()
+        elseif count == 1 and gil == 200000 and jobdeath >= 60 then
+            player:PrintToPlayer("You traded 200,000 gil to reobtain level 60!", xi.msg.channel.SYSTEM_3)
             player:setLevel(59)
             player:addExp(1)
-        elseif (count == 1 and gil >= (235550 / relevelrate) and jobdeath >= 50) then
-            player:delGil(235550 / relevelrate)
-            player:PrintToPlayer(string.format("You traded %i gil to reobtain level 50!", (235550 / relevelrate)))
+            player:tradeComplete()
+        elseif count == 1 and gil == 100000 and jobdeath >= 50 then
+            player:PrintToPlayer("You traded 100,000 gil to reobtain level 50!", xi.msg.channel.SYSTEM_3)
             player:setLevel(49)
             player:addExp(1)
-        elseif (count == 1 and gil >= (169850 / relevelrate) and jobdeath >= 40) then
-            player:delGil(169850 / relevelrate)
-            player:PrintToPlayer(string.format("You traded %i gil to reobtain level 40!", (169850 / relevelrate)))
+            player:tradeComplete()
+        elseif count == 1 and gil == 75000 and jobdeath >= 40 then
+            player:PrintToPlayer("You traded 75,000 gil to reobtain level 40!", xi.msg.channel.SYSTEM_3)
             player:setLevel(39)
             player:addExp(1)
-        elseif (count == 1 and gil >= (100550 / relevelrate) and jobdeath >= 30) then
-            player:delGil(100550 / relevelrate)
-            player:PrintToPlayer(string.format("You traded %i gil to reobtain level 30!", (100550 / relevelrate)))
+            player:tradeComplete()
+        elseif count == 1 and gil == 50000 and jobdeath >= 30 then
+            player:PrintToPlayer("You traded 50,000 gil to reobtain level 30!", xi.msg.channel.SYSTEM_3)
             player:setLevel(29)
             player:addExp(1)
-        elseif (count == 1 and gil >= (48350 / relevelrate) and jobdeath >= 20) then
-            player:delGil(48350 / relevelrate)
-            player:PrintToPlayer(string.format("You traded %i gil to reobtain level 20!", (48350 / relevelrate)))
+            player:tradeComplete()
+        elseif count == 1 and gil == 25000 and jobdeath >= 20 then
+            player:PrintToPlayer("You traded 25,000 gil to reobtain level 20!", xi.msg.channel.SYSTEM_3)
             player:setLevel(19)
             player:addExp(1)
-        elseif (count == 1 and gil >= (13350 / relevelrate) and jobdeath >= 10) then
-            player:delGil(13350 / relevelrate)
-            player:PrintToPlayer(string.format("You traded %i gil to reobtain level 10!", (13350 / relevelrate)))
+            player:tradeComplete()
+        elseif count == 1 and gil == 10000 and jobdeath >= 10 then
+            player:PrintToPlayer("You traded 10,000 gil to reobtain level 10!", xi.msg.channel.SYSTEM_3)
             player:setLevel(9)
             player:addExp(1)
-        elseif (count == 1 and gil <= (13350 / relevelrate) and jobdeath >= 10) then
-            player:PrintToPlayer(string.format("You need to trade more gil to use the Instant Releveling Service."))
+            player:tradeComplete()
+        elseif count == 1 and gil <= 9999 and jobdeath >= 10 then
+            player:PrintToPlayer("You need to trade the exact amount of gil.", xi.msg.channel.SYSTEM_3)
         else
-            player:PrintToPlayer(string.format("What are you trying to pull?"))
+            player:PrintToPlayer("You need to trade the exact amount of gil.", xi.msg.channel.SYSTEM_3)
         end
     else
-        player:PrintToPlayer(string.format("You must be level one to use the Instant Releveling Service."))
+        player:PrintToPlayer("You must be level one to use the Instant Releveling Service.", xi.msg.channel.SYSTEM_3)
     end
 end
 
 xi.maps.onTrigger = function(player, npc)
     local jobdeath = player:getJobDeath()
-    local relevelrate = 1+ (jobdeath / 25)
     local level = player:getMainLvl()
 
     if (jobdeath >= 1) then
@@ -189,73 +187,37 @@ xi.maps.onTrigger = function(player, npc)
 
     if (level == 1) then
         if (jobdeath >= 75) then
-            player:PrintToPlayer(string.format("Here are your Instant Relevel Options for your current job!"))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 75!", 200000))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 70!", (611350 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 65!", (466350 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 60!", (358550 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 50!", (235550 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 40!", (169850 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 30!", (100550 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 20!", (48350 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 10!", (13350 / relevelrate)))
-        elseif (jobdeath >= 70) then
-            player:PrintToPlayer(string.format("Here are your Instant Relevel Options for your current job!"))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 70!", (611350 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 65!", (466350 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 60!", (358550 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 50!", (235550 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 40!", (169850 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 30!", (100550 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 20!", (48350 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 10!", (13350 / relevelrate)))
-        elseif (jobdeath >= 65) then
-            player:PrintToPlayer(string.format("Here are your Instant Relevel Options for your current job!"))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 65!", (466350 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 60!", (358550 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 50!", (235550 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 40!", (169850 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 30!", (100550 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 20!", (48350 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 10!", (13350 / relevelrate)))
-        elseif (jobdeath >= 60) then
-            player:PrintToPlayer(string.format("Here are your Instant Relevel Options for your current job!"))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 60!", (358550 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 50!", (235550 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 40!", (169850 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 30!", (100550 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 20!", (48350 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 10!", (13350 / relevelrate)))
-        elseif (jobdeath >= 50) then
-            player:PrintToPlayer(string.format("Here are your Instant Relevel Options for your current job!"))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 50!", (235550 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 40!", (169850 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 30!", (100550 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 20!", (48350 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 10!", (13350 / relevelrate)))
-        elseif (jobdeath >= 40) then
-            player:PrintToPlayer(string.format("Here are your Instant Relevel Options for your current job!"))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 40!", (169850 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 30!", (100550 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 20!", (48350 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 10!", (13350 / relevelrate)))
-        elseif (jobdeath >= 30) then
-            player:PrintToPlayer(string.format("Here are your Instant Relevel Options for your current job!"))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 30!", (100550 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 20!", (48350 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 10!", (13350 / relevelrate)))
-        elseif (jobdeath >= 20) then
-            player:PrintToPlayer(string.format("Here are your Instant Relevel Options for your current job!"))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 20!", (48350 / relevelrate)))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 10!", (13350 / relevelrate)))
-        elseif (jobdeath >= 10) then
-            player:PrintToPlayer(string.format("Here are your Instant Relevel Options for your current job!"))
-            player:PrintToPlayer(string.format("%i gil to reobtain level 10!", (13350 / relevelrate)))
+            player:PrintToPlayer("500,000 gil to reobtain level 75!", xi.msg.channel.SYSTEM_3)
+        end
+        if (jobdeath >= 70) then
+            player:PrintToPlayer("400,000 gil to reobtain level 70!", xi.msg.channel.SYSTEM_3)
+        end
+        if (jobdeath >= 65) then
+            player:PrintToPlayer("300,000 gil to reobtain level 65!", xi.msg.channel.SYSTEM_3)
+        end
+        if (jobdeath >= 60) then
+            player:PrintToPlayer("200,000 gil to reobtain level 60!", xi.msg.channel.SYSTEM_3)
+        end
+        if (jobdeath >= 50) then
+            player:PrintToPlayer("100,000 gil to reobtain level 50!", xi.msg.channel.SYSTEM_3)
+        end
+        if (jobdeath >= 40) then
+            player:PrintToPlayer("75,000 gil to reobtain level 40!", xi.msg.channel.SYSTEM_3)
+        end
+        if (jobdeath >= 30) then
+            player:PrintToPlayer("50,000 gil to reobtain level 30!", xi.msg.channel.SYSTEM_3)
+        end
+        if (jobdeath >= 20) then
+            player:PrintToPlayer("25,000 gil to reobtain level 20!", xi.msg.channel.SYSTEM_3)
+        end
+        if (jobdeath >= 10) then
+            player:PrintToPlayer("10,000 gil to reobtain level 10!", xi.msg.channel.SYSTEM_3)
+            player:PrintToPlayer("Above are your Instant Relevel Options for your current job!", xi.msg.channel.SYSTEM_3)
         else
-            player:PrintToPlayer(string.format("You must die at a higher level on this job to use the Instant Releveling Service."))
+            player:PrintToPlayer("You must die at a higher level on this job to use the Instant Releveling Service.", xi.msg.channel.SYSTEM_3)
         end
     else
-        player:PrintToPlayer(string.format("You must be level one to use the Instant Releveling Service."))
+        player:PrintToPlayer("You must be level one to use the Instant Releveling Service.", xi.msg.channel.SYSTEM_3)
     end
     
     local eventParams = getMapEventParams(player)
