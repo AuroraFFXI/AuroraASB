@@ -3848,13 +3848,13 @@ INSERT INTO `mob_droplist` VALUES (413,0,0,1000,2512,120); -- Lynx Hide (12.0%)
 INSERT INTO `mob_droplist` VALUES (413,0,0,1000,5667,60);  -- Slice Of Lynx Meat (6.0%)
 
 -- ZoneID: 170 - Carbuncle Prime
-INSERT INTO `mob_droplist` VALUES (414,0,0,1000,14931,@UNCOMMON); -- Carbuncles Cuffs (Uncommon, 10%)
-INSERT INTO `mob_droplist` VALUES (414,0,0,1000,17192,@UNCOMMON); -- Ifrits Bow (Uncommon, 10%)
-INSERT INTO `mob_droplist` VALUES (414,0,0,1000,17711,@UNCOMMON); -- Shivas Shotel (Uncommon, 10%)
-INSERT INTO `mob_droplist` VALUES (414,0,0,1000,18021,@UNCOMMON); -- Titans Baselarde (Uncommon, 10%)
-INSERT INTO `mob_droplist` VALUES (414,0,0,1000,18063,@UNCOMMON); -- Garudas Sickle (Uncommon, 10%)
-INSERT INTO `mob_droplist` VALUES (414,0,0,1000,18109,@UNCOMMON); -- Leviathans Couse (Uncommon, 10%)
-INSERT INTO `mob_droplist` VALUES (414,0,0,1000,18404,@UNCOMMON); -- Ramuhs Mace (Uncommon, 10%)
+INSERT INTO `mob_droplist` VALUES (414,0,0,1000,14931,@RARE); -- Carbuncles Cuffs (Rare, 5%)
+INSERT INTO `mob_droplist` VALUES (414,0,0,1000,17192,@RARE); -- Ifrits Bow       (Rare, 5%)
+INSERT INTO `mob_droplist` VALUES (414,0,0,1000,17711,@RARE); -- Shivas Shotel    (Rare, 5%)
+INSERT INTO `mob_droplist` VALUES (414,0,0,1000,18021,@RARE); -- Titans Baselarde (Rare, 5%)
+INSERT INTO `mob_droplist` VALUES (414,0,0,1000,18063,@RARE); -- Garudas Sickle   (Rare, 5%)
+INSERT INTO `mob_droplist` VALUES (414,0,0,1000,18109,@RARE); -- Leviathans Couse (Rare, 5%)
+INSERT INTO `mob_droplist` VALUES (414,0,0,1000,18404,@RARE); -- Ramuhs Mace      (Rare, 5%)
 
 -- ZoneID: 177 - Caretaker
 INSERT INTO `mob_droplist` VALUES (415,0,0,1000,914,180); -- Vial Of Mercury (18.0%)
@@ -6999,8 +6999,8 @@ INSERT INTO `mob_droplist` VALUES (833,0,0,1000,2375,@UNCOMMON); -- Zhayolm Card
 
 -- ZoneID:   1 - Fishtrap
 -- ZoneID:   2 - Fishtrap
-INSERT INTO `mob_droplist` VALUES (834,0,0,1000,1727,80); -- Piece Of Garhada Teak Lumber (8.0%)
-INSERT INTO `mob_droplist` VALUES (834,0,0,1000,1617,60); -- Flytrap Leaf (6.0%)
+INSERT INTO `mob_droplist` VALUES (834,0,0,1000,1727,@UNCOMMON); -- Piece Of Garhada Teak Lumber (Uncommon, 10%)
+INSERT INTO `mob_droplist` VALUES (834,0,0,1000,1617,@VRARE);    -- Flytrap Leaf (Very Rare, 1%)
 
 -- ZoneID:  15 - Fistule
 INSERT INTO `mob_droplist` VALUES (835,0,0,1000,11518,@ALWAYS);   -- Rokugo Hachimaki (Always, 100%)
