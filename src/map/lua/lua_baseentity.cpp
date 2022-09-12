@@ -7212,6 +7212,28 @@ void CLuaBaseEntity::setMerits(uint8 numPoints)
 }
 
 /************************************************************************
+ *  Function: getSpentJobPoints()
+ *  Purpose : Returns the total value of all job points spent
+ *  Example : player:getSpentJobPoints()
+ *  Notes   :
+ ************************************************************************/
+uint16 CLuaBaseEntity::getSpentJobPoints()
+{
+    if (m_PBaseEntity->objtype == TYPE_PC)
+    {
+        CCharEntity* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
+
+        if (PChar->GetMLevel() < 99) // account for Level Sync
+        {
+            return 0;
+        }
+        return PChar->PJobPoints->GetJobPointsSpent();
+    }
+
+    return 0;
+}
+
+/************************************************************************
  *  Function: getJobPointLevel()
  *  Purpose : Returns the current value a specific job point
  *  Example : player:getJobPointLevel(JP_MIGHTY_STRIKES_EFFECT)
@@ -8927,10 +8949,14 @@ void CLuaBaseEntity::addPartyEffect(sol::variadic_args va)
     CBattleEntity* PEntity = ((CBattleEntity*)m_PBaseEntity);
 
     // clang-format off
-    PEntity->ForParty([PEffect](CBattleEntity* PMember)
+    PEntity->ForParty([&](CBattleEntity* PMember)
     {
-        PMember->StatusEffectContainer->AddStatusEffect(PEffect);
+        if (PMember != nullptr && PEntity->loc.zone->GetID() == PMember->loc.zone->GetID() && distanceSquared(PEntity->loc.p, PMember->loc.p) < 50.0 * 50.0 && !PMember->isDead())
+        {
+            PMember->StatusEffectContainer->AddStatusEffect(PEffect);
+        }
     });
+
     // clang-format on
 }
 
@@ -8949,23 +8975,23 @@ bool CLuaBaseEntity::hasPartyEffect(uint16 effectid)
         return false;
     }
 
-    CCharEntity* PChar = ((CCharEntity*)m_PBaseEntity);
+    CCharEntity* PEntity   = ((CCharEntity*)m_PBaseEntity);
+    bool         hasEffect = true;
 
-    if (PChar->PParty != nullptr)
+    // clang-format off
+    PEntity->ForParty([&](CBattleEntity* PMember)
     {
-        for (const auto& member : PChar->PParty->members)
+        if (PMember != nullptr && PEntity->loc.zone->GetID() == PMember->loc.zone->GetID())
         {
-            if (member->loc.zone == PChar->loc.zone)
+            if (!PMember->StatusEffectContainer->HasStatusEffect(static_cast<EFFECT>(effectid)))
             {
-                // Bail out if someone DOESN'T have the desired effect
-                if (!member->StatusEffectContainer->HasStatusEffect(static_cast<EFFECT>(effectid)))
-                {
-                    return false;
-                }
+                hasEffect = false;
             }
         }
-    }
-    return true;
+    });
+
+    // clang-format on
+    return hasEffect;
 }
 
 /************************************************************************
@@ -8983,15 +9009,18 @@ void CLuaBaseEntity::removePartyEffect(uint16 effectid)
         return;
     }
 
-    CCharEntity* PChar = ((CCharEntity*)m_PBaseEntity);
+    CBattleEntity* PEntity = ((CBattleEntity*)m_PBaseEntity);
 
-    for (const auto& member : PChar->PParty->members)
+    // clang-format off
+    PEntity->ForParty([&](CBattleEntity* PMember)
     {
-        if (member->loc.zone == PChar->loc.zone)
+        if (PMember != nullptr && PEntity->loc.zone->GetID() == PMember->loc.zone->GetID())
         {
-            member->StatusEffectContainer->DelStatusEffect(static_cast<EFFECT>(effectid));
+            PMember->StatusEffectContainer->DelStatusEffect(static_cast<EFFECT>(effectid));
         }
-    }
+    });
+
+    // clang-format on
 }
 
 /************************************************************************
@@ -15164,12 +15193,12 @@ void CLuaBaseEntity::Register()
     // Player Points
     SOL_REGISTER("addExp", CLuaBaseEntity::addExp);
     SOL_REGISTER("delExp", CLuaBaseEntity::delExp);
-    
+
     SOL_REGISTER("getMerit", CLuaBaseEntity::getMerit);
     SOL_REGISTER("getMeritCount", CLuaBaseEntity::getMeritCount);
     SOL_REGISTER("setMerits", CLuaBaseEntity::setMerits);
-    SOL_REGISTER("getBaseExp", CLuaBaseEntity::getBaseExp);
-    SOL_REGISTER("getJobExp", CLuaBaseEntity::getJobExp);
+
+    SOL_REGISTER("getSpentJobPoints", CLuaBaseEntity::getSpentJobPoints);
     SOL_REGISTER("getJobPointLevel", CLuaBaseEntity::getJobPointLevel);
     SOL_REGISTER("addCapacityPoints", CLuaBaseEntity::addCapacityPoints);
     SOL_REGISTER("setCapacityPoints", CLuaBaseEntity::setCapacityPoints);
