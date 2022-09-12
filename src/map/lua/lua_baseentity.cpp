@@ -15193,7 +15193,8 @@ void CLuaBaseEntity::Register()
     // Player Points
     SOL_REGISTER("addExp", CLuaBaseEntity::addExp);
     SOL_REGISTER("delExp", CLuaBaseEntity::delExp);
-
+    SOL_REGISTER("getBaseExp", CLuaBaseEntity::getBaseExp);
+    SOL_REGISTER("getJobExp", CLuaBaseEntity::getJobExp);
     SOL_REGISTER("getMerit", CLuaBaseEntity::getMerit);
     SOL_REGISTER("getMeritCount", CLuaBaseEntity::getMeritCount);
     SOL_REGISTER("setMerits", CLuaBaseEntity::setMerits);
