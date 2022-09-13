@@ -133,7 +133,7 @@ namespace synthutils
                 // Aurora Custom SQL Query load
                 const char* fmtQuery = "SELECT skillups, hqtries, hq2tries, hq3tries FROM char_synthesis WHERE charid = %i AND synthid = %i LIMIT 1";
                 
-                int32 ret = sql->Query(fmtQuery, PChar->id, PChar->getCharVar("[Aurora]synthid"));
+                int32 ret = sql->Query(fmtQuery, PChar->id, Aurorasynthid);
                 
                 if (ret != SQL_ERROR && sql->NumRows() != 0 && sql->NextRow() == SQL_SUCCESS)
                 {
