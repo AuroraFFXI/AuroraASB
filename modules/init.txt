@@ -43,7 +43,7 @@
 #-----------------------
 #era/lua/
 #era/back_date_sqls/75_era_guild_vendors.lua
-era/back_date_sqls/beastmen_multigroup_spawn_fix.lua
+#era/back_date_sqls/beastmen_multigroup_spawn_fix.lua
 era/lua/75_era_argus.lua
 #era/lua/exp_rings.lua
 #era/lua/era_HNM_system.lua
@@ -60,7 +60,6 @@ era/cpp/era_dynamisFunctions.cpp
 #era/sql/
 #era/back_date_sqls/75_era_drops.sql
 #era/back_date_sqls/75_era_guild_vendors.sql
-#era/back_date_sqls/75_era_spells.sql
 #era/back_date_sqls/2007_exp_tables.sql
 #era/back_date_sqls/synth_recipies.sql
 #era/sql/2010_exp_tables.sql
@@ -69,6 +68,7 @@ era/sql/abilities.sql
 era/sql/era_dyna_sql.sql
 era/sql/era_homepoints.sql
 era/sql/era_mob_resistances.sql
+era/sql/era_spell_list.sql
 era/sql/era_weapon_skills.sql
 #era/sql/gardening_results_era.sql
 era/sql/guild_item_points.sql
@@ -82,7 +82,7 @@ era/sql/mob_groups_era.sql
 #era/sql/pre_rmt_drops.sql
 era/sql/skill_ranks.sql
 era/sql/synth_recipes_era.sql
-#era/sql/ToAU_AH_Listings.sql
+era/sql/ToAU_AH_Listings.sql
 #-----------------------
 #        Dynamis
 #-----------------------
@@ -116,6 +116,7 @@ custom/cpp/ah_announcement.cpp
 custom/cpp/ah_pagination.cpp
 #custom/sql/ka_speedbelt_drop.sql
 #custom/sql/lsb_mascot.sql
+#custom/sql/mob_spawn_points.sql
 #custom/sql/starter_zone_fast_repops.sql
 #-----------------------
 #	 Aurora
