@@ -163,7 +163,7 @@ int32 lobbydata_parse(int32 fd)
                 std::memcpy(ReservePacket + 60, serverName.c_str(), std::clamp<size_t>(serverName.length(), 0, 15));
 
                 // Prepare the character list data..
-                for (int j = 0; j < 16; ++j)
+                for (int j = 0; j < 3; ++j)
                 {
                     std::memcpy(CharList + 32 + 140 * j, ReservePacket + 32, 140);
                     std::memset(CharList + 32 + 140 * j, 0x00, 4);
