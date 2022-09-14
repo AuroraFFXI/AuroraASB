@@ -1,0 +1,50 @@
+-- ---------------------------------------------------------------------------
+--  Notes: Aurora Custom NPC List
+-- ---------------------------------------------------------------------------
+
+UPDATE npc_list SET status = 2 WHERE polutils_name = "Survival Guide";
+UPDATE npc_list SET status = 2 WHERE polutils_name = "Atmacite Refiner";
+UPDATE npc_list SET status = 2 WHERE npcid = "16982639" AND polutils_name = "Wondrix";
+UPDATE npc_list SET status = 2 WHERE npcid = "16982640" AND polutils_name = "Treasure Coffer";
+UPDATE npc_list SET status = 2 WHERE npcid = "16994373" AND polutils_name = "Chichiroon";
+UPDATE npc_list SET status = 2 WHERE polutils_name = "Bonanza Moogle";
+UPDATE npc_list SET status = 2 WHERE polutils_name = "Dealer Moogle";
+UPDATE npc_list SET status = 2 WHERE polutils_name = "Greeter Moogle";
+UPDATE npc_list SET status = 2 WHERE npcid = "17719641" AND polutils_name = "Mystrix";
+UPDATE npc_list SET status = 2 WHERE npcid = "17719642" AND polutils_name = "Treasure Coffer";
+UPDATE npc_list SET content_tag = NULL WHERE polutils_name = "Ephemeral Moogle";
+UPDATE npc_list SET status = 2 WHERE polutils_name = "Festive Moogle";
+UPDATE npc_list SET status = 2 WHERE npcid = "17727634" AND polutils_name = "Habitox";
+UPDATE npc_list SET status = 2 WHERE npcid = "17727635" AND polutils_name = "Treasure Coffer";
+UPDATE npc_list SET status = 2 WHERE npcid = "17727654" AND polutils_name = "Ivan";
+UPDATE npc_list SET status = 2 WHERE polutils_name = "Curio Vendor Moogle";
+UPDATE npc_list SET status = 2 WHERE npcid = "17735872" AND polutils_name = "Bountibox";
+UPDATE npc_list SET status = 2 WHERE npcid = "17735873" AND polutils_name = "Treasure Coffer";
+UPDATE npc_list SET status = 2 WHERE npcid = "17739956" AND polutils_name = "Specilox";
+UPDATE npc_list SET status = 2 WHERE npcid = "17739957" AND polutils_name = "Treasure Coffer";
+UPDATE npc_list SET status = 2 WHERE npcid = "17744056" AND polutils_name = "Ernst";
+UPDATE npc_list SET status = 2 WHERE npcid = "17756352" AND polutils_name = "Arbitrix";
+UPDATE npc_list SET status = 2 WHERE npcid = "17756353" AND polutils_name = "Treasure Coffer";
+UPDATE npc_list SET status = 2 WHERE npcid = "17760464" AND polutils_name = "Willis";
+UPDATE npc_list SET status = 2 WHERE npcid = "17764606" AND polutils_name = "Funtrox";
+UPDATE npc_list SET status = 2 WHERE npcid = "17764607" AND polutils_name = "Treasure Coffer";
+UPDATE npc_list SET status = 2 WHERE npcid = "17768568" AND polutils_name = "Kierron";
+UPDATE npc_list SET status = 2 WHERE npcid = "17772837" AND polutils_name = "Vincent";
+UPDATE npc_list SET status = 2 WHERE npcid = "17772843" AND polutils_name = "Anastase";
+UPDATE npc_list SET status = 2 WHERE npcid = "17776715" AND polutils_name = "Antonia";
+UPDATE npc_list SET status = 2 WHERE npcid = "17776886" AND polutils_name = "Priztrix";
+UPDATE npc_list SET status = 2 WHERE npcid = "17776887" AND polutils_name = "Treasure Coffer";
+UPDATE npc_list SET status = 2 WHERE npcid = "17780998" AND polutils_name = "Sweepstox";
+UPDATE npc_list SET status = 2 WHERE npcid = "17780999" AND polutils_name = "Treasure Coffer";
+UPDATE npc_list SET status = 2 WHERE npcid = "17784981" AND polutils_name = "Horst";
+UPDATE npc_list SET status = 2 WHERE npcid = "17784982" AND polutils_name = "Treasure Coffer";
+INSERT INTO `npc_list` VALUES (17809649,'Liliana','Liliana',0,-31.5706,2.000,-28.9055,1,40,40,0,0,0,0,27,0x0100001E00100020003000400050006000700000,32,NULL,1);
+INSERT INTO `npc_list` VALUES (17809650,'Ajani','Ajani',147,13.9740,-0.3235,0.3933,6,40,40,0,1,0,0,25,0x0100171F01101520013015400150006000700000,32,NULL,1);
+INSERT INTO `npc_list` VALUES (17809651,'Jace','Jace',0,16.7008,-0.8236,29.9826,21,40,21,0,0,0,0,27,0x0000A80000000000000000000000000000000000,32,NULL,1);
+INSERT INTO `npc_list` VALUES (17809652,'Chandra','Chandra',76,51.1653,-6.2822,22.7677,1,40,40,0,0,0,0,27,0x0100031D00100420003000400350036003700000,32,NULL,1);
+INSERT INTO `npc_list` VALUES (17809653,'Garruk','Garruk',0,-87.3001,-5.4775,58.2408,14,40,40,0,0,0,0,27,0x0000BA0300000000000000000000000000000000,32,NULL,1);
+INSERT INTO `npc_list` VALUES (17809654,'Switchox','Switchox',0,-6.1245,-0.7759,21.2801,32797,40,40,0,0,0,0,27,0x0000550000000000000000000000000000000000,32,NULL,1);
+UPDATE npc_list SET status = 2 WHERE npcid = "17826176" AND polutils_name = "Rewardox";
+UPDATE npc_list SET status = 2 WHERE npcid = "17826177" AND polutils_name = "Treasure Coffer";
+UPDATE npc_list SET status = 2 WHERE npcid = "17830186" AND polutils_name = "Winrix";
+UPDATE npc_list SET status = 2 WHERE npcid = "17830187" AND polutils_name = "Treasure Coffer";

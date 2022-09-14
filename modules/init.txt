@@ -117,3 +117,17 @@ custom/cpp/ah_pagination.cpp
 #custom/sql/ka_speedbelt_drop.sql
 #custom/sql/lsb_mascot.sql
 #custom/sql/starter_zone_fast_repops.sql
+#-----------------------
+#	 Aurora
+#----------------------
+aurora/sql/aurora_abilities.sql
+aurora/sql/aurora_item_equipment.sql
+aurora/sql/aurora_item_mods.sql
+aurora/sql/aurora_item_usable.sql
+aurora/sql/aurora_mob_family_mods.sql
+aurora/sql/aurora_mob_groups.sql
+aurora/sql/aurora_mob_spawn_points.sql
+aurora/sql/aurora_nm_spawn_points.sql
+aurora/sql/aurora_npc_list.sql
+aurora/sql/aurora_spell_list.sql
+aurora/sql/aurora_weapon_skills.sql

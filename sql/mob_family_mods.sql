@@ -577,9 +577,6 @@ INSERT INTO `mob_family_mods` VALUES (175,389,-50,0); -- UDMGMAGIC: -50
 INSERT INTO `mob_family_mods` VALUES (176,10,8,1);  -- SUBLINK: 8
 INSERT INTO `mob_family_mods` VALUES (176,68,10,0); -- EVA: 10
 
--- Mandragora
-INSERT INTO `mob_family_mods` VALUES (178,59,40,1); -- WEAPON_BONUS: 40 (Penalty)
-
 -- Manticore
 INSERT INTO `mob_family_mods` VALUES (179,31,30,1);  -- ROAM_DISTANCE: 30
 INSERT INTO `mob_family_mods` VALUES (179,36,60,1);  -- ROAM_COOL: 60
@@ -974,9 +971,6 @@ INSERT INTO `mob_family_mods` VALUES (404,31,15,1); -- ROAM_DISTANCE: 15
 INSERT INTO `mob_family_mods` VALUES (404,36,35,1); -- ROAM_COOL: 35
 INSERT INTO `mob_family_mods` VALUES (404,51,3,1);  -- ROAM_TURNS: 3
 INSERT INTO `mob_family_mods` VALUES (404,52,30,1); -- ROAM_RATE: 30
-
--- Lycopodium
-INSERT INTO `mob_family_mods` VALUES (406,59,40,1); -- WEAPON_BONUS: 40 (Penalty)
 
 -- Lamiae-Medusa
 INSERT INTO `mob_family_mods` VALUES (469,10,10,1); -- SUBLINK: 10
