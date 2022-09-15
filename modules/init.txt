@@ -125,6 +125,7 @@ aurora/sql/aurora_abilities.sql
 aurora/sql/aurora_item_equipment.sql
 aurora/sql/aurora_item_mods.sql
 aurora/sql/aurora_item_usable.sql
+aurora/sql/aurora_mob_droplist.sql
 aurora/sql/aurora_mob_family_mods.sql
 aurora/sql/aurora_mob_groups.sql
 aurora/sql/aurora_mob_spawn_points.sql
