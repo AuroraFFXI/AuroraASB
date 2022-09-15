@@ -7111,8 +7111,17 @@ void CLuaBaseEntity::addExp(uint32 exp)
     XI_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
 
     auto* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
-
-    charutils::AddExperiencePoints(false, PChar, m_PBaseEntity, exp);
+    
+    if (exp == 1)
+    {
+        charutils::AddExperiencePoints(false, PChar, m_PBaseEntity, exp);
+    }
+    else
+    {
+        charutils::AddPoints(PChar, charutils::GetConquestPointsName(PChar).c_str(), exp);
+        PChar->pushPacket(new CConquestPacket(PChar));
+        PChar->pushPacket(new CChatMessagePacket(PChar, MESSAGE_SYSTEM_3, "You gained " + std::to_string(exp) + " Conquest Points!", "Synthesis"));
+    }
 }
 
 /************************************************************************
