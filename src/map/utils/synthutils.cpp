@@ -131,7 +131,7 @@ namespace synthutils
                 }
 
                 // Aurora Custom SQL Query load
-                const char* fmtQuery = "SELECT skillups, hqtries, hq2tries, hq3tries FROM char_synthesis WHERE charid = %i AND synthid = %i LIMIT 1";
+                const char* fmtQuery = "SELECT skillups, hqtries FROM char_synthesis WHERE charid = %i AND synthid = %i LIMIT 1";
 
                 int32 ret = sql->Query(fmtQuery, PChar->id, Aurorasynthid);
 
@@ -139,20 +139,14 @@ namespace synthutils
                 {
                     uint16 Aurorasynthskillups = sql->GetUIntData(0);
                     uint16 Aurorasynthhqtries = sql->GetUIntData(1);
-                    uint16 Aurorasynthhq2tries = sql->GetUIntData(2);
-                    uint16 Aurorasynthhq3tries = sql->GetUIntData(3);
                     PChar->setCharVar("[Aurora]synthskillups", Aurorasynthskillups);
                     PChar->setCharVar("[Aurora]synthhqtries", Aurorasynthhqtries);
-                    PChar->setCharVar("[Aurora]synthhq2tries", Aurorasynthhq2tries);
-                    PChar->setCharVar("[Aurora]synthhq3tries", Aurorasynthhq3tries);
                     PChar->setCharVar("[Aurora]synthid", Aurorasynthid);
                 }
                 else
                 {
                     PChar->setCharVar("[Aurora]synthskillups", 0);
                     PChar->setCharVar("[Aurora]synthhqtries", 0);
-                    PChar->setCharVar("[Aurora]synthhq2tries", 0);
-                    PChar->setCharVar("[Aurora]synthhq3tries", 0);
                     PChar->setCharVar("[Aurora]synthid", Aurorasynthid);
                 }
                 // End Aurora Custom
@@ -275,14 +269,10 @@ namespace synthutils
         int16  modSynthHqRate  = PChar->getMod(Mod::SYNTH_HQ_RATE);
 
         // Aurora: Custom Crafting HQ Rates
-            int16 prevSkillups = 0;
-            int16 hqTries = 0;
-            int16 hq2Tries = 0;
-            int16 hq3Tries = 0;
-            prevSkillups = PChar->getCharVar("[Aurora]synthskillups");
-            hqTries = PChar->getCharVar("[Aurora]synthhqtries");
-            hq2Tries = PChar->getCharVar("[Aurora]synthhq2tries");
-            hq3Tries = PChar->getCharVar("[Aurora]synthhq3tries");
+        int16 prevSkillups = 0;
+        int16 hqTries = 0;
+        prevSkillups = PChar->getCharVar("[Aurora]synthskillups");
+        hqTries = PChar->getCharVar("[Aurora]synthhqtries");
 
         // Section 1: Break handling
         for (uint8 skillID = SKILL_WOODWORKING; skillID <= SKILL_COOKING; ++skillID)
@@ -367,16 +357,16 @@ namespace synthutils
             switch (hqtier)
             {
                 case 3:
-                    chance = 0.500;
+                    chance = 0.500 + (hqTries * 0.125);              // Aurora Custom Chance
                     break;
                 case 2:
-                    chance = 0.250;
+                    chance = 0.250 + (hqTries * 0.03125);             // Aurora Custom Chance
                     break;
                 case 1:
-                    chance = 0.066;
+                    chance = 0.066 + (hqTries * 0.0022);            // Aurora Custom Chance
                     break;
                 case 0:
-                    chance = 0.018;
+                    chance = 0.018 + (hqTries * 0.00005);          // Aurora Custom Chance multiplier
                     break;
                 case -1:
                     chance = 0.0006;
@@ -395,7 +385,6 @@ namespace synthutils
             // see: https://www.bluegartr.com/threads/130586-CraftyMath-v2-Post-September-2017-Update
             chance += (double)modSynthHqRate / 512.;
 
-            // Aurora Adjust HQ Cap
             if (chance > 0)
             {
                 // limit max hq chance
@@ -407,6 +396,11 @@ namespace synthutils
                 {
                     chance = std::clamp(chance, 0., 1.000);
                 }
+                
+                // Aurora Message to display skillup Rate
+                // Aurora Message to display HQ Rate
+                std::string hqRateMsg = "Atempted HQs: " + std::to_string(hqTries) + "! HQ Chance: " + std::to_string(chance * 100) + "!";
+                PChar->pushPacket(new CChatMessagePacket(PChar, MESSAGE_SYSTEM_3, hqRateMsg, "Synthesis"));
             }
 
             random = xirand::GetRandomNumber(1.);
@@ -445,38 +439,26 @@ namespace synthutils
                     else
                     {
                         result = SYNTHESIS_HQ3;
-                        hq3Tries = 0; // Aurora Reset HQ3 Tries if HQ3
-                    }
-                    else
-                    {
-                        hq3Tries += 1; // Aurora Increase HQ3 Tries if not HQ3
-                        hq2Tries = 0; // Aurora Reset HQ2 Tries if HQ2
                     }
                 }
-                else
-                {
-                    hq2Tries += 1; // Aurora Increase HQ2 Tries if not HQ2
-                    hq3Tries += 1; // Aurora Increase HQ3 Tries if not HQ2
-                    hqTries = 0; // Aurora Reset HQ Tries if HQ
-                }
+                
+                hqTries = 0; // Aurora Set HQ Tries to 0 (We HQed)
             }
             else
             {
                 hqTries += 1; // Aurora Increase HQ Tries if not HQ
-                hq2Tries += 1; // Aurora Increase HQ2 Tries if not HQ
-                hq3Tries += 1; // Aurora Increase HQ3 Tries if not HQ
             }
 
             // Aurora Save HQ atempts to SQL
-            if (prevSkillups > 0 || hqTries > 1 || hq2Tries > 1 || hq3Tries > 1)
+            if (prevSkillups > 0 || hqTries > 1)
             {
-                char fmtQuery[] = "UPDATE char_synthesis SET hqtries = '%i', hq2tries = '%i', hq3tries = '%i' WHERE charid = %i AND synthid = %i;\0";
-                sql->Query(fmtQuery, hqTries, hq2Tries, hq3Tries, PChar->id, PChar->getCharVar("[Aurora]synthid"));
+                char fmtQuery[] = "UPDATE char_synthesis SET hqtries = '%i' WHERE charid = %i AND synthid = %i;\0";
+                sql->Query(fmtQuery, hqTries, PChar->id, PChar->getCharVar("[Aurora]synthid"));
             }
             else
             {
-                char fmtQuery[] = "INSERT INTO char_synthesis VALUES (%i, %i, %i, %i, %i, %i);\0";
-                sql->Query(fmtQuery, PChar->id, PChar->getCharVar("[Aurora]synthid"), prevSkillups, hqTries, hq2Tries, hq3Tries);
+                char fmtQuery[] = "INSERT INTO char_synthesis VALUES (%i, %i, %i, %i);\0";
+                sql->Query(fmtQuery, PChar->id, PChar->getCharVar("[Aurora]synthid"), prevSkillups, hqTries);
             }
 
         }
