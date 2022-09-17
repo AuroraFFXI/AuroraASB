@@ -15,8 +15,8 @@ xi.settings.main =
     SERVER_NAME = "Aurora",
 
     SERVER_MESSAGE =
-        "Welcome to Aurora, a FFXI Hardcore Experience!" ..
-        "Beta is almost over! Just need to test the switch to ASB from LSB!",
+        "Welcome to Aurora, a Hardcore FFXI Experience!" ..
+        "Be sure to read the Discord/Wiki for Custom stuff on Aurora!",
 
     -- Setting to lock content more accurately to the expansions defined below.
     -- This generally results in a more accurate presentation of your selected expansions,
