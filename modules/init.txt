@@ -47,12 +47,12 @@
 era/lua/75_era_argus.lua
 #era/lua/exp_rings.lua
 #era/lua/era_HNM_system.lua
-#era/lua/75_era_vendors.lua
+#era/lua/era_vendors.lua
 #-----------------------
 #      General C++
 #-----------------------
 #era/cpp/
-#era/cpp/disable_mog_garden.cpp
+era/cpp/disable_mog_garden.cpp
 era/cpp/era_dynamisFunctions.cpp
 #-----------------------
 #      General SQL
@@ -67,6 +67,7 @@ era/sql/abilities.sql
 #era/sql/era_droplist.sql
 era/sql/era_dyna_sql.sql
 era/sql/era_homepoints.sql
+era/sql/era_mob_family_system.sql
 era/sql/era_mob_resistances.sql
 era/sql/era_spell_list.sql
 era/sql/era_weapon_skills.sql
