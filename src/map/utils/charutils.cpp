@@ -3594,7 +3594,7 @@ namespace charutils
             return EMobDifficulty::Tough; // 101 - 199
         if (baseExp == 100)
             return EMobDifficulty::EvenMatch; // 100
-        if (baseExp >= 80)
+        if (baseExp >= 50)
             return EMobDifficulty::DecentChallenge; // 80 - 99
         if (baseExp >= 1)
             return EMobDifficulty::EasyPrey; // 1 - 79
