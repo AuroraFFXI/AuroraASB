@@ -13,8 +13,8 @@ SET @SRARE = 5;      -- Super Rare, 0.5%
 SET @URARE = 1;      -- Ultra rare, 0.1%
 
 -- ZoneID: 115 - Crawler (Starfall Hillock)
-DELETE WHERE itemId='582';
-DELETE WHERE dropId='3227';
+DELETE FROM `mob_droplist` WHERE itemId='582';
+DELETE FROM `mob_droplist` WHERE dropId='3227';
 INSERT INTO `mob_droplist` VALUES (3227,0,0,1000,816,@COMMON);  -- Spool Of Silk Thread (Common, 15%)
 INSERT INTO `mob_droplist` VALUES (3227,0,0,1000,1156,@COMMON); -- Crawler Calculus (Common, 15%)
 INSERT INTO `mob_droplist` VALUES (3227,0,0,1000,582,@RARE);    -- Meteorite (Rare, 5%)

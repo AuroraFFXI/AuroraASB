@@ -132,5 +132,5 @@ aurora/sql/aurora_mob_spawn_points.sql
 aurora/sql/aurora_nm_spawn_points.sql
 aurora/sql/aurora_npc_list.sql
 aurora/sql/aurora_spell_list.sql
-aurora/sql/aurora_synth_recipies.sql
+aurora/sql/aurora_synth_recipes.sql
 aurora/sql/aurora_weapon_skills.sql
