@@ -7,8 +7,56 @@
 LOCK TABLE `mob_groups` WRITE;
 
 -- ------------------------------------------------------------
+-- Carpenters_Landing (Zone 2)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Tempest_Tigon' AND groupid='31' AND zoneid='2';
+
+-- ------------------------------------------------------------
+-- Bibiki_Bay (Zone 4)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Shankha' AND groupid='17' AND zoneid='4';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Splacknuck' AND groupid='37' AND zoneid='4';
+
+-- ------------------------------------------------------------
+-- Uleguerand_Range (Zone 5)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag='TOAU' WHERE name='Magnotaur' AND groupid='39' AND zoneid='5';
+
+-- ------------------------------------------------------------
+-- Attohwa_Chasm (Zone 7)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Sekhmet' AND groupid='12' AND zoneid='7';
+
+-- ------------------------------------------------------------
+-- Oldton_Movalpolos (Zone 11)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Bugbear_Muscleman' AND groupid='18' AND zoneid='11';
+
+-- ------------------------------------------------------------
+-- Lufaise_Meadows (Zone 24)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Flockbock' AND groupid='32' AND zoneid='24';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Sengann' AND groupid='79' AND zoneid='24';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Yal-un_Eke' AND groupid='82' AND zoneid='24';
+
+-- ------------------------------------------------------------
+-- Misareaux_Coast (Zone 25)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Goaftrap' AND groupid='9' AND zoneid='25';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Okyupete' AND groupid='47' AND zoneid='25';
+
+-- ------------------------------------------------------------
 -- West_Ronfaure (Zone 100)
 -- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Amanita' AND groupid='16' AND zoneid='100';
 
 INSERT INTO `mob_groups` VALUES (108,1038,100,'Ding_Bats',330,2,82,0,0,1,2,0,NULL);
 INSERT INTO `mob_groups` VALUES (208,1038,100,'Ding_Bats',330,2,82,0,0,2,3,0,NULL);
@@ -53,6 +101,8 @@ INSERT INTO `mob_groups` VALUES (358,6543,100,'Enchanted_Bones_war',330,1,769,0,
 -- East_Ronfaure (Zone 101)
 -- ------------------------------------------------------------
 
+UPDATE mob_groups SET content_tag=NULL WHERE name='Rambukk' AND groupid='20' AND zoneid='101';
+
 INSERT INTO `mob_groups` VALUES (108,1038,101,'Ding_Bats',330,2,82,0,0,1,2,0,NULL);
 INSERT INTO `mob_groups` VALUES (208,1038,101,'Ding_Bats',330,2,82,0,0,2,3,0,NULL);
 INSERT INTO `mob_groups` VALUES (308,1038,101,'Ding_Bats',330,2,82,0,0,4,5,0,NULL);
@@ -91,8 +141,38 @@ INSERT INTO `mob_groups` VALUES (244,3221,101,'Pugil',330,0,2034,0,0,2,3,0,NULL)
 INSERT INTO `mob_groups` VALUES (344,3221,101,'Pugil',330,0,2034,0,0,4,5,0,NULL);
 
 -- ------------------------------------------------------------
+-- La_Theine_Plateau (Zone 102)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Slumbering_Samwell' AND groupid='37' AND zoneid='102';
+
+-- ------------------------------------------------------------
+-- Valkurm_Dunes (Zone 103)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Metal_Shears' AND groupid='17' AND zoneid='103';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Hippomaritimus' AND groupid='29' AND zoneid='103';
+
+-- ------------------------------------------------------------
+-- Jugner_Forest (Zone 104)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Supplespine_Mujwuj' AND groupid='41' AND zoneid='104';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Sappy_Sycamore' AND groupid='43' AND zoneid='104';
+
+-- ------------------------------------------------------------
+-- Batallia_Downs (Zone 105)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Skirling_Liger' AND groupid='25' AND zoneid='105';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Eyegouger' AND groupid='38' AND zoneid='105';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Prankster_Maverix' AND groupid='40' AND zoneid='105';
+
+-- ------------------------------------------------------------
 -- North_Gustaberg (Zone 106)
 -- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Bedrock_Barry' AND groupid='26' AND zoneid='106';
 
 INSERT INTO `mob_groups` VALUES (108,1038,106,'Ding_Bats',330,2,82,0,0,1,2,0,NULL);
 INSERT INTO `mob_groups` VALUES (208,1038,106,'Ding_Bats',330,2,82,0,0,3,4,0,NULL);
@@ -130,6 +210,8 @@ INSERT INTO `mob_groups` VALUES (270,6543,106,'Enchanted_Bones_war',330,1,769,0,
 -- ------------------------------------------------------------
 -- South_Gustaberg (Zone 107)
 -- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Tococo' AND groupid='28' AND zoneid='107';
 
 INSERT INTO `mob_groups` VALUES (109,1038,107,'Ding_Bats',330,2,82,0,0,1,2,0,NULL);
 INSERT INTO `mob_groups` VALUES (209,1038,107,'Ding_Bats',330,2,82,0,0,3,4,0,NULL);
@@ -169,8 +251,59 @@ INSERT INTO `mob_groups` VALUES (225,103,107,'Amber_Quadav',330,0,59,0,0,4,6,0,N
 INSERT INTO `mob_groups` VALUES (325,103,107,'Amber_Quadav',330,0,59,0,0,7,8,0,NULL);
 
 -- ------------------------------------------------------------
+-- Konschtat_Highlands (Zone 108)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Ghillie_Dhu' AND groupid='8' AND zoneid='108';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Highlander_lizard' AND groupid='26' AND zoneid='108';
+
+-- ------------------------------------------------------------
+-- Pashhow_Marshlands (Zone 109)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='NiZho_Bladebender' AND groupid='28' AND zoneid='109';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Toxic_Tamlyn' AND groupid='38' AND zoneid='109';
+
+-- ------------------------------------------------------------
+-- Rolanberry_Fields (Zone 110)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Ravenous_Crawler' AND groupid='36' AND zoneid='110';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Eldritch_Edge' AND groupid='38' AND zoneid='110';
+
+-- ------------------------------------------------------------
+-- Beaucedine_Glacier (Zone 111)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Humbaba' AND groupid='32' AND zoneid='111';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Calcabrina' AND groupid='33' AND zoneid='111';
+
+-- ------------------------------------------------------------
+-- Xarcabard (Zone 112)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Barbaric_Weapon' AND groupid='11' AND zoneid='112';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Duke_Focalor' AND groupid='21' AND zoneid='112';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Timeworn_Warrior' AND groupid='12' AND zoneid='112';
+
+-- ------------------------------------------------------------
+-- Cape_Teriggan (Zone 113)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Killer_Johnny' AND groupid='20' AND zoneid='113';
+
+-- ------------------------------------------------------------
+-- Eastern_Altepa_Desert (Zone 114)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Donnergugi' AND groupid='16' AND zoneid='114';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Nandi' AND groupid='34' AND zoneid='114';
+
+-- ------------------------------------------------------------
 -- West_Sarutabaruta (Zone 115)
 -- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Numbing_Norman' AND groupid='27' AND zoneid='115';
 
 INSERT INTO `mob_groups` VALUES (108,3490,115,'Savanna_Rarab',330,0,2846,0,0,1,3,0,NULL);
 INSERT INTO `mob_groups` VALUES (208,3490,115,'Savanna_Rarab',330,0,2846,0,0,3,5,0,NULL);
@@ -210,6 +343,8 @@ INSERT INTO `mob_groups` VALUES (324,6562,115,'Magicked_Bones_blm',330,1,769,0,0
 -- ------------------------------------------------------------
 -- East_Sarutabaruta (Zone 116)
 -- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Duke_Decapod' AND groupid='25' AND zoneid='116';
 
 INSERT INTO `mob_groups` VALUES (108,3490,116,'Savanna_Rarab',330,0,2171,0,0,1,3,0,NULL);
 INSERT INTO `mob_groups` VALUES (208,3490,116,'Savanna_Rarab',330,0,2171,0,0,3,6,0,NULL);
@@ -256,6 +391,81 @@ INSERT INTO `mob_groups` VALUES (257,6562,116,'Magicked_Bones_blm',330,1,769,0,0
 INSERT INTO `mob_groups` VALUES (357,6562,116,'Magicked_Bones_blm',330,1,769,0,0,7,8,0,NULL);
 
 -- ------------------------------------------------------------
+-- Tahrongi_Canyon (Zone 117)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Habrok' AND groupid='8' AND zoneid='117';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Herbage_Hunter' AND groupid='30' AND zoneid='117';
+
+-- ------------------------------------------------------------
+-- Buburimu_Peninsula (Zone 118)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Wake_Warder_Wanda' AND groupid='22' AND zoneid='118';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Backoo' AND groupid='55' AND zoneid='118';
+
+-- ------------------------------------------------------------
+-- Meriphataud_Mountains (Zone 119)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Chonchon' AND groupid='19' AND zoneid='119';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Naa_Zeku_the_Unwaiting' AND groupid='29' AND zoneid='119';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Patripatan' AND groupid='37' AND zoneid='119';
+
+-- ------------------------------------------------------------
+-- Sauromugue_Champaign (Zone 120)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag='TOAU' WHERE name='Bashe' AND groupid='68' AND zoneid='120';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Thunderclaw_Thuban' AND groupid='33' AND zoneid='120';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Blighting_Brand' AND groupid='38' AND zoneid='120';
+
+-- ------------------------------------------------------------
+-- The_Sanctuary_of_ZiTah (Zone 121)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Elusive_Edwin' AND groupid='15' AND zoneid='121';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Huwasi' AND groupid='20' AND zoneid='121';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Bastet' AND groupid='34' AND zoneid='121';
+
+-- ------------------------------------------------------------
+-- RoMaeve (Zone 122)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Rogue_Receptacle' AND groupid='15' AND zoneid='122';
+
+-- ------------------------------------------------------------
+-- Yuhtunga_Jungle (Zone 123)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Koropokkur' AND groupid='9' AND zoneid='123';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Pyuu_the_Spatemaker' AND groupid='25' AND zoneid='123';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Bayawak' AND groupid='30' AND zoneid='123';
+
+-- ------------------------------------------------------------
+-- Yhoator_Jungle (Zone 124)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Powderer_Penny' AND groupid='25' AND zoneid='124';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Acolnahuacatl' AND groupid='27' AND zoneid='124';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Hoar-knuckled_Rimberry' AND groupid='32' AND zoneid='124';
+
+-- ------------------------------------------------------------
+-- Western_Altepa_Desert (Zone 125)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Calchas' AND groupid='23' AND zoneid='125';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Dahu' AND groupid='37' AND zoneid='125';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Picolaton' AND groupid='38' AND zoneid='125';
+
+-- ------------------------------------------------------------
+-- Qufim_Island (Zone 126)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Slippery_Sucker' AND groupid='23' AND zoneid='126';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Qoofim' AND groupid='28' AND zoneid='126';
+
+-- ------------------------------------------------------------
 -- Ghelsba_Outpost (Zone 140)
 -- ------------------------------------------------------------
 
@@ -270,6 +480,8 @@ INSERT INTO `mob_groups` VALUES (213,3016,140,'Orcish_Grappler',330,0,1914,0,0,7
 -- Fort_Ghelsba (Zone 141)
 -- ------------------------------------------------------------
 
+UPDATE mob_groups SET content_tag=NULL WHERE name='Kegpaunch_Doshgnosh' AND groupid='20' AND zoneid='141';
+
 INSERT INTO `mob_groups` VALUES (112,3017,141,'Orcish_Grunt',330,0,1916,0,0,11,14,0,NULL);
 INSERT INTO `mob_groups` VALUES (212,3017,141,'Orcish_Grunt',330,0,1916,0,0,15,18,0,NULL);
 INSERT INTO `mob_groups` VALUES (113,3033,141,'Orcish_Stonechucker',330,0,1940,0,0,11,14,0,NULL);
@@ -280,6 +492,9 @@ INSERT INTO `mob_groups` VALUES (214,3023,141,'Orcish_Neckchopper',330,0,1916,0,
 -- ------------------------------------------------------------
 -- Palborough_Mines (Zone 143)
 -- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='QuVho_Deathhurler' AND groupid='10' AND zoneid='143';
+UPDATE mob_groups SET content_tag=NULL WHERE name='BeHya_Hundredwall' AND groupid='22' AND zoneid='143';
 
 INSERT INTO `mob_groups` VALUES (105,4477,143,'Young_Quadav',330,0,2790,0,0,4,6,0,NULL);
 INSERT INTO `mob_groups` VALUES (205,4477,143,'Young_Quadav',330,0,2790,0,0,7,9,0,NULL);
@@ -298,6 +513,8 @@ INSERT INTO `mob_groups` VALUES (213,2986,143,'Onyx_Quadav',330,0,1865,0,0,15,18
 -- Giddeus (Zone 145)
 -- ------------------------------------------------------------
 
+UPDATE mob_groups SET content_tag=NULL WHERE name='Quu_Xijo_the_Illusory' AND groupid='20' AND zoneid='145';
+
 INSERT INTO `mob_groups` VALUES (107,4426,145,'Yagudo_Initiate',330,0,2718,0,0,4,6,0,NULL);
 INSERT INTO `mob_groups` VALUES (207,4426,145,'Yagudo_Initiate',330,0,2718,0,0,7,9,0,NULL);
 INSERT INTO `mob_groups` VALUES (108,4405,145,'Yagudo_Acolyte',330,0,2694,0,0,4,6,0,NULL);
@@ -310,3 +527,110 @@ INSERT INTO `mob_groups` VALUES (115,4441,145,'Yagudo_Piper',330,0,2745,0,0,11,1
 INSERT INTO `mob_groups` VALUES (215,4441,145,'Yagudo_Piper',330,0,2745,0,0,15,18,0,NULL);
 INSERT INTO `mob_groups` VALUES (116,4439,145,'Yagudo_Persecutor',330,0,2741,0,0,11,14,0,NULL);
 INSERT INTO `mob_groups` VALUES (216,4439,145,'Yagudo_Persecutor',330,0,2741,0,0,15,18,0,NULL);
+
+-- ------------------------------------------------------------
+-- Castle_Oztroja (Zone 151)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Saa_Doyi_the_Fervid' AND groupid='5' AND zoneid='151';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Lii_Jixa_the_Somnolist' AND groupid='21' AND zoneid='151';
+
+-- ------------------------------------------------------------
+-- Upper_Delkfutts_Tower (Zone 158)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Autarch' AND groupid='25' AND zoneid='158';
+
+-- ------------------------------------------------------------
+-- Castle_Zvahl_Baileys (Zone 161)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Likho' AND groupid='7' AND zoneid='161';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Marquis_Naberius' AND groupid='36' AND zoneid='161';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Marquis_Sabnock' AND groupid='37' AND zoneid='161';
+
+-- ------------------------------------------------------------
+-- Ranguemont_Pass (Zone 166)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Gloom_Eye' AND groupid='13' AND zoneid='166';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Mucoid_Mass' AND groupid='19' AND zoneid='166';
+UPDATE mob_groups SET content_tag='TOAU' WHERE name='Hyakume' AND groupid='31' AND zoneid='166';
+
+-- ------------------------------------------------------------
+-- Korroloka_Tunnel (Zone 173)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Thoon' AND groupid='27' AND zoneid='173';
+
+-- ------------------------------------------------------------
+-- Lower_Delkfutts_Tower (Zone 184)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Tyrant' AND groupid='14' AND zoneid='184';
+
+-- ------------------------------------------------------------
+-- King_Ranperres_Tomb (Zone 190)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Gwyllgi' AND groupid='17' AND zoneid='190';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Ankou' AND groupid='21' AND zoneid='190';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Barbastelle' AND groupid='22' AND zoneid='190';
+
+-- ------------------------------------------------------------
+-- Dangruf_Wadi (Zone 191)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Teporingo' AND groupid='10' AND zoneid='191';
+
+-- ------------------------------------------------------------
+-- Inner_Horutoto_Ruins (Zone 192)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Nocuous_Weapon' AND groupid='25' AND zoneid='192';
+
+-- ------------------------------------------------------------
+-- Ordelles_Caves (Zone 193)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Donggu' AND groupid='14' AND zoneid='193';
+UPDATE mob_groups SET content_tag='TOAU' WHERE name='Agar_Agar' AND groupid='23' AND zoneid='193';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Bombast' AND groupid='44' AND zoneid='193';
+
+-- ------------------------------------------------------------
+-- Outer_Horutoto_Ruins (Zone 194)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Desmodont' AND groupid='5' AND zoneid='194';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Legalox_Heftyhind' AND groupid='7' AND zoneid='194';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Ah_Puch' AND groupid='13' AND zoneid='194';
+
+-- ------------------------------------------------------------
+-- Crawlers_Nest (Zone 197)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Dynast_Beetle' AND groupid='23' AND zoneid='197';
+
+-- ------------------------------------------------------------
+-- Maze_of_Shakhrami (Zone 198)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Trembler_Tabitha' AND groupid='9' AND zoneid='198';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Gloombound_Lurker' AND groupid='26' AND zoneid='198';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Lesath' AND groupid='31' AND zoneid='198';
+
+-- ------------------------------------------------------------
+-- Garlaige_Citadel (Zone 200)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag='TOAU' WHERE name='Hazmat' AND groupid='17' AND zoneid='200';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Hovering_Hotpot' AND groupid='34' AND zoneid='200';
+
+-- ------------------------------------------------------------
+-- FeiYin (Zone 204)
+-- ------------------------------------------------------------
+
+UPDATE mob_groups SET content_tag=NULL WHERE name='Mind_Hoarder' AND groupid='11' AND zoneid='204';
+UPDATE mob_groups SET content_tag=NULL WHERE name='Sluagh' AND groupid='5' AND zoneid='204';
+
+UNLOCK TABLES;
