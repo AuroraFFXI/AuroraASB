@@ -15,6 +15,10 @@ end
 
 entity.onMobDespawn = function(mob)
     xi.mob.phOnDespawn(mob, ID.mob.JAGGEDY_EARED_JACK_PH, 9, 2400) -- 40 minute minimum
+    
+    if (mob:getID() == 17187110) then
+        UpdateNMSpawnPoint(mob:getID())
+    end
 end
 
 return entity
