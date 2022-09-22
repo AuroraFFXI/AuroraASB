@@ -14928,6 +14928,21 @@ void CLuaBaseEntity::sendNpcEmote(CLuaBaseEntity* PBaseEntity, sol::object const
     }
 }
 
+void CLuaBaseEntity::clearActionQueue()
+{
+    if (m_PBaseEntity == nullptr || m_PBaseEntity->objtype != TYPE_MOB)
+    {
+        return;
+    }
+
+    auto* PMob = static_cast<CMobEntity*>(m_PBaseEntity);
+
+    if (PMob)
+    {
+        PMob->PAI->ClearActionQueue();
+    }
+}
+
 //==========================================================//
 
 void CLuaBaseEntity::Register()
@@ -15716,6 +15731,7 @@ void CLuaBaseEntity::Register()
     SOL_REGISTER("sendNpcEmote", CLuaBaseEntity::sendNpcEmote);
     SOL_REGISTER("restoreNpcLook", CLuaBaseEntity::restoreNpcLook);
     SOL_REGISTER("getTraits", CLuaBaseEntity::getTraits);
+    SOL_REGISTER("clearActionQueue", CLuaBaseEntity::clearActionQueue);
 }
 
 std::ostream& operator<<(std::ostream& os, const CLuaBaseEntity& entity)
