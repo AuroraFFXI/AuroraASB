@@ -4139,7 +4139,7 @@ namespace charutils
                     exp      = 0;
                 }
             }
-            else if (deathlevel > reallevel) // If Releveling a job
+            else if (deathlevel > reallevel || PMember->StatusEffectContainer->GetStatusEffect(EFFECT_DEDICATION)) // If Releveling a job or under Dedication Effect
             {
                 exp      = (float)GetBaseExp(99, (moblevel + 14 + reallevel - maxlevel));
             }
@@ -4561,7 +4561,7 @@ namespace charutils
                     // Aurora Incremental EXP T+ Bonus
                     if (mobCheck >= EMobDifficulty::Tough)
                     {
-                        expMod *= (1.0f +(((float)moblevel - (float)maxlevel) * 0.2f));
+                        expMod *= (1.0f +(((float)moblevel - (float)maxlevel) * 0.15f));
                     }
 
 					cPP = cPP * expMod;
