@@ -235,7 +235,7 @@ local function setCasketData(player, x, y, z, r, npc, partyID, mobLvl)
     --     kupowersBonus = 0.2
     -- end
 
-    if typeChance < 0.02 + kupowersBonus then
+    if typeChance < 0.03 + kupowersBonus then
         chestStyle = 966 -- Brown locked
     else
         chestStyle = 965 -- Blue
@@ -409,7 +409,7 @@ local function getDrops(npc, dropType, zoneId)
     if chestType == "tempItems" then
         local temps        = { 0, 0, 0 }
         local tempCount    = 1
-        local randomTable  = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }
+        local randomTable  = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } 
         local tempDrops = xi.casket_loot.casketItems[zoneId].temps
 
         if casketInfo.splitZones[zoneId] then
@@ -453,7 +453,7 @@ local function getDrops(npc, dropType, zoneId)
     elseif chestType == "items" then
         local items        = { 0, 0, 0, 0 }
         local itemCount    = 1
-        local randomTable  = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }
+        local randomTable  = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } 
         local drops = xi.casket_loot.casketItems[zoneId].items
 
         if casketInfo.splitZones[zoneId] then
