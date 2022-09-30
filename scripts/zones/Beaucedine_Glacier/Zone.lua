@@ -9,10 +9,10 @@ require('scripts/globals/zone')
 local zone_object = {}
 
 zone_object.onInitialize = function(zone)
-    if xi.settings.main.ENABLE_WOTG == 1 then
+    -- if xi.settings.main.ENABLE_WOTG == 1 then
         UpdateNMSpawnPoint(ID.mob.HUMBABA)
         GetMobByID(ID.mob.HUMBABA):setRespawnTime(math.random(3600, 4200))
-    end
+    -- end
 
     xi.conq.setRegionalConquestOverseers(zone:getRegionID())
     xi.voidwalker.zoneOnInit(zone)
