@@ -1616,7 +1616,7 @@ bool CLuaBaseEntity::pathThrough(sol::table const& pointsTable, sol::object cons
 
     std::vector<pathpoint_t> points;
 
-    if (flags & PATHFLAG_PATROL)
+    if (flags & PATHFLAG_PATROL || (flags & PATHFLAG_COORDS))
     {
         // Grab points from array and store in points array
         float x, y, z = -1;
@@ -5763,16 +5763,42 @@ uint8 CLuaBaseEntity::levelRestriction(sol::object const& level)
                 PChar->updatemask |= UPDATE_HP;
             }
 
-            if (PChar->PPet)
+            if (PChar->PPet || PChar->PAutomaton)
             {
                 CPetEntity* PPet = static_cast<CPetEntity*>(PChar->PPet);
+
+                if (PChar->PAutomaton)
+                {
+                    PPet = static_cast<CPetEntity*>(PChar->PAutomaton);
+                }
+
                 if (PPet->getPetType() == PET_TYPE::WYVERN)
                 {
                     petutils::LoadWyvernStatistics(PChar, PPet, true);
                 }
+                else if (PPet->getPetType() == PET_TYPE::AUTOMATON)
+                {
+                    if (PChar->GetMJob() == JOB_PUP)
+                    {
+                        PPet->SetMLevel(PChar->GetMLevel());
+                    }
+                    else
+                    {
+                        PPet->SetMLevel(PChar->GetSLevel());
+                    }
+
+                    PPet->SetSLevel(PPet->GetMLevel() / 2);
+                    puppetutils::LoadAutomatonStats(PChar);
+                }
                 else
                 {
                     petutils::DespawnPet(PChar);
+                }
+
+                if (PChar->PPet || PChar->PAutomaton)
+                {
+                    petutils::FinalizePetStatistics(PChar, PPet);
+                    PPet->updatemask |= UPDATE_HP;
                 }
             }
         }
