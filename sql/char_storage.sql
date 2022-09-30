@@ -18,14 +18,14 @@ CREATE TABLE IF NOT EXISTS `char_storage` (
   `satchel` tinyint(2) unsigned NOT NULL DEFAULT '30',
   `sack` tinyint(2) unsigned NOT NULL DEFAULT '30',
   `case` tinyint(2) unsigned NOT NULL DEFAULT '30',
-  `wardrobe` tinyint(2) unsigned NOT NULL DEFAULT '30',
-  `wardrobe2` tinyint(2) unsigned NOT NULL DEFAULT '30',
-  `wardrobe3` tinyint(2) unsigned NOT NULL DEFAULT '30',
-  `wardrobe4` tinyint(2) unsigned NOT NULL DEFAULT '30',
-  `wardrobe5` tinyint(2) unsigned NOT NULL DEFAULT '30',
-  `wardrobe6` tinyint(2) unsigned NOT NULL DEFAULT '30',
-  `wardrobe7` tinyint(2) unsigned NOT NULL DEFAULT '30',
-  `wardrobe8` tinyint(2) unsigned NOT NULL DEFAULT '30',
+  `wardrobe` tinyint(2) unsigned NOT NULL DEFAULT '80',
+  `wardrobe2` tinyint(2) unsigned NOT NULL DEFAULT '80',
+  `wardrobe3` tinyint(2) unsigned NOT NULL DEFAULT '80',
+  `wardrobe4` tinyint(2) unsigned NOT NULL DEFAULT '80',
+  `wardrobe5` tinyint(2) unsigned NOT NULL DEFAULT '80',
+  `wardrobe6` tinyint(2) unsigned NOT NULL DEFAULT '80',
+  `wardrobe7` tinyint(2) unsigned NOT NULL DEFAULT '80',
+  `wardrobe8` tinyint(2) unsigned NOT NULL DEFAULT '80',
 
   PRIMARY KEY (`charid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
