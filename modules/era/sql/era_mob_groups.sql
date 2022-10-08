@@ -81,7 +81,7 @@ UPDATE mob_groups set minLevel = 80, maxLevel = 80 WHERE name = "Hobgoblin_Angle
 -- Uleguerand_Range (Zone 5)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag='TOAU' WHERE name='Magnotaur' AND groupid='39' AND zoneid='5';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Magnotaur' AND groupid='39' AND zoneid='5';
 UPDATE mob_groups SET content_tag='SYNERGY' WHERE name='Skvader' AND groupid='11' AND zoneid='5';
 UPDATE mob_groups SET content_tag='SYNERGY' WHERE name='Frost_Flambeau' AND groupid='49' AND zoneid='5';
 UPDATE mob_groups set minLevel = 61 WHERE name = "Uleguerand_Tiger" and zoneid = 5;
@@ -96,7 +96,7 @@ UPDATE mob_groups set minLevel = 74 WHERE name = "Doom_Mage" and zoneid = 5;
 -- Attohwa_Chasm (Zone 7)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Sekhmet' AND groupid='12' AND zoneid='7';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Sekhmet' AND groupid='12' AND zoneid='7';
 UPDATE mob_groups SET content_tag='SYNERGY' WHERE name='Sargas' AND groupid='32' AND zoneid='7';
 UPDATE mob_groups set minLevel = 36, maxLevel = 39 WHERE name = "Goblin_Shaman" and zoneid = 7;
 UPDATE mob_groups set minLevel = 41 WHERE name = "Air_Elemental" and zoneid =7 and groupid = 28;
@@ -279,9 +279,9 @@ UPDATE mob_groups SET minLevel = 56, maxLevel = 57 WHERE name = "Seether" and zo
 -- Lufaise_Meadows (Zone 24)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Flockbock' AND groupid='32' AND zoneid='24';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Sengann' AND groupid='79' AND zoneid='24';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Yal-un_Eke' AND groupid='82' AND zoneid='24';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Flockbock' AND groupid='32' AND zoneid='24';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Sengann' AND groupid='79' AND zoneid='24';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Yal-un_Eke' AND groupid='82' AND zoneid='24';
 
 UPDATE mob_groups SET minLevel = 80, maxLevel = 83 WHERE name = "Abraxas" and zoneid = 22;
     -- 79-82
@@ -322,7 +322,7 @@ INSERT INTO `mob_groups` (`groupid`, `poolid`, `zoneid`, `name`, `respawntime`, 
 -- ------------------------------------------------------------
 
 UPDATE mob_groups SET content_tag='WOTG' WHERE name='Goaftrap' AND groupid='9' AND zoneid='25';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Okyupete' AND groupid='47' AND zoneid='25';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Okyupete' AND groupid='47' AND zoneid='25';
 
 UPDATE mob_groups SET minLevel = 36, maxLevel = 38 WHERE name = "Fomor_Monk"        and zoneid = 25 and groupid = 10;
 UPDATE mob_groups SET minLevel = 36, maxLevel = 38 WHERE name = "Fomor_Samurai"     and zoneid = 25 and groupid = 11;
@@ -412,7 +412,7 @@ UPDATE mob_groups SET minLevel = 75, maxLevel = 78 WHERE name = "Aerns_Euvhi" an
 -- West_Ronfaure (Zone 100)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Amanita' AND groupid='16' AND zoneid='100';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Amanita' AND groupid='16' AND zoneid='100';
 
 UPDATE mob_groups SET minLevel = 1, maxLevel = 5 WHERE name = "Carrion_Worm"   and zoneid = 100;
 UPDATE mob_groups SET minLevel = 1, maxLevel = 5 WHERE name = "Forest_Hare"   and zoneid = 100;
@@ -422,13 +422,13 @@ UPDATE mob_groups SET minLevel = 3, maxLevel = 6 WHERE name = "Scarab_Beetle"   
 -- East_Ronfaure (Zone 101)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Rambukk' AND groupid='20' AND zoneid='101';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Yilbegan' AND groupid='45' AND zoneid='101';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Krabkatoa' AND groupid='46' AND zoneid='101';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Yacumama' AND groupid='47' AND zoneid='101';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Capricornus' AND groupid='48' AND zoneid='101';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Quagmire_Pugil' AND groupid='49' AND zoneid='101';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Sunderclaw' AND groupid='50' AND zoneid='101';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Rambukk' AND groupid='20' AND zoneid='101';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Yilbegan' AND groupid='45' AND zoneid='101';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Krabkatoa' AND groupid='46' AND zoneid='101';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Yacumama' AND groupid='47' AND zoneid='101';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Capricornus' AND groupid='48' AND zoneid='101';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Quagmire_Pugil' AND groupid='49' AND zoneid='101';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Sunderclaw' AND groupid='50' AND zoneid='101';
 
 UPDATE mob_groups SET minLevel = 1, maxLevel = 5 WHERE name = "Carrion_Worm"   and zoneid = 101;
 UPDATE mob_groups SET minLevel = 1, maxLevel = 5 WHERE name = "Forest_Hare"   and zoneid = 101;
@@ -438,20 +438,20 @@ UPDATE mob_groups SET minLevel = 3, maxLevel = 6 WHERE name = "Scarab_Beetle"   
 -- La_Theine_Plateau (Zone 102)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Slumbering_Samwell' AND groupid='37' AND zoneid='102';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Yilbegan' AND groupid='49' AND zoneid='102';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Dawon' AND groupid='50' AND zoneid='102';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Tammuz' AND groupid='51' AND zoneid='102';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Chesma' AND groupid='52' AND zoneid='102';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Void_Hare' AND groupid='53' AND zoneid='102';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Prickly_Sheep' AND groupid='54' AND zoneid='102';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Slumbering_Samwell' AND groupid='37' AND zoneid='102';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Yilbegan' AND groupid='49' AND zoneid='102';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Dawon' AND groupid='50' AND zoneid='102';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Tammuz' AND groupid='51' AND zoneid='102';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Chesma' AND groupid='52' AND zoneid='102';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Void_Hare' AND groupid='53' AND zoneid='102';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Prickly_Sheep' AND groupid='54' AND zoneid='102';
 
 -- ------------------------------------------------------------
 -- Valkurm_Dunes (Zone 103)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Metal_Shears' AND groupid='17' AND zoneid='103';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Hippomaritimus' AND groupid='29' AND zoneid='103';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Metal_Shears' AND groupid='17' AND zoneid='103';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Hippomaritimus' AND groupid='29' AND zoneid='103';
 
 UPDATE mob_groups SET minLevel = 15, maxLevel = 18 WHERE name = "Hill_Lizard"   and zoneid = 103;
 
@@ -459,34 +459,34 @@ UPDATE mob_groups SET minLevel = 15, maxLevel = 18 WHERE name = "Hill_Lizard"   
 -- Jugner_Forest (Zone 104)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Supplespine_Mujwuj' AND groupid='41' AND zoneid='104';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Sappy_Sycamore' AND groupid='43' AND zoneid='104';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Yilbegan' AND groupid='73' AND zoneid='104';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Krabkatoa' AND groupid='74' AND zoneid='104';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Yacumama' AND groupid='75' AND zoneid='104';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Capricornus' AND groupid='76' AND zoneid='104';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Quagmire_Pugil' AND groupid='77' AND zoneid='104';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Sunderclaw' AND groupid='78' AND zoneid='104';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Supplespine_Mujwuj' AND groupid='41' AND zoneid='104';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Sappy_Sycamore' AND groupid='43' AND zoneid='104';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Yilbegan' AND groupid='73' AND zoneid='104';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Krabkatoa' AND groupid='74' AND zoneid='104';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Yacumama' AND groupid='75' AND zoneid='104';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Capricornus' AND groupid='76' AND zoneid='104';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Quagmire_Pugil' AND groupid='77' AND zoneid='104';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Sunderclaw' AND groupid='78' AND zoneid='104';
 
 -- ------------------------------------------------------------
 -- Batallia_Downs (Zone 105)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Skirling_Liger' AND groupid='25' AND zoneid='105';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Eyegouger' AND groupid='38' AND zoneid='105';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Prankster_Maverix' AND groupid='40' AND zoneid='105';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Yilbegan' AND groupid='50' AND zoneid='105';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Verthandi' AND groupid='51' AND zoneid='105';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Urd' AND groupid='52' AND zoneid='105';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Skuld' AND groupid='53' AND zoneid='105';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Aither' AND groupid='54' AND zoneid='105';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Deorc' AND groupid='55' AND zoneid='105';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Eorthe' AND groupid='56' AND zoneid='105';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Puretos' AND groupid='57' AND zoneid='105';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Pruina' AND groupid='58' AND zoneid='105';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Beorht' AND groupid='59' AND zoneid='105';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Thunor' AND groupid='60' AND zoneid='105';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Lacus' AND groupid='61' AND zoneid='105';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Skirling_Liger' AND groupid='25' AND zoneid='105';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Eyegouger' AND groupid='38' AND zoneid='105';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Prankster_Maverix' AND groupid='40' AND zoneid='105';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Yilbegan' AND groupid='50' AND zoneid='105';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Verthandi' AND groupid='51' AND zoneid='105';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Urd' AND groupid='52' AND zoneid='105';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Skuld' AND groupid='53' AND zoneid='105';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Aither' AND groupid='54' AND zoneid='105';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Deorc' AND groupid='55' AND zoneid='105';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Eorthe' AND groupid='56' AND zoneid='105';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Puretos' AND groupid='57' AND zoneid='105';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Pruina' AND groupid='58' AND zoneid='105';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Beorht' AND groupid='59' AND zoneid='105';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Thunor' AND groupid='60' AND zoneid='105';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Lacus' AND groupid='61' AND zoneid='105';
 
 UPDATE mob_groups SET minLevel = 30, maxLevel = 36 WHERE name = "Goblin_Furrier" and zoneid = 105;
 UPDATE mob_groups SET minLevel = 30, maxLevel = 36 WHERE name = "Goblin_Pathfinder" and zoneid = 105;
@@ -499,14 +499,14 @@ UPDATE mob_groups SET minLevel = 33, maxLevel = 35 WHERE name = "Kraken_fished" 
 -- North_Gustaberg (Zone 106)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Bedrock_Barry' AND groupid='26' AND zoneid='106';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Yilbegan' AND groupid='55' AND zoneid='106';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Blobdingnag' AND groupid='56' AND zoneid='106';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Septic_Boil' AND groupid='57' AND zoneid='106';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Shoggoth' AND groupid='58' AND zoneid='106';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Lamprey_Lord' AND groupid='59' AND zoneid='106';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Ground_Guzzler' AND groupid='60' AND zoneid='106';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Globster' AND groupid='61' AND zoneid='106';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Bedrock_Barry' AND groupid='26' AND zoneid='106';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Yilbegan' AND groupid='55' AND zoneid='106';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Blobdingnag' AND groupid='56' AND zoneid='106';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Septic_Boil' AND groupid='57' AND zoneid='106';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Shoggoth' AND groupid='58' AND zoneid='106';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Lamprey_Lord' AND groupid='59' AND zoneid='106';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Ground_Guzzler' AND groupid='60' AND zoneid='106';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Globster' AND groupid='61' AND zoneid='106';
 
 UPDATE mob_groups SET minLevel = 2, maxLevel = 5 WHERE name = "Maneating_Hornet"     and zoneid = 106;
 UPDATE mob_groups SET minLevel = 2, maxLevel = 5 WHERE name = "Stone_Eater"     and zoneid = 106;
@@ -517,7 +517,7 @@ UPDATE mob_groups SET minLevel = 2, maxLevel = 4 WHERE name = "Sand_Crab"     an
 -- South_Gustaberg (Zone 107)
 -- ------------------------------------------------------------
 
--- UPDATE mob_groups SET content_tag='WOTG' WHERE name='Tococo' AND groupid='28' AND zoneid='107';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Tococo' AND groupid='28' AND zoneid='107';
 
 UPDATE mob_groups SET minLevel = 2, maxLevel = 6 WHERE name = "Vulture"     and zoneid = 107;
 UPDATE mob_groups SET minLevel = 5, maxLevel = 6 WHERE name = "Land_Crab"   and zoneid = 107;
@@ -527,14 +527,14 @@ UPDATE mob_groups SET minLevel = 2, maxLevel = 4 WHERE name = "Sand_Crab"   and 
 -- Konschtat_Highlands (Zone 108)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Ghillie_Dhu' AND groupid='8' AND zoneid='108';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Highlander_lizard' AND groupid='26' AND zoneid='108';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Yilbegan' AND groupid='38' AND zoneid='108';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Dawon' AND groupid='39' AND zoneid='108';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Tammuz' AND groupid='40' AND zoneid='108';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Chesma' AND groupid='41' AND zoneid='108';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Void_Hare' AND groupid='42' AND zoneid='108';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Prickly_Sheep' AND groupid='43' AND zoneid='108';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Ghillie_Dhu' AND groupid='8' AND zoneid='108';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Highlander_lizard' AND groupid='26' AND zoneid='108';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Yilbegan' AND groupid='38' AND zoneid='108';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Dawon' AND groupid='39' AND zoneid='108';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Tammuz' AND groupid='40' AND zoneid='108';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Chesma' AND groupid='41' AND zoneid='108';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Void_Hare' AND groupid='42' AND zoneid='108';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Prickly_Sheep' AND groupid='43' AND zoneid='108';
 
 UPDATE mob_groups SET minLevel = 7, maxLevel = 10 WHERE name = "Huge_Wasp"   and zoneid = 107;
 UPDATE mob_groups SET minLevel = 7, maxLevel = 10 WHERE name = "Strolling_Sapling"   and zoneid = 107;
@@ -545,14 +545,14 @@ UPDATE mob_groups SET minLevel = 11, maxLevel = 13 WHERE name = "Mad_Sheep"   an
 -- ------------------------------------------------------------
 
 UPDATE mob_groups SET content_tag='WOTG' WHERE name='NiZho_Bladebender' AND groupid='28' AND zoneid='109';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Toxic_Tamlyn' AND groupid='38' AND zoneid='109';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Yilbegan' AND groupid='65' AND zoneid='109';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Blobdingnag' AND groupid='66' AND zoneid='109';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Septic_Boil' AND groupid='67' AND zoneid='109';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Shoggoth' AND groupid='68' AND zoneid='109';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Lamprey_Lord' AND groupid='69' AND zoneid='109';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Ground_Guzzler' AND groupid='70' AND zoneid='109';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Globster' AND groupid='71' AND zoneid='109';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Toxic_Tamlyn' AND groupid='38' AND zoneid='109';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Yilbegan' AND groupid='65' AND zoneid='109';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Blobdingnag' AND groupid='66' AND zoneid='109';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Septic_Boil' AND groupid='67' AND zoneid='109';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Shoggoth' AND groupid='68' AND zoneid='109';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Lamprey_Lord' AND groupid='69' AND zoneid='109';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Ground_Guzzler' AND groupid='70' AND zoneid='109';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Globster' AND groupid='71' AND zoneid='109';
 
 UPDATE mob_groups SET minLevel = 19, maxLevel = 22 WHERE name = "Thread_Leech"   and zoneid = 109;
 UPDATE mob_groups SET minLevel = 16, maxLevel = 26 WHERE name = "Ghoul_war"   and zoneid = 109;
@@ -562,20 +562,20 @@ UPDATE mob_groups SET minLevel = 20, maxLevel = 23 WHERE name = "Snipper"   and 
 -- Rolanberry_Fields (Zone 110)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Ravenous_Crawler' AND groupid='36' AND zoneid='110';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Eldritch_Edge' AND groupid='38' AND zoneid='110';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Yilbegan' AND groupid='45' AND zoneid='110';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Verthandi' AND groupid='46' AND zoneid='110';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Urd' AND groupid='47' AND zoneid='110';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Skuld' AND groupid='48' AND zoneid='110';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Aither' AND groupid='49' AND zoneid='110';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Deorc' AND groupid='50' AND zoneid='110';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Eorthe' AND groupid='51' AND zoneid='110';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Puretos' AND groupid='52' AND zoneid='110';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Pruina' AND groupid='53' AND zoneid='110';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Beorht' AND groupid='54' AND zoneid='110';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Thunor' AND groupid='55' AND zoneid='110';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Lacus' AND groupid='56' AND zoneid='110';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Ravenous_Crawler' AND groupid='36' AND zoneid='110';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Eldritch_Edge' AND groupid='38' AND zoneid='110';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Yilbegan' AND groupid='45' AND zoneid='110';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Verthandi' AND groupid='46' AND zoneid='110';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Urd' AND groupid='47' AND zoneid='110';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Skuld' AND groupid='48' AND zoneid='110';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Aither' AND groupid='49' AND zoneid='110';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Deorc' AND groupid='50' AND zoneid='110';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Eorthe' AND groupid='51' AND zoneid='110';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Puretos' AND groupid='52' AND zoneid='110';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Pruina' AND groupid='53' AND zoneid='110';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Beorht' AND groupid='54' AND zoneid='110';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Thunor' AND groupid='55' AND zoneid='110';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Lacus' AND groupid='56' AND zoneid='110';
 
 UPDATE mob_groups SET minLevel = 28, maxLevel = 30 WHERE name = "Greater_Pugil_fished"   and zoneid = 110;
 UPDATE mob_groups SET minLevel = 31, maxLevel = 33 WHERE name = "Big_Leech"   and zoneid = 110;
@@ -584,14 +584,14 @@ UPDATE mob_groups SET minLevel = 31, maxLevel = 33 WHERE name = "Big_Leech"   an
 -- Beaucedine_Glacier (Zone 111)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Humbaba' AND groupid='32' AND zoneid='111';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Calcabrina' AND groupid='33' AND zoneid='111';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Yilbegan' AND groupid='52' AND zoneid='111';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Lord_Ruthven' AND groupid='53' AND zoneid='111';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Feuerunke' AND groupid='54' AND zoneid='111';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Erebus' AND groupid='55' AND zoneid='111';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Gjenganger' AND groupid='56' AND zoneid='111';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Gorehound' AND groupid='57' AND zoneid='111';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Humbaba' AND groupid='32' AND zoneid='111';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Calcabrina' AND groupid='33' AND zoneid='111';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Yilbegan' AND groupid='52' AND zoneid='111';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Lord_Ruthven' AND groupid='53' AND zoneid='111';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Feuerunke' AND groupid='54' AND zoneid='111';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Erebus' AND groupid='55' AND zoneid='111';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Gjenganger' AND groupid='56' AND zoneid='111';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Gorehound' AND groupid='57' AND zoneid='111';
 
 UPDATE mob_groups SET minLevel = 35, maxLevel = 40 WHERE name = "Ghast_war"  and zoneid = 111;
 UPDATE mob_groups SET minLevel = 35, maxLevel = 40 WHERE name = "Ghast_blm"  and zoneid = 111;
@@ -602,15 +602,15 @@ UPDATE mob_groups SET minLevel = 41, maxLevel = 42 WHERE name = "Morgawr"  and z
 -- Xarcabard (Zone 112)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Barbaric_Weapon' AND groupid='11' AND zoneid='112';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Duke_Focalor' AND groupid='21' AND zoneid='112';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Timeworn_Warrior' AND groupid='12' AND zoneid='112';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Yilbegan' AND groupid='48' AND zoneid='112';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Lord_Ruthven' AND groupid='49' AND zoneid='112';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Feuerunke' AND groupid='50' AND zoneid='112';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Erebus' AND groupid='51' AND zoneid='112';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Gjenganger' AND groupid='52' AND zoneid='112';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Gorehound' AND groupid='53' AND zoneid='112';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Barbaric_Weapon' AND groupid='11' AND zoneid='112';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Duke_Focalor' AND groupid='21' AND zoneid='112';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Timeworn_Warrior' AND groupid='12' AND zoneid='112';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Yilbegan' AND groupid='48' AND zoneid='112';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Lord_Ruthven' AND groupid='49' AND zoneid='112';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Feuerunke' AND groupid='50' AND zoneid='112';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Erebus' AND groupid='51' AND zoneid='112';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Gjenganger' AND groupid='52' AND zoneid='112';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Gorehound' AND groupid='53' AND zoneid='112';
 
 UPDATE mob_groups SET minLevel = 38, maxLevel = 40 WHERE name = "Gigass_Tiger"  and zoneid = 112 and groupid = 17;
 
@@ -618,7 +618,7 @@ UPDATE mob_groups SET minLevel = 38, maxLevel = 40 WHERE name = "Gigass_Tiger"  
 -- Cape_Teriggan (Zone 113)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Killer_Johnny' AND groupid='20' AND zoneid='113';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Killer_Johnny' AND groupid='20' AND zoneid='113';
 UPDATE mob_groups SET content_tag='SYNERGY' WHERE name='Tegmine' AND groupid='23' AND zoneid='113';
 UPDATE mob_groups SET content_tag='SYNERGY' WHERE name='Zmey_Gorynych' AND groupid='24' AND zoneid='113';
 
@@ -626,8 +626,8 @@ UPDATE mob_groups SET content_tag='SYNERGY' WHERE name='Zmey_Gorynych' AND group
 -- Eastern_Altepa_Desert (Zone 114)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Donnergugi' AND groupid='16' AND zoneid='114';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Nandi' AND groupid='34' AND zoneid='114';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Donnergugi' AND groupid='16' AND zoneid='114';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Nandi' AND groupid='34' AND zoneid='114';
 UPDATE mob_groups SET content_tag='SYNERGY' WHERE name='Sabotender_Corrido' AND groupid='25' AND zoneid='114';
 
 UPDATE mob_groups SET minLevel = 40, maxLevel = 41 WHERE name = "Makara_fished"  and zoneid = 114;
@@ -637,13 +637,13 @@ UPDATE mob_groups SET minLevel = 42, maxLevel = 45 WHERE name = "Bigclaw_fished"
 -- West_Sarutabaruta (Zone 115)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Numbing_Norman' AND groupid='27' AND zoneid='115';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Yilbegan' AND groupid='36' AND zoneid='115';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Orcus' AND groupid='37' AND zoneid='115';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Farruca_Fly' AND groupid='38' AND zoneid='115';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Jyeshtha' AND groupid='39' AND zoneid='115';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Rummager_Beetle' AND groupid='40' AND zoneid='115';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Raker_Bee' AND groupid='41' AND zoneid='115';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Numbing_Norman' AND groupid='27' AND zoneid='115';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Yilbegan' AND groupid='36' AND zoneid='115';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Orcus' AND groupid='37' AND zoneid='115';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Farruca_Fly' AND groupid='38' AND zoneid='115';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Jyeshtha' AND groupid='39' AND zoneid='115';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Rummager_Beetle' AND groupid='40' AND zoneid='115';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Raker_Bee' AND groupid='41' AND zoneid='115';
 
 UPDATE mob_groups SET minLevel = 4, maxLevel = 8 WHERE name = "Yagudo_Initiate" and zoneid = 115;
 UPDATE mob_groups SET minLevel = 4, maxLevel = 8 WHERE name = "Yagudo_Acolyte" and zoneid = 115;
@@ -654,7 +654,7 @@ UPDATE mob_groups SET minLevel = 6, maxLevel = 8 WHERE name = "Crawler" and zone
 -- East_Sarutabaruta (Zone 116)
 -- ------------------------------------------------------------
 
--- UPDATE mob_groups SET content_tag='WOTG' WHERE name='Duke_Decapod' AND groupid='25' AND zoneid='116';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Duke_Decapod' AND groupid='25' AND zoneid='116';
 
 UPDATE mob_groups SET minLevel = 1, maxLevel = 5 WHERE name = "Savanna_Rarab" and zoneid = 116;
 UPDATE mob_groups SET minLevel = 3, maxLevel = 8 WHERE name = "Yagudo_Initiate" and zoneid = 116;
@@ -666,14 +666,14 @@ UPDATE mob_groups SET minLevel = 7, maxLevel = 8 WHERE name = "Pug_Pugil_fished"
 -- Tahrongi_Canyon (Zone 117)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Habrok' AND groupid='8' AND zoneid='117';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Herbage_Hunter' AND groupid='30' AND zoneid='117';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Yilbegan' AND groupid='36' AND zoneid='117';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Dawon' AND groupid='37' AND zoneid='117';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Tammuz' AND groupid='38' AND zoneid='117';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Chesma' AND groupid='39' AND zoneid='117';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Void_Hare' AND groupid='40' AND zoneid='117';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Prickly_Sheep' AND groupid='41' AND zoneid='117';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Habrok' AND groupid='8' AND zoneid='117';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Herbage_Hunter' AND groupid='30' AND zoneid='117';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Yilbegan' AND groupid='36' AND zoneid='117';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Dawon' AND groupid='37' AND zoneid='117';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Tammuz' AND groupid='38' AND zoneid='117';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Chesma' AND groupid='39' AND zoneid='117';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Void_Hare' AND groupid='40' AND zoneid='117';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Prickly_Sheep' AND groupid='41' AND zoneid='117';
 
 UPDATE mob_groups SET minLevel = 5, maxLevel = 7  WHERE name = "Yagudos_Elemental"  and zoneid = 117;
 UPDATE mob_groups SET minLevel = 7, maxLevel = 10 WHERE name = "Canyon_Rarab"       and zoneid = 117;
@@ -685,8 +685,8 @@ UPDATE mob_groups SET minLevel = 8, maxLevel = 10 WHERE name = "Barghest"       
 -- Buburimu_Peninsula (Zone 118)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Wake_Warder_Wanda' AND groupid='22' AND zoneid='118';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Backoo' AND groupid='55' AND zoneid='118';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Wake_Warder_Wanda' AND groupid='22' AND zoneid='118';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Backoo' AND groupid='55' AND zoneid='118';
 
 UPDATE mob_groups SET minLevel = 15, maxLevel = 18 WHERE name = "Sylvestre"       and zoneid = 118;
 UPDATE mob_groups SET minLevel = 20, maxLevel = 10 WHERE name = "Snipper"         and zoneid = 118;
@@ -698,15 +698,15 @@ UPDATE mob_groups SET minLevel = 24, maxLevel = 26 WHERE name = "Shoal_Pugil_fis
 -- Meriphataud_Mountains (Zone 119)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Chonchon' AND groupid='19' AND zoneid='119';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Naa_Zeku_the_Unwaiting' AND groupid='29' AND zoneid='119';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Patripatan' AND groupid='37' AND zoneid='119';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Yilbegan' AND groupid='64' AND zoneid='119';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Orcus' AND groupid='65' AND zoneid='119';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Farruca_Fly' AND groupid='66' AND zoneid='119';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Jyeshtha' AND groupid='67' AND zoneid='119';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Rummager_Beetle' AND groupid='68' AND zoneid='119';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Raker_Bee' AND groupid='69' AND zoneid='119';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Chonchon' AND groupid='19' AND zoneid='119';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Naa_Zeku_the_Unwaiting' AND groupid='29' AND zoneid='119';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Patripatan' AND groupid='37' AND zoneid='119';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Yilbegan' AND groupid='64' AND zoneid='119';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Orcus' AND groupid='65' AND zoneid='119';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Farruca_Fly' AND groupid='66' AND zoneid='119';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Jyeshtha' AND groupid='67' AND zoneid='119';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Rummager_Beetle' AND groupid='68' AND zoneid='119';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Raker_Bee' AND groupid='69' AND zoneid='119';
 
 UPDATE mob_groups SET minLevel = 20, maxLevel = 23 WHERE name = "Yagudos_Elemental"  and zoneid = 119 and groupid = 23;
 UPDATE mob_groups SET minLevel = 22, maxLevel = 25 WHERE name = "Coeurl"  and zoneid = 119;
@@ -715,21 +715,21 @@ UPDATE mob_groups SET minLevel = 22, maxLevel = 25 WHERE name = "Coeurl"  and zo
 -- Sauromugue_Champaign (Zone 120)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag='TOAU' WHERE name='Bashe' AND groupid='68' AND zoneid='120';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Thunderclaw_Thuban' AND groupid='33' AND zoneid='120';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Blighting_Brand' AND groupid='38' AND zoneid='120';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Yilbegan' AND groupid='46' AND zoneid='120';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Verthandi' AND groupid='47' AND zoneid='120';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Urd' AND groupid='48' AND zoneid='120';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Skuld' AND groupid='49' AND zoneid='120';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Aither' AND groupid='50' AND zoneid='120';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Deorc' AND groupid='51' AND zoneid='120';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Eorthe' AND groupid='52' AND zoneid='120';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Puretos' AND groupid='53' AND zoneid='120';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Pruina' AND groupid='54' AND zoneid='120';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Beorht' AND groupid='55' AND zoneid='120';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Thunor' AND groupid='56' AND zoneid='120';
-UPDATE mob_groups SET content_tag='VOIDWALKER' WHERE name='Lacus' AND groupid='57' AND zoneid='120';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Bashe' AND groupid='68' AND zoneid='120';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Thunderclaw_Thuban' AND groupid='33' AND zoneid='120';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Blighting_Brand' AND groupid='38' AND zoneid='120';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Yilbegan' AND groupid='46' AND zoneid='120';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Verthandi' AND groupid='47' AND zoneid='120';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Urd' AND groupid='48' AND zoneid='120';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Skuld' AND groupid='49' AND zoneid='120';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Aither' AND groupid='50' AND zoneid='120';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Deorc' AND groupid='51' AND zoneid='120';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Eorthe' AND groupid='52' AND zoneid='120';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Puretos' AND groupid='53' AND zoneid='120';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Pruina' AND groupid='54' AND zoneid='120';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Beorht' AND groupid='55' AND zoneid='120';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Thunor' AND groupid='56' AND zoneid='120';
+UPDATE mob_groups SET content_tag='VOIDWATCH' WHERE name='Lacus' AND groupid='57' AND zoneid='120';
 
 UPDATE mob_groups SET minLevel = 23, maxLevel = 25 WHERE name = "Goblins_Beetle"  and zoneid = 120;
 UPDATE mob_groups SET minLevel = 23, maxLevel = 25 WHERE name = "Yagudos_Elemental"  and zoneid = 120;
@@ -741,9 +741,9 @@ UPDATE mob_groups SET minLevel = 35, maxLevel = 38 WHERE name = "Kraken_fished" 
 -- The_Sanctuary_of_ZiTah (Zone 121)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Elusive_Edwin' AND groupid='15' AND zoneid='121';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Huwasi' AND groupid='20' AND zoneid='121';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Bastet' AND groupid='34' AND zoneid='121';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Elusive_Edwin' AND groupid='15' AND zoneid='121';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Huwasi' AND groupid='20' AND zoneid='121';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Bastet' AND groupid='34' AND zoneid='121';
 
 UPDATE mob_groups SET minLevel = 38, maxLevel = 41 WHERE name = "Bigclaw_fished"  and zoneid = 121;
 UPDATE mob_groups SET minLevel = 42, maxLevel = 45 WHERE name = "Apsaras"  and zoneid = 121;
@@ -752,7 +752,7 @@ UPDATE mob_groups SET minLevel = 42, maxLevel = 45 WHERE name = "Apsaras"  and z
 -- RoMaeve (Zone 122)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Rogue_Receptacle' AND groupid='15' AND zoneid='122';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Rogue_Receptacle' AND groupid='15' AND zoneid='122';
 UPDATE mob_groups SET content_tag='SYNERGY' WHERE name='Martinet' AND groupid='12' AND zoneid='122';
 UPDATE mob_groups SET content_tag='SYNERGY' WHERE name='Nargun' AND groupid='16' AND zoneid='122';
 
@@ -760,7 +760,7 @@ UPDATE mob_groups SET content_tag='SYNERGY' WHERE name='Nargun' AND groupid='16'
 -- Yuhtunga_Jungle (Zone 123)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Koropokkur' AND groupid='9' AND zoneid='123';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Koropokkur' AND groupid='9' AND zoneid='123';
 UPDATE mob_groups SET content_tag='WOTG' WHERE name='Pyuu_the_Spatemaker' AND groupid='25' AND zoneid='123';
 UPDATE mob_groups SET content_tag='WOTG' WHERE name='Bayawak' AND groupid='30' AND zoneid='123';
 
@@ -771,9 +771,9 @@ UPDATE mob_groups SET minLevel = 47, maxLevel = 49 WHERE name = "Bloodsucker_fis
 -- Yhoator_Jungle (Zone 124)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Powderer_Penny' AND groupid='25' AND zoneid='124';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Acolnahuacatl' AND groupid='27' AND zoneid='124';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Hoar-knuckled_Rimberry' AND groupid='32' AND zoneid='124';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Powderer_Penny' AND groupid='25' AND zoneid='124';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Acolnahuacatl' AND groupid='27' AND zoneid='124';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Hoar-knuckled_Rimberry' AND groupid='32' AND zoneid='124';
 
 UPDATE mob_groups SET minLevel = 36, maxLevel = 38 WHERE name = "Vepar"  and zoneid = 124;
 UPDATE mob_groups SET minLevel = 39, maxLevel = 41 WHERE name = "Makara_fished"  and zoneid = 124;
@@ -782,9 +782,9 @@ UPDATE mob_groups SET minLevel = 39, maxLevel = 41 WHERE name = "Makara_fished" 
 -- Western_Altepa_Desert (Zone 125)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Calchas' AND groupid='23' AND zoneid='125';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Dahu' AND groupid='37' AND zoneid='125';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Picolaton' AND groupid='38' AND zoneid='125';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Calchas' AND groupid='23' AND zoneid='125';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Dahu' AND groupid='37' AND zoneid='125';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Picolaton' AND groupid='38' AND zoneid='125';
 
 UPDATE mob_groups SET minLevel = 45, maxLevel = 47 WHERE name = "Bigclaw_fished"  and zoneid = 125;
 UPDATE mob_groups SET minLevel = 50, maxLevel = 52 WHERE name = "Razorjaw_Pugil_fished"  and zoneid = 125;
@@ -793,7 +793,7 @@ UPDATE mob_groups SET minLevel = 50, maxLevel = 52 WHERE name = "Razorjaw_Pugil_
 -- Qufim_Island (Zone 126)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Slippery_Sucker' AND groupid='23' AND zoneid='126';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Slippery_Sucker' AND groupid='23' AND zoneid='126';
 UPDATE mob_groups SET content_tag='WOTG' WHERE name='Qoofim' AND groupid='28' AND zoneid='126';
 UPDATE mob_groups SET content_tag='SYNERGY' WHERE name='Atkorkamuy' AND groupid='25' AND zoneid='126';
 
@@ -807,7 +807,7 @@ UPDATE mob_groups SET minLevel = 28, maxLevel = 30 WHERE name = "Giant_Hunter"  
 -- Fort_Ghelsba (Zone 141)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Kegpaunch_Doshgnosh' AND groupid='20' AND zoneid='141';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Kegpaunch_Doshgnosh' AND groupid='20' AND zoneid='141';
 
 UPDATE mob_groups SET minLevel = 21, maxLevel = 21 WHERE name = "Orcish_Cursemaker"  and zoneid = 141;
 UPDATE mob_groups SET minLevel = 21, maxLevel = 21 WHERE name = "Orcish_Fighter"  and zoneid = 141;
@@ -817,21 +817,21 @@ UPDATE mob_groups SET minLevel = 21, maxLevel = 21 WHERE name = "Orcish_Serjeant
 -- Palborough_Mines (Zone 143)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='QuVho_Deathhurler' AND groupid='10' AND zoneid='143';
-UPDATE mob_groups SET content_tag=NULL WHERE name='BeHya_Hundredwall' AND groupid='22' AND zoneid='143';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='QuVho_Deathhurler' AND groupid='10' AND zoneid='143';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='BeHya_Hundredwall' AND groupid='22' AND zoneid='143';
 
 -- ------------------------------------------------------------
 -- Giddeus (Zone 145)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Quu_Xijo_the_Illusory' AND groupid='20' AND zoneid='145';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Quu_Xijo_the_Illusory' AND groupid='20' AND zoneid='145';
 
 -- ------------------------------------------------------------
 -- Castle_Oztroja (Zone 151)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Saa_Doyi_the_Fervid' AND groupid='5' AND zoneid='151';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Lii_Jixa_the_Somnolist' AND groupid='21' AND zoneid='151';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Saa_Doyi_the_Fervid' AND groupid='5' AND zoneid='151';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Lii_Jixa_the_Somnolist' AND groupid='21' AND zoneid='151';
 
 UPDATE mob_groups SET minLevel = 23, maxLevel = 27 WHERE name = "Yagudo_Theologist"  and zoneid = 151;
 UPDATE mob_groups SET minLevel = 22, maxLevel = 28 WHERE name = "Yagudo_Priest"  and zoneid = 151;
@@ -861,7 +861,7 @@ UPDATE mob_groups SET minLevel = 76, maxLevel = 79 WHERE name = "Demonic_Rose"  
 -- Upper_Delkfutts_Tower (Zone 158)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Autarch' AND groupid='25' AND zoneid='158';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Autarch' AND groupid='25' AND zoneid='158';
 
 -- ------------------------------------------------------------
 -- Temple_of_Uggalepih (Zone 159)
@@ -890,9 +890,9 @@ UPDATE mob_groups SET minLevel = 65, maxLevel = 68 WHERE name = "Succubus_Bats" 
 -- Castle_Zvahl_Baileys (Zone 161)
 -- ------------------------------------------------------------
 
-UPDATE mob_groups SET content_tag=NULL WHERE name='Likho' AND groupid='7' AND zoneid='161';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Marquis_Naberius' AND groupid='36' AND zoneid='161';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Marquis_Sabnock' AND groupid='37' AND zoneid='161';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Likho' AND groupid='7' AND zoneid='161';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Marquis_Naberius' AND groupid='36' AND zoneid='161';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Marquis_Sabnock' AND groupid='37' AND zoneid='161';
 
 UPDATE mob_groups SET minLevel = 48, maxLevel = 50 WHERE name = "Demons_Elemental"  and zoneid = 161 and groupid = 18;
 UPDATE mob_groups SET minLevel = 59, maxLevel = 61 WHERE name = "Demons_Elemental"  and zoneid = 161 and groupid = 54;
@@ -1005,7 +1005,7 @@ UPDATE mob_groups SET minLevel = 72, maxLevel = 73 WHERE name = "Water_Elemental
 -- Lower_Delkfutts_Tower (Zone 184)
 -- ------------------------------------------------------------
 
--- UPDATE mob_groups SET content_tag='WOTG' WHERE name='Tyrant' AND groupid='14' AND zoneid='184';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Tyrant' AND groupid='14' AND zoneid='184';
 
 -- ------------------------------------------------------------
 -- King_Ranperres_Tomb (Zone 190)
@@ -1120,6 +1120,8 @@ UPDATE mob_groups SET content_tag='ABYSSEA' WHERE name='Madfly' AND groupid='25'
 UPDATE mob_groups SET content_tag='ABYSSEA' WHERE name='Rockmill' AND groupid='26' AND zoneid='196';
 
 UPDATE mob_groups SET minLevel = 25, maxLevel = 27 WHERE name = "Greater_Pugil_fished"  and zoneid = 196;
+UPDATE mob_groups SET minLevel = 20, maxLevel = 24 WHERE name = "Ghoul_war"  and zoneid = 196;
+UPDATE mob_groups SET minLevel = 23, maxLevel = 27 WHERE name = "Ghoul_blm"  and zoneid = 196;
 
 -- ------------------------------------------------------------
 -- Crawlers_Nest (Zone 197)
@@ -1156,7 +1158,7 @@ UPDATE mob_groups SET content_tag='ABYSSEA' WHERE name='Warden_Beetle' AND group
 UPDATE mob_groups SET content_tag='ABYSSEA' WHERE name='Donjon_Bat' AND groupid='40' AND zoneid='200';
 UPDATE mob_groups SET content_tag='WOTG' WHERE name='Hazmat' AND groupid='17' AND zoneid='200';
 UPDATE mob_groups SET content_tag='WOTG' WHERE name='Hovering_Hotpot' AND groupid='34' AND zoneid='200';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Frogamander' AND groupid='39' AND zoneid='200';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Frogamander' AND groupid='39' AND zoneid='200';
 
 -- ------------------------------------------------------------
 -- FeiYin (Zone 204)
@@ -1165,8 +1167,8 @@ UPDATE mob_groups SET content_tag=NULL WHERE name='Frogamander' AND groupid='39'
 UPDATE mob_groups SET minLevel='55',maxLevel='57' WHERE name='Wekufe' AND groupid='16' AND zoneid='204';
 UPDATE mob_groups SET minLevel='56',maxLevel='58' WHERE name='Sentient_Carafe' AND groupid='17' AND zoneid='204';
 UPDATE mob_groups SET minLevel='51',maxLevel='54' WHERE name='Balayang' AND groupid='18' AND zoneid='204';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Mind_Hoarder' AND groupid='11' AND zoneid='204';
-UPDATE mob_groups SET content_tag=NULL WHERE name='Sluagh' AND groupid='5' AND zoneid='204';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Mind_Hoarder' AND groupid='11' AND zoneid='204';
+UPDATE mob_groups SET content_tag='WOTG' WHERE name='Sluagh' AND groupid='5' AND zoneid='204';
 UPDATE mob_groups SET content_tag='SYNERGY' WHERE name='Jenglot' AND groupid='7' AND zoneid='204';
 
 UPDATE mob_groups SET minLevel = 52, maxLevel = 54 WHERE name = "Camazotz"  and zoneid = 204;
@@ -1198,3 +1200,82 @@ UPDATE mob_groups SET content_tag='ABYSSEA' WHERE name='Babaulas' AND groupid='3
 UPDATE mob_groups SET content_tag='ABYSSEA' WHERE name='Boribaba' AND groupid='32' AND zoneid='213';
 
 UNLOCK TABLES;
+
+
+-- ------------------------------------------------------------
+-- Dynamis Zones
+-- The mob_groups listed are the mob groups used for determining
+-- all stats for mobs inside dynamis
+-- -----------------------------------------------------------
+UPDATE mob_groups SET HP = 3900 WHERE name = 'Vanguard_Alchemist' AND groupid = 141 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4300 WHERE name = 'Vanguard_Ambusher' AND groupid = 134 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4600 WHERE name = 'Vanguard_Amputator' AND groupid = 67 AND zoneid = 134;
+UPDATE mob_groups SET HP = 5100 WHERE name = 'Vanguard_Armorer' AND groupid = 133 AND zoneid = 134;
+UPDATE mob_groups SET HP = 5000 WHERE name = 'Vanguard_Assassin' AND groupid = 92 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4500 WHERE name = 'Vanguard_Backstabber' AND groupid = 62 AND zoneid = 134;
+UPDATE mob_groups SET HP = 5800 WHERE name = 'Vanguard_Beasttender' AND groupid = 21 AND zoneid = 134;
+UPDATE mob_groups SET HP = 5200 WHERE name = 'Vanguard_Bugler' AND groupid = 81 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4800 WHERE name = 'Vanguard_Chanter' AND groupid = 104 AND zoneid = 134;
+UPDATE mob_groups SET HP = 3500 WHERE name = 'Vanguard_Constable' AND groupid = 29 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4800 WHERE name = 'Vanguard_Defender' AND groupid = 30 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4100 WHERE name = 'Vanguard_Dollmaster' AND groupid = 72 AND zoneid = 134;
+UPDATE mob_groups SET HP = 5100 WHERE name = 'Vanguard_Dragontamer' AND groupid = 140 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4600 WHERE name = 'Vanguard_Drakekeeper' AND groupid = 26 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4000 WHERE name = 'Vanguard_Enchanter' AND groupid = 128 AND zoneid = 134;
+UPDATE mob_groups SET HP = 5500 WHERE name = 'Vanguard_Exemplar' AND groupid = 98 AND zoneid = 134;
+UPDATE mob_groups SET HP = 6300 WHERE name = 'Vanguard_Footsoldier' AND groupid = 59 AND zoneid = 134;
+UPDATE mob_groups SET HP = 7200 WHERE name = 'Vanguard_Grappler' AND groupid = 64 AND zoneid = 134;
+UPDATE mob_groups SET HP = 6200 WHERE name = 'Vanguard_Gutslasher' AND groupid = 66 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4800 WHERE name = 'Vanguard_Hatamoto' AND groupid = 31 AND zoneid = 134;
+UPDATE mob_groups SET HP = 6100 WHERE name = 'Vanguard_Hawker' AND groupid = 76 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4600 WHERE name = 'Vanguard_Hitman' AND groupid = 138 AND zoneid = 134;
+UPDATE mob_groups SET HP = 6200 WHERE name = 'Vanguard_Impaler' AND groupid = 69 AND zoneid = 134;
+UPDATE mob_groups SET HP = 5600 WHERE name = 'Vanguard_Inciter' AND groupid = 103 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4100 WHERE name = 'Vanguard_Kusa' AND groupid = 32 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4900 WHERE name = 'Vanguard_Liberator' AND groupid = 96 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4500 WHERE name = 'Vanguard_Maestro' AND groupid = 131 AND zoneid = 134;
+UPDATE mob_groups SET HP = 3900 WHERE name = 'Vanguard_Mason' AND groupid = 34 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4200 WHERE name = 'Vanguard_Mesmerizer' AND groupid = 75 AND zoneid = 134;
+UPDATE mob_groups SET HP = 5700 WHERE name = 'Vanguard_Militant' AND groupid = 25 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4000 WHERE name = 'Vanguard_Minstrel' AND groupid = 23 AND zoneid = 134;
+UPDATE mob_groups SET HP = 6000 WHERE name = 'Vanguard_Neckchopper' AND groupid = 58 AND zoneid = 134;
+UPDATE mob_groups SET HP = 3300 WHERE name = 'Vanguard_Necromancer' AND groupid = 135 AND zoneid = 134;
+UPDATE mob_groups SET HP = 5600 WHERE name = 'Vanguard_Ogresoother' AND groupid = 99 AND zoneid = 134;
+UPDATE mob_groups SET HP = 3700 WHERE name = 'Vanguard_Oracle' AND groupid = 112 AND zoneid = 134;
+UPDATE mob_groups SET HP = 5700 WHERE name = 'Vanguard_Partisan' AND groupid = 108 AND zoneid = 134;
+UPDATE mob_groups SET HP = 5100 WHERE name = 'Vanguard_Pathfinder' AND groupid = 129 AND zoneid = 134;
+UPDATE mob_groups SET HP = 5700 WHERE name = 'Vanguard_Persecutor' AND groupid = 118 AND zoneid = 134;
+UPDATE mob_groups SET HP = 5400 WHERE name = 'Vanguard_Pillager' AND groupid = 78 AND zoneid = 134;
+UPDATE mob_groups SET HP = 6200 WHERE name = 'Vanguard_Pitfighter' AND groupid = 126 AND zoneid = 134;
+UPDATE mob_groups SET HP = 5200 WHERE name = 'Vanguard_Predator' AND groupid = 70 AND zoneid = 134;
+UPDATE mob_groups SET HP = 3800 WHERE name = 'Vanguard_Prelate' AND groupid = 105 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4400 WHERE name = 'Vanguard_Priest' AND groupid = 101 AND zoneid = 134;
+UPDATE mob_groups SET HP = 3600 WHERE name = 'Vanguard_Protector' AND groupid = 20 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4000 WHERE name = 'Vanguard_Purloiner' AND groupid = 33 AND zoneid = 134;
+UPDATE mob_groups SET HP = 5500 WHERE name = 'Vanguard_Ronin' AND groupid = 137 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4800 WHERE name = 'Vanguard_Salvager' AND groupid = 111 AND zoneid = 134;
+UPDATE mob_groups SET HP = 6700 WHERE name = 'Vanguard_Sentinel' AND groupid = 91 AND zoneid = 134;
+UPDATE mob_groups SET HP = 3800 WHERE name = 'Vanguard_Shaman' AND groupid = 127 AND zoneid = 134;
+UPDATE mob_groups SET HP = 5880 WHERE name = 'Vanguard_Skirmisher' AND groupid = 93 AND zoneid = 134;
+UPDATE mob_groups SET HP = 5400 WHERE name = 'Vanguard_Smithy' AND groupid = 125 AND zoneid = 134;
+UPDATE mob_groups SET HP = 3000 WHERE name = 'Vanguard_Thaumaturge' AND groupid = 42 AND zoneid = 134;
+UPDATE mob_groups SET HP = 5100 WHERE name = 'Vanguard_Tinkerer' AND groupid = 147 AND zoneid = 134;
+UPDATE mob_groups SET HP = 6200 WHERE name = 'Vanguard_Trooper' AND groupid = 57 AND zoneid = 134;
+UPDATE mob_groups SET HP = 2800 WHERE name = 'Vanguard_Undertaker' AND groupid = 35 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4900 WHERE name = 'Vanguard_Vexer' AND groupid = 61 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4650 WHERE name = 'Vanguard_Vigilante' AND groupid = 38 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4900 WHERE name = 'Vanguard_Vindicator' AND groupid = 19 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4500 WHERE name = 'Vanguard_Visionary' AND groupid = 95 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4500 WHERE name = 'Vanguard_Welldigger' AND groupid = 132 AND zoneid = 134;
+UPDATE mob_groups SET HP = 2300 WHERE name = 'Vanguards_Avatar' AND groupid = 36 AND zoneid = 134;
+UPDATE mob_groups SET HP = 3200 WHERE name = 'Vanguards_Crow' AND groupid = 100 AND zoneid = 134;
+UPDATE mob_groups SET HP = 3500 WHERE name = 'Vanguards_Hecteyes' AND groupid = 77 AND zoneid = 134;
+UPDATE mob_groups SET HP = 3250 WHERE name = 'Vanguards_Scorpion' AND groupid = 22 AND zoneid = 134;
+UPDATE mob_groups SET HP = 3500 WHERE name = 'Vanguards_Slime' AND groupid = 130 AND zoneid = 134;
+UPDATE mob_groups SET HP = 5000 WHERE name = 'Vanguards_Wyvern' AND groupid = 27 AND zoneid = 134;
+UPDATE mob_groups SET HP = 3000 WHERE name = 'Vanguards_Avatar' AND groupid = 54 AND zoneid = 134;
+UPDATE mob_groups SET HP = 3700 WHERE name = 'Vanguards_Crow' AND groupid = 117 AND zoneid = 134;
+UPDATE mob_groups SET HP = 4000 WHERE name = 'Vanguards_Hecteyes' AND groupid = 86 AND zoneid = 134;
+UPDATE mob_groups SET HP = 3750 WHERE name = 'Vanguards_Scorpion' AND groupid = 49 AND zoneid = 134;
+UPDATE mob_groups SET HP = 3900 WHERE name = 'Vanguards_Slime' AND groupid = 152 AND zoneid = 134;
+UPDATE mob_groups SET HP = 5500 WHERE name = 'Vanguards_Wyvern' AND groupid = 45 AND zoneid = 134;
