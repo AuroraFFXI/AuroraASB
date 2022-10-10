@@ -1127,6 +1127,7 @@ xi.chocoboDig.start = function(player, precheck)
             end
 
             player:PrintToPlayer(find_nothing, 13)
+            player:PrintToPlayer("There doesn't seem to be anything to find.", xi.msg.channel.SYSTEM_3)
             player:setCharVar('[DIG]LastDigTime', os.time())
 
             return true
