@@ -64,10 +64,11 @@ era/cpp/era_dynamisFunctions.cpp
 #era/back_date_sqls/synth_recipies.sql
 #era/sql/2010_exp_tables.sql
 era/sql/abilities.sql
+era/sql/era_bcnm_info.sql
 #era/sql/era_droplist.sql
-era/sql/era_dyna_sql.sql
 era/sql/era_homepoints.sql
 era/sql/era_mob_family_system.sql
+era/sql/era_mob_groups.sql
 era/sql/era_mob_resistances.sql
 era/sql/era_spell_list.sql
 era/sql/era_weapon_skills.sql
@@ -79,7 +80,6 @@ era/sql/item_mods.sql
 era/sql/item_usable.sql
 era/sql/item_weapon.sql
 #era/sql/merits.sql
-era/sql/mob_groups_era.sql
 #era/sql/pre_rmt_drops.sql
 era/sql/skill_ranks.sql
 era/sql/synth_recipes_era.sql
