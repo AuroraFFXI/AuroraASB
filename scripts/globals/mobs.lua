@@ -30,7 +30,7 @@ xi.mob.onMobDeathEx = function(mob, player, isKiller, isWeaponSkillKill)
         end
     end
 
-    xi.magian.checkMagianTrial(player, {['mob'] = mob, ['triggerWs'] = false})
+    xi.magian.checkMagianTrial(player, { ['mob'] = mob, ['triggerWs'] = false })
 end
 
 -----------------------------------
@@ -54,7 +54,7 @@ local function persistLotteryPrimed(phList)
     for k, v in pairs(phList) do
         nm = GetMobByID(v)
         local zone = nm:getZone()
-        local respawnPersist = zone:getLocalVar(string.format("[SPAWN]%s", nm:getName()))
+        local respawnPersist = zone:getLocalVar(string.format("[SPAWN]%s", nm:getID()))
 
         if respawnPersist == 0 then
             return false
@@ -66,16 +66,44 @@ local function persistLotteryPrimed(phList)
 end
 
 -- Needs to be added to the NM's onDespawn() function.
+xi.mob.nmTODPersist = function(mob, cooldown)
+    SetServerVariable(string.format("[SPAWN]%s", mob:getID()), cooldown + os.time())
+    mob:getZone():setLocalVar(string.format("[SPAWN]%s", mob:getID()), cooldown + os.time())
+    mob:setRespawnTime(cooldown)
+end
+
+-- Needs to be added to the NM's zone onInit() function.
+xi.mob.nmTODPersistCache = function(zone, mobId)
+    local mob = GetMobByID(mobId)
+    local respawn = GetServerVariable(string.format("[SPAWN]%s", mob:getID()))
+    zone:setLocalVar(string.format("[SPAWN]%s", mob:getID()), respawn)
+
+    if respawn == 0 then
+        return
+    end
+
+    if mob:isAlive() then
+        DespawnMob(mobId)
+    end
+
+    if respawn <= os.time() then
+        mob:setRespawnTime(300)
+    else
+        mob:setRespawnTime(respawn - os.time())
+    end
+end
+
+-- Needs to be added to the NM's onDespawn() function.
 xi.mob.lotteryPersist = function(mob, cooldown)
-    SetServerVariable(string.format("[SPAWN]%s", mob:getName()), cooldown + os.time())
-    mob:getZone():setLocalVar(string.format("[SPAWN]%s", mob:getName()), cooldown + os.time())
+    SetServerVariable(string.format("[SPAWN]%s", mob:getID()), cooldown + os.time())
+    mob:getZone():setLocalVar(string.format("[SPAWN]%s", mob:getID()), cooldown + os.time())
 end
 
 -- Needs to be added to the NM's zone onInit() function.
 xi.mob.lotteryPersistCache = function(zone, mobId)
     local mob = GetMobByID(mobId)
-    local respawn = GetServerVariable(string.format("[SPAWN]%s", mob:getName()))
-    zone:setLocalVar(string.format("[SPAWN]%s", mob:getName()), respawn)
+    local respawn = GetServerVariable(string.format("[SPAWN]%s", mob:getID()))
+    zone:setLocalVar(string.format("[SPAWN]%s", mob:getID()), respawn)
 end
 
 -- potential lottery placeholder was killed
@@ -180,6 +208,7 @@ xi.mob.additionalEffect =
     TP_DRAIN   = 21,
     WEIGHT     = 22,
     DISPEL     = 23,
+    SLEEP      = 24,
 }
 xi.mob.ae = xi.mob.additionalEffect
 
@@ -218,7 +247,7 @@ local additionalEffects =
         msg = xi.msg.basic.ADD_EFFECT_DMG,
         negMsg = xi.msg.basic.ADD_EFFECT_HEAL,
         mod = xi.mod.INT,
-        bonusAbilityParams = {bonusmab = 0, includemab = false},
+        bonusAbilityParams = { bonusmab = 0, includemab = false },
     },
     [xi.mob.ae.ENBLIZZARD] =
     {
@@ -227,7 +256,7 @@ local additionalEffects =
         msg = xi.msg.basic.ADD_EFFECT_DMG,
         negMsg = xi.msg.basic.ADD_EFFECT_HEAL,
         mod = xi.mod.INT,
-        bonusAbilityParams = {bonusmab = 0, includemab = false},
+        bonusAbilityParams = { bonusmab = 0, includemab = false },
     },
     [xi.mob.ae.ENDARK] =
     {
@@ -236,7 +265,7 @@ local additionalEffects =
         msg = xi.msg.basic.ADD_EFFECT_DMG,
         negMsg = xi.msg.basic.ADD_EFFECT_HEAL,
         mod = xi.mod.INT,
-        bonusAbilityParams = {bonusmab = 0, includemab = false},
+        bonusAbilityParams = { bonusmab = 0, includemab = false },
     },
     [xi.mob.ae.ENFIRE] =
     {
@@ -245,7 +274,7 @@ local additionalEffects =
         msg = xi.msg.basic.ADD_EFFECT_DMG,
         negMsg = xi.msg.basic.ADD_EFFECT_HEAL,
         mod = xi.mod.INT,
-        bonusAbilityParams = {bonusmab = 0, includemab = false},
+        bonusAbilityParams = { bonusmab = 0, includemab = false },
     },
     [xi.mob.ae.ENLIGHT] =
     {
@@ -254,7 +283,7 @@ local additionalEffects =
         msg = xi.msg.basic.ADD_EFFECT_DMG,
         negMsg = xi.msg.basic.ADD_EFFECT_HEAL,
         mod = xi.mod.INT,
-        bonusAbilityParams = {bonusmab = 0, includemab = false},
+        bonusAbilityParams = { bonusmab = 0, includemab = false },
     },
     [xi.mob.ae.ENSTONE] =
     {
@@ -263,7 +292,7 @@ local additionalEffects =
         msg = xi.msg.basic.ADD_EFFECT_DMG,
         negMsg = xi.msg.basic.ADD_EFFECT_HEAL,
         mod = xi.mod.INT,
-        bonusAbilityParams = {bonusmab = 0, includemab = false},
+        bonusAbilityParams = { bonusmab = 0, includemab = false },
     },
     [xi.mob.ae.ENTHUNDER] =
     {
@@ -272,7 +301,7 @@ local additionalEffects =
         msg = xi.msg.basic.ADD_EFFECT_DMG,
         negMsg = xi.msg.basic.ADD_EFFECT_HEAL,
         mod = xi.mod.INT,
-        bonusAbilityParams = {bonusmab = 0, includemab = false},
+        bonusAbilityParams = { bonusmab = 0, includemab = false },
     },
     [xi.mob.ae.ENWATER] =
     {
@@ -281,7 +310,7 @@ local additionalEffects =
         msg = xi.msg.basic.ADD_EFFECT_DMG,
         negMsg = xi.msg.basic.ADD_EFFECT_HEAL,
         mod = xi.mod.INT,
-        bonusAbilityParams = {bonusmab = 0, includemab = false},
+        bonusAbilityParams = { bonusmab = 0, includemab = false },
     },
     [xi.mob.ae.EVA_DOWN] =
     {
@@ -303,7 +332,7 @@ local additionalEffects =
         sub = xi.subEffect.HP_DRAIN,
         msg = xi.msg.basic.ADD_EFFECT_HP_DRAIN,
         mod = xi.mod.INT,
-        bonusAbilityParams = {bonusmab = 0, includemab = false},
+        bonusAbilityParams = { bonusmab = 0, includemab = false },
         code = function(mob, target, power) mob:addHP(power) end,
     },
     [xi.mob.ae.MP_DRAIN] =
@@ -313,7 +342,7 @@ local additionalEffects =
         sub = xi.subEffect.MP_DRAIN,
         msg = xi.msg.basic.ADD_EFFECT_MP_DRAIN,
         mod = xi.mod.INT,
-        bonusAbilityParams = {bonusmab = 0, includemab = false},
+        bonusAbilityParams = { bonusmab = 0, includemab = false },
         code = function(mob, target, power) local mp = math.min(power, target:getMP()) target:delMP(mp) mob:addMP(mp) end,
     },
     [xi.mob.ae.PARALYZE] =
@@ -422,7 +451,7 @@ local additionalEffects =
         sub = xi.subEffect.TP_DRAIN,
         msg = xi.msg.basic.ADD_EFFECT_TP_DRAIN,
         mod = xi.mod.INT,
-        bonusAbilityParams = {bonusmab = 0, includemab = false},
+        bonusAbilityParams = { bonusmab = 0, includemab = false },
         code = function(mob, target, power) local tp = math.min(power, target:getTP()) target:delTP(tp) mob:addTP(tp) end,
     },
     [xi.mob.ae.WEIGHT] =
@@ -445,8 +474,21 @@ local additionalEffects =
         sub = xi.subEffect.DISPEL,
         msg = xi.msg.basic.ADD_EFFECT_DISPEL,
         mod = xi.mod.INT,
-        bonusAbilityParams = {bonusmab = 0, includemab = false},
+        bonusAbilityParams = { bonusmab = 0, includemab = false },
         code = function(mob, target) target:dispelStatusEffect() end,
+    },
+    [xi.mob.ae.SLEEP] =
+    {
+        chance = 25,
+        ele = xi.magic.ele.DARK,
+        sub = xi.subEffect.SLEEP,
+        msg = xi.msg.basic.ADD_EFFECT_STATUS,
+        applyEffect = true,
+        eff = xi.effect.SLEEP_I,
+        power = 20,
+        duration = 30,
+        minDuration = 1,
+        maxDuration = 45,
     },
 }
 

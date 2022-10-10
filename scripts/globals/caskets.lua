@@ -93,7 +93,7 @@ local casketInfo =
 -----------------------------------
 local function convertTime(rawTime)
    local rawSeconds = tonumber(rawTime)
-   local timeTable = {0, 0, 0}
+   local timeTable = { 0, 0, 0 }
 
     timeTable[1] = string.format("%02.f", math.floor(rawSeconds/3600))
     timeTable[2] = string.format("%02.f", math.floor(rawSeconds/60 - (timeTable[1]*60)))
@@ -108,7 +108,7 @@ end
 -----------------------------------
 local function timeElapsedCheck(npc)
     local spawnTime   = os.time() + 360000 -- defualt time in case no var set.
-    local timeTable   = {0, 0, 0}          -- HOURS, MINUTES, SECONDS.
+    local timeTable   = { 0, 0, 0 }        -- HOURS, MINUTES, SECONDS.
 
     if npc == nil then
         return false
@@ -235,7 +235,7 @@ local function setCasketData(player, x, y, z, r, npc, partyID, mobLvl)
     --     kupowersBonus = 0.2
     -- end
 
-    if typeChance < 0.02 + kupowersBonus then
+    if typeChance < 0.03 + kupowersBonus then
         chestStyle = 966 -- Brown locked
     else
         chestStyle = 965 -- Blue
@@ -284,7 +284,7 @@ end
 -- Desc: Checks to see if the item needs multiples, i.e. Arrowheads, if so, sends true and the item is multiplied
 -----------------------------------
 local function multipleItemCheck(itemId)
-    local multiples = {1214, 1215, 1211, 1212, 1213, 1217, 1222, 1962}
+    local multiples = { 1214, 1215, 1211, 1212, 1213, 1217, 1222, 1962 }
 
     for i = 1, #multiples do
         if (itemId == multiples[i]) then
@@ -407,9 +407,9 @@ local function getDrops(npc, dropType, zoneId)
     -- Temp drops
     -----------------------------------
     if chestType == "tempItems" then
-        local temps        = {0, 0, 0}
+        local temps        = { 0, 0, 0 }
         local tempCount    = 1
-        local randomTable  = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+        local randomTable  = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } 
         local tempDrops = xi.casket_loot.casketItems[zoneId].temps
 
         if casketInfo.splitZones[zoneId] then
@@ -451,9 +451,9 @@ local function getDrops(npc, dropType, zoneId)
     -- Item drops
     -----------------------------------
     elseif chestType == "items" then
-        local items        = {0, 0, 0, 0}
+        local items        = { 0, 0, 0, 0 }
         local itemCount    = 1
-        local randomTable  = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+        local randomTable  = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } 
         local drops = xi.casket_loot.casketItems[zoneId].items
 
         if casketInfo.splitZones[zoneId] then

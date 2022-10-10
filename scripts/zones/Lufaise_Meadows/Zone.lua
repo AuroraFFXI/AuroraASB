@@ -19,9 +19,9 @@ zone_object.onInitialize = function(zone)
     for _, v in pairs(ID.mob.PADFOOT) do
         SpawnMob(v)
     end
-    if xi.settings.main.ENABLE_WOTG == 1 then
+    -- if xi.settings.main.ENABLE_WOTG == 1 then
         GetMobByID(ID.mob.YALUN_EKE):setLocalVar("chooseYalun", math.random(1,2))
-    end
+    -- end
 
     xi.conq.setRegionalConquestOverseers(zone:getRegionID())
 

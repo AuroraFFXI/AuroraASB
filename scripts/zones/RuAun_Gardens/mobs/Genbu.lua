@@ -3,14 +3,13 @@
 --   NM: Genbu
 -----------------------------------
 local ID = require("scripts/zones/RuAun_Gardens/IDs")
-mixins = {require("scripts/mixins/job_special")}
+mixins = { require("scripts/mixins/job_special") }
 require("scripts/globals/mobs")
 require("scripts/globals/status")
 -----------------------------------
 local entity = {}
 
 entity.onMobInitialize = function(mob)
-    -- Based on tested stats found at https://docs.google.com/spreadsheets/d/1YBoveP-weMdidrirY-vPDzHyxbEI2ryECINlfCnFkLI/edit#gid=1789487472
     mob:setMod(xi.mod.SILENCERES, 90)
     mob:addMod(xi.mod.DEF, 190)
     mob:addMod(xi.mod.VIT, 84)

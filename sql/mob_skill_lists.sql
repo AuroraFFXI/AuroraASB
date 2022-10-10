@@ -107,19 +107,9 @@ INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',36,834);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',36,835);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',36,836);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',36,837);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Garuda',37,867);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Garuda',37,868);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Garuda',37,869);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Garuda',37,870);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Garuda',37,871);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Garuda',37,872);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Garuda',37,873);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Garuda',37,874);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ifrit',38,840);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ifrit',38,841);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ifrit',38,842);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ifrit',38,843);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ifrit',38,844);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ifrit',38,845);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ifrit',38,846);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ifrit',38,847);
@@ -130,11 +120,6 @@ INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ixion',39,2336);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ixion',39,2337);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ixion',39,2338);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ixion',39,2369);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Leviathan',40,858);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Leviathan',40,859);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Leviathan',40,860);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Leviathan',40,861);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Leviathan',40,862);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Leviathan',40,863);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Leviathan',40,864);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Leviathan',40,865);
@@ -146,27 +131,12 @@ INSERT INTO `mob_skill_lists` VALUES ('Avatar-Leviathan',40,865);
 -- INSERT INTO `mob_skill_lists` VALUES ('Avatar-Odin',41,2560);
 -- INSERT INTO `mob_skill_lists` VALUES ('Avatar-Odin',41,2561);
 -- 42: Dark Rider
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ramuh',43,885);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ramuh',43,886);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ramuh',43,887);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ramuh',43,888);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ramuh',43,889);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ramuh',43,890);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ramuh',43,891);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ramuh',43,892);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Shiva',44,876);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Shiva',44,877);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Shiva',44,878);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Shiva',44,879);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Shiva',44,880);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Shiva',44,881);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Shiva',44,882);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Shiva',44,883);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Titan',45,849);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Titan',45,850);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Titan',45,851);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Titan',45,852);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Titan',45,853);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Titan',45,854);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Titan',45,855);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Titan',45,856);
@@ -340,14 +310,13 @@ INSERT INTO `mob_skill_lists` VALUES ('Doll',83,538);
 INSERT INTO `mob_skill_lists` VALUES ('Doll',83,539);
 INSERT INTO `mob_skill_lists` VALUES ('Doll',83,541);
 INSERT INTO `mob_skill_lists` VALUES ('Doll',83,543);
-INSERT INTO `mob_skill_lists` VALUES ('Doll',84,534);
-INSERT INTO `mob_skill_lists` VALUES ('Doll',84,535);
-INSERT INTO `mob_skill_lists` VALUES ('Doll',84,536);
-INSERT INTO `mob_skill_lists` VALUES ('Doll',84,537);
-INSERT INTO `mob_skill_lists` VALUES ('Doll',84,538);
-INSERT INTO `mob_skill_lists` VALUES ('Doll',84,539);
-INSERT INTO `mob_skill_lists` VALUES ('Doll',84,541);
-INSERT INTO `mob_skill_lists` VALUES ('Doll',84,543);
+INSERT INTO `mob_skill_lists` VALUES ('Doll_no_meltdown',84,534);
+INSERT INTO `mob_skill_lists` VALUES ('Doll_no_meltdown',84,535);
+INSERT INTO `mob_skill_lists` VALUES ('Doll_no_meltdown',84,536);
+INSERT INTO `mob_skill_lists` VALUES ('Doll_no_meltdown',84,537);
+INSERT INTO `mob_skill_lists` VALUES ('Doll_no_meltdown',84,538);
+INSERT INTO `mob_skill_lists` VALUES ('Doll_no_meltdown',84,539);
+INSERT INTO `mob_skill_lists` VALUES ('Doll_no_meltdown',84,541);
 INSERT INTO `mob_skill_lists` VALUES ('Doll',85,534);
 INSERT INTO `mob_skill_lists` VALUES ('Doll',85,535);
 INSERT INTO `mob_skill_lists` VALUES ('Doll',85,536);
@@ -1452,26 +1421,18 @@ INSERT INTO `mob_skill_lists` VALUES ('Mindertaur',318,499); -- back_swish
 INSERT INTO `mob_skill_lists` VALUES ('Mindertaur',318,500); -- mow
 INSERT INTO `mob_skill_lists` VALUES ('Mindertaur',318,501); -- frightful_roar
 INSERT INTO `mob_skill_lists` VALUES ('Mindertaur',318,503); -- unblessed_armor
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Shiva',319,881);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Shiva',319,882);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Shiva',319,883);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ramuh',320,890);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ramuh',320,891);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ramuh',320,892);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Titan',321,853);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Titan',321,854);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Titan',321,855);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Titan',321,856);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ifrit',322,845);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ifrit',322,846);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ifrit',322,847);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Leviathan',323,861);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Leviathan',323,863);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Leviathan',323,864);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Leviathan',323,865);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Garuda',324,872);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Garuda',324,873);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Garuda',324,874);
+INSERT INTO `mob_skill_lists` VALUES ('Avatar-Shiva',319,876);
+INSERT INTO `mob_skill_lists` VALUES ('Avatar-Shiva',319,877);
+INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ramuh',320,885);
+INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ramuh',320,886);
+INSERT INTO `mob_skill_lists` VALUES ('Avatar-Titan',321,849);
+INSERT INTO `mob_skill_lists` VALUES ('Avatar-Titan',321,850);
+INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ifrit',322,840);
+INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ifrit',322,841);
+INSERT INTO `mob_skill_lists` VALUES ('Avatar-Leviathan',323,858);
+INSERT INTO `mob_skill_lists` VALUES ('Avatar-Leviathan',323,859);
+INSERT INTO `mob_skill_lists` VALUES ('Avatar-Garuda',324,867);
+INSERT INTO `mob_skill_lists` VALUES ('Avatar-Garuda',324,868);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',325,833);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',325,835);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',325,836);
@@ -1671,7 +1632,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Automaton_Valoredge',364,1940);
 INSERT INTO `mob_skill_lists` VALUES ('Automaton_Valoredge',364,1941);
 INSERT INTO `mob_skill_lists` VALUES ('Automaton_Valoredge',364,2065);
 INSERT INTO `mob_skill_lists` VALUES ('Automaton_Valoredge',364,2299);
-INSERT INTO `mob_skill_lists` VALUES ('Automaton_Valoredge',364,2743);
+-- INSERT INTO `mob_skill_lists` VALUES ('Automaton_Valoredge',364,2743); -- String Shredder OOE
 -- INSERT INTO `mob_skill_lists` VALUES ('Automaton_Valoredge',364,1945);
 -- INSERT INTO `mob_skill_lists` VALUES ('Automaton_Valoredge',364,1947);
 -- INSERT INTO `mob_skill_lists` VALUES ('Automaton_Valoredge',364,1948);
@@ -1691,7 +1652,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Automaton_Valoredge',364,2743);
 INSERT INTO `mob_skill_lists` VALUES ('Automaton_Sharpshot',365,1942);
 INSERT INTO `mob_skill_lists` VALUES ('Automaton_Sharpshot',365,2066);
 INSERT INTO `mob_skill_lists` VALUES ('Automaton_Sharpshot',365,2300);
-INSERT INTO `mob_skill_lists` VALUES ('Automaton_Sharpshot',365,2744);
+-- INSERT INTO `mob_skill_lists` VALUES ('Automaton_Sharpshot',365,2744); -- Armor piercer OOE
 -- INSERT INTO `mob_skill_lists` VALUES ('Automaton_Sharpshot',365,1945);
 -- INSERT INTO `mob_skill_lists` VALUES ('Automaton_Sharpshot',365,1947);
 -- INSERT INTO `mob_skill_lists` VALUES ('Automaton_Sharpshot',365,1948);
@@ -2416,27 +2377,7 @@ INSERT INTO `mob_skill_lists` VALUES ('MobWyvern',714,902);
 INSERT INTO `mob_skill_lists` VALUES ('MobWyvern',714,903);
 INSERT INTO `mob_skill_lists` VALUES ('MobWyvern',714,904);
 INSERT INTO `mob_skill_lists` VALUES ('MobWyvern',714,905);
-INSERT INTO `mob_skill_lists` VALUES ('Mob_Avatar_Ifrit',715,843);
-INSERT INTO `mob_skill_lists` VALUES ('Mob_Avatar_Ifrit',715,844);
-INSERT INTO `mob_skill_lists` VALUES ('Mob_Avatar_Ifrit',715,846);
-INSERT INTO `mob_skill_lists` VALUES ('Mob_Avatar_Titan',716,852);
-INSERT INTO `mob_skill_lists` VALUES ('Mob_Avatar_Titan',716,853);
-INSERT INTO `mob_skill_lists` VALUES ('Mob_Avatar_Titan',716,855);
-INSERT INTO `mob_skill_lists` VALUES ('Mob_Avatar_Levi',717,860);
-INSERT INTO `mob_skill_lists` VALUES ('Mob_Avatar_Levi',717,861);
-INSERT INTO `mob_skill_lists` VALUES ('Mob_Avatar_Levi',717,864);
-INSERT INTO `mob_skill_lists` VALUES ('Mob_Avatar_Garuda',718,869);
-INSERT INTO `mob_skill_lists` VALUES ('Mob_Avatar_Garuda',718,871);
-INSERT INTO `mob_skill_lists` VALUES ('Mob_Avatar_Garuda',718,873);
-INSERT INTO `mob_skill_lists` VALUES ('Mob_Avatar_Shiva',719,878);
-INSERT INTO `mob_skill_lists` VALUES ('Mob_Avatar_Shiva',719,880);
-INSERT INTO `mob_skill_lists` VALUES ('Mob_Avatar_Shiva',719,882);
-INSERT INTO `mob_skill_lists` VALUES ('Mob_Avatar_Ramuh',720,888);
-INSERT INTO `mob_skill_lists` VALUES ('Mob_Avatar_Ramuh',720,889);
-INSERT INTO `mob_skill_lists` VALUES ('Mob_Avatar_Ramuh',720,891);
-INSERT INTO `mob_skill_lists` VALUES ('Mob_Avatar_Carbuncle',721,909);
-INSERT INTO `mob_skill_lists` VALUES ('Mob_Avatar_Carbuncle',721,910);
-INSERT INTO `mob_skill_lists` VALUES ('Mob_Avatar_Carbuncle',721,911);
+-- Available: 715 to 721
 INSERT INTO `mob_skill_lists` VALUES ('Prune',722,325);
 INSERT INTO `mob_skill_lists` VALUES ('Prune',722,414);
 INSERT INTO `mob_skill_lists` VALUES ('Prune',722,415);
@@ -3859,7 +3800,138 @@ INSERT INTO `mob_skill_lists` VALUES ('Puk_M',1175,1723);
 INSERT INTO `mob_skill_lists` VALUES ('Supplespine_Mujwuj',1176,1064);
 INSERT INTO `mob_skill_lists` VALUES ('Supplespine_Mujwuj',1176,609);
 
--- Next available ID: 1176
+-- ------------------------------------------------------------
+-- Trial Sized Avatars
+INSERT INTO `mob_skill_lists` VALUES ('Avatar_Garuda_TSTBW',1177,867); -- Claw
+INSERT INTO `mob_skill_lists` VALUES ('Avatar_Garuda_TSTBW',1177,868); -- Aero II
+INSERT INTO `mob_skill_lists` VALUES ('Avatar_Ramuh_TSTBL',1178,885); -- Shock Strike
+INSERT INTO `mob_skill_lists` VALUES ('Avatar_Ramuh_TSTBL',1178,886); -- Thunder II
+INSERT INTO `mob_skill_lists` VALUES ('Avatar_Ramuh_TSTBL',1178,888); -- Thunderspark
+INSERT INTO `mob_skill_lists` VALUES ('Avatar_Shiva_TSTBI',1179,876); -- Axe Kick
+INSERT INTO `mob_skill_lists` VALUES ('Avatar_Shiva_TSTBI',1179,877); -- Blizzard II
+INSERT INTO `mob_skill_lists` VALUES ('Avatar_Ifrit_TSTBF',1180,840); -- Punch
+INSERT INTO `mob_skill_lists` VALUES ('Avatar_Ifrit_TSTBF',1180,841); -- Fire II
+INSERT INTO `mob_skill_lists` VALUES ('Avatar_Titan_TSTBE',1181,849); -- Rock Throw
+INSERT INTO `mob_skill_lists` VALUES ('Avatar_Titan_TSTBE',1181,850); -- Stone II
+INSERT INTO `mob_skill_lists` VALUES ('Avatar_Leviathan_TSTBW',1182,858); -- Barracuda Dive
+INSERT INTO `mob_skill_lists` VALUES ('Avatar_Leviathan_TSTBW',1182,859); -- Water II
+
+-- Fantoccini (ENM "Pulling the Strings")
+-- WAR - BST
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_WAR_BST',1183,64); -- Raging Axe
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_WAR_BST',1183,65); -- Smash Axe
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_WAR_BST',1183,66); -- Gale Axe
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_WAR_BST',1183,67); -- Avalanche Axe
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_WAR_BST',1183,68); -- Spinning Axe
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_WAR_BST',1183,69); -- Rampage
+-- MNK:
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_MNK_PUP',1184,1); -- Combo
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_MNK_PUP',1184,2); -- Shoulder Tackle
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_MNK_PUP',1184,3); -- One Inch Punch
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_MNK_PUP',1184,4); -- Backhand Blow
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_MNK_PUP',1184,5); -- Raging fists
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_MNK_PUP',1184,6); -- Spinning Attack
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_MNK_PUP',1184,7); -- Howling Fist
+-- WHM
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_WHM_BLM',1185,160); -- Shining Strike
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_WHM_BLM',1185,161); -- Seraph Strike
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_WHM_BLM',1185,162); -- Brainshaker
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_WHM_BLM',1185,165); -- Skullbreaker
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_WHM_BLM',1185,166); -- True Strike
+-- BLM - SMN
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_SMN',1186,176); -- Heavy Swing
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_SMN',1186,177); -- Rock Crusher
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_SMN',1186,178); -- Earth Crusher
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_SMN',1186,179); -- Starburst
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_SMN',1186,180); -- Sunburst
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_SMN',1186,181); -- Shell Crusher
+-- RDM - BLU - PLD
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_RDM_BLU_PLD',1187,32); -- Fast Blade
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_RDM_BLU_PLD',1187,33); -- Burning Blade
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_RDM_BLU_PLD',1187,34); -- Red Lotus Blade
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_RDM_BLU_PLD',1187,35); -- Flat Blade
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_RDM_BLU_PLD',1187,36); -- Shining Blade
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_RDM_BLU_PLD',1187,37); -- Seraph Blade
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_RDM_BLU_PLD',1187,38); -- Circle Blade
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_RDM_BLU_PLD',1187,39); -- Spirits Within
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_RDM_BLU_PLD',1187,40); -- Vorpal Blade
+-- THF - BRD
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_THF_BRD',1188,16); -- Wasp Sting
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_THF_BRD',1188,17); -- Viper Bite
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_THF_BRD',1188,18); -- Shadowswitch
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_THF_BRD',1188,19); -- Gust Slash
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_THF_BRD',1188,20); -- Cyclone
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_THF_BRD',1188,23); -- Dancing Edge
+-- DRK
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_DRK',1189,96); -- Slice
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_DRK',1189,97); -- Dark Harvest
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_DRK',1189,98); -- Shadow of Death
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_DRK',1189,99); -- Nightmare Scythe
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_DRK',1189,100); -- Spinning Scythe
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_DRK',1189,101); -- Vorpal Scythe
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_DRK',1189,102); -- Guillotine
+-- RNG
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_RNG',1190,192); -- Flaming Arrow
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_RNG',1190,193); -- Piercing Arrow
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_RNG',1190,194); -- Dulling Arrow
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_RNG',1190,195); -- Sidewinder
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_RNG',1190,196); -- Blast Arrow
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_RNG',1190,197); -- Arching Arrow
+-- SAM
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_SAM',1191,144); -- Tachi: Enpi
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_SAM',1191,145); -- Tachi: Hobaku
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_SAM',1191,146); -- Tachi: Goten
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_SAM',1191,147); -- Tachi: Kagero
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_SAM',1191,148); -- Tachi: Jinpu
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_SAM',1191,149); -- Tachi: Koki
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_SAM',1191,150); -- Tachi: Yukikaze
+-- NIN
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_NIN',1192,128); -- Blade: Rin
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_NIN',1192,129); -- Blade: Retsu
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_NIN',1192,130); -- Blade: Teki
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_NIN',1192,131); -- Blade: To
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_NIN',1192,132); -- Blade: Chi
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_NIN',1192,133); -- Blade: Ei
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_NIN',1192,134); -- Blade: Jin
+-- DRG
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_DRG',1193,112); -- Double Thrust
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_DRG',1193,113); -- Thunder Thrust
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_DRG',1193,114); -- Raiden Thrust
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_DRG',1193,115); -- Leg Sweep
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_DRG',1193,116); -- Penta Thrust
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_DRG',1193,117); -- Vorpal Thrust
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_DRG',1193,118); -- Skewer
+-- COR
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_COR',1194,208); -- Hot Shot
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_COR',1194,209); -- Split Shot
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_COR',1194,210); -- Sniper Shot
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_COR',1194,212); -- Slug Shot
+-- PUP
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_PUP',1195,1992); -- Fire Maneuver
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_PUP',1195,1993); -- Ice Maneuver
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_PUP',1195,1994); -- Wind Maneuver
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_PUP',1195,1995); -- Earth Maneuver
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_PUP',1195,1996); -- Thunder Maneuver
+INSERT INTO `mob_skill_lists` VALUES ('Fantoccini_PUP',1195,1997); -- Water Maneuver
+-- Moblin Fantocciniman
+INSERT INTO `mob_skill_lists` VALUES('Moblin_Fantocciniman',1196,1414); -- Recover MP (player)
+INSERT INTO `mob_skill_lists` VALUES('Moblin_Fantocciniman',1196,1415); -- Recover HP (player)
+INSERT INTO `mob_skill_lists` VALUES('Moblin_Fantocciniman',1196,1416); -- Recover MP (player)
+INSERT INTO `mob_skill_lists` VALUES('Moblin_Fantocciniman',1196,1417); -- Attack Boost (player)
+INSERT INTO `mob_skill_lists` VALUES('Moblin_Fantocciniman',1196,1418); -- Defense Boost (player)
+INSERT INTO `mob_skill_lists` VALUES('Moblin_Fantocciniman',1196,1419); -- TP Boost (player)
+INSERT INTO `mob_skill_lists` VALUES('Moblin_Fantocciniman',1196,1420); -- Ability or Spell (automaton)
+INSERT INTO `mob_skill_lists` VALUES('Moblin_Fantocciniman',1196,1421); -- Give and use TP (automaton)
+INSERT INTO `mob_skill_lists` VALUES('Moblin_Fantocciniman',1196,1422); -- Attack Boost (automaton)
+INSERT INTO `mob_skill_lists` VALUES('Moblin_Fantocciniman',1196,1424); -- Defense Boost (automaton)
+INSERT INTO `mob_skill_lists` VALUES('Moblin_Fantocciniman',1196,1427); -- 2HR use (automaton)
+INSERT INTO `mob_skill_lists` VALUES('Moblin_Fantocciniman',1196,1457); -- Job ability Reset (player)
+
+INSERT INTO `mob_skill_lists` VALUES ('Swamfisk',1197,452); -- Screwdriver
+INSERT INTO `mob_skill_lists` VALUES ('Swamfisk',1197,453); -- Water Wall
+INSERT INTO `mob_skill_lists` VALUES ('Barbastelle',1198,392); -- Ultrasonics
+
+-- Next available ID: 1199
 
 -- ------------------------------------------------------------
 -- Start of AirSkyBoat Section
@@ -3922,7 +3994,6 @@ INSERT INTO `mob_skill_lists` VALUES ('Huwasi',4031,678);
 INSERT INTO `mob_skill_lists` VALUES ('Rogue_Receptacle',4032,520);
 
 -- End of AirSkyBoat section
--- ------------------------------------------------------------
 
 -- ------------------------------------------------------------
 -- Start of Ambuscade section

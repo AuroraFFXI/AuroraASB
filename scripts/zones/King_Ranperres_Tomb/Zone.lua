@@ -14,10 +14,10 @@ zone_object.onInitialize = function(zone)
     UpdateNMSpawnPoint(ID.mob.VRTRA)
     GetMobByID(ID.mob.VRTRA):setRespawnTime(math.random(86400, 259200))
 
-    if xi.settings.main.ENABLE_WOTG == 1 then
+    -- if xi.settings.main.ENABLE_WOTG == 1 then
         UpdateNMSpawnPoint(ID.mob.BARBASTELLE)
         GetMobByID(ID.mob.BARBASTELLE):setRespawnTime(math.random(1800, 5400))
-    end
+    -- end
 
     xi.treasure.initZone(zone)
 end

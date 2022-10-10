@@ -199,7 +199,7 @@ struct UnlockedAttachments_t
 
 struct GearSetMod_t
 {
-    uint8  modNameId;
+    uint8  setId;
     Mod    modId;
     uint16 modValue;
 };

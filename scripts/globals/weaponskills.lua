@@ -226,7 +226,7 @@ local function cRangedRatio(attacker, defender, params, ignoredDef, tp)
     local pdif = attacker:getRangedPDIF(defender, false, atkmulti, ignoredDef)
     local pdifcrit = attacker:getRangedPDIF(defender, true, atkmulti, ignoredDef)
 
-    return {pdif, pdifcrit}
+    return { pdif, pdifcrit }
 end
 
 local function getRangedHitRate(attacker, target, capHitRate, bonus)
@@ -295,7 +295,8 @@ local function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams, f
             -- Duplicate the first hit with an added magical component for hybrid WSes
             if calcParams.hybridHit then
                 -- Calculate magical bonuses and reductions
-                local magicdmg = addBonusesAbility(attacker, wsParams.ele, target, finaldmg, wsParams)
+                local ftpHybrid = fTP(calcParams.tp, wsParams.ftp100, wsParams.ftp200, wsParams.ftp300) + calcParams.bonusfTP
+                local magicdmg = math.floor(finaldmg * ftpHybrid)
 
                 wsParams.bonus = calcParams.bonusAcc
                 magicdmg = magicdmg * applyResistanceAbility(attacker, target, wsParams.ele, wsParams)
@@ -407,11 +408,11 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     local wsMods = calcParams.fSTR + (math.floor(str + dex + vit + agi + int + mnd + chr) * calcParams.alpha)
     local ftp = fTP(tp, wsParams.ftp100, wsParams.ftp200, wsParams.ftp300) + calcParams.bonusfTP
 
-    if not isRanged then
-        base = (calcParams.weaponDamage[1] + calcParams.fSTR + wsMods) * ftp
-    else
-        base = (calcParams.weaponDamage[1] + calcParams.weaponDamage[2] + calcParams.fSTR + wsMods) * ftp
+    if wsParams.hybridWS then
+        ftp = 1
     end
+
+    base = (calcParams.weaponDamage[1] + calcParams.fSTR + wsMods) * ftp
 
     local dmg = base
 
@@ -484,7 +485,6 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     calcParams.hybridHit = false
     calcParams.sneakApplicable = false
     calcParams.trickApplicable = false
-    dmg = base
 
     -- For items that apply bonus damage to the first hit of a weaponskill (but not later hits),
     -- store bonus damage for first hit, for use after other calculations are done
@@ -492,6 +492,8 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
 
     -- Reset fTP if it's not supposed to carry over across all hits for this WS
     if not wsParams.multiHitfTP then ftp = 1 end -- We'll recalculate our mainhand damage after doing offhand
+
+    base = (calcParams.weaponDamage[1] + calcParams.fSTR + wsMods) * ftp
 
     -- Do the extra hit for our offhand if applicable
     if calcParams.extraOffhandHit and finaldmg < targetHp then
@@ -515,7 +517,7 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
 
     -- Calculate additional hits if a multiHit WS (or we're supposed to get a DA/TA/QA proc from main hit)
     local hitsDone = 1
-    local numHits = getMultiAttacks(attacker, target, wsParams.numHits)
+    local numHits = utils.clamp(getMultiAttacks(attacker, target, wsParams.numHits), 0, 8)
 
     while hitsDone < numHits and finaldmg < targetHp do -- numHits is hits in the base WS _and_ DA/TA/QA procs during those hits
         hitdmg, calcParams = getSingleHitDamage(attacker, target, dmg, wsParams, calcParams, false, isRanged)
@@ -645,7 +647,7 @@ function doRangedWeaponskill(attacker, target, wsID, wsParams, tp, action, prima
     local calcParams =
     {
         wsID = wsID,
-        weaponDamage = {attacker:getRangedDamage()},
+        weaponDamage = { attacker:getRangedDmg() },
         skillType = attacker:getWeaponSkillType(xi.slot.RANGED),
         fSTR = fSTR2(attacker:getStat(xi.mod.STR), target:getStat(xi.mod.VIT), attacker:getRangedDmgRank()),
         pdif = pdif,
@@ -846,7 +848,7 @@ function takeWeaponskillDamage(defender, attacker, wsParams, primaryMsg, attack,
         defender:updateEnmityFromDamage(enmityEntity, finaldmg * enmityMult)
     end
 
-    xi.magian.checkMagianTrial(attacker, {['mob'] = defender, ['triggerWs'] = true,  ['wSkillId'] = wsResults.wsID})
+    xi.magian.checkMagianTrial(attacker, { ['mob'] = defender, ['triggerWs'] = true,  ['wSkillId'] = wsResults.wsID })
 
     if finaldmg > 0 then
         defender:setLocalVar("weaponskillHit", 1)
@@ -871,11 +873,7 @@ function getMeleeDmg(attacker, weaponType, kick)
         offhandDamage = mainhandDamage
     end
 
-    return {mainhandDamage, offhandDamage}
-end
-
-function getRangedDamage(attacker)
-    return {attacker:getRangedDmg(), attacker:getAmmoDmg()}
+    return { mainhandDamage, offhandDamage }
 end
 
 function getHitRate(attacker, target, capHitRate, bonus)
@@ -981,7 +979,7 @@ function cMeleeRatio(attacker, defender, params, ignoredDef, tp, slot)
         attacker:delMod(xi.mod.ATTP, 25 + flourisheffect:getSubPower() / 2)
     end
 
-    return {pdif, pdifcrit}
+    return { pdif, pdifcrit }
 end
 
 function handleBlock(attacker, target, finaldmg)
