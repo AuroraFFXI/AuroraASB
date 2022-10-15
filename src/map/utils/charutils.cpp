@@ -4672,7 +4672,22 @@ namespace charutils
                     // Aurora Incremental EXP T+ Bonus
                     if (mobCheck >= EMobDifficulty::Tough)
                     {
-                        expMod *= (1.0f +(((float)moblevel - (float)maxlevel) * 0.15f));
+                        if (mobCheck >= EMobDifficulty::IncrediblyTough && pcinzone <= 6)
+                        {
+                            expMod *= (1.0f +(((float)moblevel - (float)maxlevel) * 0.2f));
+                        }
+                        else if (mobCheck >= EMobDifficulty::VeryTough && pcinzone <= 5)
+                        {
+                            expMod *= (1.0f +(((float)moblevel - (float)maxlevel) * 0.2f));
+                        }
+                        else if (mobCheck >= EMobDifficulty::Tough && pcinzone <= 3)
+                        {
+                            expMod *= (1.0f +(((float)moblevel - (float)maxlevel) * 0.2f));
+                        }
+                        else
+                        {
+                            expMod *= (1.0f +(((float)moblevel - (float)maxlevel) * 0.15f));
+                        }
                     }
 
 					cPP = cPP * expMod;
@@ -6264,19 +6279,19 @@ namespace charutils
             CStatusEffect* dedication = PChar->StatusEffectContainer->GetStatusEffect(EFFECT_DEDICATION);
             int16          percentage = dedication->GetPower();
             int16          cap        = dedication->GetSubPower();
-            bonus += std::clamp<int32>((int32)((exp * percentage) / 100), 0, cap);
+            // bonus += std::clamp<int32>((int32)((exp * percentage) / 100), 0, cap);
             // dedication->SetSubPower(cap -= bonus);
 
             // Aurora EXP System: Remove Dedication Cap for ring balance
-            if (cap <= PChar->jobs.job[PChar->GetMJob()])
+            if (cap == 99) // Any Level Range (Anni Ring)
             {
-                PChar->StatusEffectContainer->DelStatusEffect(EFFECT_DEDICATION);
+                bonus += std::clamp<int32>((int32)((exp * percentage) / 100), 0, cap);
             }
-            if (cap == 50 || cap == 75)
+            else if (cap <= 75) // Level Range Limits (Conquest Rings)
             {
-                if (cap - 30 > PChar->jobs.job[PChar->GetMJob()])
+                if (cap < PChar->jobs.job[PChar->GetMJob()] && (cap - 30) >= PChar->jobs.job[PChar->GetMJob()])
                 {
-                    PChar->StatusEffectContainer->DelStatusEffect(EFFECT_DEDICATION);
+                    bonus += std::clamp<int32>((int32)((exp * percentage) / 100), 0, cap);
                 }
             }
         }

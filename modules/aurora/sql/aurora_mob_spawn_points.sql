@@ -226,8 +226,8 @@ UPDATE `mob_spawn_points` SET groupid='324' WHERE groupid='24' AND mobname='Magi
 -- Start[17252353-17252379] T1[17252378-17252529] T2[17252528-17252687] T3[17252686-17256449]
 -- ------------------------------------------------------------
 
-UPDATE `mob_spawn_points` SET groupid='108' WHERE groupid='8' AND mobname='Savanna_Rarab' AND mobid>'17252353' AND mobid<'17252379';
-UPDATE `mob_spawn_points` SET groupid='208' WHERE groupid='8' AND mobname='Savanna_Rarab' AND mobid>'17252378' AND mobid<'17256449';
+UPDATE `mob_spawn_points` SET groupid='108' WHERE groupid='8' AND mobname='Savanna_Rarab' AND mobid>'17252353' AND mobid<'17252529';
+UPDATE `mob_spawn_points` SET groupid='208' WHERE groupid='8' AND mobname='Savanna_Rarab' AND mobid>'17252528' AND mobid<'17256449';
 UPDATE `mob_spawn_points` SET groupid='109' WHERE groupid='9' AND mobname='Crawler' AND mobid>'17252353' AND mobid<'17252529';
 UPDATE `mob_spawn_points` SET groupid='209' WHERE groupid='9' AND mobname='Crawler' AND mobid>'17252528' AND mobid<'17256449';
 UPDATE `mob_spawn_points` SET groupid='110' WHERE groupid='10' AND mobname='Carrion_Crow' AND mobid>'17252353' AND mobid<'17252529';
