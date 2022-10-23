@@ -9,7 +9,7 @@ require('scripts/globals/zone')
 local zoneObject = {}
 
 zoneObject.onInitialize = function(zone)
-    if xi.settings.main.ENABLE_WOTG == 1 then
+    -- if xi.settings.main.ENABLE_WOTG == 1 then
         UpdateNMSpawnPoint(ID.mob.HUMBABA)
         GetMobByID(ID.mob.HUMBABA):setRespawnTime(math.random(3600, 4200))
     -- end

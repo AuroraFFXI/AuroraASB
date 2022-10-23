@@ -15,8 +15,8 @@ xi.settings.main =
     SERVER_NAME = "Aurora",
 
     SERVER_MESSAGE =
-        "Please visit https://github.com/AirSkyBoat/AirSkyBoat for the latest information on the project.\n" ..
-        "Thank you, and we hope you enjoy soaring through the skies.",
+        "Welcome to Aurora! A Hardcore FFXI Experience!" ..
+        "Death results in falling back to level 1!",
 
     -- Setting to lock content more accurately to the expansions defined below.
     -- This generally results in a more accurate presentation of your selected expansions,
@@ -221,10 +221,10 @@ xi.settings.main =
     -- Chocobo digging
     DIG_RATE                     = 85, -- % chance to receive an item from chocbo digging during favorable weather.  Set between 0 and 100.
     DIG_FATIGUE                  = 100,  -- Set max amount of items a player can dig every 24 hours. Set to 0 to disable.
-    DIG_ZONE_LIMIT               = 60,  -- Set max amount of items that can be dug from a specific zone every Vana'Diel Day. Set to 0 to disable.
+    DIG_ZONE_LIMIT               = 25,  -- Set max amount of items that can be dug from a specific zone every Vana'Diel Day. Set to 0 to disable.
     DIG_GRANT_BURROW             = 0,
     DIG_GRANT_BORE               = 0,
-    DIG_DISTANCE_REQ             = 0, -- Sets the distance squared in yalms of how far a player has to move.
+    DIG_DISTANCE_REQ             = 5, -- Sets the distance squared in yalms of how far a player has to move.
     DIG_FATIGUE_SKILL_UP         = false, -- Allows for skilling up while at fatigue.
     DIG_ABUNDANCE_BONUS          = 0,     -- Increase chance of digging up an item (450  = item digup chance +45)
 

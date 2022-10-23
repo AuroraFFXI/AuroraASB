@@ -1559,6 +1559,7 @@ xi.helm.onTrade = function(player, npc, trade, helmType, csid, func)
         local item  = pickItem(player, info, helmType)
         local broke = doesToolBreak(player, info) and 1 or 0
         local full  = (player:getFreeSlotsCount() == 0) and 1 or 0
+        local crit  = (player:getCharSkillLevel(59 + helmType) / 400) + (player:getMod(info.mod) / 10)
 
         if os.time() > lastTrade + 4 then
             if csid then
@@ -1574,12 +1575,17 @@ xi.helm.onTrade = function(player, npc, trade, helmType, csid, func)
 
             -- success! reward item and decrement number of remaining uses on the point
             if item ~= 0 and full == 0 then
+                calculateSkillUp(player, helmType)
                 player:addItem(item)
 
-                local uses = (npc:getLocalVar("uses") - 1) % 4
-                npc:setLocalVar("uses", uses)
-                if uses == 0 then
-                    movePoint(npc, zoneId, info)
+                if math.random(100) > crit then
+                    local uses = (npc:getLocalVar("uses") - 1) % 4
+                    npc:setLocalVar("uses", uses)
+                    if uses == 0 then
+                        movePoint(npc, zoneId, info)
+                    end
+                else
+                    player:PrintToPlayer(string.format("You performed a Critical Strike! [%i percent chance]", crit), xi.msg.channel.SYSTEM_3)
                 end
 
                 player:triggerRoeEvent(xi.roe.triggers.helmSuccess, { ["skillType"] = helmType })

@@ -37,9 +37,9 @@ function onTrigger(player, jobId, level)
         -- invalid level
         if
             level < 1 or
-            level > 99
+            level > 37
         then
-            error(player, "Invalid level. Level must be between 1 and 99!")
+            error(player, "Invalid level. Level must be between 1 and 37!")
             return
         end
         -- setting none sjob to a different level

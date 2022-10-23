@@ -15,7 +15,7 @@ zoneObject.onChocoboDig = function(player, precheck)
 end
 
 zoneObject.onInitialize = function(zone)
-    if xi.settings.main.ENABLE_WOTG == 1 then
+    -- if xi.settings.main.ENABLE_WOTG == 1 then
         UpdateNMSpawnPoint(ID.mob.NANDI)
         GetMobByID(ID.mob.NANDI):setRespawnTime(math.random(3600, 4200))
     -- end
