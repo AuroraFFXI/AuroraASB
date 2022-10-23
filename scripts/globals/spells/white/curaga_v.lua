@@ -7,24 +7,24 @@ require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/msg")
 -----------------------------------
-local spell_object = {}
+local spellObject = {}
 
-spell_object.onMagicCastingCheck = function(caster, target, spell)
+spellObject.onMagicCastingCheck = function(caster, target, spell)
     return 0
 end
 
-spell_object.onSpellCast = function(caster, target, spell)
+spellObject.onSpellCast = function(caster, target, spell)
     local minCure = 600
 
     local divisor = 1
     local constant = 570
-    local power = getCurePowerOld(caster)
+    local power = xi.magic.getCurePowerOld(caster)
     if (power > 780) then
         divisor = 2.667
         constant = 814--this is too powerful and needs to be fixed when the rest of the curaga 5 numbers are determined
     end
 
-    local final = getCureFinal(caster, spell, getBaseCureOld(power, divisor, constant), minCure, false)
+    local final = xi.magic.getCureFinal(caster, spell, xi.magic.getBaseCureOld(power, divisor, constant), minCure, false)
 
     final = final + (final * (target:getMod(xi.mod.CURE_POTENCY_RCVD)/100))
 
@@ -50,4 +50,4 @@ spell_object.onSpellCast = function(caster, target, spell)
     return final
 end
 
-return spell_object
+return spellObject

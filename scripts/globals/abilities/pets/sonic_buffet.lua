@@ -7,14 +7,14 @@ require("scripts/globals/mobskills")
 require("scripts/globals/magic")
 require("scripts/globals/job_utils/summoner")
 -----------------------------------
-local ability_object = {}
+local abilityObject = {}
 
-ability_object.onAbilityCheck = function(player, target, ability)
+abilityObject.onAbilityCheck = function(player, target, ability)
     return xi.job_utils.summoner.canUseBloodPact(player, player:getPet(), target, ability)
 end
 
 -- http://wiki.ffo.jp/html/37931.html
-ability_object.onPetAbility = function(target, pet, petskill)
+abilityObject.onPetAbility = function(target, pet, petskill)
     local dINT = math.floor(pet:getStat(xi.mod.INT) - target:getStat(xi.mod.INT))
     local tp   = pet:getTP()
 
@@ -30,7 +30,7 @@ ability_object.onPetAbility = function(target, pet, petskill)
     target:takeDamage(damage, pet, xi.attackType.MAGICAL, xi.damageType.WIND)
     target:updateEnmityFromDamage(pet, damage)
 
-    local resist = applyResistanceAbility(pet, target, xi.magic.ele.WIND, xi.skill.NONE, 0) -- Does this get bonus macc from SMN skill?
+    local resist = xi.magic.applyResistanceAbility(pet, target, xi.magic.ele.WIND, xi.skill.NONE, 0) -- Does this get bonus macc from SMN skill?
     if (resist > 0.0625) then -- Is there _any_ circumstance wherein a dispel adds a message? Based on testing it seems the ability is magic damage only visibly.
         target:dispelStatusEffect()
     end
@@ -39,4 +39,4 @@ ability_object.onPetAbility = function(target, pet, petskill)
     return damage
 end
 
-return ability_object
+return abilityObject

@@ -7,13 +7,13 @@ require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/magic")
 -----------------------------------
-local spell_object = {}
+local spellObject = {}
 
-spell_object.onMagicCastingCheck = function(caster, target, spell)
+spellObject.onMagicCastingCheck = function(caster, target, spell)
     return 0
 end
 
-spell_object.onSpellCast = function(caster, target, spell)
+spellObject.onSpellCast = function(caster, target, spell)
     local skill = caster:getSkillLevel(xi.skill.DARK_MAGIC)
     local dINT = caster:getStat(xi.mod.INT) - target:getStat(xi.mod.INT)
 
@@ -32,16 +32,16 @@ spell_object.onSpellCast = function(caster, target, spell)
     params.skillType = xi.skill.DARK_MAGIC
     params.bonus = 0
     params.effect = nil
-    local resist = applyResistance(caster, target, spell, params)
+    local resist = xi.magic.applyResistance(caster, target, spell, params)
     local dmg = base * resist
     duration = duration * resist
-    dmg = addBonuses(caster, spell, target, dmg)
-    dmg = adjustForTarget(target, dmg, spell:getElement())
-    dmg = finalMagicAdjustments(caster, target, spell, dmg)
+    dmg = xi.magic.addBonuses(caster, spell, target, dmg)
+    dmg = xi.magic.adjustForTarget(target, dmg, spell:getElement())
+    dmg = xi.magic.finalMagicAdjustments(caster, target, spell, dmg)
 
     target:addStatusEffect(xi.effect.KAUSTRA, math.floor(dmg/3), 3, duration)
 
     return dmg
 end
 
-return spell_object
+return spellObject

@@ -25,9 +25,9 @@ require("scripts/globals/status")
 require("scripts/globals/utils")
 require("scripts/globals/weaponskills")
 -----------------------------------
-local weaponskill_object = {}
+local weaponskillObject = {}
 
-weaponskill_object.onUseWeaponSkill = function(player, target, wsID, tp, primary, action, taChar)
+weaponskillObject.onUseWeaponSkill = function(player, target, wsID, tp, primary, action, taChar)
     local params = {}
     params.numHits = 2
     params.ftp100 = 1 params.ftp200 = 1.25 params.ftp300 = 1.5
@@ -35,7 +35,7 @@ weaponskill_object.onUseWeaponSkill = function(player, target, wsID, tp, primary
     params.mnd_wsc = 0.0 params.chr_wsc = 0.0
     params.crit100 = 0.0 params.crit200 = 0.0 params.crit300 = 0.0
     params.canCrit = false
-    params.acc100 = 0.0 params.acc200 = 0.0 params.acc300 = 0.0
+    params.acc100 = 1.0 params.acc200 = 1.0 params.acc300 = 1.0
     params.atk100 = 1 params.atk200 = 1 params.atk300 = 1
     params.enmityMult = 1
 
@@ -65,7 +65,7 @@ weaponskill_object.onUseWeaponSkill = function(player, target, wsID, tp, primary
             params.ftp100 = 1 params.ftp200 = 1.5 params.ftp300 = 2.0
         end
 
-        damage, calcParams.criticalHit, calcParams.tpHitsLanded, calcParams.extraHitsLanded = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
+        damage, calcParams.criticalHit, calcParams.tpHitsLanded, calcParams.extraHitsLanded = xi.weaponskills.doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
     else
         local dmg
         if xi.settings.main.USE_ADOULIN_WEAPON_SKILL_CHANGES then
@@ -99,10 +99,10 @@ weaponskill_object.onUseWeaponSkill = function(player, target, wsID, tp, primary
             calcParams.extraHitsLanded = 1
         end
 
-        damage = takeWeaponskillDamage(target, player, params, primary, attack, calcParams, action)
+        damage = xi.weaponskills.takeWeaponskillDamage(target, player, params, primary, attack, calcParams, action)
     end
 
     return calcParams.tpHitsLanded, calcParams.extraHitsLanded, calcParams.criticalHit, damage
 end
 
-return weaponskill_object
+return weaponskillObject

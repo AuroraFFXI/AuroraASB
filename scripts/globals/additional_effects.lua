@@ -80,10 +80,10 @@ xi.additionalEffect.calcDamage = function(attacker, element, defender, damage)
     local params = {}
     params.bonusmab = 0
     params.includemab = false
-    damage = addBonusesAbility(attacker, element, defender, damage, params)
-    damage = damage * applyResistanceAddEffect(attacker, defender, element, 0)
-    damage = adjustForTarget(defender, damage, element)
-    damage = finalMagicNonSpellAdjustments(attacker, defender, element, damage)
+    damage = xi.magic.addBonusesAbility(attacker, element, defender, damage, params)
+    damage = damage * xi.magic.applyResistanceAddEffect(attacker, defender, element, 0)
+    damage = xi.magic.adjustForTarget(defender, damage, element)
+    damage = xi.magic.finalMagicNonSpellAdjustments(attacker, defender, element, damage)
 
     --[[
     This should rightly be modified by resistance checks, and while those DO they are presently not perfect.
@@ -94,7 +94,12 @@ xi.additionalEffect.calcDamage = function(attacker, element, defender, damage)
     return damage
 end
 
--- paralyze on hit, fire damage on hit, etc..
+-- paralyze on hit, fire damage on hit, etc.
+-- Disable cyclomatic complexity check for this function:
+-- luacheck: ignore 561
+-- TODO: Reduce complexity in this function:
+-- - replace giant if/else chain with switch statement
+-- - replace each handler (elseif addType == procType.DEBUFF then) with a function
 xi.additionalEffect.attack = function(attacker, defender, baseAttackDamage, item)
     local addType = item:getMod(xi.mod.ITEM_ADDEFFECT_TYPE)
     local subEffect = item:getMod(xi.mod.ITEM_SUBEFFECT)
@@ -212,7 +217,7 @@ xi.additionalEffect.attack = function(attacker, defender, baseAttackDamage, item
 
     elseif addType == procType.ABSORB then
         -- Ripping off Aura Steal here
-        local resist = applyResistanceAddEffect(attacker, defender, element, 0)
+        local resist = xi.magic.applyResistanceAddEffect(attacker, defender, element, 0)
         if resist > 0.0625 then
             local stolen = attacker:stealStatusEffect(defender)
             msgID = xi.msg.basic.STEAL_EFFECT

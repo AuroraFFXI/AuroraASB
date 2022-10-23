@@ -76,7 +76,7 @@ end
 -- Generic Function for damage-based Jumps
 local function performWSJump(player, target, action, params)
     local taChar = player:getTrickAttackChar(target)
-    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, 0, params, 0, action, true, taChar)
+    local damage, criticalHit, tpHits, extraHits = xi.weaponskills.doPhysicalWeaponskill(player, target, 0, params, 0, action, true, taChar)
     local totalHits = tpHits + extraHits
 
     if totalHits > 0 then
@@ -362,10 +362,7 @@ xi.job_utils.dragoon.useSuperJump = function(player, target, ability)
 
     -- Prevent the player from performing actions while in the air
     player:queue(0, function(playerArg)
-        playerArg:addStatusEffectEx(xi.effect.ALL_MISS, xi.effect.NONE, 2, 3, 5, 0, 0, 0, xi.effectFlag.NO_LOSS_MESSAGE)
-        playerArg:addStatusEffectEx(xi.effect.PHYSICAL_SHIELD, xi.effect.NONE, 1, 3, 5, 0, 0, 0, xi.effectFlag.NO_LOSS_MESSAGE)
-        playerArg:addStatusEffectEx(xi.effect.MAGIC_SHIELD, xi.effect.NONE, 1, 3, 5, 0, 0, 0, xi.effectFlag.NO_LOSS_MESSAGE)
-        playerArg:stun(5000)
+        playerArg:untargetableAndUnactionable(5000)
     end)
 
     -- If the Dragoon's wyvern is out and alive, tell it to use Super Climb

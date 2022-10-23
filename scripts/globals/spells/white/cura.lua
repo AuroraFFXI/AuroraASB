@@ -11,9 +11,9 @@ require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/msg")
 -----------------------------------
-local spell_object = {}
+local spellObject = {}
 
-spell_object.onMagicCastingCheck = function(caster, target, spell)
+spellObject.onMagicCastingCheck = function(caster, target, spell)
     if (caster:getID() ~= target:getID()) then
         return xi.msg.basic.CANNOT_PERFORM_TARG
     else
@@ -21,7 +21,7 @@ spell_object.onMagicCastingCheck = function(caster, target, spell)
     end
 end
 
-spell_object.onSpellCast = function(caster, target, spell)
+spellObject.onSpellCast = function(caster, target, spell)
     local divisor = 0
     local constant = 0
     local basepower = 0
@@ -31,7 +31,7 @@ spell_object.onSpellCast = function(caster, target, spell)
 
     local minCure = 10
     if (xi.settings.main.USE_OLD_CURE_FORMULA == true) then
-        power = getCurePowerOld(caster)
+        power = xi.magic.getCurePowerOld(caster)
         divisor = 1
         constant = -10
         if (power > 100) then
@@ -71,9 +71,9 @@ spell_object.onSpellCast = function(caster, target, spell)
     end
 
     if (xi.settings.main.USE_OLD_CURE_FORMULA == true) then
-        basecure = getBaseCureOld(power, divisor, constant)
+        basecure = xi.magic.getBaseCureOld(power, divisor, constant)
     else
-        basecure = getBaseCure(power, divisor, constant, basepower)
+        basecure = xi.magic.getBaseCure(power, divisor, constant, basepower)
     end
 
     --Apply Afflatus Misery Bonus to Final Result
@@ -102,7 +102,7 @@ spell_object.onSpellCast = function(caster, target, spell)
         caster:setMod(xi.mod.AFFLATUS_MISERY, 0)
     end
 
-    final = getCureFinal(caster, spell, basecure, minCure, false)
+    final = xi.magic.getCureFinal(caster, spell, basecure, minCure, false)
     final = final + (final * (target:getMod(xi.mod.CURE_POTENCY_RCVD)/100))
 
     --Applying server mods
@@ -124,4 +124,4 @@ spell_object.onSpellCast = function(caster, target, spell)
     return final
 end
 
-return spell_object
+return spellObject

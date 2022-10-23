@@ -16,9 +16,9 @@ require("scripts/globals/settings")
 require("scripts/globals/weaponskills")
 require("scripts/globals/utils")
 -----------------------------------
-local weaponskill_object = {}
+local weaponskillObject = {}
 
-weaponskill_object.onUseWeaponSkill = function(player, target, wsID, tp, primary, action, taChar)
+weaponskillObject.onUseWeaponSkill = function(player, target, wsID, tp, primary, action, taChar)
 
     local attack =
     {
@@ -72,10 +72,10 @@ weaponskill_object.onUseWeaponSkill = function(player, target, wsID, tp, primary
     damage = damage * xi.settings.main.WEAPON_SKILL_POWER
     calcParams.finalDmg = damage
 
-    damage = takeWeaponskillDamage(target, player, {}, primary, attack, calcParams, action)
+    damage = xi.weaponskills.takeWeaponskillDamage(target, player, {}, primary, attack, calcParams, action)
 
     return calcParams.tpHitsLanded, calcParams.extraHitsLanded, calcParams.criticalHit, damage
 
 end
 
-return weaponskill_object
+return weaponskillObject

@@ -5,16 +5,19 @@
 -- https://ffxiclopedia.wikia.com/wiki/Logging
 -- https://ffxiclopedia.wikia.com/wiki/Mining
 -----------------------------------
+require("scripts/globals/items")
 require("scripts/globals/keyitems")
 require("scripts/globals/missions")
 require("scripts/globals/npc_util")
 require("scripts/globals/quests")
 require("scripts/globals/roe")
 require("scripts/globals/settings")
+require("scripts/globals/spell_data")
 require("scripts/globals/status")
 require("scripts/globals/zone")
 require("scripts/missions/amk/helpers")
 require("scripts/missions/wotg/helpers")
+require("scripts/globals/msg")
 -----------------------------------
 
 xi = xi or {}
@@ -1392,10 +1395,20 @@ local helmInfo =
 }
 
 -----------------------------------
--- colored rocks. do not change this order!
+-- colored rocks array
 -----------------------------------
 
-local rocks = { 769, 771, 770, 772, 773, 774, 776, 775 }
+local rocks =
+{
+    [xi.magic.element.FIRE] = xi.items.RED_ROCK,
+    [xi.magic.element.ICE] = xi.items.TRANSLUCENT_ROCK,
+    [xi.magic.element.WIND] = xi.items.GREEN_ROCK,
+    [xi.magic.element.EARTH] = xi.items.YELLOW_ROCK,
+    [xi.magic.element.THUNDER] = xi.items.PURPLE_ROCK,
+    [xi.magic.element.WATER] = xi.items.BLUE_ROCK,
+    [xi.magic.element.LIGHT] = xi.items.WHITE_ROCK,
+    [xi.magic.element.DARK] = xi.items.BLACK_ROCK,
+}
 
 -----------------------------------
 -- local functions
@@ -1450,7 +1463,7 @@ local function pickItem(player, info, helmType)
 
     -- if we picked a colored rock, change it to the day's element
     if item == 769 then
-        item = rocks[VanadielDayElement() + 1]
+        item = rocks[VanadielDayElement()]
     end
 
     return item
@@ -1505,7 +1518,7 @@ local function calculateSkillUp(player, helmType) -- Function is modified from C
         if realSkill < 1000 then -- Safety check.
             player:setSkillLevel(59 + helmType, realSkill + 1)
             player:PrintToPlayer(string.format("Your HELM skill has increased by 0.1! [1 in %i chance]", (math.floor(digsTable[skillRank][1] / 100))), xi.msg.channel.SYSTEM_3)
-            
+
             -- Digging does not have test items, so increment rank once player hits 10.0, 20.0, .. 100.0
             if (realSkill + 1) >= (skillRank * 100) + 100 then
                player:setSkillRank(59 + helmType, skillRank + 1)
@@ -1536,6 +1549,7 @@ end
 xi.helm.onTrade = function(player, npc, trade, helmType, csid, func)
     local info = helmInfo[helmType]
     local zoneId = player:getZoneID()
+    local lastTrade = player:getLocalVar("[HELM]Last_Trade")
 
     -- HELM should remove invisible
     player:delStatusEffect(xi.effect.INVISIBLE)
@@ -1545,55 +1559,55 @@ xi.helm.onTrade = function(player, npc, trade, helmType, csid, func)
         local item  = pickItem(player, info, helmType)
         local broke = doesToolBreak(player, info) and 1 or 0
         local full  = (player:getFreeSlotsCount() == 0) and 1 or 0
-        local crit  = (player:getCharSkillLevel(59 + helmType) / 400) + (player:getMod(info.mod) / 10)
-        
-        if csid then
-            player:startEvent(csid, item, broke, full)
-        end
 
-        player:sendEmote(npc, info.animation, xi.emoteMode.MOTION)
+        if os.time() > lastTrade + 4 then
+            if csid then
+                player:startEvent(csid, item, broke, full)
+            end
 
-        -- WotG : The Price of Valor; Success does not award an item, but only KI.
-        if xi.wotg.helpers.helmTrade(player, helmType, broke) then
-            return
-        end
+            player:sendEmote(npc, info.animation, xi.emoteMode.MOTION)
 
-        -- success! reward item and decrement number of remaining uses on the point
-        if item ~= 0 and full == 0 then
-            calculateSkillUp(player, helmType)
-            player:addItem(item)
+            -- WotG : The Price of Valor; Success does not award an item, but only KI.
+            if xi.wotg.helpers.helmTrade(player, helmType, broke) then
+                return
+            end
 
-            if math.random(100) > crit then
+            -- success! reward item and decrement number of remaining uses on the point
+            if item ~= 0 and full == 0 then
+                player:addItem(item)
+
                 local uses = (npc:getLocalVar("uses") - 1) % 4
                 npc:setLocalVar("uses", uses)
                 if uses == 0 then
                     movePoint(npc, zoneId, info)
                 end
-            else
-                player:PrintToPlayer(string.format("You performed a Critical Strike! [%i percent chance]", crit), xi.msg.channel.SYSTEM_3)
+
+                player:triggerRoeEvent(xi.roe.triggers.helmSuccess, { ["skillType"] = helmType })
             end
 
-            player:triggerRoeEvent(xi.roe.triggers.helmSuccess, { ["skillType"] = helmType })
-        end
+            -- quest stuff
+            if
+                helmType == xi.helm.type.HARVESTING and
+                player:getQuestStatus(xi.quest.log_id.AHT_URHGAN, xi.quest.id.ahtUrhgan.VANISHING_ACT) == QUEST_ACCEPTED and
+                not player:hasKeyItem(xi.ki.RAINBOW_BERRY) and
+                broke ~= 1 and
+                zoneId == xi.zone.WAJAOM_WOODLANDS
+            then
+                npcUtil.giveKeyItem(player, xi.ki.RAINBOW_BERRY)
+            end
 
-        -- quest stuff
-        if
-            helmType == xi.helm.type.HARVESTING and
-            player:getQuestStatus(xi.quest.log_id.AHT_URHGAN, xi.quest.id.ahtUrhgan.VANISHING_ACT) == QUEST_ACCEPTED and
-            not player:hasKeyItem(xi.ki.RAINBOW_BERRY) and
-            broke ~= 1 and
-            zoneId == xi.zone.WAJAOM_WOODLANDS
-        then
-            npcUtil.giveKeyItem(player, xi.ki.RAINBOW_BERRY)
-        end
+            -- AMK04
+            if xi.settings.main.ENABLE_AMK == 1 then
+                xi.amk.helpers.helmTrade(player, helmType, broke)
+            end
 
-        -- AMK04
-        if xi.settings.main.ENABLE_AMK == 1 then
-            xi.amk.helpers.helmTrade(player, helmType, broke)
-        end
+            if type(func) == "function" then
+                func(player)
+            end
 
-        if type(func) == "function" then
-            func(player)
+            player:setLocalVar("[HELM]Last_Trade", os.time())
+        else
+            player:messageBasic(xi.msg.basic.WAIT_LONGER, 0, 0)
         end
     else
         player:messageSpecial(zones[zoneId].text[info.message], info.tool)
