@@ -5206,6 +5206,12 @@ namespace charutils
             {
                 charutils::AddPoints(PChar, "imperial_standing", (int32)(cPP * 0.1f));
                 PChar->pushPacket(new CConquestPacket(PChar));
+                
+                //Aurora Custom IS Message
+                if (PChar->getCharVar("[Aurora]showISmessage") > 0)
+                {
+                    PChar->pushPacket(new CChatMessagePacket(PChar, MESSAGE_SYSTEM_3, "You gain " + std::to_string(cPP * 0.1f) + " imperial standing.", "Synthesis"));
+                }
             }
 
             // Cruor Drops in Abyssea zones.

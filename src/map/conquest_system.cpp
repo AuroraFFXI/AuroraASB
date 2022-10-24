@@ -21,11 +21,20 @@
 
 #include "conquest_system.h"
 #include "entities/charentity.h"
+#include "message.h"
 #include "utils/charutils.h"
 #include "utils/zoneutils.h"
 #include "vana_time.h"
 
 #include "packets/conquest_map.h"
+#include "packets/chat_message.h"
+#include "packets/message_basic.h"
+#include "packets/message_combat.h"
+#include "packets/message_name.h"
+#include "packets/message_special.h"
+#include "packets/message_standard.h"
+#include "packets/message_system.h"
+#include "packets/message_text.h"
 
 #include "latent_effect_container.h"
 #include "lua/luautils.h"
@@ -686,6 +695,12 @@ namespace conquest
 
             charutils::AddPoints(PChar, charutils::GetConquestPointsName(PChar).c_str(), points);
             GainInfluencePoints(PChar, points);
+            
+            //Aurora Custom CP Message
+            if (PChar->getCharVar("[Aurora]showCPmessage") > 0)
+            {
+                PChar->pushPacket(new CChatMessagePacket(PChar, MESSAGE_SYSTEM_3, "You gain " + std::to_string(points) + " conquest points.", "Synthesis"));
+            }
         }
         return 0; // added conquest points (пока не вижу в этом определенного смысла)
     }
