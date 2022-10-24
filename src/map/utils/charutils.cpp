@@ -4667,6 +4667,9 @@ namespace charutils
                             expMod *= 0.25f;
                     }
 
+                    cPP = cPP * expMod;
+                    limitPP = limitPP * expMod;
+
                     // Aurora Incremental EXP T+ Bonus
                     if (mobCheck >= EMobDifficulty::Tough)
                     {
@@ -4687,9 +4690,6 @@ namespace charutils
                             expMod *= (1.0f +(((float)moblevel - (float)maxlevel) * 0.15f));
                         }
                     }
-
-					cPP = cPP * expMod;
-                    limitPP = limitPP * expMod;
 
                     // Aurora Relevel System: Bonus EXP
                     if (reallevel < deathlevel)
