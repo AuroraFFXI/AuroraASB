@@ -266,7 +266,7 @@ end
 local function doNuke(caster, target, spell, params)
     local skill = spell:getSpellGroup()
     --calculate raw damage
-    local dmg = calculateMagicDamage(caster, target, spell, params)
+    local dmg = xi.magic.calculateMagicDamage(caster, target, spell, params)
     --get resist multiplier (1x if no resist)
     local resist = xi.magic.applyResistance(caster, target, spell, params)
     --get the resisted damage
@@ -383,7 +383,7 @@ xi.magic.doEnspell = function(caster, target, spell, effect)
 end
 
 -----------------------------------
---   getCurePower returns the caster's cure power
+--   xi.magic.getCurePower returns the caster's cure power
 --   xi.magic.getCureFinal returns the final cure amount
 --   Source: http://members.shaw.ca/pizza_steve/cure/Cure_Calculator.html
 -----------------------------------
@@ -1425,7 +1425,7 @@ xi.magic.doDivineBanishNuke = function(caster, target, spell, params)
     params.attribute = xi.mod.MND
 
     --calculate raw damage
-    local dmg = calculateMagicDamage(caster, target, spell, params)
+    local dmg = xi.magic.calculateMagicDamage(caster, target, spell, params)
     --get resist multiplier (1x if no resist)
     local resist = xi.magic.applyResistance(caster, target, spell, params)
     --get the resisted damage
@@ -1506,10 +1506,10 @@ xi.magic.calculateBuildDuration = function(target, duration, effect, caster)
     if target:isMob() then
         local buildRes = xi.magic.getEffectResistance(target, effect, true, caster)
 
-        if target:getMod(buildRes) ~= 0 then
+        if target:getMod(buildRes) ~= nil then
             local builtRes = target:getLocalVar(string.format("[RESBUILD]Base_%s", buildRes))
 
-            duration = duration - ((builtRes + target:getMod(buildRes)) / 10) -- Used to add more fidelity to the build. Adding a mod of 30 will be -3 seconds per cast.
+            duration = utils.clamp(duration - ((builtRes + target:getMod(buildRes)) / 10), 0, 65535) -- Used to add more fidelity to the build. Adding a mod of 30 will be -3 seconds per cast.
             target:setLocalVar(string.format("[RESBUILD]Base_%s", buildRes), builtRes + target:getMod(buildRes))
         end
     end

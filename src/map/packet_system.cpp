@@ -695,6 +695,11 @@ void SmallPacket0x015(map_session_data_t* const PSession, CCharEntity* const PCh
             {
                 float distanceTravelled = distance(PChar->m_previousLocation.p, PChar->loc.p);
                 PChar->m_charHistory.distanceTravelled += static_cast<uint32>(distanceTravelled);
+
+                if (PChar->bazaar.timer <= time(NULL))
+                {
+                    PChar->pushPacket(new CBazaarMessagePacket(PChar));
+                }
             }
         }
 
@@ -5973,7 +5978,7 @@ void SmallPacket0x0DD(map_session_data_t* const PSession, CCharEntity* const PCh
             PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, PChar->ACC(0, 0), PChar->ATT(SLOT_MAIN), MSGBASIC_CHECKPARAM_PRIMARY));
             if (PChar->getEquip(SLOT_SUB) && PChar->getEquip(SLOT_SUB)->isType(ITEM_WEAPON))
             {
-                PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, PChar->ACC(1, 0), PChar->ATT(SLOT_MAIN), MSGBASIC_CHECKPARAM_AUXILIARY));
+                PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, PChar->ACC(1, 0), PChar->ATT(SLOT_SUB), MSGBASIC_CHECKPARAM_AUXILIARY));
             }
             else
             {
@@ -6103,6 +6108,8 @@ void SmallPacket0x0DD(map_session_data_t* const PSession, CCharEntity* const PCh
                 {
                     PTarget->pushPacket(new CMessageStandardPacket(PChar, 0, 0, MsgStd::Examine));
                 }
+
+                PChar->bazaar.timer = time(NULL) + 30;
 
                 PChar->pushPacket(new CBazaarMessagePacket(PTarget));
                 PChar->pushPacket(new CCheckPacket(PChar, PTarget));
