@@ -697,7 +697,7 @@ namespace conquest
             GainInfluencePoints(PChar, points);
             
             //Aurora Custom CP Message
-            if (PChar->getCharVar("[Aurora]showCPmessage") > 0)
+            if (PChar->getCharVar("[Aurora]showCPmessage") > 0 && points >= 1)
             {
                 PChar->pushPacket(new CChatMessagePacket(PChar, MESSAGE_SYSTEM_3, "You gain " + std::to_string(points) + " conquest points.", "Synthesis"));
             }

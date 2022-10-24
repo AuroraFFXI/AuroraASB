@@ -5208,7 +5208,7 @@ namespace charutils
                 PChar->pushPacket(new CConquestPacket(PChar));
                 
                 //Aurora Custom IS Message
-                if (PChar->getCharVar("[Aurora]showISmessage") > 0)
+                if (PChar->getCharVar("[Aurora]showISmessage") > 0 && (cPP * 0.1f) >= 1)
                 {
                     PChar->pushPacket(new CChatMessagePacket(PChar, MESSAGE_SYSTEM_3, "You gain " + std::to_string(cPP * 0.1f) + " imperial standing.", "Synthesis"));
                 }
