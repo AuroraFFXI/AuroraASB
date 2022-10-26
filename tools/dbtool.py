@@ -36,6 +36,7 @@ if not subprocess.call(['git', '-C', "../", 'status'], stderr=subprocess.STDOUT,
 # External Deps (requirements.txt)
 try:
     import mariadb
+    from mariadb.constants import *
     from git import Repo
     import yaml
     import colorama
@@ -172,6 +173,8 @@ def fetch_credentials():
     except: # lgtm [py/catch-base-exception]
         print(colorama.Fore.RED + 'Error fetching credentials.\nCheck ../settings/network.lua.')
         return False
+
+    return True
 
 def fetch_versions():
     global current_client, release_version, release_client
@@ -354,11 +357,10 @@ def connect():
                 port=port)
         cur = db.cursor()
     except mariadb.Error as err:
-        if err.errno == mariadb.errorcode.ER_ACCESS_DENIED_ERROR:
+        if err.errno == mariadb.constants.ERR.ER_ACCESS_DENIED_ERROR:
             print(colorama.Fore.RED + 'Incorrect mysql_login or mysql_password, update ../settings/network.lua.')
             close()
-            return False
-        elif err.errno == mariadb.errorcode.ER_BAD_DB_ERROR:
+        elif err.errno == mariadb.constants.ERR.ER_BAD_DB_ERROR:
             print(colorama.Fore.RED + 'Database ' + database + ' does not exist.')
             if input('Would you like to create new database: ' + database + '? [y/N] ').lower() == 'y':
                 create_command = '"' + mysql_bin + 'mysqladmin' + exe + '" -h ' + host + ' -P ' + str(port) + ' -u ' + login + ' -p' + password + ' CREATE ' + database
@@ -372,12 +374,15 @@ def connect():
             print(colorama.Fore.RED + err)
         return False
 
+    return True
+
 def close():
     if db:
         print('Closing connection...')
         cur.close()
         db.close()
     time.sleep(0.5)
+    quit()
 
 def setup_db():
     fetch_files()
@@ -665,7 +670,6 @@ def main():
         print(colorama.ansi.clear_screen())
         if 'q' == selection:
             close()
-            return
         if 'e' == selection and express_enabled:
             express_update()
             continue
