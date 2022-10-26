@@ -71,7 +71,7 @@ local function isHabrokWeather(weather)
 end
 
 zoneObject.onZoneWeatherChange = function(weather)
-    if xi.settings.main.ENABLE_WOTG == 1 then
+    -- if xi.settings.main.ENABLE_WOTG == 1 then
         local habrok = GetMobByID(ID.mob.HABROK)
 
         if habrok:isSpawned() and not isHabrokWeather(weather) then
@@ -79,7 +79,7 @@ zoneObject.onZoneWeatherChange = function(weather)
         elseif not habrok:isSpawned() and isHabrokWeather(weather) and os.time() > habrok:getLocalVar("pop") then
             SpawnMob(ID.mob.HABROK)
         end
-    end
+    -- end
 end
 
 return zoneObject
