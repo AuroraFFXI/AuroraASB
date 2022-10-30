@@ -35,7 +35,7 @@ xi.settings.login =
     CHARACTER_DELETION = false,
 
     -- Number of simultaneous game sessions per IP (0 for no limit)
-    LOGIN_LIMIT = 0,
+    LOGIN_LIMIT = 1,
 
     -- If true, blocks character creation with names of NPCs and Mobs in the database (Fafnir, Shantotto, etc.)
     DISABLE_MOB_NPC_CHAR_NAMES = false,
