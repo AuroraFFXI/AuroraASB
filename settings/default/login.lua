@@ -35,5 +35,26 @@ xi.settings.login =
     CHARACTER_DELETION = false,
 
     -- Number of simultaneous game sessions per IP (0 for no limit)
-    LOGIN_LIMIT = 1,
+    LOGIN_LIMIT = 0,
+
+    -- If true, blocks character creation with names of NPCs and Mobs in the database (Fafnir, Shantotto, etc.)
+    DISABLE_MOB_NPC_CHAR_NAMES = false,
+
+    -- Character names with any of these words in, in any position, will be rejected
+    --
+    -- Examples that will be rejected (using "badword"):
+    -- "badword"
+    -- "imbadword"
+    -- "badwordisme"
+    -- "lolbadwordlol"
+    --
+    -- WARNING:
+    -- Be aware of the "Scunthorpe problem"!
+    --
+    -- NOTE:
+    -- You can Google for "bad word list txt" to find lists of words to populate this table, if you'd like
+    BANNED_WORDS_LIST =
+    {
+        "badword",
+    }
 }

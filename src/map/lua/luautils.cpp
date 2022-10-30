@@ -125,6 +125,7 @@ namespace luautils
         lua.set_function("GarbageCollectStep", &luautils::garbageCollectStep);
         lua.set_function("GarbageCollectFull", &luautils::garbageCollectFull);
         lua.set_function("GetZone", &luautils::GetZone);
+        lua.set_function("IsZoneActive", &luautils::IsZoneActive);
         lua.set_function("GetNPCByID", &luautils::GetNPCByID);
         lua.set_function("GetMobByID", &luautils::GetMobByID);
         lua.set_function("WeekUpdateConquest", &luautils::WeekUpdateConquest);
@@ -933,6 +934,11 @@ namespace luautils
         }
 
         return std::nullopt;
+    }
+
+    bool IsZoneActive(uint16 zoneId)
+    {
+        return zoneutils::IsZoneActive(zoneId);
     }
 
     std::optional<CLuaBaseEntity> GetMobByID(uint32 mobid, sol::object const& instanceObj)
@@ -2007,9 +2013,22 @@ namespace luautils
             return 0;
         }
 
-        auto zone     = (const char*)PChar->loc.zone->GetName();
-        auto name     = (const char*)PNpc->GetName();
-        auto filename = fmt::format("./scripts/zones/{}/npcs/{}.lua", zone, name);
+        auto        zone = (const char*)PChar->loc.zone->GetName();
+        auto        name = (const char*)PNpc->GetName();
+        std::string pathFormat;
+        switch (PNpc->objtype)
+        {
+            case TYPE_NPC:
+                pathFormat = "./scripts/zones/{}/npcs/{}.lua";
+                break;
+            case TYPE_MOB:
+                pathFormat = "./scripts/zones/{}/mobs/{}.lua";
+                break;
+            default:
+                // Should never hit this
+                XI_DEBUG_BREAK_IF(true);
+        }
+        auto filename = fmt::format(pathFormat, zone, name);
 
         PChar->eventPreparation->targetEntity = PNpc;
         PChar->eventPreparation->scriptFile   = filename;
@@ -3606,7 +3625,7 @@ namespace luautils
             return -1;
         }
 
-        auto result = onGameDay();
+        auto result = onGameDay(CLuaZone(PZone));
         if (!result.valid())
         {
             sol::error err = result;
@@ -5261,4 +5280,5 @@ namespace luautils
 
         return id;
     }
+
 }; // namespace luautils
