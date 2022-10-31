@@ -193,7 +193,7 @@ xi.settings.map =
     MOB_NO_DESPAWN = true,
 
     -- Adds extra time to mob despawn in seconds. Base time is 25s, so a setting of 5 here would be a total of 30 seconds.
-    MOB_ADDITIONAL_TIME_TO_DEAGGRO = 0,
+    MOB_ADDITIONAL_TIME_TO_DEAGGRO = 275,
 
     -- Allows parry, block, and guard to skill up regardless of the action occuring.
     -- This did not happen in previous eras
@@ -244,8 +244,8 @@ xi.settings.map =
     ANTICHEAT_JAIL_DISABLE = false,
 
     -- Gobbie Mystery Box settings
-    DAILY_TALLY_AMOUNT = 10,
-    DAILY_TALLY_LIMIT  = 50000,
+    DAILY_TALLY_AMOUNT = 0,
+    DAILY_TALLY_LIMIT  = 0,
 
     -- Paralysis Settings
     ITEM_PARALYSIS_LOSS              = true, -- Allow items to be put on recast or deleted when used during a paralysis tick.
