@@ -19,9 +19,9 @@ itemObject.onItemUse = function(target)
     local power = 33 + target:getMod(xi.mod.ENHANCES_HOLYWATER)
 
     if
-        target:hasStatusEffect(xi.effect.DOOM) and
-        target:getStatusEffect(xi.effect.DOOM):getPower() <= 10 and
-        power > math.random(1, 100)
+        target:hasStatusEffect(xi.effect.DOOM)
+        -- target:getStatusEffect(xi.effect.DOOM):getPower() <= 10 and
+        -- power > math.random(1, 100)
     then
         target:delStatusEffect(xi.effect.DOOM)
         target:messageBasic(xi.msg.basic.NARROWLY_ESCAPE)
