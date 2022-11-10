@@ -12,6 +12,10 @@ entity.onMobInitialize = function(mob)
     mob:setMod(xi.mod.REGAIN, 100)
 end
 
+entity.onMobSpawn = function(mob)
+    mob:setSpeed(65)
+end
+
 entity.onMobWeaponSkill = function(target, mob, skill)
     if skill:getID() == 439 then
         mob:resetEnmity(target)
