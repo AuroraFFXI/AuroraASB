@@ -14,9 +14,9 @@ zoneObject.onInitialize = function(zone)
     -- NM Persistence
     xi.mob.nmTODPersistCache(zone, ID.mob.VRTRA)
 
-    if xi.settings.main.ENABLE_WOTG == 1 then
+    -- if xi.settings.main.ENABLE_WOTG == 1 then
         xi.mob.nmTODPersistCache(zone, ID.mob.BARBASTELLE)
-    end
+    -- end
 
     xi.treasure.initZone(zone)
 end
