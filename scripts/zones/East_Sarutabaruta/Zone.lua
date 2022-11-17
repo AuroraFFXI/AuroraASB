@@ -16,9 +16,9 @@ zoneObject.onChocoboDig = function(player, precheck)
 end
 
 zoneObject.onInitialize = function(zone)
-    if xi.settings.main.ENABLE_WOTG == 1 then
+    -- if xi.settings.main.ENABLE_WOTG == 1 then
         xi.mob.nmTODPersistCache(zone, ID.mob.DUKE_DECAPOD)
-    end
+    -- end
 end
 
 zoneObject.onZoneIn = function(player, prevZone)

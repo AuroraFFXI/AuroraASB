@@ -48,3 +48,4 @@ UPDATE npc_list SET status = 2 WHERE npcid = "17826176" AND polutils_name = "Rew
 UPDATE npc_list SET status = 2 WHERE npcid = "17826177" AND polutils_name = "Treasure Coffer";
 UPDATE npc_list SET status = 2 WHERE npcid = "17830186" AND polutils_name = "Winrix";
 UPDATE npc_list SET status = 2 WHERE npcid = "17830187" AND polutils_name = "Treasure Coffer";
+UPDATE npc_list SET content_tag = NULL WHERE npcid = "17596840" AND polutils_name = "???";
