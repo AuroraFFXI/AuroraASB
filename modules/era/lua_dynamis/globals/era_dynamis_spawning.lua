@@ -374,6 +374,7 @@ xi.dynamis.normalDynamicSpawn = function(oMob, oMobIndex, target)
                 onMobDeath = function(mobArg, player, optParams)
                     xi.dynamis.mobOnDeath(mobArg)
                 end,
+                onMobDespawn = function (mob) xi.dynamis.mobOnDespawn(mob) end,
                 releaseIdOnDeath = true,
                 specialSpawnAnimation = oMob ~= nil,
                 mixins =
@@ -425,13 +426,13 @@ xi.dynamis.nonStandardDynamicSpawn = function(mobIndex, oMob, forceLink, zoneID,
     {
         ["Statue"] =
         {
-            ["Vanguard Eye"] = { "Vanguard Eye" , 163, 134, 1144, 5000, 11 }, -- Vanguard Eye (VEye)
-            ["Prototype Eye"] = { "Prototype Eye" , 61, 42, 1144, 5000, 11 }, -- Prototype Eye (PEye)
+            ["Vanguard Eye"] = { "Vanguard Eye" , 163, 134, 1144, 5000, 4 }, -- Vanguard Eye (VEye)
+            ["Prototype Eye"] = { "Prototype Eye" , 61, 42, 1144, 5000, 4 }, -- Prototype Eye (PEye)
             ["Goblin Statue"] = { "Goblin Statue" , 158, 134, 1144, 1, 92 }, -- Goblin Statue (GStat)
             ["Goblin Replica"] = { "Goblin Replica" , 157, 134, 1144, 1, 92 }, -- Goblin Statue (GRStat)
             ["Statue Prototype"] = { "Stat. Prototype" , 36, 42, 1144, 1, 92 }, -- Goblin Statue (GPStat)
             ["Serjeant Tombstone"] = { "Serj. Tombstone" , 89, 134, 2201, 5000, 93 }, -- Orc Statue (OStat)
-            ["Warchief Tombstone"] = { "War. Tombstone" , 90, 134, 2201, 50, 93 }, -- Orc Statue (OWStat)
+            ["Warchief Tombstone"] = { "War. Tombstone" , 90, 134, 2201, 5000, 93 }, -- Orc Statue (OWStat)
             ["Tombstone Prototype"] = { "Tomb. Prototype" , 20, 42, 2201, 5000, 93 }, -- Orc Statue (TPStat)
             ["Adamantking Effigy"] = { "Adamantking Eff" , 55, 134, 20, 0, 94 }, -- Quadav Statue (QStat)
             ["Adamantking Image"] = { "Adamantking Img" , 56, 134, 20, 0, 94 }, -- Quadav Statue (QIStat)
@@ -557,6 +558,7 @@ xi.dynamis.nonStandardDynamicSpawn = function(mobIndex, oMob, forceLink, zoneID,
         onMobDeath = function(mob, player, optParams)
             xi.dynamis.mobOnDeath(mob)
         end,
+        onMobDespawn = function (mob) xi.dynamis.mobOnDespawn(mob) end,
         releaseIdOnDeath = true,
         specialSpawnAnimation = oMob ~= nil,
         mixins = mobFunctions[mobMobType]["mixins"],
@@ -766,7 +768,7 @@ xi.dynamis.nmDynamicSpawn = function(mobIndex, oMobIndex, forceLink, zoneID, tar
         ["Count Raum"] = { "C.Raum", 42, 135, 519, 0, 358, "Beastmen" }, --  Raum (THF)
         ["Marquis Nebiros"] = { "M.Nebiros", 67, 135, 1629, 0, 358, "Beastmen" }, -- Nebi (SMN)
         ["Marquis Sabnak"] = { "M.Sabnak", 49, 135, 1631, 4, 358, "Beastmen" }, -- Sabn (PLD)
-        ["Count Vine"] = { "C.Vine", 62, 135, 528, 0, 358, "Beastmen" }, -- Vine (SAM)
+        ["Count Vine"] = { "C.Vine", 62, 135, 520, 0, 358, "Beastmen" }, -- Vine (SAM)
         ["King Zagan"] = { "K.Zagan", 60, 135, 1452, 0, 358, "Beastmen" }, -- Zaga (DRG)
         ["Marquis Cimeries"] = { "M.Cimeries", 56, 135, 1625, 0, 358, "Beastmen" }, -- Cime (RNG)
         -- Hydra
@@ -1148,6 +1150,7 @@ xi.dynamis.nmDynamicSpawn = function(mobIndex, oMobIndex, forceLink, zoneID, tar
         onMobWeaponSkillPrepare= xi.dynamis.nmFunctions[xi.dynamis.nmInfoLookup[mobName][7]]["onMobWeaponSkillPrepare"][1],
         onMobWeaponSkill= xi.dynamis.nmFunctions[xi.dynamis.nmInfoLookup[mobName][7]]["onMobWeaponSkill"][1],
         onMobDeath= xi.dynamis.nmFunctions[xi.dynamis.nmInfoLookup[mobName][7]]["onMobDeath"][1],
+        onMobDespawn = function (mob) xi.dynamis.mobOnDespawn(mob) end,
         releaseIdOnDeath = true,
         specialSpawnAnimation = oMob ~= nil,
         mixins = xi.dynamis.nmFunctions[xi.dynamis.nmInfoLookup[mobName][7]]["mixins"],
@@ -1492,6 +1495,7 @@ xi.dynamis.spawnDynamicPet =function(target, oMob, mobJob)
         onMobSpawn = function(mob) xi.dynamis.setPetStats(mob) end,
         onMobFight = petFunctions[mobJob][functionLookup]["onMobFight"],
         onMobDeath = function(mob, player, optParams) xi.dynamis.onPetDeath(mob) end,
+        onMobDespawn = function (mob) xi.dynamis.mobOnDespawn(mob) end,
         releaseIdOnDeath = true,
         specialSpawnAnimation = oMob ~= nil,
         mixins = petFunctions[mobJob][functionLookup]["mixins"],
@@ -1908,6 +1912,12 @@ xi.dynamis.mobOnDeath = function(mob, player, optParams)
 
     zone:setLocalVar(string.format("MobIndex_%s", mob:getID()), 0)
     zone:setLocalVar(string.format("%s", mobIndex), 0)
+end
+
+xi.dynamis.mobOnDespawn = function(mob)
+    local zone = mob:getZone()
+    zone:setLocalVar(string.format("MobIndex_%s", mob:getID()), 0)
+    zone:setLocalVar(string.format("%s", mob:getID()), 0)
 end
 
 m:addOverride("xi.dynamis.megaBossOnDeath", function(mob, player)
