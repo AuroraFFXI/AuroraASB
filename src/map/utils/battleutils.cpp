@@ -1652,29 +1652,26 @@ namespace battleutils
         int16 x = 1;
         if (delay <= 180)
         {
-            x = (int16)(61 + ((delay - 180) * 63.f) / 360);
+            x = (int16)(5.0 + ((delay - 180) * 1.5f) / 180);
         }
-        else if (delay <= 540)
+        else if (delay <= 450)
         {
-            x = (int16)(61 + ((delay - 180) * 88.f) / 360);
+            x = (int16)(5.0 + ((delay - 180) * 6.5f) / 270);
         }
-        else if (delay <= 630)
+        else if (delay <= 480)
         {
-            x = (int16)(149 + ((delay - 540) * 20.f) / 360);
+            x = (int16)(11.5 + ((delay - 450) * 1.5f) / 30);
         }
-        else if (delay <= 720)
+        else if (delay <= 530)
         {
-            x = (int16)(154 + ((delay - 630) * 28.f) / 360);
-        }
-        else if (delay <= 900)
-        {
-            x = (int16)(161 + ((delay - 720) * 24.f) / 360);
+            x = (int16)(13.0 + ((delay - 480) * 1.5f) / 50);
         }
         else
         {
-            x = (int16)(173 + ((delay - 900) * 28.f) / 360);
+            x = (int16)(14.5 + ((delay - 530) * 3.5f) / 470);
         }
-        return x;
+
+        return x * 10;
     }
 
     bool TryInterruptSpell(CBattleEntity* PAttacker, CBattleEntity* PDefender, CSpell* PSpell)
@@ -1941,7 +1938,7 @@ namespace battleutils
             float dex = PAttacker->DEX();
             float agi = PDefender->AGI();
 
-            auto parryRate = std::clamp<uint8>((uint8)(((skill * 0.125f) + ((agi - dex) * 0.125f)) * diffCorrect), 5, 25);
+            auto parryRate = std::clamp<uint8>((uint8)(((skill * 0.125f) + ((agi - dex) * 0.125f)) * diffCorrect), 5, 20);
 
             // Issekigan grants parry rate bonus. From best available data, if you already capped out at 25% parry it grants another 25% bonus for ~50%
             // parry rate
@@ -3067,23 +3064,20 @@ namespace battleutils
             {
                 upperLimit = 1 + (10.0f / 9.0f) * (wRatio - 0.5f);
             }
-            else if (wRatio < 0.75f)
+            else if (wRatio <= 0.75f)
             {
                 upperLimit = 1.0f;
             }
-            else if (wRatio < 2.25f)
+            else if (wRatio > 0.75f)
             {
                 upperLimit = 1 + (10.0f / 9.0f) * (wRatio - 0.75f);
-            }
-            else
-            {
                 if (attackerType == TYPE_MOB || attackerType == TYPE_PET)
                 {
-                    upperLimit = std::min(wRatio, 4.0f); // Must cap at 4 before x1.0-x1.05 randomzation is applied
+                    upperLimit = std::clamp(upperLimit, 1.0f, 4.0f); // Must cap at 4 before x1.0-x1.05 randomzation is applied
                 }
                 else
                 {
-                    upperLimit = std::min(wRatio, 3.0f); // Must cap at 3 before x1.0-x1.05 randomzation is applied
+                    upperLimit = std::clamp(upperLimit, 1.0f, 3.0f); // Players must cap at 3 before x1.0-x1.05 randomzation is applied
                 }
             }
 
@@ -4229,6 +4223,13 @@ namespace battleutils
             {
                 PPlayer->animation = ANIMATION_NONE;
                 PPlayer->updatemask |= UPDATE_HP;
+
+                CPetEntity* PPet = dynamic_cast<CPetEntity*>(PPlayer->PPet);
+                if (PPet && (PPet->getPetType() == PET_TYPE::WYVERN || PPet->getPetType() == PET_TYPE::AUTOMATON))
+                {
+                    PPet->animation = ANIMATION_NONE;
+                    PPet->updatemask |= UPDATE_HP;
+                }
             }
         }
     }
@@ -5062,6 +5063,11 @@ namespace battleutils
             battleutils::RelinquishClaim(static_cast<CCharEntity*>(PVictim));
             PVictim->PMaster = PCharmer;
             PVictim->updatemask |= UPDATE_ALL_CHAR;
+
+            // Prevent auto attacks for a little bit to simulate retail
+            // On retail, you don't engage for a little bit, which we have no mechanism for yet
+            // TODO: implement the delays on engage (also applies to mobs) and verify exact timings for those things.
+            PVictim->PAI->Inactive(5000ms, false);
         }
         PVictim->allegiance = PCharmer->allegiance;
         PVictim->updatemask |= UPDATE_HP;

@@ -104,10 +104,18 @@ local function fencerBonus(attacker)
     end
 
     local mainEquip = attacker:getStorageItem(0, 0, xi.slot.MAIN)
-    if mainEquip and not mainEquip:isTwoHanded() and not mainEquip:isHandToHand() then
+    if
+        mainEquip and
+        not mainEquip:isTwoHanded() and
+        not mainEquip:isHandToHand()
+    then
         local subEquip = attacker:getStorageItem(0, 0, xi.slot.SUB)
 
-        if subEquip == nil or subEquip:getSkillType() == xi.skill.NONE or subEquip:isShield() then
+        if
+            subEquip == nil or
+            subEquip:getSkillType() == xi.skill.NONE or
+            subEquip:isShield()
+        then
             bonus = attacker:getMod(xi.mod.FENCER_CRITHITRATE) / 100
         end
     end
@@ -345,9 +353,15 @@ local function modifyMeleeHitDamage(attacker, target, attackTbl, wsParams, rawDa
 
         if attackTbl.weaponType == xi.skill.HAND_TO_HAND then
             adjustedDamage = adjustedDamage * target:getMod(xi.mod.HTH_SDT) / 1000
-        elseif attackTbl.weaponType == xi.skill.DAGGER or attackTbl.weaponType == xi.skill.POLEARM then
+        elseif
+            attackTbl.weaponType == xi.skill.DAGGER or
+            attackTbl.weaponType == xi.skill.POLEARM
+        then
             adjustedDamage = adjustedDamage * target:getMod(xi.mod.PIERCE_SDT) / 1000
-        elseif attackTbl.weaponType == xi.skill.CLUB or attackTbl.weaponType == xi.skill.STAFF then
+        elseif
+            attackTbl.weaponType == xi.skill.CLUB or
+            attackTbl.weaponType == xi.skill.STAFF
+        then
             adjustedDamage = adjustedDamage * target:getMod(xi.mod.IMPACT_SDT) / 1000
         else
             adjustedDamage = adjustedDamage * target:getMod(xi.mod.SLASH_SDT) / 1000
@@ -478,7 +492,10 @@ xi.weaponskills.calculateRawWSDmg = function(attacker, target, wsID, tp, action,
                                 + fencerBonusVal - target:getMerit(xi.merit.ENEMY_CRIT_RATE) / 100
 
         -- Innin critical boost when attacker is behind target
-        if attacker:hasStatusEffect(xi.effect.INNIN) and attacker:isBehind(target, 23) then
+        if
+            attacker:hasStatusEffect(xi.effect.INNIN) and
+            attacker:isBehind(target, 23)
+        then
             nativecrit = nativecrit + attacker:getStatusEffect(xi.effect.INNIN):getPower()
         end
 
@@ -586,7 +603,11 @@ xi.weaponskills.calculateRawWSDmg = function(attacker, target, wsID, tp, action,
     -- Factor in "all hits" bonus damage mods
     local bonusdmg = attacker:getMod(xi.mod.ALL_WSDMG_ALL_HITS) -- For any WS
 
-    if attacker:getMod(xi.mod.WEAPONSKILL_DAMAGE_BASE + wsID) > 0 and not attacker:isPet() then -- For specific WS
+    if
+        attacker:getMod(xi.mod.WEAPONSKILL_DAMAGE_BASE + wsID) > 0 and
+        not attacker:isPet()
+    then
+        -- For specific WS
         bonusdmg = bonusdmg + attacker:getMod(xi.mod.WEAPONSKILL_DAMAGE_BASE + wsID)
     end
 
@@ -813,7 +834,11 @@ xi.weaponskills.doMagicWeaponskill = function(attacker, target, wsID, wsParams, 
 
         -- Factor in "all hits" bonus damage mods
         local bonusdmg = attacker:getMod(xi.mod.ALL_WSDMG_ALL_HITS) -- For any WS
-        if attacker:getMod(xi.mod.WEAPONSKILL_DAMAGE_BASE + wsID) > 0 and not attacker:isPet() then -- For specific WS
+        if
+            attacker:getMod(xi.mod.WEAPONSKILL_DAMAGE_BASE + wsID) > 0 and
+            not attacker:isPet()
+        then
+            -- For specific WS
             bonusdmg = bonusdmg + attacker:getMod(xi.mod.WEAPONSKILL_DAMAGE_BASE + wsID)
         end
 
@@ -1013,19 +1038,19 @@ xi.weaponskills.fTP = function(tp, ftp1, ftp2, ftp3)
     return 1 -- no ftp mod
 end
 
-local function fTPMob(tp, ftp1, ftp2, ftp3)
-    if (tp < 1000) then
-        tp = 1000
-    end
+-- local function fTPMob(tp, ftp1, ftp2, ftp3)
+--     if (tp < 1000) then
+--         tp = 1000
+--     end
 
-    if (tp >= 1000 and tp < 1500) then
-        return ftp1 + ( ((ftp2 - ftp1 ) / 500) * (tp - 1000) )
-    elseif (tp >= 1500 and tp <= 3000) then
-        -- generate a straight line between ftp2 and ftp3 and find point @ tp
-        return ftp2 + ( ((ftp3 - ftp2) / 1500) * (tp - 1500) )
-    end
-    return 1 -- no ftp mod
-end
+--     if (tp >= 1000 and tp < 1500) then
+--         return ftp1 + ( ((ftp2 - ftp1 ) / 500) * (tp - 1000) )
+--     elseif (tp >= 1500 and tp <= 3000) then
+--         -- generate a straight line between ftp2 and ftp3 and find point @ tp
+--         return ftp2 + ( ((ftp3 - ftp2) / 1500) * (tp - 1500) )
+--     end
+--     return 1 -- no ftp mod
+-- end
 
 xi.weaponskills.calculatedIgnoredDef = function(tp, def, ignore1, ignore2, ignore3)
     if tp >= 1000 and tp < 2000 then
@@ -1049,7 +1074,7 @@ xi.weaponskills.cMeleeRatio = function(attacker, defender, params, ignoredDef, t
     local atkmulti = 0
 
     if params.atk150 ~= nil then -- Use mob fTP
-        atkmulti = fTPMob(tp, params.atk000, params.atk150, params.atk300)
+        atkmulti = 1 -- Temp fix in prep for re-write. Always set multi to 1.
     else -- Use player fTP
         atkmulti = xi.weaponskills.fTP(tp, params.atk100, params.atk200, params.atk300)
     end

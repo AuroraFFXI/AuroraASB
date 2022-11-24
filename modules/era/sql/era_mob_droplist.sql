@@ -6327,7 +6327,7 @@ INSERT INTO `mob_droplist` VALUES (760,2,0,1000,1452,0);        -- Ordelle Bronz
 
 -- ZoneID:  91 - Emerald Quadav
 -- ZoneID: 171 - Emerald Quadav
-INSERT INTO `mob_droplist` VALUES (761,0,0,1000,4727,210); -- Scroll Of Enwater Ii (21.0%)
+-- INSERT INTO `mob_droplist` VALUES (761,0,0,1000,4727,210); -- Scroll Of Enwater Ii (21.0%) WOTG
 INSERT INTO `mob_droplist` VALUES (761,0,0,1000,2531,120); -- Shard Of Obsidian (12.0%)
 INSERT INTO `mob_droplist` VALUES (761,0,0,1000,2525,20);  -- Bottled Pixie (2.0%)
 INSERT INTO `mob_droplist` VALUES (761,2,0,1000,748,0);    -- Gold Beastcoin (Steal)
@@ -12652,7 +12652,7 @@ INSERT INTO `mob_droplist` VALUES (1565,0,0,1000,4820,@VRARE);    -- Scroll Of B
 INSERT INTO `mob_droplist` VALUES (1565,4,0,1000,954,0);          -- Magic Pot Shard (Despoil)
 
 -- ZoneID: 200 - Magic Jug
-INSERT INTO `mob_droplist` VALUES (1566,0,0,1000,4724,@UNCOMMON); -- Scroll Of Enaero Ii (Uncommon, 10%)
+-- INSERT INTO `mob_droplist` VALUES (1566,0,0,1000,4724,@UNCOMMON); -- Scroll Of Enaero Ii (Uncommon, 10%) WOTG
 INSERT INTO `mob_droplist` VALUES (1566,0,0,1000,4659,@RARE);     -- Scroll Of Shell Iv (Rare, 5%)
 INSERT INTO `mob_droplist` VALUES (1566,0,0,1000,1047,@RARE);     -- Garlaige Coffer Key (Rare, 5%)
 
@@ -13703,15 +13703,15 @@ INSERT INTO `mob_droplist` VALUES (1738,0,0,1000,1446,@RARE);   -- Lacquer Tree 
 INSERT INTO `mob_droplist` VALUES (1738,2,0,1000,920,0);        -- Malboro Vine (Steal)
 
 -- ZoneID: 173 - Morion Worm
-INSERT INTO `mob_droplist` VALUES (1739,0,0,1000,640,500);       -- Chunk Of Copper Ore (50.0%)
-INSERT INTO `mob_droplist` VALUES (1739,0,0,1000,640,500);       -- Chunk Of Copper Ore (50.0%)
-INSERT INTO `mob_droplist` VALUES (1739,0,0,1000,640,500);       -- Chunk Of Copper Ore (50.0%)
-INSERT INTO `mob_droplist` VALUES (1739,0,0,1000,641,@VCOMMON);  -- Chunk Of Tin Ore (Very Common, 24%)
-INSERT INTO `mob_droplist` VALUES (1739,0,0,1000,641,@VCOMMON);  -- Chunk Of Tin Ore (Very Common, 24%)
-INSERT INTO `mob_droplist` VALUES (1739,0,0,1000,643,@VCOMMON);  -- Chunk Of Iron Ore (Very Common, 24%)
-INSERT INTO `mob_droplist` VALUES (1739,0,0,1000,18136,@COMMON); -- Morion Tathlum (Common, 15%)
-INSERT INTO `mob_droplist` VALUES (1739,0,0,1000,645,@RARE);     -- Chunk Of Darksteel Ore (Rare, 5%)
-INSERT INTO `mob_droplist` VALUES (1739,0,0,1000,645,@RARE);     -- Chunk Of Darksteel Ore (Rare, 5%)
+INSERT INTO `mob_droplist` VALUES (1739,0,0,@ALWAYS,18136,@COMMON); -- Morion Tathlum         (Common, 15%)
+INSERT INTO `mob_droplist` VALUES (1739,1,1,@ALWAYS,640,650);       -- Chunk Of Copper Ore    (50.0%) (Group 1)
+INSERT INTO `mob_droplist` VALUES (1739,1,1,@ALWAYS,643,270);       -- Chunk Of Iron Ore      (27.0%) (Group 1)
+INSERT INTO `mob_droplist` VALUES (1739,1,1,@ALWAYS,645,80);        -- Chunk Of Darksteel Ore (8.0%)  (Group 1)
+INSERT INTO `mob_droplist` VALUES (1739,1,2,@ALWAYS,640,630);       -- Chunk Of Copper Ore    (63.0%) (Group 2)
+INSERT INTO `mob_droplist` VALUES (1739,1,2,@ALWAYS,641,210);       -- Chunk Of Tin Ore       (21.0%) (Group 2)
+INSERT INTO `mob_droplist` VALUES (1739,1,2,@ALWAYS,645,160);       -- Chunk Of Darksteel Ore (16.0%) (Group 2)
+INSERT INTO `mob_droplist` VALUES (1739,1,3,@ALWAYS,640,500);       -- Chunk Of Copper Ore    (50.0%) (Group 3)
+INSERT INTO `mob_droplist` VALUES (1739,1,3,@ALWAYS,641,500);       -- Chunk Of Tin Ore       (50.0%) (Group 3)
 
 -- ZoneID: 217 - Morose Marid
 INSERT INTO `mob_droplist` VALUES (1740,0,0,1000,2151,210);       -- Marid Hide (21.0%)
@@ -15056,14 +15056,14 @@ INSERT INTO `mob_droplist` VALUES (1860,0,0,1000,16969,@VCOMMON); -- Onikiri (Ve
 INSERT INTO `mob_droplist` VALUES (1860,0,0,1000,940,@VRARE);     -- Revival Tree Root (Very Rare, 1%)
 
 -- ZoneID:  88 - Onyx Quadav
-INSERT INTO `mob_droplist` VALUES (1861,0,0,1000,4723,190); -- Scroll Of Enblizzard Ii (19.0%)
+-- INSERT INTO `mob_droplist` VALUES (1861,0,0,1000,4723,190); -- Scroll Of Enblizzard Ii (19.0%) WOTG
 INSERT INTO `mob_droplist` VALUES (1861,0,0,1000,2531,130); -- Shard Of Obsidian (13.0%)
 INSERT INTO `mob_droplist` VALUES (1861,0,0,1000,2527,120); -- Red Oven Mitt (12.0%)
 INSERT INTO `mob_droplist` VALUES (1861,0,0,1000,2525,20);  -- Bottled Pixie (2.0%)
 INSERT INTO `mob_droplist` VALUES (1861,2,0,1000,2531,0);   -- Shard Of Obsidian (Steal)
 
 -- ZoneID:  89 - Onyx Quadav
-INSERT INTO `mob_droplist` VALUES (1862,0,0,1000,4723,200);     -- Scroll Of Enblizzard Ii (20.0%)
+-- INSERT INTO `mob_droplist` VALUES (1862,0,0,1000,4723,200);     -- Scroll Of Enblizzard Ii (20.0%) WOTG
 INSERT INTO `mob_droplist` VALUES (1862,0,0,1000,2531,@COMMON); -- Shard Of Obsidian (Common, 15%)
 INSERT INTO `mob_droplist` VALUES (1862,0,0,1000,2527,90);      -- Red Oven Mitt (9.0%)
 INSERT INTO `mob_droplist` VALUES (1862,0,0,1000,2525,20);      -- Bottled Pixie (2.0%)
@@ -18977,14 +18977,14 @@ INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,722,@UNCOMMON);  -- Divine Log 
 INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,1311,@UNCOMMON); -- Piece Of Oxblood (Uncommon, 10%)
 INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,1313,@UNCOMMON); -- Lock Of Sirens Hair (Uncommon, 10%)
 INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,655,@RARE);      -- Adaman Ingot (Rare, 5%)
-INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,658,@RARE);      -- Damascus Ingot (Rare, 5%)
-INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,836,@RARE);      -- Square Of Damascene Cloth (Rare, 5%)
 INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,837,@RARE);      -- Spool Of Malboro Fiber (Rare, 5%)
 INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,903,@RARE);      -- Dragon Talon (Rare, 5%)
 INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,1110,@RARE);     -- Vial Of Black Beetle Blood (Rare, 5%)
 INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,1133,@RARE);     -- Vial Of Dragon Blood (Rare, 5%)
 INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,4272,@RARE);     -- Slice Of Dragon Meat (Rare, 5%)
 INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,4486,@RARE);     -- Dragon Heart (Rare, 5%)
+INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,836,@VRARE);     -- Square Of Damascene Cloth (Very Rare, 1%)
+INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,658,@VRARE);     -- Damascus Ingot (Very Rare, 1%)
 
 -- ZoneID: 149 - Tigerbane Bakdak
 INSERT INTO `mob_droplist` VALUES (2417,1,1,1000,16673,760);      -- Warriors Axe (Group 1, 76%)
