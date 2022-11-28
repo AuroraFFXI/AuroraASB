@@ -6304,8 +6304,10 @@ namespace charutils
             CStatusEffect* dedication = PChar->StatusEffectContainer->GetStatusEffect(EFFECT_DEDICATION);
             int16          percentage = dedication->GetPower();
             int16          cap        = dedication->GetSubPower();
+            int16          caplow     = cap - 30;
+            int16          charlevel  = PChar->jobs.job[PChar->GetMJob()];
             bonus += std::clamp<int32>((int32)std::round((exp * percentage) / 100.f), 0, cap);
-            dedication->SetSubPower(cap -= bonus);
+            // dedication->SetSubPower(cap -= bonus);
 
             // Aurora EXP System: Remove Dedication Cap for ring balance
             if (cap == 50 || cap == 75) // Level Range Limits (Conquest Rings)

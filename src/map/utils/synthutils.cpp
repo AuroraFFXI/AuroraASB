@@ -355,13 +355,13 @@ namespace synthutils
             switch (hqtier)
             {
                 case 3:
-                    chance = 0.500; // 1/2
+                    chance = 0.500 + (hqTries * 0.125);              // Aurora Custom Chance (1/2)
                     break;
                 case 2:
-                    chance = 0.250; // 1/4
+                    chance = 0.250 + (hqTries * 0.03125);             // Aurora Custom Chance (1/4)
                     break;
                 case 1:
-                    chance = 0.0625; // 1/16
+                    chance = 0.0625 + (hqTries * 0.0022);            // Aurora Custom Chance (1/16)
                     break;
                 case 0:
                     chance = 0.018 + (hqTries * 0.00005);          // Aurora Custom Chance multiplier
@@ -448,7 +448,7 @@ namespace synthutils
             }
 
             // Aurora Save HQ atempts to SQL
-            if (prevSkillups > 0 || hqTries > 1)
+            if (prevSkillups > 0 || hqTries > 0)
             {
                 char fmtQuery[] = "UPDATE char_synthesis SET hqtries = '%i' WHERE charid = %i AND synthid = %i;\0";
                 sql->Query(fmtQuery, hqTries, PChar->id, PChar->getCharVar("[Aurora]synthid"));
@@ -536,6 +536,7 @@ namespace synthutils
             // Section 2: Skill up equations and penalties
             double skillUpChance         = 0;
             double craftChanceMultiplier = settings::get<double>("map.CRAFT_CHANCE_MULTIPLIER"); // For servers who want increased crafting rates
+            double coeff                 = 0.0; // Aurora System
 
             // There is no proof or data that supports there being a difference in skilups for the gap difference
             if (charSkill < 500) // 0-49
@@ -547,6 +548,80 @@ namespace synthutils
                 skillUpChance = 0.25;
             }
 
+            switch (auroraDiff)
+            {
+                case 1:
+                    coeff = 0.05;
+                    break;
+                case 2:
+                    coeff = 0.10;
+                    break;
+                case 3:
+                    coeff = 0.15;
+                    break;
+                case 4:
+                    coeff = 0.20;
+                    break;
+                case 5:
+                    coeff = 0.25;
+                    break;
+                case 6:
+                    coeff = 0.30;
+                    break;
+                case 7:
+                    coeff = 0.40;
+                    break;
+                case 8:
+                    coeff = 0.50;
+                    break;
+                case 9:
+                    coeff = 0.60;
+                    break;
+                case 10:
+                    coeff = 0.70;
+                    break;
+                case 11:
+                    coeff = 0.78;
+                    break;
+                case 12:
+                    coeff = 0.87;
+                    break;
+                case 13:
+                    coeff = 0.97;
+                    break;
+                case 14:
+                    coeff = 1.05;
+                    break;
+                case 15:
+                    coeff = 1.10;
+                    break;
+                case 16:
+                    coeff = 1.18;
+                    break;
+                case 17:
+                    coeff = 1.20;
+                    break;
+                case 18:
+                    coeff = 1.22;
+                    break;
+                case 19:
+                    coeff = 1.24;
+                    break;
+                case 20:
+                    coeff = 1.26;
+                    break;
+                case 21:
+                    coeff = 1.28;
+                    break;
+                case 22:
+                    coeff = 1.30;
+                    break;
+                default:
+                    coeff = 0.05;
+                    break;
+            }
+
+            skillUpChance *= coeff;
             skillUpChance *= craftChanceMultiplier; // For servers who want increased crafting rates
 
             // Apply synthesis skill gain rate modifier before synthesis fail modifier
@@ -562,10 +637,15 @@ namespace synthutils
             }
 
             // No proof this is a thing. Until proven otherwise removing.
-            // if (PChar->CraftContainer->getQuantity(0) == SYNTHESIS_FAIL) // If synth breaks, lower skill up rate
-            // {
-            //     penalty += 1;
-            // }
+            if (PChar->CraftContainer->getQuantity(0) == SYNTHESIS_FAIL) // If synth breaks, lower skill up rate
+            {
+                penalty += 1;
+            }
+
+            if (baseDiff <= 0) // Aurora: Decrease skillup rate when synth is at/over cap
+            {
+                penalty *= 3;
+            }
 
             // https://www.bluegartr.com/threads/57123-Before-you-ask-a-stupid-crafting-question-read-this!?p=1987222&viewfull=1#post1987222
             skillUpChance = skillUpChance / penalty; // Lower skill up chance if desyntth
@@ -624,7 +704,7 @@ namespace synthutils
                         satier = 4;
                     }
 
-                    for (uint8 i = 0; i < 4; i++) // cicle up to 4 times until cap (0.4) or break. The lower the satier, the more likely it will break
+                    for (uint8 i = 0; i < 1; i++) // cicle up to 4 times until cap (0.4) or break. The lower the satier, the more likely it will break
                     {
                         switch (satier)
                         {
@@ -727,7 +807,7 @@ namespace synthutils
                 }
                 else
                 {
-                    char fmtQuery[] = "INSERT INTO char_synthesis VALUES (%i, %i, %i, %i, %i, %i);\0";
+                    char fmtQuery[] = "INSERT INTO char_synthesis VALUES (%i, %i, %i, %i);\0";
                     sql->Query(fmtQuery, PChar->id, PChar->getCharVar("[Aurora]synthid"), (prevSkillups + skillUpAmount), 0, 0, 0);
                 }
 
