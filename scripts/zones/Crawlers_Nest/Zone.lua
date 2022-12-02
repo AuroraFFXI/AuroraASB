@@ -9,10 +9,10 @@ local zoneObject = {}
 
 zoneObject.onInitialize = function(zone)
     -- NM Persistence
-    if xi.settings.main.ENABLE_WOTG == 1 then
+    -- if xi.settings.main.ENABLE_WOTG == 1 then
         xi.mob.nmTODPersistCache(zone, ID.mob.DYNAST_BEETLE)
         xi.mob.nmTODPersistCache(zone, ID.mob.AQRABUAMELU)
-    end
+    -- end
 
     xi.treasure.initZone(zone)
 end

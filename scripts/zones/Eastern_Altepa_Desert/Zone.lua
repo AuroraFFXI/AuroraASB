@@ -16,9 +16,9 @@ end
 
 zoneObject.onInitialize = function(zone)
     -- NM Persistence
-    if xi.settings.main.ENABLE_WOTG == 1 then
+    -- if xi.settings.main.ENABLE_WOTG == 1 then
         xi.mob.nmTODPersistCache(zone, ID.mob.NANDI)
-    end
+    -- end
     xi.mob.nmTODPersistCache(zone, ID.mob.CACTROT_RAPIDO)
     xi.mob.nmTODPersistCache(zone, ID.mob.CENTURIO_XII_I)
 
