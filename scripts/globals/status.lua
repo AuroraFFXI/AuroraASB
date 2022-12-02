@@ -1924,6 +1924,7 @@ xi.latent =
     VS_ECOSYSTEM             = 59, -- Vs. Specific Ecosystem ID (e.g. Vs. Plantoid: Accuracy+3)
     VS_FAMILY                = 60, -- Vs. Specific Family ID (e.g. Vs. Korrigan: Accuracy+3)
     VS_SUPERFAMILY           = 61, -- Vs. Specific Family ID (e.g. Vs. Mandragora: Accuracy+3)
+    CITIZEN_OF_NATION        = 70, -- Player is a citizen of the provided nation
 }
 
 -----------------------------------
@@ -2620,6 +2621,7 @@ xi.mobMod =
     DRAW_IN_IGNORE_STATIONARY = 104, -- Stationary mobs draw-in the moment they cannot attack you anymore (out of range). put this mobmod on stationary mobs that have draw-in but use ranged attacks instead of melee attacks so that they will ignore this behavior (i.e. KSNM99 Wyrm or ToAU Mission Alexander)
     ATTRACT_FAMILY_NM         = 105, -- NMs within the same family will link onto this mob (used on Sabotenders for Cactrot Rapido)
     LEDGE_AGGRO               = 106, -- Used to increase vertical aggro range
+    DISENGAGE_NO_PATH         = 107, -- Used to force a disengage when there is no vertical path to the target rather than despawn.
 }
 
 -----------------------------------

@@ -803,6 +803,12 @@ void CLuaBaseEntity::StartEventHelper(int32 EventID, sol::variadic_args va, EVEN
         return;
     }
 
+    if (PChar->currentEvent->eventId == EventID)
+    {
+        ShowError("CLuaBaseEntity::StartEventHelper: Could not start event, Character Entity already triggered.");
+        return;
+    }
+
     PChar->StatusEffectContainer->DelStatusEffect(EFFECT_BOOST);
 
     PChar->queueEvent(ParseEvent(EventID, va, PChar->eventPreparation, eventType));
@@ -4130,6 +4136,10 @@ bool CLuaBaseEntity::canEquipItem(uint16 itemID, sol::object const& chkLevel)
     {
         return false;
     }
+    if ((PItem->getRace() & (1 << (PChar->look.race - 1))) == 0)
+    {
+        return false;
+    }
     if (checkLevel && (PItem->getReqLvl() > PChar->GetMLevel()))
     {
         return false;
@@ -6102,7 +6112,7 @@ uint16 CLuaBaseEntity::getFame(sol::object const& areaObj)
     uint8  fameArea = areaObj.is<sol::table>() ? areaObj.as<sol::table>()["fame_area"] : areaObj.as<uint8>();
     uint16 fame     = 0;
 
-    if (fameArea <= 15)
+    if (fameArea <= 16)
     {
         float fameMultiplier = settings::get<float>("map.FAME_MULTIPLIER");
         auto* PChar          = static_cast<CCharEntity*>(m_PBaseEntity);
@@ -6138,6 +6148,9 @@ uint16 CLuaBaseEntity::getFame(sol::object const& areaObj)
             case 15: // Adoulin
                 fame = static_cast<uint16>(PChar->profile.fame[14] * fameMultiplier);
                 break;
+            case 16: // Holiday, Special Events
+                fame = static_cast<uint16>(PChar->profile.fame[15] * fameMultiplier);
+                break;
         }
     }
     else
@@ -6161,7 +6174,7 @@ void CLuaBaseEntity::addFame(sol::object const& areaObj, uint16 fame)
 
     uint8 fameArea = areaObj.is<sol::table>() ? areaObj.as<sol::table>()["fame_area"] : areaObj.as<uint8>();
 
-    if (fameArea <= 15)
+    if (fameArea <= 16)
     {
         auto* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
 
@@ -6197,6 +6210,9 @@ void CLuaBaseEntity::addFame(sol::object const& areaObj, uint16 fame)
             case 15: // Adoulin
                 PChar->profile.fame[14] += fame;
                 break;
+            case 16: // Holiday, Special Events
+                PChar->profile.fame[15] += fame;
+                break;
         }
         charutils::SaveFame(PChar);
     }
@@ -6219,7 +6235,7 @@ void CLuaBaseEntity::setFame(sol::object const& areaObj, uint16 fame)
 
     uint8 fameArea = areaObj.is<sol::table>() ? areaObj.as<sol::table>()["fame_area"] : areaObj.as<uint8>();
 
-    if (fameArea <= 15)
+    if (fameArea <= 16)
     {
         auto* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
 
@@ -6255,6 +6271,9 @@ void CLuaBaseEntity::setFame(sol::object const& areaObj, uint16 fame)
             case 15: // Adoulin
                 PChar->profile.fame[14] = fame;
                 break;
+            case 16: // Holiday, Special Events
+                PChar->profile.fame[15] = fame;
+                break;
         }
 
         charutils::SaveFame(PChar);
@@ -6279,7 +6298,7 @@ uint8 CLuaBaseEntity::getFameLevel(sol::object const& areaObj)
     uint8 fameArea  = areaObj.is<sol::table>() ? areaObj.as<sol::table>()["fame_area"] : areaObj.as<uint8>();
     uint8 fameLevel = 1;
 
-    if (fameArea <= 15)
+    if (fameArea <= 16)
     {
         uint16 fame = this->getFame(areaObj);
 
@@ -11749,7 +11768,10 @@ uint16 CLuaBaseEntity::getStat(uint16 statId)
         case Mod::EVA:
             value = PEntity->EVA();
             break;
-        // TODO: support getStat for ACC/RACC/RATT
+        case Mod::ACC:
+            value = PEntity->ACC(0, 0);
+            break;
+        // TODO: support getStat for RACC/RATT
         default:
             // We should probably show a warning here
             break;

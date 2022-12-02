@@ -17,16 +17,16 @@
 #
 # init.txt:
 # ---------------------
-# | 
+# |
 # | renamer
-# | 
+# |
 # ---------------------
 #
 # Will load everything under the renamer folder.
 #
 # init.txt:
 # ---------------------
-# | 
+# |
 # | custom/cpp/custom_module.cpp
 # | custom/lua/claim_shield.lua
 # |
@@ -105,41 +105,5 @@ era/sql_dynamis/
 renamer
 #-----------------------
 #		Custom
-#----------------------
-custom/lua/claim_shield.lua
-custom/lua/conquest_crystal_trade_fix.lua
-custom/lua/custom_HNM_system.lua
-custom/lua/guild_no_kits.lua
-#custom/lua/homepoint_heal.lua
-custom/lua/mazurka_generates_enmity.lua
-#custom/lua/mission_wardrobe_unlocks.lua
-custom/lua/new_player_linkshell.lua
-custom/lua/persist_nm_time_of_deaths.lua
-custom/lua/pre_rmt_drops.lua
-#custom/lua/replace_trust_with_cornelia.lua
-#custom/lua/soa_remove_imprimatur_gate.lua
-#custom/lua/test_npcs_in_gm_home.lua
-#custom/lua/world_first_announcements.lua
-#custom/lua/wotg_decouple_story_missions_from_nation_quests.lua
-custom/cpp/ah_announcement.cpp
-custom/cpp/ah_pagination.cpp
-#custom/sql/ka_speedbelt_drop.sql
-#custom/sql/lsb_mascot.sql
-#custom/sql/mob_spawn_points.sql
-#custom/sql/starter_zone_fast_repops.sql
 #-----------------------
-#	 Aurora
-#----------------------
-aurora/sql/aurora_abilities.sql
-aurora/sql/aurora_item_equipment.sql
-aurora/sql/aurora_item_mods.sql
-aurora/sql/aurora_item_usable.sql
-aurora/sql/aurora_mob_droplist.sql
-aurora/sql/aurora_mob_family_mods.sql
-aurora/sql/aurora_mob_groups.sql
-aurora/sql/aurora_mob_spawn_points.sql
-aurora/sql/aurora_nm_spawn_points.sql
-aurora/sql/aurora_npc_list.sql
-aurora/sql/aurora_spell_list.sql
-aurora/sql/aurora_synth_recipes.sql
-aurora/sql/aurora_weapon_skills.sql
+#custom/sql/starlight_celebrations.sql

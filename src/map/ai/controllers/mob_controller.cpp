@@ -264,7 +264,7 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
 
     float verticalDistance = abs(PMob->loc.p.y - PTarget->loc.p.y);
 
-    if ((PMob->m_Family != 6 || PMob->getMobMod(LEDGE_AGGRO) != 0) && verticalDistance > 8.0f)
+    if ((PMob->m_Family != 6 || PMob->getMobMod(MOBMOD_LEDGE_AGGRO) != 0) && verticalDistance > 8.0f)
     {
         return false;
     }
@@ -288,7 +288,7 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
 
     if (detectSight && !hasInvisible && currentDistance < PMob->getMobMod(MOBMOD_SIGHT_RANGE) && facing(PMob->loc.p, PTarget->loc.p, 64))
     {
-        if (PMob->getMobMod(LEDGE_AGGRO) != 0)
+        if (PMob->getMobMod(MOBMOD_LEDGE_AGGRO) != 0)
         {
             return true;
         }
@@ -556,6 +556,17 @@ bool CMobController::CanCastSpells()
         {
             return false;
         }
+    }
+
+    // Charmed BST pets don't passively cast spells
+    if (PMob->isCharmed && PMob->PMaster != nullptr && PMob->PMaster->objtype == TYPE_PC)
+    {
+        // Can cast spells if BST uses Sic while mob has less than 1000TP
+        if (PMob->GetLocalVar("Sic") != 1)
+        {
+            return false;
+        }
+        PMob->SetLocalVar("Sic", 0);
     }
 
     return IsMagicCastingEnabled();
@@ -981,18 +992,18 @@ void CMobController::DoRoamTick(time_point tick)
             // if I just disengaged check if I should despawn
             if (!PMob->getMobMod(MOBMOD_DONT_ROAM_HOME) && PMob->IsFarFromHome())
             {
-                if (PMob->CanRoamHome() && PMob->PAI->PathFind->PathTo(PMob->m_SpawnPoint))
+                if (PMob->CanRoamHome() && PMob->PAI->PathFind->PathTo(PMob->m_SpawnPoint, PATHFLAG_RUN))
                 {
                     // walk back to spawn if too far away
 
                     // limit total path to just 10 or
                     // else we'll move straight back to spawn
-                    PMob->PAI->PathFind->LimitDistance(10.0f);
+                    PMob->PAI->PathFind->LimitDistance(5.0f);
 
                     FollowRoamPath();
 
                     // move back every 5 seconds
-                    m_LastActionTime = m_Tick - (std::chrono::milliseconds(PMob->getBigMobMod(MOBMOD_ROAM_COOL)) + 10s);
+                    m_LastActionTime = m_Tick - (std::chrono::milliseconds(PMob->getBigMobMod(MOBMOD_ROAM_COOL)) + 5s);
                 }
                 else if (!(PMob->getMobMod(MOBMOD_NO_DESPAWN) != 0) && !settings::get<bool>("map.MOB_NO_DESPAWN"))
                 {
@@ -1107,7 +1118,7 @@ void CMobController::FollowRoamPath()
             // pet should follow me if roaming
             position_t targetPoint = nearPosition(PMob->loc.p, 2.1f, (float)M_PI);
 
-            PPet->PAI->PathFind->PathTo(targetPoint);
+            PPet->PAI->PathFind->PathTo(targetPoint, PATHFLAG_RUN);
         }
 
         // if I just finished reset my last action time
@@ -1218,19 +1229,14 @@ bool CMobController::Engage(uint16 targid)
         // Don't cast magic or use special ability right away
         if (PMob->getBigMobMod(MOBMOD_MAGIC_DELAY) != 0)
         {
-            m_LastMagicTime =
-                m_Tick - std::chrono::milliseconds(PMob->getBigMobMod(MOBMOD_MAGIC_COOL) + xirand::GetRandomNumber(PMob->getBigMobMod(MOBMOD_MAGIC_DELAY)));
-        }
-        else if (PMob->getBigMobMod(MOBMOD_MAGIC_COOL) != 0)
-        {
-            m_LastMagicTime =
-                m_Tick - std::chrono::milliseconds(PMob->getBigMobMod(MOBMOD_MAGIC_COOL));
+            m_LastMagicTime = m_Tick - std::chrono::milliseconds(PMob->getBigMobMod(MOBMOD_MAGIC_COOL)) +
+                              std::chrono::milliseconds(xirand::GetRandomNumber(PMob->getBigMobMod(MOBMOD_MAGIC_DELAY)));
         }
 
         if (PMob->getBigMobMod(MOBMOD_SPECIAL_DELAY) != 0)
         {
-            m_LastSpecialTime = m_Tick - std::chrono::milliseconds(PMob->getBigMobMod(MOBMOD_SPECIAL_COOL) +
-                                                                   xirand::GetRandomNumber(PMob->getBigMobMod(MOBMOD_SPECIAL_DELAY)));
+            m_LastSpecialTime = m_Tick - std::chrono::milliseconds(PMob->getBigMobMod(MOBMOD_SPECIAL_COOL)) +
+                                std::chrono::milliseconds(xirand::GetRandomNumber(PMob->getBigMobMod(MOBMOD_SPECIAL_DELAY)));
         }
     }
     return ret;
