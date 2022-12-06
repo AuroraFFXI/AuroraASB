@@ -1049,16 +1049,13 @@ int32 lobby_createchar_save(uint32 accid, uint32 charid, char_mini* createchar)
         return -1;
     }
 
-	// Aurora Releveling System
-    Query = "INSERT INTO char_deaths(charid) VALUES(%u) \
-            ON DUPLICATE KEY UPDATE charid = charid;";
-    if (sql->Query(Query, charid, createchar->m_mjob) == SQL_ERROR)
-        return -1;
-
-	Query = "INSERT INTO char_maat(charid) VALUES(%u) \
-            ON DUPLICATE KEY UPDATE charid = charid;";
-    if (sql->Query(Query, charid, createchar->m_mjob) == SQL_ERROR)
-        return -1;
-
+    if (settings::get<bool>("main.NEW_CHARACTER_CUTSCENE"))
+    {
+        Query = "INSERT INTO char_vars(charid, varname, value) VALUES(%u, '%s', %u);";
+        if (sql->Query(Query, charid, "HQuest[newCharacterCS]notSeen", 1) == SQL_ERROR)
+        {
+            return -1;
+        }
+    }
     return 0;
 }

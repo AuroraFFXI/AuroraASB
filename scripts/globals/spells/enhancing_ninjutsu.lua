@@ -93,7 +93,6 @@ xi.spells.enhancing.useEnhancingNinjutsu = function(caster, target, spell)
     -- Yain
     elseif spellEffect == xi.effect.PAX then
         target:delStatusEffect(xi.effect.ENMITY_BOOST)
-
     end
 
     ------------------------------------------------------------

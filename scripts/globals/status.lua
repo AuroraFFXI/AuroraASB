@@ -1257,7 +1257,7 @@ xi.mod =
     BUST                            = 332,
     FINISHING_MOVES                 = 333,
     SAMBA_DURATION                  = 490, -- Samba duration bonus
-    WALTZ_POTENTCY                  = 491, -- Waltz Potentcy Bonus
+    WALTZ_POTENCY                   = 491, -- Waltz Potency Bonus
     JIG_DURATION                    = 492, -- Jig duration bonus in percents
     VFLOURISH_MACC                  = 493, -- Violent Flourish accuracy bonus
     STEP_FINISH                     = 494, -- Bonus finishing moves from steps
@@ -1831,6 +1831,7 @@ xi.mod =
     RAMPART_MAGIC_SHIELD          = 1167, -- Rampart Magic Shield
     CRITHITRATE_SLOT              = 1168, -- CRITHITRATE for slot
     ATT_SLOT                      = 1169, -- ATT for slot
+    UDMG                          = 1170, -- Uncapped dmg taken (all types)
 
     -- IF YOU ADD ANY NEW MODIFIER HERE, ADD IT IN src/map/modifier.h ASWELL!
 
