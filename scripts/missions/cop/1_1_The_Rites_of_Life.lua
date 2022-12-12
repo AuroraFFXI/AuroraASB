@@ -29,6 +29,7 @@ mission.sections =
     {
         check = function(player, currentMission, missionStatus, vars)
             return xi.settings.main.ENABLE_COP == 1 and
+            player:hasCompletedMission(xi.mission.log_id.ZILART, xi.mission.id.zilart.ARK_ANGELS) and
                 currentMission < xi.mission.id.cop.THE_RITES_OF_LIFE
         end,
 
