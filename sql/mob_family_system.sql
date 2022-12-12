@@ -110,7 +110,7 @@ INSERT INTO `mob_family_system` VALUES (57,'Buffalo',33,'Buffalo',6,'Beast',2,40
 INSERT INTO `mob_family_system` VALUES (58,'Bugard',34,'Bugard',14,'Lizard',1,40,115,110,4,4,4,4,4,4,4,1,3,1,3,1,2,0);
 INSERT INTO `mob_family_system` VALUES (59,'Bugbear',35,'Bugbear',7,'Beastmen',1,40,125,90,3,2,5,2,6,4,5,1,2,1,3,5,1,0);
 INSERT INTO `mob_family_system` VALUES (60,'CaitSith',36,'CaitSith',5,'Avatar',0,40,100,120,3,3,3,3,3,3,3,1,3,1,3,0,1,0);
-INSERT INTO `mob_family_system` VALUES (61,'Cardian',37,'Cardian',3,'Arcana',0,40,109,140,1,3,4,5,4,4,3,1,3,1,3,6,34,0);
+INSERT INTO `mob_family_system` VALUES (61,'Cardian',37,'Cardian',3,'Arcana',0,40,109,140,1,3,4,5,4,4,3,1,3,1,3,7,34,0);
 INSERT INTO `mob_family_system` VALUES (62,'Cerberus',38,'Cerberus',6,'Beast',3,80,100,90,1,1,3,1,1,1,2,1,3,1,3,1,2,0);
 INSERT INTO `mob_family_system` VALUES (63,'Chariot',39,'Chariot',4,'ArchaicMachine',3,40,90,90,1,3,4,3,6,6,5,1,3,1,3,0,34,0);
 INSERT INTO `mob_family_system` VALUES (64,'Chigoe',40,'Chigoe',20,'Vermin',0,40,120,90,3,2,1,6,6,4,5,1,3,1,3,4,3,0);
@@ -312,7 +312,7 @@ INSERT INTO `mob_family_system` VALUES (256,'Weeper',146,'Weeper',12,'Empty',0,5
 INSERT INTO `mob_family_system` VALUES (257,'Wivre',147,'Wivre',14,'Lizard',3,40,140,90,1,5,1,6,5,5,4,1,3,1,3,4,259,0);
 INSERT INTO `mob_family_system` VALUES (258,'Worm',148,'Worm',1,'Amorph',0,0,70,200,4,3,5,4,3,4,4,1,3,1,5,4,2,1);
 INSERT INTO `mob_family_system` VALUES (259,'Wyrm-Ouryu',149,'Wyrm',10,'Dragon',4,40,120,90,4,1,3,2,2,3,1,1,3,1,3,3,1,0);
-INSERT INTO `mob_family_system` VALUES (260,'Wyrm-Fafnir',149,'Wyrm',10,'Dragon',4,40,120,90,4,1,3,2,2,3,1,1,3,1,3,1,1,0);
+INSERT INTO `mob_family_system` VALUES (260,'Wyrm-Fafnir',149,'Wyrm',10,'Dragon',4,40,120,90,2,1,3,2,2,2,1,1,3,1,3,1,1,0);
 INSERT INTO `mob_family_system` VALUES (261,'Wyrm-Cynoprosopi',149,'Wyrm',10,'Dragon',4,40,120,90,4,1,3,2,2,3,1,1,3,1,3,2,1,0);
 INSERT INTO `mob_family_system` VALUES (262,'Wyrm',149,'Wyrm',10,'Dragon',4,40,120,90,4,1,3,2,2,3,1,1,3,1,3,1,1,0);
 INSERT INTO `mob_family_system` VALUES (263,'Wyrm-Nidhogg',149,'Wyrm',10,'Dragon',4,40,120,90,4,1,3,2,2,3,1,1,3,1,3,1,1,0);

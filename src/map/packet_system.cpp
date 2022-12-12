@@ -697,7 +697,7 @@ void SmallPacket0x015(map_session_data_t* const PSession, CCharEntity* const PCh
         {
             charutils::SaveCharStats(PChar);
             charutils::SaveCharPosition(PChar);
-            PChar->StatusEffectContainer->SaveStatusEffects();
+            PChar->StatusEffectContainer->SaveStatusEffects(false, true);
             PChar->m_nextDataSave = std::chrono::system_clock::now() + std::chrono::seconds(settings::get<uint16>("main.PLAYER_DATA_SAVE") > 0 ? settings::get<uint16>("main.PLAYER_DATA_SAVE") : 120);
         }
     }
@@ -3764,6 +3764,7 @@ void SmallPacket0x05E(map_session_data_t* const PSession, CCharEntity* const PCh
     uint8  requestedZone = data.ref<uint8>(0x17);
 
     uint16 startingZone = PChar->getZone();
+    auto   startingPos  = PChar->loc.p;
 
     PChar->ClearTrusts();
 
@@ -3848,7 +3849,7 @@ void SmallPacket0x05E(map_session_data_t* const PSession, CCharEntity* const PCh
 
                 PChar->loc.p.rotation += 128;
 
-                PChar->pushPacket(new CMessageSystemPacket(0, 0, 2));
+                PChar->pushPacket(new CMessageSystemPacket(0, 0, 2)); // You could not enter the next area.
                 PChar->pushPacket(new CCSPositionPacket(PChar));
 
                 PChar->status = STATUS_TYPE::NORMAL;
@@ -3857,8 +3858,27 @@ void SmallPacket0x05E(map_session_data_t* const PSession, CCharEntity* const PCh
             else
             {
                 // Ensure the destination exists
-                CZone* PDestination = zoneutils::GetZone(PZoneLine->m_toZone);
-                if (settings::get<bool>("main.ERA_CHOCOBO_ZONE_DISMOUNT") && PChar->isMounted() && PDestination && !PDestination->CanUseMisc(MISC_MOUNT))
+                // clang-format off
+                CZone*  PDestination   = zoneutils::GetZone(PZoneLine->m_toZone);
+                ZONEID  CharZone       = (ZONEID)PChar->getZone();
+                bool    IsInHomeNation = PChar->profile.nation == NATION_BASTOK ? CharZone >= ZONE_BASTOK_MINES && CharZone <= ZONE_PORT_BASTOK : false ||
+                                          PChar->profile.nation == NATION_WINDURST ? CharZone >= ZONE_WINDURST_WATERS && CharZone <= ZONE_WINDURST_WOODS : false ||
+                                           PChar->profile.nation == NATION_SANDORIA ? CharZone >= ZONE_SOUTHERN_SANDORIA && CharZone <= ZONE_PORT_SANDORIA : false;
+                bool    IsRentedCity   = PChar->getCharVar("[Moghouse]Rent-a-room") == static_cast<int32>(zoneutils::GetZone(CharZone)->GetRegionID());
+                bool    RentExempt     = (CharZone >= ZONE_SOUTHERN_SAN_DORIA_S && CharZone <= ZONE_WINDURST_WATERS_S) ||
+                                          (CharZone >= ZONE_WESTERN_ADOULIN && CharZone <= ZONE_EASTERN_ADOULIN);
+                // clang-format on
+
+                if ((PZoneLine->m_toZoneType == ZONE_TYPE::CITY && PZoneLine->m_toZone == 0 && !RentExempt) &&
+                    (settings::get<bool>("map.RENT_A_ROOM") && settings::get<bool>("map.ERA_RENT_A_ROOM") ? !IsRentedCity : !IsInHomeNation && !IsRentedCity))
+                {
+                    PChar->loc.p.rotation += 128;
+                    PChar->pushPacket(new CMessageSystemPacket(0, 0, 2));
+                    PChar->pushPacket(new CCSPositionPacket(PChar));
+                    PChar->status = STATUS_TYPE::NORMAL;
+                    return;
+                }
+                else if (settings::get<bool>("main.ERA_CHOCOBO_ZONE_DISMOUNT") && PChar->isMounted() && PDestination && !PDestination->CanUseMisc(MISC_MOUNT))
                 {
                     PChar->loc.p.rotation += 128;
 
@@ -3874,7 +3894,7 @@ void SmallPacket0x05E(map_session_data_t* const PSession, CCharEntity* const PCh
 
                     PChar->loc.p.rotation += 128;
 
-                    PChar->pushPacket(new CMessageSystemPacket(0, 0, 2));
+                    PChar->pushPacket(new CMessageSystemPacket(0, 0, 2)); // You could not enter the next area.
                     PChar->pushPacket(new CCSPositionPacket(PChar));
 
                     PChar->status = STATUS_TYPE::NORMAL;
@@ -3905,7 +3925,23 @@ void SmallPacket0x05E(map_session_data_t* const PSession, CCharEntity* const PCh
         return;
     }
 
-    uint64 ipp = zoneutils::GetZoneIPP(PChar->loc.destination == 0 ? PChar->getZone() : PChar->loc.destination);
+    auto   destination = PChar->loc.destination == 0 ? PChar->getZone() : PChar->loc.destination;
+    uint64 ipp         = zoneutils::GetZoneIPP(destination);
+    if (ipp == 0)
+    {
+        ShowWarning(fmt::format("Char {} requested zone ({}) returned IPP of 0", PChar->name, destination));
+        PChar->loc.destination = startingZone;
+        PChar->loc.p           = startingPos;
+
+        PChar->loc.p.rotation += 128;
+
+        PChar->pushPacket(new CMessageSystemPacket(0, 0, 2)); // You could not enter the next area.
+        PChar->pushPacket(new CCSPositionPacket(PChar));
+
+        PChar->status = STATUS_TYPE::NORMAL;
+
+        return;
+    }
 
     charutils::SendToZone(PChar, 2, ipp);
 }
@@ -5895,7 +5931,15 @@ void SmallPacket0x0DC(map_session_data_t* const PSession, CCharEntity* const PCh
     {
         case NFLAG_INVITE:
             // /invite [on|off]
-            PChar->nameflags.flags ^= FLAG_INVITE;
+            if (PChar->PParty)
+            {
+                // Can't put flag up while in a party
+                PChar->nameflags.flags &= ~FLAG_INVITE;
+            }
+            else
+            {
+                PChar->nameflags.flags ^= FLAG_INVITE;
+            }
             break;
         case NFLAG_AWAY:
             // /away | /online
@@ -7115,6 +7159,8 @@ void SmallPacket0x100(map_session_data_t* const PSession, CCharEntity* const PCh
         charutils::BuildingCharAbilityTable(PChar);
         charutils::BuildingCharWeaponSkills(PChar);
         charutils::LoadJobChangeGear(PChar);
+        charutils::SaveCharEquip(PChar);
+        charutils::SaveCharLook(PChar);
 
         PChar->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DISPELABLE | EFFECTFLAG_ROLL | EFFECTFLAG_ON_JOBCHANGE);
 
@@ -7129,6 +7175,7 @@ void SmallPacket0x100(map_session_data_t* const PSession, CCharEntity* const PCh
 
         charutils::SaveCharStats(PChar);
 
+        PChar->setVolatileCharVar("[Moghouse]Exit_Job_Change", 1);
         PChar->pushPacket(new CCharJobsPacket(PChar));
         PChar->pushPacket(new CCharUpdatePacket(PChar));
         PChar->pushPacket(new CCharStatsPacket(PChar));

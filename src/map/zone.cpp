@@ -360,7 +360,18 @@ zoneLine_t* CZone::GetZoneLine(uint32 zoneLineID)
 void CZone::LoadZoneLines()
 {
     TracyZoneScoped;
-    static const char fmtQuery[] = "SELECT zoneline, tozone, tox, toy, toz, rotation FROM zonelines WHERE fromzone = %u";
+    static const char fmtQuery[] =
+        "SELECT "
+        "zonelines.zoneline,"     // 0
+        "zonelines.tozone,"       // 1
+        "zonelines.tox,"          // 2
+        "zonelines.toy,"          // 3
+        "zonelines.toz,"          // 4
+        "zonelines.rotation,"     // 5
+        "zone_settings.zonetype " // 6
+        "FROM zonelines INNER JOIN zone_settings "
+        "ON zonelines.tozone = zone_settings.zoneid "
+        "WHERE zonelines.fromzone = %u;";
 
     int32 ret = sql->Query(fmtQuery, m_zoneID);
 
@@ -376,6 +387,7 @@ void CZone::LoadZoneLines()
             zl->m_toPos.y        = sql->GetFloatData(3);
             zl->m_toPos.z        = sql->GetFloatData(4);
             zl->m_toPos.rotation = (uint8)sql->GetIntData(5);
+            zl->m_toZoneType     = (ZONE_TYPE)sql->GetUIntData(6);
 
             m_zoneLineList.push_back(zl);
         }
@@ -1081,13 +1093,12 @@ void CZone::CharZoneIn(CCharEntity* PChar)
         auto* PBattlefield = m_BattlefieldHandler->GetBattlefield(PChar, true);
         if (PBattlefield != nullptr && PChar->StatusEffectContainer->HasStatusEffectByFlag(EFFECTFLAG_CONFRONTATION))
         {
-            bool isEntered = PChar->StatusEffectContainer->GetStatusEffect(EFFECT_BATTLEFIELD)->GetSubPower() == 1;
-            PBattlefield->InsertEntity(PChar, isEntered);
+            PBattlefield->InsertEntity(PChar, CBattlefield::hasPlayerEntered(PChar));
         }
         else if (PChar->StatusEffectContainer->HasStatusEffectByFlag(EFFECTFLAG_CONFRONTATION))
         {
             // Player is in a zone with a battlefield but they are not part of one.
-            if (PChar->StatusEffectContainer->GetStatusEffect(EFFECT_BATTLEFIELD)->GetSubPower() == 1)
+            if (CBattlefield::hasPlayerEntered(PChar))
             {
                 // If inside of the battlefield arena then kick them out
                 // Battlefield and level restriction effects will be removed once fully kicked.
