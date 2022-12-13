@@ -86,7 +86,6 @@ era/sql/item_weapon.sql
 #era/sql/pre_rmt_drops.sql
 era/sql/skill_ranks.sql
 era/sql/synth_recipes_era.sql
-era/sql/ToAU_AH_Listings.sql
 #era/back_date_sqls/75_era_drops.sql
 #era/back_date_sqls/75_era_guild_vendors.sql
 #era/back_date_sqls/2007_exp_tables.sql
