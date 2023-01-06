@@ -1563,7 +1563,7 @@ xi.helm.onTrade = function(player, npc, trade, helmType, csid, func)
         local full  = (player:getFreeSlotsCount() == 0) and 1 or 0
         local crit  = (player:getCharSkillLevel(59 + helmType) / 400) + (player:getMod(info.mod) / 10)
 
-        if os.time() > lastTrade + 4 then
+        if os.time() > lastTrade + 3 then
             if csid then
                 player:startEvent(csid, item, broke, full)
             end

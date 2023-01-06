@@ -83,6 +83,7 @@
 #include "spell.h"
 #include "status_effect_container.h"
 #include "timetriggers.h"
+#include "trade_container.h"
 #include "transport.h"
 #include "utils/battleutils.h"
 #include "utils/charutils.h"
@@ -2235,6 +2236,17 @@ namespace luautils
             PChar->animation = ANIMATION_DEATH;
             PChar->pushPacket(new CRaiseTractorMenuPacket(PChar, TYPE_HOMEPOINT));
             PChar->updatemask |= UPDATE_HP;
+        }
+
+        if (PChar->TradeContainer->getItemsCount() > 0)
+        {
+            ShowDebug("Event [%d] finished without trade cleaned up. "
+                      "Call player:tradeComplete(false) or player:confirmTrade onEventFinish.",
+                      eventID);
+
+            // Because we can't guarantee that a trade is cleaned up after a quest or event is complete,
+            // we clean up the trade container here to avoid having items in reserve.
+            PChar->TradeContainer->Clean();
         }
 
         return 0;
@@ -4942,22 +4954,28 @@ namespace luautils
     sol::table GetRecentFishers()
     {
         sol::table  fishers = lua.create_table();
-        const char* Query   = "SELECT cv.charid, charname, cs.value / 10 FROM `char_vars` as cv "
-                              "INNER JOIN `chars` ON chars.charid = cv.charid "
-                              "INNER JOIN `char_skills` as cs ON cs.charid = cv.charid "
-                              "WHERE skillid = 48 "
-                              "AND varname = '[Fish]LastCastTime' "
-                              "AND cv.value > (UNIX_TIMESTAMP(NOW()) - 300);";
+        const char* Query   = "SELECT cv.charid, c.charname, stats.mlvl, z.name, COALESCE(cs.value, 0) / 10 as skill "
+                              "FROM char_vars cv "
+                              "LEFT JOIN chars          c     ON c.charid  = cv.charid "
+                              "LEFT JOIN char_skills cs ON cs.charid = cv.charid AND cs.skillid = 48 "
+                              "INNER JOIN char_stats stats ON stats.charid = c.charid "
+                              "INNER JOIN zone_settings z ON z.zoneid = c.pos_zone "
+                              "WHERE "
+                              "varname = '[Fish]LastCastTime' AND "
+                              "FROM_UNIXTIME(cv.value) > NOW() - INTERVAL 5 MINUTE "
+                              "ORDER BY z.name, z.name, stats.mlvl, skill;";
 
         if (sql->Query(Query) != SQL_ERROR && sql->NumRows() != 0)
         {
             while (sql->NextRow() == SQL_SUCCESS)
             {
-                auto fisher     = lua.create_table();
-                auto charId     = sql->GetUIntData(0);
-                fisher["name"]  = sql->GetStringData(1);
-                fisher["skill"] = sql->GetUIntData(2);
-                fishers[charId] = fisher;
+                auto fisher          = lua.create_table();
+                auto charId          = sql->GetUIntData(0);
+                fisher["playerName"] = sql->GetStringData(1);
+                fisher["jobLevel"]   = sql->GetUIntData(2);
+                fisher["zoneName"]   = sql->GetStringData(3);
+                fisher["skill"]      = sql->GetUIntData(4);
+                fishers[charId]      = fisher;
             }
         }
 

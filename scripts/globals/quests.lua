@@ -121,7 +121,7 @@ xi.quest.id =
         THE_RIVALRY                     = 75, -- ±
         THE_COMPETITION                 = 76, -- ±
         STARTING_A_FLAME                = 77, -- ±
-        FEAR_OF_THE_DARK                = 78, -- +
+        FEAR_OF_THE_DARK                = 78, -- + Converted
         WARDING_VAMPIRES                = 79, -- +
         SLEEPLESS_NIGHTS                = 80, -- ±
         LUFET_S_LAKE_SALT               = 81, -- ±
@@ -168,7 +168,7 @@ xi.quest.id =
     [xi.quest.area[xi.quest.log_id.BASTOK]] =
     {
         THE_SIRENS_TEAR                 = 0,  -- ± Converted
-        BEAUTY_AND_THE_GALKA            = 1,  -- ±
+        BEAUTY_AND_THE_GALKA            = 1,  -- ± Converted
         WELCOME_TO_BASTOK               = 2,  -- + Converted
         GUEST_OF_HAUTEUR                = 3,  -- + Converted
         THE_QUADAVS_CURSE               = 4,  -- ± Converted
@@ -319,7 +319,7 @@ xi.quest.id =
         SAY_IT_WITH_FLOWERS             = 50, -- +
         HOIST_THE_JELLY_ROGER           = 51, -- +
         SOMETHING_FISHY                 = 52, -- +
-        TO_CATCH_A_FALLING_STAR         = 53, -- +
+        TO_CATCH_A_FALLING_STAR         = 53, -- + Converted
         PAYING_LIP_SERVICE              = 60, -- +
         THE_AMAZIN_SCORPIO              = 61, -- +
         TWINSTONE_BONDING               = 62, -- +
@@ -637,7 +637,7 @@ xi.quest.id =
         THE_POTENTIAL_WITHIN            = 146, -- + Converted
         BUGI_SODEN                      = 147, -- + Converted
         TRIAL_SIZE_TRIAL_BY_WATER       = 148, -- +
-        AN_UNDYING_PLEDGE               = 149,
+        AN_UNDYING_PLEDGE               = 149, -- + Converted
 
         -- Misc (160-165)
         WRATH_OF_THE_OPO_OPOS           = 160, -- ± Converted
