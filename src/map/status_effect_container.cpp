@@ -553,11 +553,6 @@ bool CStatusEffectContainer::AddStatusEffect(CStatusEffect* PStatusEffect, bool 
         }
         m_POwner->updatemask |= UPDATE_HP;
 
-        if (statusId == EFFECT_FOOD || statusId == EFFECT_DEDICATION)
-        {
-            m_POwner->StatusEffectContainer->SaveStatusEffects();
-        }
-
         return true;
     }
     else
@@ -796,7 +791,7 @@ void CStatusEffectContainer::DelStatusEffectsByFlag(uint32 flag, bool silent)
             if (flag & EFFECTFLAG_DAMAGE && isNightmare)
             {
                 // If it's a player, or player's pet, then taking damage should not wake the entity
-                if (this->m_POwner->objtype == TYPE_PC or this->m_POwner->objtype == TYPE_PET)
+                if (this->m_POwner->objtype == TYPE_PC || this->m_POwner->objtype == TYPE_PET)
                 {
                     continue;
                 }
@@ -969,6 +964,7 @@ bool CStatusEffectContainer::ApplyBardEffect(CStatusEffect* PStatusEffect, uint8
 
     uint8          numOfEffects = 0;
     CStatusEffect* oldestSong   = nullptr;
+    uint8          overwrite    = false; // are we overwriting the same song effect?
     for (CStatusEffect* ExistingStatusEffect : m_StatusEffectSet)
     {
         if (ExistingStatusEffect->GetStatusID() >= EFFECT_REQUIEM && ExistingStatusEffect->GetStatusID() <= EFFECT_NOCTURNE) // is an active brd effect
@@ -978,6 +974,8 @@ bool CStatusEffectContainer::ApplyBardEffect(CStatusEffect* PStatusEffect, uint8
                 // OVERWRITE
                 PStatusEffect->SetSlot(ExistingStatusEffect->GetSlot()); // use same slot as the one it replaces
                 DelStatusEffectByTier(PStatusEffect->GetStatusID(), PStatusEffect->GetTier());
+                oldestSong = ExistingStatusEffect;
+                overwrite  = true;
             }
             if (ExistingStatusEffect->GetSubID() == PStatusEffect->GetSubID())
             { // YOUR BRD effect
@@ -986,8 +984,9 @@ bool CStatusEffectContainer::ApplyBardEffect(CStatusEffect* PStatusEffect, uint8
                 {
                     oldestSong = ExistingStatusEffect;
                 }
-                else if (std::chrono::milliseconds(ExistingStatusEffect->GetDuration()) + ExistingStatusEffect->GetStartTime() <
-                         std::chrono::milliseconds(oldestSong->GetDuration()) + oldestSong->GetStartTime())
+                else if (!overwrite &&
+                         std::chrono::milliseconds(ExistingStatusEffect->GetDuration()) + ExistingStatusEffect->GetStartTime() <
+                             std::chrono::milliseconds(oldestSong->GetDuration()) + oldestSong->GetStartTime())
                 {
                     oldestSong = ExistingStatusEffect;
                 }
