@@ -46,6 +46,7 @@ era/lua/75_era_argus.lua
 #era/lua/exp_rings.lua
 era/lua/era_guild_vendors.lua
 #era/lua/era_HNM_system.lua
+#era/lua/era_rent_a_room.lua
 #era/lua/era_vendors.lua
 #era/back_date_sqls/75_era_guild_vendors.lua
 #era/back_date_sqls/beastmen_multigroup_spawn_fix.lua
@@ -61,9 +62,11 @@ era/cpp/era_dynamisFunctions.cpp
 #era/sql/
 #era/sql/2010_exp_tables.sql
 era/sql/abilities.sql
+era/sql/abilities_changes.sql
 era/sql/cop_level_restrictions.sql
 era/sql/era_avatar_skillchain_properties.sql
 era/sql/era_bcnm_info.sql
+era/sql/era_gardening_results.sql
 era/sql/era_homepoints.sql
 #era/sql/era_mob_droplist.sql
 era/sql/era_mob_elemental_evasion.sql
@@ -109,7 +112,6 @@ renamer
 #-----------------------
 #		Custom
 #-----------------------
-#custom/sql/starlight_celebrations.sql
 custom/lua/claim_shield.lua
 custom/lua/conquest_crystal_trade_fix.lua
 custom/lua/custom_HNM_system.lua
@@ -132,7 +134,7 @@ custom/cpp/ah_pagination.cpp
 #custom/sql/mob_spawn_points.sql
 #custom/sql/starlight_celebrations.sql
 #custom/sql/starter_zone_fast_repops.sql
-#custom/sql/mob_zones/
+custom/sql/mob_zones/
 #-----------------------
 #	 Aurora
 #----------------------
