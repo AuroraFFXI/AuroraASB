@@ -62,7 +62,7 @@ era/cpp/era_dynamisFunctions.cpp
 #era/sql/
 #era/sql/2010_exp_tables.sql
 era/sql/abilities.sql
-era/sql/abilities_changes.sql
+era/sql/abilities_charges.sql
 era/sql/cop_level_restrictions.sql
 era/sql/era_avatar_skillchain_properties.sql
 era/sql/era_bcnm_info.sql
@@ -134,7 +134,7 @@ custom/cpp/ah_pagination.cpp
 #custom/sql/mob_spawn_points.sql
 #custom/sql/starlight_celebrations.sql
 #custom/sql/starter_zone_fast_repops.sql
-custom/sql/mob_zones/
+#custom/sql/mob_zones/
 #-----------------------
 #	 Aurora
 #----------------------
