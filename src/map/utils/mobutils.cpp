@@ -63,7 +63,13 @@ namespace mobutils
         {
             bonus = 5;
         }
+
         if (lvl == 1)
+        {
+            bonus = 0;
+        }
+
+        if (PMob->objtype == TYPE_PET)
         {
             bonus = 0;
         }
@@ -280,6 +286,11 @@ namespace mobutils
                 else if ((PMob->m_Family == 200) || (PMob->m_Family == 201) || (PMob->m_Family == 202) || (PMob->m_Family == 337) || (PMob->m_Family == 397) || (PMob->m_Family == 408))
                 {
                     mobHP = (baseMobHP + sjHP) * .95;
+                }
+                // Manticore family has 50% more HP
+                else if (PMob->m_Family == 179)
+                {
+                    mobHP = (baseMobHP + sjHP) * 1.5;
                 }
                 else
                 {

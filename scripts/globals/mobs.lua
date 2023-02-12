@@ -42,14 +42,19 @@ local function persistLotteryPrimed(phList)
     for k, v in pairs(phList) do
         nm = GetMobByID(v)
         local zone = nm:getZone()
-        local respawnPersist = zone:getLocalVar(string.format("[SPAWN]%s", nm:getID()))
+        local respawnPersist = zone:getLocalVar(string.format("\\[SPAWN\\]%s", nm:getID()))
 
         if respawnPersist == 0 then
             return false
-        elseif nm ~= nil and (nm:isSpawned() or nm:getRespawnTime() ~= 0 or (respawnPersist > os.time())) then
+        elseif
+            nm ~= nil and
+            (nm:isSpawned() or nm:getRespawnTime() ~= 0 or
+            (respawnPersist > os.time()))
+        then
             return true
         end
     end
+
     return false
 end
 
@@ -73,7 +78,7 @@ xi.mob.nmTODPersistCache = function(zone, mobId)
             return
         end
 
-        local respawn = GetServerVariable(string.format("[SPAWN]%s", mobId))
+        local respawn = GetServerVariable(string.format("\\[SPAWN\\]%s", mobId))
         zone:setLocalVar(string.format("[SPAWN]%s", mobId), respawn)
         if
             mob ~= nil and
@@ -84,10 +89,13 @@ xi.mob.nmTODPersistCache = function(zone, mobId)
             if CheckNMSpawnPoint(mobId) then
                 UpdateNMSpawnPoint(mobId)
             end
+
             mob:setRespawnTime(respawn - os.time())
         elseif os.time() >= respawn then -- Mob should be spawned.  Give it a few seconds.
-            mob:setRespawnTime(10)
+            UpdateNMSpawnPoint(mobId)
+            mob:setRespawnTime(30)
         else
+            UpdateNMSpawnPoint(mobId)
             mob:setRespawnTime(respawn - os.time()) -- Is dead when server restarts set its respawn timer
         end
     end
@@ -102,7 +110,7 @@ end
 -- Needs to be added to the NM's zone onInit() function.
 xi.mob.lotteryPersistCache = function(zone, mobId)
     local mob = GetMobByID(mobId)
-    local respawn = GetServerVariable(string.format("[SPAWN]%s", mob:getID()))
+    local respawn = GetServerVariable(string.format("\\[SPAWN\\]%s", mob:getID()))
     zone:setLocalVar(string.format("[SPAWN]%s", mob:getID()), respawn)
 end
 
@@ -125,7 +133,9 @@ xi.mob.phOnDespawn = function(ph, phList, chance, cooldown, immediate)
         end
     end
 
-    if type(immediate) ~= "boolean" then immediate = false end
+    if type(immediate) ~= "boolean" then
+        immediate = false
+    end
 
     if xi.settings.main.NM_LOTTERY_CHANCE then
         chance = xi.settings.main.NM_LOTTERY_CHANCE >= 0 and (chance * xi.settings.main.NM_LOTTERY_CHANCE) or 100
@@ -514,7 +524,9 @@ local additionalEffects =
         msg = xi.msg.basic.ADD_EFFECT_DISPEL,
         mod = xi.mod.INT,
         bonusAbilityParams = { bonusmab = 0, includemab = false },
-        code = function(mob, target) target:dispelStatusEffect() end,
+        code = function(mob, target)
+            target:dispelStatusEffect()
+        end,
     },
     [xi.mob.ae.SLEEP] =
     {
