@@ -396,7 +396,7 @@ INSERT INTO `synth_recipes` VALUES (3046,0,0,70,37,0,0,0,19,0,0,4098,4240,654,71
 INSERT INTO `synth_recipes` VALUES (3047,0,0,70,18,0,0,0,0,0,0,4099,4241,662,725,725,0,0,0,0,0,12359,12370,12370,12370,1,1,1,1,'Hickory Shield'); -- ??SM, 8 & 18 posted (typo?), used 18 (iron sheet caps 22)
 INSERT INTO `synth_recipes` VALUES (3048,0,0,70,0,0,0,0,45,0,0,4098,4240,720,830,2513,2747,2762,0,0,0,18736,18736,18736,18736,1,1,1,1,'Fay Gendawa'); -- ??BO, 45/53 srcs, old era talk crafted at 39 - used 45
 INSERT INTO `synth_recipes` VALUES (3049,2,0,70,0,0,0,0,0,0,0,4102,4244,489,0,0,0,0,0,0,0,17386,17386,17386,17386,1,1,1,1,'Lu Shang\'s Fishing Rod'); -- multiple source agree 10/29/21
--- INSERT INTO `synth_recipes` VALUES (3050,0,0,70,0,255,0,0,0,0,0,4099,4241,711,711,711,711,717,717,745,0,444,444,444,444,1,1,1,1,'Luxurious Chest');
+INSERT INTO `synth_recipes` VALUES (3050,0,0,70,0,35,0,0,0,0,0,4099,4241,711,711,711,711,717,717,745,0,444,444,444,444,1,1,1,1,'Luxurious Chest');
 INSERT INTO `synth_recipes` VALUES (3501,0,0,71,0,0,0,0,0,0,0,4099,4241,719,719,927,0,0,0,0,0,17357,17833,17848,17848,1,1,1,1,'Ebony Harp');
 INSERT INTO `synth_recipes` VALUES (3502,0,0,71,0,0,0,0,0,0,0,4099,4241,662,716,716,716,0,0,0,0,95,95,95,95,1,1,1,1,'Water Barrel');
 -- INSERT INTO `synth_recipes` VALUES (3503,0,0,71,0,0,0,255,0,0,0,4099,4241,704,857,1629,0,0,0,0,0,3591,3591,3591,3591,1,1,1,1,'Marbled Drawers'); -- INVALID: bamboo stick, dhalmel hide, buffalo leather. should be ID 4540 below 10/29/21 
@@ -1361,7 +1361,7 @@ INSERT INTO `synth_recipes` VALUES (19961,1,0,0,59,0,0,0,0,0,0,4100,4242,14051,0
 -- INSERT INTO `synth_recipes` VALUES (19962,1,0,0,255,0,0,0,0,0,0,4100,4242,16433,0,0,0,0,0,0,0,649,649,649,649,1,1,1,1,'Lgn. Knuckles (desynth)'); -- 2022.03.04 Base on FFXIclopedia Unknown recipe level
 INSERT INTO `synth_recipes` VALUES (19963,1,0,0,79,0,0,0,0,0,0,4100,4242,2161,0,0,0,0,0,0,0,649,2302,2302,2302,1,1,2,2,'Troll Vambrace (desynth)');
 INSERT INTO `synth_recipes` VALUES (19964,1,0,0,37,0,0,0,0,0,0,4098,4240,1162,0,0,0,0,0,0,0,660,660,660,660,1,1,1,1,'Tonberry Lantern (desynth)'); -- BGWiki lists level s "37~"
--- INSERT INTO `synth_recipes` VALUES (19965,1,0,0,255,0,0,0,0,0,0,4100,4242,16575,0,0,0,0,0,0,0,744,1226,1226,1226,1,6,6,6,'Curtana (desynth)'); -- 2022.03.04 Base on FFXIclopedia Unknown recipe level
+INSERT INTO `synth_recipes` VALUES (19965,1,0,0,75,38,0,0,0,0,0,4100,4242,16575,0,0,0,0,0,0,0,744,1226,1226,1226,1,6,6,6,'Curtana (desynth)'); -- 2022.03.04 Base on FFXIclopedia Unknown recipe level
 INSERT INTO `synth_recipes` VALUES (19966,1,0,0,92,0,0,0,0,0,0,4100,4242,16452,0,0,0,0,0,0,0,654,654,655,655,1,1,1,1,'Misericorde (desynth)'); -- 2022.03.04 Base on FFXIclopedia
 INSERT INTO `synth_recipes` VALUES (19967,1,0,0,48,0,0,0,0,0,0,4100,4242,16412,0,0,0,0,0,0,0,894,894,1226,1226,1,1,4,6,'Mythril Claws (desynth)'); -- 2022.03.04 Base on FFXIclopedia
 INSERT INTO `synth_recipes` VALUES (19968,1,0,0,51,0,0,0,0,0,0,4100,4242,17487,0,0,0,0,0,0,0,937,649,649,649,1,1,1,1,'Corrosive Claws (desynth)'); -- 2022.03.04 Base on FFXIclopedia
@@ -3918,7 +3918,7 @@ INSERT INTO `synth_recipes` VALUES (62550,0,0,0,0,0,0,0,0,59,0,4096,4238,955,955
 INSERT INTO `synth_recipes` VALUES (62551,0,2037,0,0,0,0,0,0,59,0,4096,4238,953,953,1887,2113,2113,2171,13683,0,2245,2245,2245,2245,12,12,12,12,'Loudspeaker II');
 INSERT INTO `synth_recipes` VALUES (62552,0,0,0,0,0,0,0,0,59,0,4099,4241,637,915,947,16982,0,0,0,0,16973,16986,16986,16986,1,1,1,1,'Homura');
 INSERT INTO `synth_recipes` VALUES (62553,0,0,7,0,48,0,0,0,59,0,4096,4238,714,746,931,1772,1772,0,0,0,18218,18219,18219,18219,1,1,1,1,'Leucous Voulge');  -- 2021.11.01 BG has WW @ 9.
--- INSERT INTO `synth_recipes` VALUES (62554,0,2037,0,0,255,0,0,0,59,0,4096,4238,914,932,1647,2310,2460,0,0,0,8652,8652,8652,8652,12,12,12,12,'Arcanic Cell II');  -- 2021.11.01 All GS ??.
+INSERT INTO `synth_recipes` VALUES (62554,0,2037,0,0,30,0,0,0,59,0,4096,4238,914,932,1647,2310,2460,0,0,0,8652,8652,8652,8652,12,12,12,12,'Arcanic Cell II');  -- 2021.11.01 All GS ??.
 INSERT INTO `synth_recipes` VALUES (62555,0,2036,0,0,0,0,0,0,60,0,4096,4238,638,638,2513,4509,0,0,0,0,5328,5328,5328,5328,1,2,3,4,'Hi-Potion Drop');
 INSERT INTO `synth_recipes` VALUES (62556,0,2037,0,0,0,0,0,0,60,0,4096,4238,939,1641,1887,2310,2460,0,0,0,8459,8459,8459,8459,12,12,12,12,'Inhibitor II');
 INSERT INTO `synth_recipes` VALUES (62557,0,2036,0,0,0,0,0,0,60,0,4096,4238,638,638,2361,4509,0,0,0,0,5328,5328,5328,5328,1,2,3,4,'Hi-Potion Drop');
