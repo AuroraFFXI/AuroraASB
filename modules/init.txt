@@ -17,16 +17,16 @@
 #
 # init.txt:
 # ---------------------
-# |
+# | 
 # | renamer
-# |
+# | 
 # ---------------------
 #
 # Will load everything under the renamer folder.
 #
 # init.txt:
 # ---------------------
-# |
+# | 
 # | custom/cpp/custom_module.cpp
 # | custom/lua/claim_shield.lua
 # |
@@ -41,60 +41,16 @@
 #-----------------------
 #      General Lua
 #-----------------------
-#era/lua/
-era/lua/75_era_argus.lua
-#era/lua/exp_rings.lua
-era/lua/era_guild_vendors.lua
-#era/lua/era_HNM_system.lua
-#era/lua/era_rent_a_room.lua
-#era/lua/era_vendors.lua
-#era/back_date_sqls/75_era_guild_vendors.lua
-#era/back_date_sqls/beastmen_multigroup_spawn_fix.lua
+era/commands/
+era/lua/
 #-----------------------
 #      General C++
 #-----------------------
-#era/cpp/
-era/cpp/disable_mog_garden.cpp
-era/cpp/era_dynamisFunctions.cpp
+era/cpp/
 #-----------------------
 #      General SQL
 #-----------------------
-#era/sql/
-#era/sql/2010_exp_tables.sql
-era/sql/abilities.sql
-era/sql/abilities_charges.sql
-era/sql/cop_level_restrictions.sql
-era/sql/era_avatar_skillchain_properties.sql
-era/sql/era_bcnm_info.sql
-era/sql/era_gardening_results.sql
-era/sql/era_homepoints.sql
-#era/sql/era_mob_droplist.sql
-era/sql/era_mob_elemental_evasion.sql
-era/sql/era_mob_family_system.sql
-era/sql/era_mob_groups.sql
-era/sql/era_mob_resistances.sql
-era/sql/era_mob_spell_list.sql
-era/sql/era_spell_list.sql
-era/sql/era_weapon_skills.sql
-era/sql/era_zone_settings.sql
-#era/sql/gardening_results_era.sql
-era/sql/guild_item_points.sql
-era/sql/guild_shops.sql
-era/sql/item_basic.sql
-era/sql/item_cooldowns.sql
-era/sql/item_mods.sql
-era/sql/item_usable.sql
-era/sql/item_weapon.sql
-#era/sql/merits.sql
-#era/sql/pre_rmt_drops.sql
-era/sql/skill_ranks.sql
-era/sql/synth_recipes_era.sql
-#era/back_date_sqls/75_era_drops.sql
-#era/back_date_sqls/75_era_guild_vendors.sql
-#era/back_date_sqls/2007_exp_tables.sql
-#era/back_date_sqls/synth_recipies.sql
-#era/back_date_sqls/toau_era_lb2_respawn_timers.sql
-#era/back_date_sqls/toau_era_weapon_skill_levels.sql
+era/sql/
 #-----------------------
 #        Dynamis
 #-----------------------
@@ -112,42 +68,4 @@ renamer
 #-----------------------
 #		Custom
 #-----------------------
-custom/lua/claim_shield.lua
-custom/lua/conquest_crystal_trade_fix.lua
-custom/lua/custom_HNM_system.lua
-custom/lua/guild_no_kits.lua
-#custom/lua/homepoint_heal.lua
-custom/lua/mazurka_generates_enmity.lua
-#custom/lua/mission_wardrobe_unlocks.lua
-custom/lua/new_player_linkshell.lua
-#custom/lua/persist_nm_time_of_deaths.lua
-custom/lua/pre_rmt_drops.lua
-#custom/lua/replace_trust_with_cornelia.lua
-#custom/lua/soa_remove_imprimatur_gate.lua
-#custom/lua/test_npcs_in_gm_home.lua
-#custom/lua/world_first_announcements.lua
-#custom/lua/wotg_decouple_story_missions_from_nation_quests.lua
-custom/cpp/ah_announcement.cpp
-custom/cpp/ah_pagination.cpp
-#custom/sql/ka_speedbelt_drop.sql
-#custom/sql/lsb_mascot.sql
-#custom/sql/mob_spawn_points.sql
 #custom/sql/starlight_celebrations.sql
-#custom/sql/starter_zone_fast_repops.sql
-#custom/sql/mob_zones/
-#-----------------------
-#	 Aurora
-#----------------------
-aurora/sql/aurora_abilities.sql
-aurora/sql/aurora_item_equipment.sql
-aurora/sql/aurora_item_mods.sql
-aurora/sql/aurora_item_usable.sql
-aurora/sql/aurora_mob_droplist.sql
-aurora/sql/aurora_mob_family_mods.sql
-aurora/sql/aurora_mob_groups.sql
-aurora/sql/aurora_mob_spawn_points.sql
-aurora/sql/aurora_nm_spawn_points.sql
-aurora/sql/aurora_npc_list.sql
-aurora/sql/aurora_spell_list.sql
-aurora/sql/aurora_synth_recipes.sql
-aurora/sql/aurora_weapon_skills.sql
