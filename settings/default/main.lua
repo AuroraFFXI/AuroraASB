@@ -171,13 +171,13 @@ xi.settings.main =
     NM_LOTTERY_COOLDOWN = 1.0,
 
 	-- GARRISON SETTINGS
-    ENABLE_GARRISON              = false,  -- If true, enables garrison functionality
+    ENABLE_GARRISON              = true,  -- If true, enables garrison functionality
     DEBUG_GARRISON               = false,  -- If true, garrison will print out debug messages in logs as well as players as smes.
     GARRISON_LOCKOUT             = 1800,   -- Time in seconds before a new garrison can be started (default: 1800)
     GARRISON_TIME_LIMIT          = 1800,   -- Time in seconds before lose ongoing garrison (default: 1800)
     GARRISON_ONCE_PER_WEEK       = false,  -- Set to false to bypass the limit of one garrison per Conquest Tally Week.
     GARRISON_PARTY_LIMIT         = 18,     -- Set to max party members you want to do garrison (default: 18).
-    GARRISON_NATION_BYPASS       = false,  -- Set to true to bypass the nation requirement.
+    GARRISON_NATION_BYPASS       = true,  -- Set to true to bypass the nation requirement.
     GARRISON_RANK                = 2,      -- Set to minumum Nation Rank to start Garrison (default: 2).
 
     -- DYNAMIS SETTINGS
@@ -198,7 +198,7 @@ xi.settings.main =
     AF1_QUEST_LEVEL     = 40,               -- Minimum level to start AF1 quest
     AF2_QUEST_LEVEL     = 50,               -- Minimum level to start AF2 quest
     AF3_QUEST_LEVEL     = 50,               -- Minimum level to start AF3 quest
-    ERA_CHOCOBOS_WOUNDS = true,             -- Era Chocobos Wounds wait times that requires waiting a full Vana'Diel day, set to false to have it be every Vana'Diel hour.
+    ERA_CHOCOBOS_WOUNDS = false,             -- Era Chocobos Wounds wait times that requires waiting a full Vana'Diel day, set to false to have it be every Vana'Diel hour.
     OLDSCHOOL_G1        = true,             -- Set to true to require farming Exoray Mold, Bombd Coal, and Ancient Papyrus drops instead of allowing key item method.
     OLDSCHOOL_G2        = true,             -- Set true to require the NMs for "Atop the Highest Mountains" be dead to get KI like before SE changed it.
     FRIGICITE_TIME      = 360,               -- When OLDSCHOOL_G2 is enabled, this is the time (in seconds) you have from killing Boreal NMs to click the "???" target.
@@ -253,7 +253,7 @@ xi.settings.main =
     FORCE_SPAWN_QM_RESET_TIME    = 900,  -- Number of seconds the ??? remains hidden for after the despawning of the mob it force spawns.
     GOBBIE_BOX_MIN_AGE           = 45,   -- Minimum character age in days before a character can sign up for Gobbie Mystery Box
     MAP_VENDORS_ALL_MAPS         = false, -- If true, all map vendors can sell all vendorable maps
-    ENABLE_TUTORIAL              = false, -- If true, enable Tutorial NPCs (WotG): Alaune (17719618), Gulldago (17739939), Selele (17764600)
+    ENABLE_TUTORIAL              = true, -- If true, enable Tutorial NPCs (WotG): Alaune (17719618), Gulldago (17739939), Selele (17764600)
 
     -- Synergy
     ENABLE_SYNERGY = 0, -- Default to off as Synergy is not coded
