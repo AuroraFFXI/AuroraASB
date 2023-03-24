@@ -46,7 +46,7 @@ era/commands/
 era/lua/75_era_argus.lua
 #era/lua/exp_rings.lua
 era/lua/era_guild_vendors.lua
-ear/lua/era_helm.lua
+era/lua/era_helm.lua
 #era/lua/era_HNM_system.lua
 #era/lua/era_rent_a_room.lua
 #era/lua/era_vendors.lua
