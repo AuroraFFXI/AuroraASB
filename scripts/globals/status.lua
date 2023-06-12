@@ -1175,6 +1175,7 @@ xi.mod =
     HUMANOID_KILLER                 = 236,
     LUMORIAN_KILLER                 = 237,
     LUMINION_KILLER                 = 238,
+    WYRMAL_ABJ_KILLER_EFFECT        = 1178, -- Wyrmal Abjuration (Crimson/Blood) which makes players susceptible to Dragon Killer effects
     SLEEPRES                        = 240,
     POISONRES                       = 241,
     PARALYZERES                     = 242,
@@ -1273,7 +1274,6 @@ xi.mod =
     ENSPELL_CHANCE                  = 856,
     SPIKES_DMG                      = 344,
     TP_BONUS                        = 345,
-    PERPETUATION_REDUCTION          = 346,
 
     -- Warrior
     BERSERK_POTENCY                 = 948,  -- Augments "Berserk"/Enhances "Berserk" effect (Conqueror)
@@ -1307,6 +1307,8 @@ xi.mod =
     AVATAR_LVL_BONUS                = 1040, -- Avatar: Lv. ###/+ (Increases all avatar's base level above 99)
     CARBUNCLE_LVL_BONUS             = 1041, -- Carbuncle: Lv.+ (Increases Carbuncle's base level above 99)
     CAIT_SITH_LVL_BONUS             = 1042, -- Cait Sith: Lv.+ (Increases Cait Sith's base level above 99)
+    PERPETUATION_REDUCTION          = 346,
+    SPIRIT_SPELLCAST_DELAY          = 1179, -- Reduces the time between spellcasts of a summoned spirit by seconds provided
 
     -- Puppetmaster
     AUTOMATON_LVL_BONUS             = 1044, -- Automaton: Lv. (Increases automaton's base level above 99)
@@ -1548,7 +1550,7 @@ xi.mod =
     ITEM_ADDEFFECT_STATUS   = 951,  -- Status Effect ID to try to apply via Additional Effect or Spikes
     ITEM_ADDEFFECT_POWER    = 952,  -- Base Power for effect in MOD_ITEM_ADDEFFECT_STATUS
     ITEM_ADDEFFECT_DURATION = 953,  -- Base Duration for effect in MOD_ITEM_ADDEFFECT_STATUS
-    ITEM_ADDEFFECT_OPTION   = 1178, -- Additional parameters for more specific latents required to proc
+    ITEM_ADDEFFECT_OPTION   = 1180, -- Additional parameters for more specific latents required to proc
 
     FERAL_HOWL_DURATION             = 503, -- +20% duration per merit when wearing augmented Monster Jackcoat +2
     MANEUVER_BONUS                  = 504, -- Maneuver Stat Bonus
@@ -1840,7 +1842,9 @@ xi.mod =
     VIRUS_MEVA                    = 1176, -- Virus MEVA from Barspells
     PETRIFY_MEVA                  = 1177, -- Petrify MEVA from Barspells
 
-    WYRMAL_ABJ_KILLER_EFFECT      = 1178, -- Wyrmal Abjuration (Crimson/Blood) which makes players susceptible to Dragon Killer effects
+    -- New ASB section created per PR comment, starting at 2000
+    TANDEM_STRIKE = 2000, -- Beastmaster trait - provides acc/macc to master and pet when both engage the same target
+    TANDEM_BLOW   = 2001, -- Beastmaster trait - provides subtle blow to master and pet when both engage the same target
 
     -- IF YOU ADD ANY NEW MODIFIER HERE, ADD IT IN src/map/modifier.h ASWELL!
 
@@ -2542,6 +2546,24 @@ xi.auraTarget =
 }
 
 -----------------------------------
+-- Different Spawn Conditions
+-----------------------------------
+
+xi.spawnType =
+{
+    SPAWNTYPE_NORMAL    = 0x00, -- 00:00-24:00
+    SPAWNTYPE_ATNIGHT   = 0x01, -- 20:00-04:00
+    SPAWNTYPE_ATEVENING = 0x02, -- 18:00-06:00
+    SPAWNTYPE_ATDUSK    = 0x03, -- 17:00-07:00
+    SPAWNTYPE_WEATHER   = 0x04,
+    SPAWNTYPE_FOG       = 0x08, -- 02:00-07:00
+    SPAWNTYPE_MOONPHASE = 0x10,
+    SPAWNTYPE_LOTTERY   = 0x20,
+    SPAWNTYPE_WINDOWED  = 0x40,
+    SPAWNTYPE_SCRIPTED  = 0x80, -- scripted spawn
+}
+
+-----------------------------------
 -- MOBMODs
 -- maps src/map/mob_modifier.h
 -- always edit both
@@ -2993,6 +3015,18 @@ xi.elevator =
     DAVOI_LIFT                = 1,
     PALBOROUGH_MINES_LIFT     = 2,
     FORT_GHELSBA_LIFT         = 3
+}
+
+-----------------------------------
+-- Elevator States
+-----------------------------------
+
+xi.elevatorState =
+{
+    BOTTOM  = 0,
+    TOP     = 1,
+    ASCEND  = 2,
+    DESCEND = 3,
 }
 
 -----------------------------------

@@ -9,61 +9,111 @@ local entity = {}
 
 local offsets = { 4, 5, 6, 7 }
 
+entity.land = function(mob)
+    -- need to deal with case of stun of touchdown
+    mob:useMobAbility(1302)
+    mob:setBehaviour(bit.bor(mob:getBehaviour(), xi.behavior.NO_TURN))
+    mob:setLocalVar("changeTime", mob:getBattleTime() + 120)
+    mob:setLocalVar("damageTaken", 0)
+end
+
+entity.flight = function(mob)
+    mob:setAnimationSub(1)
+    mob:addStatusEffectEx(xi.effect.ALL_MISS, 0, 1, 0, 0)
+    mob:setBehaviour(0)
+    mob:setMobSkillAttack(731)
+    mob:setLocalVar("changeTime", mob:getBattleTime() + 90)
+    mob:setLocalVar("damageTaken", 0)
+end
+
 entity.onMobSpawn = function(mob)
     mob:setMobSkillAttack(0)
     mob:setAnimationSub(0)
-    mob:setMobMod(xi.mobMod.NO_STANDBACK, 1)
-    mob:setLocalVar("savageDmgMultipliers", 1)
-    mob:setLocalVar("twoHour", 0)
+    if mob:hasStatusEffect(xi.effect.ALL_MISS) then
+        mob:delStatusEffect(xi.effect.ALL_MISS)
+    end
 
-    -- mods put fight in line with retail difficulty
+    mob:addImmunity(xi.immunity.SLOW)
+    mob:addImmunity(xi.immunity.ELEGY)
+    mob:addImmunity(xi.immunity.STUN)
+    mob:addImmunity(xi.immunity.TERROR)
     mob:addMod(xi.mod.SLEEPRES, 100)
     mob:addMod(xi.mod.LULLABYRES, 100)
     mob:addMod(xi.mod.EARTH_NULL, 1)
-    mob:addMod(xi.mod.BLINDRESTRAIT, 25)
-    mob:addMod(xi.mod.PARALYZERESTRAIT, 25)
-    mob:addMod(xi.mod.STUNRES, 100)
-    mob:addMod(xi.mod.MDEF, 100)
-    mob:setMod(xi.mod.UDMGRANGE, -50)
+    mob:addMod(xi.mod.BLINDRES, 25)
+    mob:addMod(xi.mod.PARALYZERES, 25)
+    mob:setMobMod(xi.mobMod.NO_STANDBACK, 1)
+    mob:setMobMod(xi.mobMod.WEAPON_BONUS, 158)
+    mob:setMod(xi.mod.UDMGRANGE, -5000)
+    mob:setMod(xi.mod.UDMGMAGIC, -5000)
+    mob:setMod(xi.mod.UDMGBREATH, -5000)
+    mob:setMod(xi.mod.UFASTCAST, 90)
+    mob:setMod(xi.mod.DOUBLE_ATTACK, 20)
+    mob:setMod(xi.mod.DEF, 459)
+    mob:setMod(xi.mod.EVA, 422)
+    mob:setMod(xi.mod.ATT, 436)
     mob:setMod(xi.mod.MATT, -100)
+    mob:setMod(xi.mod.REFRESH, 200)
+    mob:setMobMod(xi.mobMod.ADD_EFFECT, 1)
     for i = 8, 9 do
         SpawnMob(mob:getID() + i)
     end
+
+    mob:setLocalVar("twoHour", 0)
+
+    mob:addListener("TAKE_DAMAGE", "OURYU_TAKE_DAMAGE", function(defender, amount, attacker, attackType, damageType)
+        local damageTaken = defender:getLocalVar("damageTaken") + amount
+        defender:setLocalVar("damageTaken", damageTaken)
+        local willKillMob = (defender:getHP() - amount) <= 0
+        if damageTaken > 2500 and not willKillMob then
+            if
+                defender:getAnimationSub() == 1 and
+                defender:actionQueueEmpty()
+            then
+                entity.land(defender)
+            elseif
+                (defender:getAnimationSub() == 0 or
+                defender:getAnimationSub() == 2) and
+                defender:actionQueueEmpty()
+            then
+                entity.flight(defender)
+            end
+        end
+    end)
 end
 
---Ouryu cuts remote and magic damage by 50% and has the ability to fly.
+entity.onMobEngaged = function(mob, target)
+    mob:setLocalVar("twohourTime", mob:getBattleTime() + 15)
+    mob:setLocalVar("changeTime", mob:getBattleTime() + 120)
+end
 
 entity.onMobFight = function(mob, target)
-    -- use 2hr
-    if (mob:getAnimationSub() == 2 and mob:getLocalVar("twoHour") == 0 and mob:getHPP() < 75) then
-        mob:useMobAbility(694)
-        mob:setLocalVar("twoHour", 1)
-    end
-
-    if (mob:hasStatusEffect(xi.effect.INVINCIBLE) == false and mob:actionQueueEmpty() == true) then
+    if mob:actionQueueEmpty() then
         local changeTime = mob:getLocalVar("changeTime")
+        local twohourTime = mob:getLocalVar("twohourTime")
 
-        -- first flight
-        if (mob:getAnimationSub() == 0 and not hasSleepEffects(mob) and mob:getBattleTime() - changeTime > 60) then
-            mob:setAnimationSub(1)
-            mob:addStatusEffectEx(xi.effect.ALL_MISS, 0, 1, 0, 0)
-            mob:setMobSkillAttack(731)
-            mob:setLocalVar("changeTime", mob:getBattleTime())
-        -- land
-        elseif (mob:getAnimationSub() == 1 and mob:getBattleTime() - changeTime > 120) then
-            mob:useMobAbility(1302)
-            mob:setLocalVar("changeTime", mob:getBattleTime())
-        -- fly
-        elseif (mob:getAnimationSub() == 2 and not hasSleepEffects(mob) and mob:getBattleTime() - changeTime > 120) then
-            mob:setAnimationSub(1)
-            mob:addStatusEffectEx(xi.effect.ALL_MISS, 0, 1, 0, 0)
-            mob:setMobSkillAttack(731)
-            mob:setLocalVar("changeTime", mob:getBattleTime())
+        if
+            mob:getBattleTime() > twohourTime and
+            mob:canUseAbilities()
+        then
+            mob:useMobAbility(694)
+            twohourTime = mob:getBattleTime() + math.random(180, 300)
+            mob:setLocalVar("twohourTime", twohourTime)
+        elseif -- subanimation 2 is grounded mode, so check if she should take off
+            (mob:getAnimationSub() == 0 or mob:getAnimationSub() == 2) and
+            mob:getBattleTime() > changeTime
+        then
+            entity.flight(mob)
+        elseif -- subanimation 1 is flight, so check if she should land
+            mob:getAnimationSub() == 1 and
+            mob:getBattleTime() > changeTime
+        then
+            entity.land(mob)
         end
     end
 
     local delay = mob:getLocalVar("delay")
-    if (delay > 120) then -- Summon Ziryu every 60s, this is a guess until we get a capture
+    if delay > 120 then -- Summon Ziryu every 60s, this is a guess until we get a capture
         mob:setLocalVar("delay", 0)
 
         local mobId = mob:getID()
@@ -78,23 +128,63 @@ entity.onMobFight = function(mob, target)
                 break
             end
         end
-
     else
-        mob:setLocalVar("delay", delay+1)
+        mob:setLocalVar("delay", delay + 1)
     end
 
     -- Wakeup from sleep immediately if flying
-    if mob:getAnimationSub() == 1 and
-    (mob:hasStatusEffect(xi.effect.SLEEP_I) or
-    mob:hasStatusEffect(xi.effect.SLEEP_II) or
-    mob:hasStatusEffect(xi.effect.LULLABY)) then
-        mob:wakeUp()
+    if hasSleepEffects(mob) and mob:getAnimationSub() == 1 then
+        removeSleepEffects(mob)
     end
 end
 
--- Prevents any stuck logic due to wipes
+entity.onMobWeaponSkillPrepare = function(mob, target)
+    if mob:getAnimationSub() == 1 then
+        mob:setLocalVar("skill_tp", mob:getTP())
+    end
+end
+
+entity.onMobWeaponSkill = function(target, mob, skill)
+    -- Don't lose TP from autos during flight
+    if skill:getID() == 1298 then
+        mob:addTP(65) -- Needs to gain TP from flight auto attacks
+        mob:setLocalVar("skill_tp", 0)
+    elseif skill:getID() == 1302 then
+        mob:addTP(mob:getLocalVar("skill_tp"))
+        mob:setLocalVar("skill_tp", 0)
+    end
+end
+
 entity.onMobDisengage = function(mob)
+    -- reset on wipe
     mob:setLocalVar("changeTime", 0)
+    mob:setLocalVar("twohourTime", 0)
+    mob:setLocalVar("damageTaken", 0)
+    if mob:getAnimationSub() == 1 then
+        mob:setAnimationSub(0)
+        mob:delStatusEffect(xi.effect.ALL_MISS)
+        mob:setMobSkillAttack(0)
+        mob:setBehaviour(bit.bor(mob:getBehaviour(), xi.behavior.NO_TURN))
+    end
+end
+
+entity.onMobDeath = function(mob, player, optParams)
+    if mob:getLocalVar("deathTrigger") == 0 then
+        -- if ouryu dies then kill all pets
+        local mobId = mob:getID()
+        for i, offset in ipairs(offsets) do
+            local pet = GetMobByID(mobId + offset)
+            if pet:isAlive() then
+                pet:setHP(0)
+            end
+        end
+
+        mob:setLocalVar("deathTrigger", 1)
+    end
+end
+
+entity.onAdditionalEffect = function(mob, target, damage)
+    return xi.mob.onAddEffect(mob, target, damage, xi.mob.ae.ENSTONE, { power = math.random(45, 90), chance = 10 })
 end
 
 return entity

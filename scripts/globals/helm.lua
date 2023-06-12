@@ -1583,7 +1583,7 @@ xi.helm.onTrade = function(player, npc, trade, helmType, csid, func)
                 player:startEvent(csid, item, broke, full)
             end
 
-            player:sendEmote(npc, info.animation, xi.emoteMode.MOTION)
+            player:sendEmote(npc, info.animation, xi.emoteMode.MOTION, false)
 
             -- WotG : The Price of Valor; Success does not award an item, but only KI.
             if xi.wotg.helpers.helmTrade(player, helmType, broke) then
@@ -1605,10 +1605,24 @@ xi.helm.onTrade = function(player, npc, trade, helmType, csid, func)
                     player:PrintToPlayer(string.format("You performed a Critical Strike! [%i percent chance]", crit), xi.msg.channel.SYSTEM_3)
                 end
 
+                if
+                    xi.events and
+                    xi.events.egg_hunt and
+                    xi.events.egg_hunt.enabledCheck and
+                    player:getVar("[EGGHUNT]DAILY_HELM") < vanaDay()
+                then
+                    player:timer(3000, function(playerArg)
+                        if npcUtil.giveItem(playerArg, math.random(xi.items.A_EGG, xi.items.Z_EGG)) then
+                            playerArg:setVar("[EGGHUNT]DAILY_HELM", vanaDay())
+                            return
+                        end
+                    end)
+                end
+
                 player:triggerRoeEvent(xi.roe.triggers.helmSuccess, { ["skillType"] = helmType })
             end
 
-            -- quest stuff
+            -- quests and missions
             if
                 helmType == xi.helm.type.HARVESTING and
                 player:getQuestStatus(xi.quest.log_id.AHT_URHGAN, xi.quest.id.ahtUrhgan.VANISHING_ACT) == QUEST_ACCEPTED and

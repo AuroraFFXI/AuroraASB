@@ -29,7 +29,7 @@ CREATE TABLE `status_effects` (
   `min_duration` smallint(5) unsigned NOT NULL DEFAULT 0,
   `sort_key` smallint(5) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -196,7 +196,7 @@ INSERT INTO `status_effects` VALUES (158,'provoke',32,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (159,'penalty',32,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (160,'preparations',32,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (161,'sprint',32,0,0,0,0,0,0,0,0);
-INSERT INTO `status_effects` VALUES (162,'enchantment',32,0,0,0,0,0,0,0,0);
+INSERT INTO `status_effects` VALUES (162,'enchantment',288,0,0,4,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (163,'azure_lore',4194336,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (164,'chain_affinity',4194336,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (165,'burst_affinity',4194336,0,0,0,0,0,0,0,0);

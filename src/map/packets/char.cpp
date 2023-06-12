@@ -92,10 +92,10 @@ void CCharPacket::updateWith(CCharEntity* PChar, ENTITYUPDATE type, uint8 update
                 ref<uint32>(0x20) = PChar->nameflags.flags;
                 ref<uint8>(0x21) |= PChar->GetGender() * 128 + (1 << PChar->look.size);
 
-                // if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_SNEAK))
-                //{
-                //  ref<uint8>(data,(0x22)) = 0x20;
-                //}
+                if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_SNEAK))
+                {
+                    ref<uint8>(0x2A) |= 0x20;
+                }
 
                 if (PChar->StatusEffectContainer->HasStatusEffectByFlag(EFFECTFLAG_INVISIBLE))
                 {
@@ -143,7 +143,18 @@ void CCharPacket::updateWith(CCharEntity* PChar, ENTITYUPDATE type, uint8 update
                     ref<uint16>(0x44) = PChar->StatusEffectContainer->GetStatusEffect(EFFECT_MOUNTED)->GetPower() << 4;
                 }
 
-                if (false /*Replace false with test that says "This PChar is in a zone with zone-wide alliances, e.g. Old-Style Dynamis, Einherjar(?), etc."*/)
+                auto zoneId = PChar->getZone();
+
+                if (zoneId != 0 && (zoneId == ZONE_DYNAMIS_BASTOK ||
+                                    zoneId == ZONE_DYNAMIS_WINDURST ||
+                                    zoneId == ZONE_DYNAMIS_XARCABARD ||
+                                    zoneId == ZONE_DYNAMIS_BEAUCEDINE ||
+                                    zoneId == ZONE_DYNAMIS_BUBURIMU ||
+                                    zoneId == ZONE_DYNAMIS_JEUNO ||
+                                    zoneId == ZONE_DYNAMIS_QUFIM ||
+                                    zoneId == ZONE_DYNAMIS_SAN_DORIA ||
+                                    zoneId == ZONE_DYNAMIS_VALKURM ||
+                                    zoneId == ZONE_DYNAMIS_TAVNAZIA))
                 {
                     // Enable the full-size treasure menu + other things for Old-Style Dynamis.
                     // All claimed mobs show up as red, not purple, etc.

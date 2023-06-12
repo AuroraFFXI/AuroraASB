@@ -45,6 +45,12 @@ xi.settings.main =
     FOV_REWARD_ALLIANCE   = 0, -- Allow Fields of Valor rewards while being a member of an alliance. (default retail behavior: 0)
     GOV_REWARD_ALLIANCE   = 0, -- Allow Grounds of Valor rewards while being a member of an alliance. (default retail behavior: 1)
 
+    -- Daily points / Gobbie mystery box.
+    ENABLE_DAILY_TALLY = 0,  -- Allows acquisition of daily points for gobbie mystery box.
+    DAILY_TALLY_AMOUNT = 10,
+    DAILY_TALLY_LIMIT  = 50000,
+    GOBBIE_BOX_MIN_AGE = 45, -- Minimum character age in days before a character can sign up for Gobbie Mystery Box
+
     -- Records of Eminence
     ENABLE_ROE            = 0, -- Enable Records of Eminence
     ENABLE_ROE_TIMED      = 0, -- Enable 4-hour timed records
@@ -112,6 +118,7 @@ xi.settings.main =
     BAYLD_RATE      = 1.000, -- Multiples bayld earned from quests.
     -- Note: EXP rates are also influenced by conf setting
     EXP_RATE        = 1.000, -- Multiplies exp from script (except FoV/GoV).
+    SCROLL_EXP_RATE = 1.000, -- Multiplies exp from single use XP Scrolls (e.g. Miratete's Memoirs).
     BOOK_EXP_RATE   = 1.000, -- Multiplies exp from FoV/GoV book pages.
     TABS_RATE       = 1.000, -- Multiplies tabs earned from fov.
     ROE_EXP_RATE    = 1.000, -- Multiplies exp earned from records of eminence.
@@ -170,7 +177,7 @@ xi.settings.main =
     -- Multiplier to NM lottery cooldown time (Default 1.0) eg. 2.0 = twice as long. 0 = no cooldowns.
     NM_LOTTERY_COOLDOWN = 1.0,
 
-	-- GARRISON SETTINGS
+	  -- GARRISON SETTINGS
     ENABLE_GARRISON              = true,  -- If true, enables garrison functionality
     DEBUG_GARRISON               = false,  -- If true, garrison will print out debug messages in logs as well as players as smes.
     GARRISON_LOCKOUT             = 1800,   -- Time in seconds before a new garrison can be started (default: 1800)
@@ -224,6 +231,15 @@ xi.settings.main =
     HALLOWEEN_YEAR_ROUND            = 0,  -- Set to 1 to have Harvest Festival initialize outside of normal times.
     STARLIGHT_2021                  = 0,  -- Set to 1 to enable the 2021 version of the Starlight Celebration. Dec. 16 through Dec. 31.
     STARLIGHT_YEAR_ROUND            = 0,  -- Set to 1 to have the Starlight Celebration initialize outside of normal times.
+    EGGHUNT                         =     -- Egg Hunt Egg-stravanganza
+    {
+        START                       = { DAY =  6, MONTH = 4 },
+        FINISH                      = { DAY = 17, MONTH = 4 },
+        MINOR_REWARDS               = true,  -- Consolation prizes from repeat combos
+        ERA_2007                    = false, -- Jeweled Egg and Egg Helm
+        ERA_2008                    = false, -- Tier 2 nation eggs
+        ERA_2009                    = false, -- Egg Buffet set
+    },
 
     -- Login Campaign (Set to 0 if you don't want to run a Login Campaign)
     -- Please visit scripts/globals/events/login_campaign.lua for assigning the correct campaign dates.
@@ -238,6 +254,12 @@ xi.settings.main =
     DIG_DISTANCE_REQ             = 5, -- Sets the distance squared in yalms of how far a player has to move.
     DIG_FATIGUE_SKILL_UP         = false, -- Allows for skilling up while at fatigue.
 
+    -- NYZUL
+    RUNIC_DISK_SAVE      = true, -- Allow anyone participating in Nyzul to save progress. Set to false so only initiator can save progress.
+    ENABLE_NYZUL_CASKETS = true, -- Enable Treasure casket pops from NMs.
+    ENABLE_VIGIL_DROPS   = true, -- Enable Vigil Weapon drops from NMs.
+    ACTIVATE_LAMP_TIME   = 6000, -- Time in miliseconds for lamps to stay lit. TODO: Get retail confirmation.
+
     -- MISC
     ERA_CHOCOBO_ZONE_DISMOUNT    = true, -- If true, forces players to dismount a chocobo before entering a city or dungeon.
     RIVERNE_PORTERS              = 120,  -- Time in seconds that Unstable Displacements in Cape Riverne stay open after trading a scale.
@@ -251,13 +273,19 @@ xi.settings.main =
     EQUIP_FROM_OTHER_CONTAINERS  = false, -- true/false. Allows equipping items from Mog Satchel, Sack, and Case. Only possible with the use of client addons.
     ENM_COOLDOWN                 = 120,  -- Number of hours before a player can obtain same KI for ENMs (default: 5 days)
     FORCE_SPAWN_QM_RESET_TIME    = 900,  -- Number of seconds the ??? remains hidden for after the despawning of the mob it force spawns.
-    GOBBIE_BOX_MIN_AGE           = 45,   -- Minimum character age in days before a character can sign up for Gobbie Mystery Box
     MAP_VENDORS_ALL_MAPS         = false, -- If true, all map vendors can sell all vendorable maps
     ENABLE_TUTORIAL              = true, -- If true, enable Tutorial NPCs (WotG): Alaune (17719618), Gulldago (17739939), Selele (17764600)
 
     -- Synergy
     ENABLE_SYNERGY = 0, -- Default to off as Synergy is not coded
 
+    -- Adventuring Fellows
+    ENABLE_ADVENTURING_FELLOWS         = true, -- Enable or disable the ability to quest and call Adventuring Fellows
+    ALLOW_ADVENTURING_FELLOW_KATANA_DW = true, -- Enable or disable dual wielding katanas for Adventuring Fellows
+
     -- NM Persistence
     NM_PERSISTENCE = 1, -- When set to 1, timed NM spawns will be persistent through server crashing
+
+    -- Prevents / Allows when a player tries to inject the begin synth packet before completing synth
+    PREVENT_SYNTHESIS_INJECTION = 1,
 }

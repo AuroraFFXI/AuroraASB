@@ -105,8 +105,13 @@ xi.additionalEffect.calcDamage = function(attacker, element, defender, damage, a
     local params = {}
     params.bonusmab   = 0
     params.includemab = false
+    params.damageSpell = true
 
-    if addType == xi.additionalEffect.procType.DAMAGE and element == xi.magic.ele.LIGHT and item:getSkillType() == xi.skill.MARKSMANSHIP then
+    if
+        addType == xi.additionalEffect.procType.DAMAGE and
+        element == xi.magic.ele.LIGHT and
+        item:getSkillType() == xi.skill.MARKSMANSHIP
+    then
         params.element = xi.magic.ele.LIGHT
         params.attribute = xi.mod.MND
         params.skillType = item:getSkillType()
@@ -126,8 +131,9 @@ end
 -- Disable cyclomatic complexity check for this function:
 -- luacheck: ignore 561
 -- TODO: Reduce complexity in this function:
--- - replace giant if/else chain with switch statement
--- - replace each handler (elseif addType == xi.additionalEffect.procType.DEBUFF then) with a function
+-- - replace giant if/else chain with table+key functions
+--   e.g. [procType.DAMAGE] = { code }
+-- - replace each handler (elseif addType == procType.DEBUFF then) with a function
 xi.additionalEffect.attack = function(attacker, defender, baseAttackDamage, item)
     local addType   = item:getMod(xi.mod.ITEM_ADDEFFECT_TYPE)
     local subEffect = item:getMod(xi.mod.ITEM_SUBEFFECT)
@@ -157,7 +163,10 @@ xi.additionalEffect.attack = function(attacker, defender, baseAttackDamage, item
                 { status = xi.effect.TERROR,    immunity = xi.immunity.TERROR   },
             }
 
-    if addStatus == xi.effect.DEFENSE_DOWN  and item:getSkillType() == xi.skill.MARKSMANSHIP then
+    if
+        addStatus == xi.effect.DEFENSE_DOWN and
+        item:getSkillType() == xi.skill.MARKSMANSHIP
+    then
         local dLvl = defender:getMainLvl() - attacker:getMainLvl()
         if dLvl <= 0 then
             chance = 99
@@ -170,6 +179,11 @@ xi.additionalEffect.attack = function(attacker, defender, baseAttackDamage, item
         if defender:isNM() then
             chance = chance / 1.5
         end
+    end
+
+    -- If player is level synced below the level of the item, do no proc
+    if item:getReqLvl() > attacker:getMainLvl() then
+        return 0, 0, 0
     end
 
     -- If we're not going to proc, lets not execute all those checks!
@@ -185,14 +199,20 @@ xi.additionalEffect.attack = function(attacker, defender, baseAttackDamage, item
             damage = xi.additionalEffect.calcRangeBonus(attacker, defender, element, damage)
         end
 
-        chance = xi.additionalEffect.levelCorrection(defender:getMainLvl(), attacker:getMainLvl(), chance)
+        -- Do not adjust the chance of effects that are guaranteed (like god winds)
+        if chance ~= 100 then
+            chance = xi.additionalEffect.levelCorrection(defender:getMainLvl(), attacker:getMainLvl(), chance)
+        end
     end
 
     --------------------------------------
     -- Additional Effect Damage
     --------------------------------------
     if addType == xi.additionalEffect.procType.DAMAGE then
-        if element == xi.magic.ele.LIGHT and item:getSkillType() == xi.skill.MARKSMANSHIP then
+        if
+            element == xi.magic.ele.LIGHT and
+            item:getSkillType() == xi.skill.MARKSMANSHIP
+        then
             damage = math.floor(attacker:getStat(xi.mod.MND) / 2) -- MAB/MDB bonuses caled in xi.additionalEffect.calcDamage.
         end
 
@@ -210,7 +230,7 @@ xi.additionalEffect.attack = function(attacker, defender, baseAttackDamage, item
     elseif addType == xi.additionalEffect.procType.DEBUFF then
         if addStatus and addStatus > 0 then
             local tick   = xi.additionalEffect.statusAttack(addStatus, defender)
-            local resist = xi.magic.applyResistanceAddEffect(attacker, defender, element, addStatus, 0)
+            local resist = xi.magic.applyResistanceAddEffect(attacker, defender, element, addStatus, 0, item:getSkillType())
             local immunity = 0
 
             for _, statusTable in pairs(immunityTable) do
@@ -228,6 +248,8 @@ xi.additionalEffect.attack = function(attacker, defender, baseAttackDamage, item
                 defender:addStatusEffect(addStatus, power, tick, duration * resist)
                 msgID    = xi.msg.basic.ADD_EFFECT_STATUS
                 msgParam = addStatus
+            else
+                return 0, 0, 0
             end
         end
     --------------------------------------
@@ -328,10 +350,7 @@ xi.additionalEffect.attack = function(attacker, defender, baseAttackDamage, item
             return 0, 0, 0
         end
 
-    --------------------------------------
-    -- Absorbs status effects from target
-    --------------------------------------
-    elseif addType == xi.additionalEffect.procType.ABSORB then
+    elseif addType == xi.additionalEffect.procType.ABSORB_STATUS then
         -- Ripping off Aura Steal here
         local resist = xi.magic.applyResistanceAddEffect(attacker, defender, element, nil, 0)
         if resist > 0.0625 then
@@ -401,9 +420,11 @@ xi.additionalEffect.attack = function(attacker, defender, baseAttackDamage, item
             defender:setUnkillable(false)
             damage = xi.additionalEffect.calcDamage(attacker, element, defender, damage, addType, item)
             msgID = xi.msg.basic.ADD_EFFECT_DMG
+
             if damage < 0 then
                 msgID = xi.msg.basic.ADD_EFFECT_HEAL
             end
+
             msgParam = damage
         else
             return 0, 0, 0 -- Conditions not hit
